@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/edutech-frontend/static/css/main.073c9b0a.css",
+    "main.js": "/edutech-frontend/static/js/main.e78696f2.js",
+    "static/js/787.1287587a.chunk.js": "/edutech-frontend/static/js/787.1287587a.chunk.js",
+    "index.html": "/edutech-frontend/index.html",
+    "main.073c9b0a.css.map": "/edutech-frontend/static/css/main.073c9b0a.css.map",
+    "main.e78696f2.js.map": "/edutech-frontend/static/js/main.e78696f2.js.map",
+    "787.1287587a.chunk.js.map": "/edutech-frontend/static/js/787.1287587a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.e78696f2.js"
+  ]
+}
