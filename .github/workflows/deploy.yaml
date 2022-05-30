@@ -16,4 +16,4 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
-      - run: npm deploy
+      - run: npm run deploy
