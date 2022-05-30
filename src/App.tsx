@@ -1,11 +1,13 @@
+import React from 'react';
 import './App.css';
-import { Button } from '@mantine/core';
+import HeaderResponsive from './components/Header';
+import { MantineProvider } from '@mantine/core';
 
 function App() {
   return (
-    <div className="App">
-      <Button>Hello world!</Button>
-    </div>
+    <MantineProvider>
+      <HeaderResponsive />
+    </MantineProvider>
   );
 }
 
