@@ -4,6 +4,7 @@ import HeaderResponsive from './components/Header';
 import FooterSimple from './components/Footer';
 import HeroContentLeft from './components/HeroHeader';
 import Intro from './components/Intro';
+import Features from './components/Features'
 import { MantineProvider } from '@mantine/core';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <HeaderResponsive />
       <HeroContentLeft />
       <Intro />
+      <Features />
       <FooterSimple />
     </MantineProvider>
   );
