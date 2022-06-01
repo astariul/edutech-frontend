@@ -88,7 +88,7 @@ const useStyles = createStyles((theme) => ({
 
 const links = [
   {
-    "link": "/about",
+    "link": "#edutech-intro",
     "label": "Discover"
   },
   {
