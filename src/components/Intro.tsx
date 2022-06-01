@@ -2,10 +2,6 @@ import React from 'react';
 import { createStyles, Grid, Image, Text, Container, Space, Title } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
-  intro_cont: {
-    paddingTop: theme.spacing.xl * 3,
-  },
-
   intro_line: {
     paddingBottom: theme.spacing.xl * 2,
     paddingTop: theme.spacing.xl * 2,
@@ -31,7 +27,7 @@ export default function Intro() {
   const { classes } = useStyles();
 
   return (
-    <Container my="md" className={classes.intro_cont}>
+    <Container my="md" mt={80}>
       <Title order={1} id="edutech-intro" className={classes.intro_title}>EduTech, a new learning platform</Title>
       <Grid align="center">
         <Grid.Col xs={4} className={classes.intro_line}>
