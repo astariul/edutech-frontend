@@ -29,10 +29,6 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-interface FooterSimpleProps {
-  links: { link: string; label: string }[];
-}
-
 const links = [
     {
     "link": "#",
