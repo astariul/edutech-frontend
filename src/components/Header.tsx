@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { createStyles, Header, Container, Group, Title, Space, Burger, Paper, Transition, Button } from '@mantine/core';
 import { useBooleanToggle } from '@mantine/hooks';
 import { Book } from 'tabler-icons-react';
+import LoginButton from './LoginButton';
+import SignupButton from './SignupButton';
 
 const HEADER_HEIGHT = 60;
 
@@ -132,12 +134,8 @@ export default function HeaderResponsive() {
           {items}
         </Group>
         <Group spacing={5} className={classes.links}>
-          <Button variant="outline">
-            Sign up
-          </Button>
-          <Button>
-            Login
-          </Button>
+          <SignupButton />
+          <LoginButton />
         </Group>
 
         <Burger
