@@ -7,11 +7,9 @@ import {
   Group,
   Checkbox,
   Button,
-  Paper,
   Text,
   LoadingOverlay,
   Anchor,
-  useMantineTheme,
 } from '@mantine/core';
 
 export interface AuthenticationFormProps {
@@ -33,7 +31,6 @@ export default function AuthenticationForm({
 }: AuthenticationFormProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const theme = useMantineTheme();
 
   const toggleFormType = () => {
     setFormType((current) => (current === 'register' ? 'login' : 'register'));

@@ -1,5 +1,5 @@
 
-import { MantineProvider, Blockquote } from '@mantine/core';
+import { Blockquote } from '@mantine/core';
 
 export default function Contact() {
   return (

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Modal, Button, Group } from '@mantine/core';
+import { Modal, Button } from '@mantine/core';
 import AuthenticationForm from './AuthentificationForm';
 
 export default function LoginButton() {
