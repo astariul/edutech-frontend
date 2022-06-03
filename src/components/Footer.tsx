@@ -1,5 +1,6 @@
 import React from 'react';
 import { createStyles, Container, Group, Title, Anchor } from '@mantine/core';
+import { Link } from "react-router-dom";
 import { Book } from 'tabler-icons-react';
 
 const useStyles = createStyles((theme) => ({
@@ -31,7 +32,7 @@ const useStyles = createStyles((theme) => ({
 
 const links = [
     {
-    "link": "#",
+    "link": "/contact",
     "label": "Contact"
     },
     {
@@ -51,13 +52,13 @@ const links = [
 export default function FooterSimple() {
   const { classes } = useStyles();
   const items = links.map((link) => (
-    <Anchor<'a'>
+    <Anchor
       color="dimmed"
+      component={Link}
       key={link.label}
-      href={link.link}
-      onClick={(event) => event.preventDefault()}
+      to={link.link}
       size="sm"
-    >
+    > 
       {link.label}
     </Anchor>
   ));

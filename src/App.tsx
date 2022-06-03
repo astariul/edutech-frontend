@@ -2,18 +2,25 @@ import React from 'react';
 import './App.css';
 import HeaderResponsive from './components/Header';
 import FooterSimple from './components/Footer';
-import HeroContentLeft from './components/HeroHeader';
-import Intro from './components/Intro';
-import Features from './components/Features'
+import Home from './pages/Home';
+import Contact from './pages/Contact';
 import { MantineProvider } from '@mantine/core';
+import { Routes, Route } from 'react-router-dom';
+
+const RoutesList = () => {
+  return (
+    <Routes>
+      <Route path='/' element={<Home />}></Route>
+      <Route path='/contact' element={<Contact />}></Route>
+    </Routes>
+  );
+}
 
 function App() {
   return (
     <MantineProvider>
       <HeaderResponsive />
-      <HeroContentLeft />
-      <Intro />
-      <Features />
+      <RoutesList />
       <FooterSimple />
     </MantineProvider>
   );
