@@ -54,7 +54,7 @@ export default function AuthenticationForm({
       firstName: (value) => formType === 'login' || value.trim().length >= 2,
       lastName: (value) => formType === 'login' || value.trim().length >= 2,
       email: (value) => /^\S+@\S+$/.test(value),
-      password: (value) => /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(value),
+      password: (value) => formType === 'login' || /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(value),
       confirmPassword: (val, values) => formType === 'login' || val === values?.password,
     },
 
@@ -132,7 +132,7 @@ export default function AuthenticationForm({
       {formType === 'register' && (
         <Checkbox
           mt="xl"
-          label="I agree to sell my soul and privacy to this corporation"
+          label="I agree to the terms of services "
           {...form.getInputProps('termsOfService', { type: 'checkbox' })}
         />
       )}
