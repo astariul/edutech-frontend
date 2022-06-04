@@ -2,6 +2,7 @@ import React from 'react';
 import { createStyles, Container, Group, Title, Anchor } from '@mantine/core';
 import { Link } from "react-router-dom";
 import { Book } from 'tabler-icons-react';
+import ContactLink from './ContactLink';
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -31,10 +32,6 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const links = [
-    {
-    "link": "/contact",
-    "label": "Contact"
-    },
     {
     "link": "#",
     "label": "Privacy"
@@ -70,7 +67,10 @@ export default function FooterSimple() {
           <Book />
           <Title order={3}>EduTech</Title>
         </Group>
-        <Group className={classes.links}>{items}</Group>
+        <Group className={classes.links}>
+          <ContactLink />
+          {items}
+        </Group>
       </Container>
     </div>
   );
