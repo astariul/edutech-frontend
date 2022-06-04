@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { createStyles, Header, Container, Group, Title, Space, Burger, Paper, Transition, Button } from '@mantine/core';
+import { createStyles, Header, Container, Group, Title, Space, Burger, Paper, Transition, Button, Anchor } from '@mantine/core';
+import { Link } from "react-router-dom";
 import { useBooleanToggle } from '@mantine/hooks';
 import { Book } from 'tabler-icons-react';
 import LoginButton from './LoginButton';
@@ -90,7 +91,7 @@ const useStyles = createStyles((theme) => ({
 
 const links = [
   {
-    "link": "#edutech-intro",
+    "link": "/",
     "label": "Discover"
   },
   {
@@ -109,18 +110,19 @@ export default function HeaderResponsive() {
   const { classes, cx } = useStyles();
 
   const items = links.map((link) => (
-    <a
+    <Anchor
+      component={Link}
       key={link.label}
-      href={link.link}
+      to={link.link}
       className={cx(classes.link, { [classes.linkActive]: active === link.link })}
-      onClick={(event) => {
-        event.preventDefault();
+      onClick={(event: { preventDefault: () => void; }) => {
         setActive(link.link);
         toggleOpened(false);
       }}
-    >
+      underline={false}
+    > 
       {link.label}
-    </a>
+    </Anchor>
   ));
 
   return (
