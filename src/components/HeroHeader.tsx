@@ -79,7 +79,7 @@ export default function HeroContentLeft() {
           Access various classes, unlock new skills, discuss with a large community.
         </Text>
 
-        <Button variant="gradient" size="xl" radius="xl" className={classes.control}>
+        <Button variant="gradient" size="xl" radius="xl" className={classes.control} component="a" rel="noopener noreferrer" href="#">
           Get started
         </Button>
       </Container>
