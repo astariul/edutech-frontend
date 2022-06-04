@@ -11,7 +11,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   container: {
-    height: 600,
+    height: 500,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-end',
@@ -79,9 +79,9 @@ export default function HeroContentLeft() {
           Access various classes, unlock new skills, discuss with a large community.
         </Text>
 
-        <Button variant="gradient" size="xl" radius="xl" className={classes.control} component="a" rel="noopener noreferrer" href="#">
+        {/* <Button variant="gradient" size="xl" radius="xl" className={classes.control} component="a" rel="noopener noreferrer" href="#">
           Get started
-        </Button>
+        </Button> */}
       </Container>
     </div>
   );
