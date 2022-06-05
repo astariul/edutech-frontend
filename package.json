@@ -1,6 +1,7 @@
 {
   "name": "edutech-frontend",
   "version": "0.1.0",
+  "homepage": "https://astariul.github.io/edutech-frontend/",
   "private": true,
   "dependencies": {
     "@mantine/core": "^4.2.7",
