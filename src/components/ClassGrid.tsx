@@ -13,13 +13,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   item: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
     borderRadius: theme.radius.md,
-    height: 90,
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
     transition: 'box-shadow 150ms ease, transform 100ms ease',
 
@@ -75,26 +69,31 @@ const class_data = [
       "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=461&q=80"
     }
   },
+  {
+    "image": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    "category": "backend",
+    "title": "Supervised, Unsupervised learning, and Reinforcement learning : what's the difference ? A comprehensive study",
+    "footer": "7 people followed this class",
+    "author": {
+      "name": "Patrick Shyu",
+      "description": "Tech lead at Google",
+      "image": "https://images.unsplash.com/photo-1474176857210-7287d38d27c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    }
+  },
 ];
 
 export default function ClassGrid() {
     const { classes, theme } = useStyles();
   
     const items = class_data.map((item) => (
-      <ArticleCard {...item} />
+      <UnstyledButton key={item.title} className={classes.item}>
+        <ArticleCard {...item} />
+      </UnstyledButton>
     ));
   
     return (
-      <Card withBorder radius="md" className={classes.card}>
-        <Group position="apart">
-          <Text className={classes.title}>Services</Text>
-          <Anchor size="xs" color="dimmed" sx={{ lineHeight: 1 }}>
-            + 21 other services
-          </Anchor>
-        </Group>
-        <SimpleGrid cols={3} mt="md">
-          {items}
-        </SimpleGrid>
-      </Card>
+      <SimpleGrid cols={3} mt="md">
+        {items}
+      </SimpleGrid>
     );
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyles, Card, Image, ActionIcon, Group, Text, Avatar, Badge } from '@mantine/core';
+import { createStyles, Card, Image, ActionIcon, Group, Text, Avatar, Badge, Container, Autocomplete } from '@mantine/core';
 import { Heart, Bookmark, Share } from 'tabler-icons-react';
 
 const useStyles = createStyles((theme) => ({
@@ -9,6 +9,12 @@ const useStyles = createStyles((theme) => ({
 
   title: {
     fontFamily: `Greycliff CF, ${theme.fontFamily}`,
+  },
+
+  fixed_size: {
+    height: theme.spacing.xl * 2,
+    display: "flex",
+    alignItems: "center",
   },
 
   footer: {
@@ -49,9 +55,11 @@ export default function ArticleCard({
 
       <Badge>{category}</Badge>
 
-      <Text weight={700} className={classes.title} mt="xs">
-        {title}
-      </Text>
+      <div className={classes.fixed_size}>
+        <Text weight={700} className={classes.title} mt="xs" lineClamp={2}>
+          {title}
+        </Text>
+      </div>
 
       <Group mt="lg">
         <Avatar src={author.image} radius="sm" />
