@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyles, Card, Text, SimpleGrid, UnstyledButton, Anchor, Group } from '@mantine/core';
+import { createStyles, SimpleGrid, UnstyledButton } from '@mantine/core';
 import ArticleCard from './ClassCard';
 
 const useStyles = createStyles((theme) => ({
@@ -83,7 +83,7 @@ const class_data = [
 ];
 
 export default function ClassGrid() {
-    const { classes, theme } = useStyles();
+    const { classes } = useStyles();
   
     const items = class_data.map((item) => (
       <UnstyledButton key={item.title} className={classes.item}>

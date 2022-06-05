@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyles, Card, Image, ActionIcon, Group, Text, Avatar, Badge, Container, Autocomplete } from '@mantine/core';
+import { createStyles, Card, Image, ActionIcon, Group, Text, Avatar, Badge } from '@mantine/core';
 import { Heart, Bookmark, Share } from 'tabler-icons-react';
 
 const useStyles = createStyles((theme) => ({

@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyles, Overlay, Container, Title, Button, Text } from '@mantine/core';
+import { createStyles, Overlay, Container, Title, Text } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   hero: {
