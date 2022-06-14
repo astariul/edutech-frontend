@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createStyles, Header, Container, Group, Title, Space, Burger, Paper, Transition, Button, Anchor, UnstyledButton  } from '@mantine/core';
 import { Link } from "react-router-dom";
-import { useBooleanToggle } from '@mantine/hooks';
+import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';
 import { Book } from 'tabler-icons-react';
 import LoginButton from './LoginButton';
 import SignupButton from './SignupButton';
@@ -125,6 +125,19 @@ export default function HeaderResponsive() {
     </Anchor>
   ));
 
+  const [loginJwt, setLoginJwt] = useLocalStorage<string | null>({ key: 'login-jwt', defaultValue: null });
+  let logButtons;
+  if (loginJwt) {
+    logButtons = <Button onClick={() => {setLoginJwt(null)}}>Logout</Button>;
+  } else {
+    logButtons = (
+      <Group spacing={5} className={classes.links}>
+        <SignupButton />
+        <LoginButton />
+      </Group>
+    );
+  }
+
   return (
     <Header height={HEADER_HEIGHT} className={classes.root}>
       <Container className={classes.header}>
@@ -144,10 +157,7 @@ export default function HeaderResponsive() {
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>
-        <Group spacing={5} className={classes.links}>
-          <SignupButton />
-          <LoginButton />
-        </Group>
+        {logButtons}
 
         <Burger
           opened={opened}
