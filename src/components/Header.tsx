@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createStyles, Header, Container, Group, Title, Space, Burger, Paper, Transition, Button, Anchor } from '@mantine/core';
+import { createStyles, Header, Container, Group, Title, Space, Burger, Paper, Transition, Button, Anchor, UnstyledButton  } from '@mantine/core';
 import { Link } from "react-router-dom";
 import { useBooleanToggle } from '@mantine/hooks';
 import { Book } from 'tabler-icons-react';
@@ -128,10 +128,19 @@ export default function HeaderResponsive() {
   return (
     <Header height={HEADER_HEIGHT} className={classes.root}>
       <Container className={classes.header}>
-        <Group spacing={5} className={classes.links}>
-          <Book />
-          <Title order={3}>EduTech</Title>
-        </Group>
+        <UnstyledButton  component={Link} to={"/"}>
+          <Group
+            spacing={5}
+            className={classes.links}
+            onClick={(event: { preventDefault: () => void; }) => {
+              setActive("/");
+              toggleOpened(false);
+            }}
+          >
+            <Book />
+            <Title order={3}>EduTech</Title>
+          </Group>
+        </UnstyledButton >
         <Group spacing={5} className={classes.links}>
           {items}
         </Group>
