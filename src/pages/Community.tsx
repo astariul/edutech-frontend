@@ -1,5 +1,5 @@
 
-export default function Classes() {
+export default function Courses() {
   return (
     <>
     </>

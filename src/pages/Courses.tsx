@@ -1,4 +1,4 @@
-import ClassGrid from '../components/ClassGrid';
+import CourseGrid from '../components/CourseGrid';
 import SearchBar from '../components/SearchBar';
 import { createStyles, Container, Title, Center } from '@mantine/core';
 
@@ -9,19 +9,19 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function Classes() {
+export default function Courses() {
   const { classes } = useStyles();
 
   return (
     <>
       <Container pt="xl" pb="xl" size="sm">
         <Center pt="xl" pb="xl">
-          <Title order={1} className={classes.page_title}>Search among thousands of classes</Title>
+          <Title order={1} className={classes.page_title}>Search among thousands of courses</Title>
         </Center>
         <SearchBar />
       </Container>
       <Container pt="md" pb="md">
-        <ClassGrid />
+        <CourseGrid />
       </Container>
     </>
   );

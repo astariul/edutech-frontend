@@ -95,8 +95,8 @@ const links = [
     "label": "Discover"
   },
   {
-    "link": "/classes",
-    "label": "Classes"
+    "link": "/courses",
+    "label": "Courses"
   },
   {
     "link": "/community",
