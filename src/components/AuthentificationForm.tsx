@@ -31,7 +31,7 @@ export default function AuthenticationForm({
   setFormType, 
   modalSetOpened,
 }: AuthenticationFormProps) {
-  const [loginJwt, setLoginJwt] = useLocalStorage<string | null>({ key: 'login-jwt', defaultValue: null });
+  const [, setLoginJwt] = useLocalStorage<string | null>({ key: 'login-jwt', defaultValue: null });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
