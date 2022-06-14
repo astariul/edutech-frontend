@@ -13,7 +13,7 @@ export default function LoginButton() {
         onClose={() => setOpened(false)}
         title={formType === 'register' ? 'Register' : 'Login'}
       >
-        <AuthenticationForm formType={formType} setFormType={setFormType} />
+        <AuthenticationForm formType={formType} setFormType={setFormType} modalSetOpened={setOpened} />
       </Modal>
 
       <Button onClick={() => {setOpened(true); setFormType('login')}}>

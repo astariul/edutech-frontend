@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useForm } from '@mantine/hooks';
+import { useForm, useLocalStorage } from '@mantine/hooks';
 import { Mail, Lock } from 'tabler-icons-react';
 import {
   TextInput,
@@ -19,6 +19,7 @@ export interface AuthenticationFormProps {
   style?: React.CSSProperties;
   formType: 'register' | 'login';
   setFormType: React.Dispatch<React.SetStateAction<"register" | "login">>;
+  modalSetOpened: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function AuthenticationForm({
@@ -28,7 +29,9 @@ export default function AuthenticationForm({
   style,
   formType,
   setFormType, 
+  modalSetOpened,
 }: AuthenticationFormProps) {
+  const [loginJwt, setLoginJwt] = useLocalStorage<string | null>({ key: 'login-jwt', defaultValue: null });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -62,17 +65,33 @@ export default function AuthenticationForm({
     },
   });
 
+  const login = () => {
+    // Dummy function, replace with actual call to backend
+    if (form.values.email === 'user@gmail.com' && form.values.password === 'admin') {
+      return 'jwt-token'
+    } else {
+      return null
+    }
+  };
+
   const handleSubmit = () => {
     setLoading(true);
     setError(null);
     setTimeout(() => {
+      if (formType === 'register') {
+        setError('Registration are not open yet');
+      } else {
+        const jwt = login();
+        if (jwt) {
+          setLoginJwt(jwt);
+          modalSetOpened(false);
+        } else {
+          setError('Unknown user / wrong password');
+        };
+      }
+
       setLoading(false);
-      setError(
-        formType === 'register'
-          ? 'User with this email already exists'
-          : 'User with this email does not exist'
-      );
-    }, 3000);
+    }, 500);
   };
 
   return (
