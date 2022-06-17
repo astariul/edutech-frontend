@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Courses from './pages/Courses';
 import UserPage from './pages/UserPage';
 import { MantineProvider, AppShell } from '@mantine/core';
-import { useBooleanToggle } from '@mantine/hooks';
+import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import HeaderResponsive from './components/Header';
 import FooterSimple from './components/Footer';
@@ -13,6 +13,7 @@ import NavbarMinimal from './components/VerticalNavBar';
 
 function App() {
   const [navOpened, toggleNavOpened] = useBooleanToggle(false);
+  const [loginJwt] = useLocalStorage<string | null>({ key: 'login-jwt', defaultValue: null });
 
   const location = useLocation();
   useEffect(() => {
@@ -24,7 +25,7 @@ function App() {
   }, [location.pathname ]);
 
   let navbar;
-  if (navOpened) {
+  if (navOpened && loginJwt) {
     navbar = <NavbarMinimal />;
   } else {
     navbar = undefined;
