@@ -99,8 +99,8 @@ const links = [
     "label": "Courses"
   },
   {
-    "link": "/community",
-    "label": "Community"
+    "link": "/mypage",
+    "label": "My page"
   }
 ];
 
