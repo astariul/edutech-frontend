@@ -5,6 +5,7 @@ import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';
 import { Book } from 'tabler-icons-react';
 import LoginButton from './LoginButton';
 import SignupButton from './SignupButton';
+import LogoutButton from './LogoutButton';
 
 const HEADER_HEIGHT = 60;
 
@@ -128,7 +129,7 @@ export default function HeaderResponsive() {
   const [loginJwt, setLoginJwt] = useLocalStorage<string | null>({ key: 'login-jwt', defaultValue: null });
   let logButtons;
   if (loginJwt) {
-    logButtons = <Button onClick={() => {setLoginJwt(null)}}>Logout</Button>;
+    logButtons = <LogoutButton />
   } else {
     logButtons = (
       <Group spacing={5} className={classes.links}>
