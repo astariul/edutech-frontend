@@ -12,7 +12,7 @@ const useStyles = createStyles((theme) => ({
 
 
 export default function UserPage() {
-  const { classes, cx } = useStyles();
+  const { classes } = useStyles();
   const [loginJwt] = useLocalStorage<string | null>({ key: 'login-jwt', defaultValue: null });
   const [formType, setFormType] = useState<'register' | 'login'>('login');
 

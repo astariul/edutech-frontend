@@ -22,7 +22,7 @@ function App() {
     } else {
       toggleNavOpened(false);
     }
-  }, [location.pathname ]);
+  }, [location.pathname, toggleNavOpened ]);
 
   let navbar;
   if (navOpened && loginJwt) {

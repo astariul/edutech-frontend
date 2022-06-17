@@ -3,7 +3,7 @@ import { useLocalStorage } from '@mantine/hooks';
 import { Logout } from 'tabler-icons-react';
 
 export default function LogoutButton() {
-  const [loginJwt, setLoginJwt] = useLocalStorage<string | null>({ key: 'login-jwt', defaultValue: null });
+  const [, setLoginJwt] = useLocalStorage<string | null>({ key: 'login-jwt', defaultValue: null });
 
   return (
     <Tooltip

@@ -126,7 +126,7 @@ export default function HeaderResponsive() {
     </Anchor>
   ));
 
-  const [loginJwt, setLoginJwt] = useLocalStorage<string | null>({ key: 'login-jwt', defaultValue: null });
+  const [loginJwt] = useLocalStorage<string | null>({ key: 'login-jwt', defaultValue: null });
   let logButtons;
   if (loginJwt) {
     logButtons = <LogoutButton />
