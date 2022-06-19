@@ -19,7 +19,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export default function LogoutButton() {
-  const { classes, cx } = useStyles();
+  const { classes } = useStyles();
   const [, setLoginJwt] = useLocalStorage<string | null>({ key: 'login-jwt', defaultValue: null });
 
   return (

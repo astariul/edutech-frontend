@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import './App.css';
 import Home from './pages/Home';
 import Courses from './pages/Courses';
-import MyCourses from './pages/MyCourses';
 import UserPage from './pages/UserPage';
 import { MantineProvider, AppShell } from '@mantine/core';
 import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';

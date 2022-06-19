@@ -1,6 +1,6 @@
 import { useLocalStorage } from '@mantine/hooks';
 import { useState } from 'react';
-import { createStyles, Center, Title } from '@mantine/core';
+import { createStyles, Center } from '@mantine/core';
 import AuthenticationForm from '../components/AuthentificationForm';
 import { Routes, Route } from 'react-router-dom';
 import Overview from './Overview';
