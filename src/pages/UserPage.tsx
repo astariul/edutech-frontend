@@ -1,7 +1,14 @@
 import { useLocalStorage } from '@mantine/hooks';
 import { useState } from 'react';
-import { createStyles, Title, Center } from '@mantine/core';
+import { createStyles, Center, Title } from '@mantine/core';
 import AuthenticationForm from '../components/AuthentificationForm';
+import { Routes, Route } from 'react-router-dom';
+import Overview from './Overview';
+import Mycourses from './MyCourses';
+import Milestones from './Milestones';
+import Performances from './Performances';
+import Resume from './Resume';
+import Settings from './Settings';
 
 
 const useStyles = createStyles((theme) => ({
@@ -19,17 +26,22 @@ export default function UserPage() {
   let content;
   if (!loginJwt) {
     content = (
-      <AuthenticationForm formType={formType} setFormType={setFormType} modalSetOpened={() => void(0)} />
+      <Center className={classes.firstElem}>
+        <AuthenticationForm formType={formType} setFormType={setFormType} modalSetOpened={() => void(0)} />
+      </Center>
     );
   } else {
     content = (
-      <Title>Hello world</Title>
+      <Routes>
+        <Route path='' element={<Overview />}></Route>
+        <Route path='courses' element={<Mycourses />}></Route>
+        <Route path='milestones' element={<Milestones />}></Route>
+        <Route path='performances' element={<Performances />}></Route>
+        <Route path='resume' element={<Resume />}></Route>
+        <Route path='settings' element={<Settings />}></Route>
+      </Routes>
     );
   };
 
-  return (
-    <Center className={classes.firstElem}>
-      {content}
-    </Center>
-  );
+  return content;
 }

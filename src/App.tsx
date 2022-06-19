@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './App.css';
 import Home from './pages/Home';
 import Courses from './pages/Courses';
+import MyCourses from './pages/MyCourses';
 import UserPage from './pages/UserPage';
 import { MantineProvider, AppShell } from '@mantine/core';
 import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';
@@ -17,7 +18,7 @@ function App() {
 
   const location = useLocation();
   useEffect(() => {
-    if (location.pathname === "/mypage") {
+    if (location.pathname.startsWith("/mypage")) {
       toggleNavOpened(true);
     } else {
       toggleNavOpened(false);
@@ -44,7 +45,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/courses' element={<Courses />}></Route>
-          <Route path='/mypage' element={<UserPage />}></Route>
+          <Route path='/mypage/*' element={<UserPage />}></Route>
         </Routes>
       </AppShell>
     </MantineProvider>

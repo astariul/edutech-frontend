@@ -7,8 +7,10 @@ import {
   ChartLine,
   FileCertificate,
   Settings,
-  Logout,
+  Perspective,
 } from 'tabler-icons-react';
+import { Link } from 'react-router-dom';
+import LogoutButton from './LogoutButton';
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -39,15 +41,16 @@ const useStyles = createStyles((theme) => ({
 interface NavbarLinkProps {
   icon: TablerIcon;
   label: string;
+  link: string;
   active?: boolean;
   onClick?(): void;
 }
 
-function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
+function NavbarLink({ icon: Icon, label, link, active, onClick }: NavbarLinkProps) {
   const { classes, cx } = useStyles();
   return (
     <Tooltip label={label} position="right" withArrow transitionDuration={0}>
-      <UnstyledButton onClick={onClick} className={cx(classes.link, { [classes.active]: active })}>
+      <UnstyledButton component={Link} to={link} onClick={onClick} className={cx(classes.link, { [classes.active]: active })}>
         <Icon />
       </UnstyledButton>
     </Tooltip>
@@ -55,15 +58,16 @@ function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
 }
 
 const mockdata = [
-  { icon: Notebook, label: 'Courses' },
-  { icon: Badge, label: 'Milestones' },
-  { icon: ChartLine, label: 'Performances' },
-  { icon: FileCertificate, label: 'Resume' },
-  { icon: Settings, label: 'Settings' },
+  { icon: Perspective, label: 'Overview', link: '/mypage' },
+  { icon: Notebook, label: 'Courses', link: '/mypage/courses' },
+  { icon: Badge, label: 'Milestones', link: '/mypage/milestones' },
+  { icon: ChartLine, label: 'Performances', link: '/mypage/performances' },
+  { icon: FileCertificate, label: 'Resume', link: '/mypage/resume' },
+  { icon: Settings, label: 'Settings', link: '/mypage/settings' },
 ];
 
 export default function NavbarMinimal() {
-  const [active, setActive] = useState(2);
+  const [active, setActive] = useState(0);
 
   const links = mockdata.map((link, index) => (
     <NavbarLink
@@ -83,7 +87,7 @@ export default function NavbarMinimal() {
       </Navbar.Section>
       <Navbar.Section>
         <Group direction="column" align="center" spacing={0}>
-          <NavbarLink icon={Logout} label="Logout" />
+          <LogoutButton />
         </Group>
       </Navbar.Section>
     </Navbar>
