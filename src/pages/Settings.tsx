@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useForm, useLocalStorage } from '@mantine/hooks';
+import { useForm } from '@mantine/hooks';
 import { Mail, Lock } from 'tabler-icons-react';
 import {
   TextInput,
