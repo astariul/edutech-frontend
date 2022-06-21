@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar, Tooltip, UnstyledButton, createStyles, Group } from '@mantine/core';
 import {
   Icon as TablerIcon,
@@ -9,7 +9,7 @@ import {
   Settings,
   Perspective,
 } from 'tabler-icons-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import LogoutButton from './LogoutButton';
 
 const useStyles = createStyles((theme) => ({
@@ -57,7 +57,7 @@ function NavbarLink({ icon: Icon, label, link, active, onClick }: NavbarLinkProp
   );
 }
 
-const mockdata = [
+const linksData = [
   { icon: Perspective, label: 'Overview', link: '/mypage' },
   { icon: Notebook, label: 'Courses', link: '/mypage/courses' },
   { icon: Badge, label: 'Milestones', link: '/mypage/milestones' },
@@ -69,7 +69,7 @@ const mockdata = [
 export default function NavbarMinimal() {
   const [active, setActive] = useState(0);
 
-  const links = mockdata.map((link, index) => (
+  const links = linksData.map((link, index) => (
     <NavbarLink
       {...link}
       key={link.label}
@@ -77,6 +77,15 @@ export default function NavbarMinimal() {
       onClick={() => setActive(index)}
     />
   ));
+
+  const location = useLocation();
+  useEffect(() => {
+    for (let link of linksData) {
+      if (location.pathname.startsWith(link.link)) {
+        setActive(linksData.indexOf(link));
+      }
+    }
+  }, [location.pathname, linksData, setActive]);
 
   return (
     <Navbar fixed position={{ top: 0, left: 0 }} width={{ base: 80 }} p="md">
