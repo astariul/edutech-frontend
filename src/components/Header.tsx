@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createStyles, Header, Container, Group, Title, Space, Burger, Paper, Transition, Button, Anchor, UnstyledButton  } from '@mantine/core';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';
 import { Book } from 'tabler-icons-react';
 import LoginButton from './LoginButton';
@@ -111,16 +111,21 @@ export default function HeaderResponsive() {
   const [active, setActive] = useState(links[0].link);
   const { classes, cx } = useStyles();
 
+  const location = useLocation();
+  useEffect(() => {
+    for (let link of links) {
+      if (location.pathname.startsWith(link.link)) {
+        setActive(link.link);
+      }
+    }
+  }, [location.pathname, links, setActive, toggleOpened]);
+
   const items = links.map((link) => (
     <Anchor
       component={Link}
       key={link.label}
       to={link.link}
       className={cx(classes.link, { [classes.linkActive]: active === link.link })}
-      onClick={(event: { preventDefault: () => void; }) => {
-        setActive(link.link);
-        toggleOpened(false);
-      }}
       underline={false}
     > 
       {link.label}
@@ -156,14 +161,7 @@ export default function HeaderResponsive() {
     <Header height={HEADER_HEIGHT} className={classes.root}>
       <Container className={classes.header}>
         <UnstyledButton  component={Link} to={"/"}>
-          <Group
-            spacing={5}
-            className={classes.links}
-            onClick={(event: { preventDefault: () => void; }) => {
-              setActive("/");
-              toggleOpened(false);
-            }}
-          >
+          <Group spacing={5} className={classes.links}>
             <Book />
             <Title order={3}>EduTech</Title>
           </Group>
