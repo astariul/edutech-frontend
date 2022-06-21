@@ -6,6 +6,7 @@ import { Book } from 'tabler-icons-react';
 import LoginButton from './LoginButton';
 import SignupButton from './SignupButton';
 import LogoutButton from './LogoutButton';
+import ProfileSummary from './ProfileSummary';
 
 const HEADER_HEIGHT = 60;
 
@@ -129,7 +130,19 @@ export default function HeaderResponsive() {
   const [loginJwt] = useLocalStorage<string | null>({ key: 'login-jwt', defaultValue: null });
   let logButtons;
   if (loginJwt) {
-    logButtons = <LogoutButton />
+    logButtons = (
+      <Group spacing="md" className={classes.links}>
+        <Anchor
+          component={Link}
+          to="/mypage/settings"
+          className={classes.link}
+          underline={false}
+        > 
+          <ProfileSummary />
+        </Anchor>
+        <LogoutButton />
+      </Group>
+    );
   } else {
     logButtons = (
       <Group spacing={5} className={classes.links}>
