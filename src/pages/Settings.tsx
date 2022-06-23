@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from '@mantine/hooks';
-import { Mail, Lock } from 'tabler-icons-react';
+import { Mail, Lock, Link } from 'tabler-icons-react';
 import {
   TextInput,
   PasswordInput,
@@ -15,6 +15,7 @@ import {
   Avatar,
   Grid,
   Space,
+  Popover,
 } from '@mantine/core';
 
 export default function Settings() {
@@ -30,12 +31,14 @@ export default function Settings() {
       firstName: 'Henry',
       lastName: 'Silkeater',
       email: 'user@gmail.com',
+      avatar: "https://images.unsplash.com/photo-1624298357597-fd92dfbec01d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80",
     },
 
     validationRules: {
       firstName: (value) => value.trim().length >= 2,
       lastName: (value) => value.trim().length >= 2,
       email: (value) => /^\S+@\S+$/.test(value),
+      avatar: (value) => /https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}/.test(value),
     },
 
     errorMessages: {
@@ -79,9 +82,7 @@ export default function Settings() {
     }, 500);
   };
 
-  const updateAvatar = () => {
-
-  };
+  const [popoverOpened, popoverSetOpened] = useState(false);
 
   return (
     <Container size="xs" mt={75}>
@@ -105,11 +106,27 @@ export default function Settings() {
             />
           </Grid.Col>
           <Grid.Col offset={1} span={4} py="xl">
-            <Tooltip label="Edit" position="right" withArrow transitionDuration={0}>
-              <UnstyledButton onClick={updateAvatar}>
-                <Avatar size={150} src={avatar} radius={150} />
-              </UnstyledButton>
-            </Tooltip>
+            <Popover
+              opened={popoverOpened}
+              onClose={() => popoverSetOpened(false)}
+              target={
+                <Tooltip label="Edit" position="right" withArrow transitionDuration={0}>
+                  <UnstyledButton onClick={() => popoverSetOpened((o) => !o)}>
+                    <Avatar size={150} src={avatar} radius={150} />
+                  </UnstyledButton>
+                </Tooltip>
+              }
+              width="xl"
+              position="top"
+              withArrow
+            >
+              <TextInput
+                description="Paste your image's link"
+                label="Image link"
+                icon={<Link />}
+                {...formProfile.getInputProps('avatar')}
+              />
+            </Popover>
           </Grid.Col>
         </Grid>
 
