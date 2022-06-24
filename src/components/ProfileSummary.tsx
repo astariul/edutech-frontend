@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocalStorage } from '@mantine/hooks';
-import { Avatar, Badge, Table, Group, Text, Select, ScrollArea } from '@mantine/core';
+import { Avatar, Group, Text } from '@mantine/core';
 import {UserProfile} from './LocalStorage';
 
 export default function ProfileSummary() {

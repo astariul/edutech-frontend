@@ -119,7 +119,7 @@ export default function HeaderResponsive() {
         setActive(link.link);
       }
     }
-  }, [location.pathname, links, setActive, toggleOpened]);
+  }, [location.pathname, setActive, toggleOpened]);
 
   const items = links.map((link) => (
     <Anchor

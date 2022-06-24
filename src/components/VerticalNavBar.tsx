@@ -85,7 +85,7 @@ export default function NavbarMinimal() {
         setActive(linksData.indexOf(link));
       }
     }
-  }, [location.pathname, linksData, setActive]);
+  }, [location.pathname, setActive]);
 
   return (
     <Navbar fixed position={{ top: 0, left: 0 }} width={{ base: 80 }} p="md">
