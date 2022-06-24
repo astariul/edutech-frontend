@@ -7,6 +7,7 @@ import LoginButton from './LoginButton';
 import SignupButton from './SignupButton';
 import LogoutButton from './LogoutButton';
 import ProfileSummary from './ProfileSummary';
+import {UserProfile} from './LocalStorage';
 
 const HEADER_HEIGHT = 60;
 
@@ -132,9 +133,9 @@ export default function HeaderResponsive() {
     </Anchor>
   ));
 
-  const [loginJwt] = useLocalStorage<string | null>({ key: 'login-jwt', defaultValue: null });
+  const [login] = useLocalStorage<UserProfile | null>({ key: 'login', defaultValue: null });
   let logButtons;
-  if (loginJwt) {
+  if (login) {
     logButtons = (
       <Group spacing="md" className={classes.links}>
         <Anchor

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useForm } from '@mantine/hooks';
+import { useForm, useLocalStorage } from '@mantine/hooks';
 import { Mail, Lock, Link } from 'tabler-icons-react';
 import {
   TextInput,
@@ -17,6 +17,7 @@ import {
   Space,
   Popover,
 } from '@mantine/core';
+import {UserProfile} from '../components/LocalStorage';
 
 export default function Settings() {
   const [loadingProfile, setLoadingProfile] = useState(false);
@@ -24,14 +25,14 @@ export default function Settings() {
   const [errorProfile, setErrorProfile] = useState<string | null>(null);
   const [errorPassword, setErrorPassword] = useState<string | null>(null);
 
-  const avatar = "https://images.unsplash.com/photo-1624298357597-fd92dfbec01d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80";
+  const [login] = useLocalStorage<UserProfile>({ key: 'login' });
 
   const formProfile = useForm({
     initialValues: {
-      firstName: 'Henry',
-      lastName: 'Silkeater',
-      email: 'user@gmail.com',
-      avatar: "https://images.unsplash.com/photo-1624298357597-fd92dfbec01d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80",
+      firstName: login.firstName,
+      lastName: login.lastName,
+      email: login.email,
+      avatar: login.avatar,
     },
 
     validationRules: {
@@ -112,7 +113,7 @@ export default function Settings() {
               target={
                 <Tooltip label="Edit" position="right" withArrow transitionDuration={0}>
                   <UnstyledButton onClick={() => popoverSetOpened((o) => !o)}>
-                    <Avatar size={150} src={avatar} radius={150} />
+                    <Avatar size={150} src={login.avatar} radius={150} />
                   </UnstyledButton>
                 </Tooltip>
               }

@@ -9,11 +9,12 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import HeaderResponsive from './components/Header';
 import FooterSimple from './components/Footer';
 import NavbarMinimal from './components/VerticalNavBar';
+import {UserProfile} from './components/LocalStorage';
 
 
 function App() {
   const [navOpened, toggleNavOpened] = useBooleanToggle(false);
-  const [loginJwt] = useLocalStorage<string | null>({ key: 'login-jwt', defaultValue: null });
+  const [login] = useLocalStorage<UserProfile | null>({ key: 'login', defaultValue: null });
 
   const location = useLocation();
   useEffect(() => {
@@ -25,7 +26,7 @@ function App() {
   }, [location.pathname, toggleNavOpened ]);
 
   let navbar;
-  if (navOpened && loginJwt) {
+  if (navOpened && login) {
     navbar = <NavbarMinimal />;
   } else {
     navbar = undefined;

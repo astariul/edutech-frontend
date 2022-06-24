@@ -11,6 +11,7 @@ import {
   LoadingOverlay,
   Anchor,
 } from '@mantine/core';
+import {UserProfile} from './LocalStorage';
 
 export interface AuthenticationFormProps {
   noShadow?: boolean;
@@ -31,7 +32,7 @@ export default function AuthenticationForm({
   setFormType, 
   modalSetOpened,
 }: AuthenticationFormProps) {
-  const [, setLoginJwt] = useLocalStorage<string | null>({ key: 'login-jwt', defaultValue: null });
+  const [, setLogin] = useLocalStorage<UserProfile | null>({ key: 'login', defaultValue: null });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -67,11 +68,26 @@ export default function AuthenticationForm({
 
   const login = () => {
     // Dummy function, replace with actual call to backend
+    let jwt_token;
     if (form.values.email === 'user@gmail.com' && form.values.password === 'admin') {
-      return 'jwt-token'
+      jwt_token = 'jwt-token';
     } else {
       return null
     }
+
+    // Also call backend to retrieve info for current user
+    // Dummy again
+    let user = {
+      token: jwt_token,
+      firstName: "Henry",
+      lastName: "Silkeater",
+      email: "user@gmail.com",
+      avatar: "https://images.unsplash.com/photo-1624298357597-fd92dfbec01d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80",
+    };
+
+    // Save user in local storage
+    setLogin(user);
+    return user;
   };
 
   const handleSubmit = () => {
@@ -81,9 +97,8 @@ export default function AuthenticationForm({
       if (formType === 'register') {
         setError('Registration are not open yet');
       } else {
-        const jwt = login();
-        if (jwt) {
-          setLoginJwt(jwt);
+        const user = login();
+        if (user) {
           modalSetOpened(false);
         } else {
           setError('Unknown user / wrong password');

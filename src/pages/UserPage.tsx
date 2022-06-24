@@ -9,6 +9,7 @@ import Milestones from './Milestones';
 import Performances from './Performances';
 import Resume from './Resume';
 import Settings from './Settings';
+import {UserProfile} from '../components/LocalStorage';
 
 
 const useStyles = createStyles((theme) => ({
@@ -20,11 +21,11 @@ const useStyles = createStyles((theme) => ({
 
 export default function UserPage() {
   const { classes } = useStyles();
-  const [loginJwt] = useLocalStorage<string | null>({ key: 'login-jwt', defaultValue: null });
+  const [login] = useLocalStorage<UserProfile | null>({ key: 'login', defaultValue: null });
   const [formType, setFormType] = useState<'register' | 'login'>('login');
 
   let content;
-  if (!loginJwt) {
+  if (!login) {
     content = (
       <Center className={classes.firstElem}>
         <AuthenticationForm formType={formType} setFormType={setFormType} modalSetOpened={() => void(0)} />
