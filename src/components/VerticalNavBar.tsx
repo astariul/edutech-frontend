@@ -7,7 +7,7 @@ import {
   ChartLine,
   FileCertificate,
   Settings,
-  Perspective,
+  News,
 } from 'tabler-icons-react';
 import { Link, useLocation } from 'react-router-dom';
 import LogoutButton from './LogoutButton';
@@ -58,7 +58,7 @@ function NavbarLink({ icon: Icon, label, link, active, onClick }: NavbarLinkProp
 }
 
 const linksData = [
-  { icon: Perspective, label: 'Overview', link: '/mypage' },
+  { icon: News, label: 'News', link: '/mypage' },
   { icon: Notebook, label: 'Courses', link: '/mypage/courses' },
   { icon: Badge, label: 'Milestones', link: '/mypage/milestones' },
   { icon: ChartLine, label: 'Performances', link: '/mypage/performances' },
