@@ -1,5 +1,6 @@
 import React from 'react';
-import { createStyles, Text, Avatar, Group, TypographyStylesProvider, Paper } from '@mantine/core';
+import { createStyles, Text, Avatar, Group, TypographyStylesProvider, Paper, ActionIcon, Grid } from '@mantine/core';
+import { Heart } from 'tabler-icons-react';
 
 const useStyles = createStyles((theme) => ({
   comment: {
@@ -26,10 +27,11 @@ interface FeedCardProps {
     name: string;
     image: string;
   };
+  likes: number;
 }
 
-export default function FeedCard({ postedAt, body, author }: FeedCardProps) {
-  const { classes } = useStyles();
+export default function FeedCard({ postedAt, body, author, likes }: FeedCardProps) {
+  const { classes, theme } = useStyles();
   return (
     <Paper withBorder radius="md" className={classes.comment}>
       <Group>
@@ -44,6 +46,20 @@ export default function FeedCard({ postedAt, body, author }: FeedCardProps) {
       <TypographyStylesProvider className={classes.body}>
         <div className={classes.content} dangerouslySetInnerHTML={{ __html: body }} />
       </TypographyStylesProvider>
+      <Grid>
+        <Grid.Col span={3} offset={9} pb={0}>
+          <Group position="right">
+            <Text size="xs" color="dimmed">
+              {likes} person liked this
+            </Text>
+            <Group spacing={0}>
+              <ActionIcon>
+                <Heart size={18} color={theme.colors.red[6]} />
+              </ActionIcon>
+            </Group>
+          </Group>
+        </Grid.Col>
+      </Grid>
     </Paper>
   );
 }

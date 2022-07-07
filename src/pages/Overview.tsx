@@ -15,7 +15,8 @@ const feed = [
     "author": {
       "name": "Jacob Warnhalter",
       "image": "https://images.unsplash.com/photo-1656313826909-1f89d1702a81?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-    }
+    },
+    "likes": 2,
   },
   {
     "postedAt": "12 minutes ago",
@@ -23,7 +24,8 @@ const feed = [
     "author": {
       "name": "Henry Silkeater",
       "image": "https://images.unsplash.com/photo-1624298357597-fd92dfbec01d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80"
-    }
+    },
+    "likes": 9,
   },
   {
     "postedAt": "47 minutes ago",
@@ -31,7 +33,8 @@ const feed = [
     "author": {
       "name": "Anna Delcroix",
       "image": "https://images.unsplash.com/photo-1656322826192-3ee6e76c8f8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-    }
+    },
+    "likes": 3,
   },
   {
     "postedAt": "1 hour ago",
@@ -39,7 +42,8 @@ const feed = [
     "author": {
       "name": "Jacob Warnhalter",
       "image": "https://images.unsplash.com/photo-1624298357597-fd92dfbec01d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80"
-    }
+    },
+    "likes": 232,
   },
   {
     "postedAt": "5 hours ago",
@@ -47,7 +51,8 @@ const feed = [
     "author": {
       "name": "Katarina Rostova",
       "image": "https://images.unsplash.com/photo-1655817014438-5115cc4aa87e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80"
-    }
+    },
+    "likes": 0,
   },
   {
     "postedAt": "2 days ago",
@@ -55,7 +60,8 @@ const feed = [
     "author": {
       "name": "Helene Dupont",
       "image": "https://images.unsplash.com/photo-1656019674844-3040aba0350b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80"
-    }
+    },
+    "likes": 9942,
   } 
 ]
 
@@ -64,7 +70,7 @@ export default function Overview() {
 
   const curr_feed = feed.map((f) => (
     <Container pt="md">
-      <FeedCard postedAt={f.postedAt} body={f.body} author={f.author} />
+      <FeedCard postedAt={f.postedAt} body={f.body} author={f.author} likes={f.likes}/>
     </Container>
   ));
 
