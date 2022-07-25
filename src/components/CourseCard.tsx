@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createStyles, Card, Image, ActionIcon, Group, Text, Avatar, Badge } from '@mantine/core';
 import { Heart, Bookmark, Share } from 'tabler-icons-react';
 
@@ -46,6 +46,7 @@ export default function ArticleCard({
   author,
 }: ArticleCardFooterProps) {
   const { classes, theme } = useStyles();
+  const [active, setActive] = useState(false);
 
   return (
     <Card withBorder p="lg" radius="md" className={classes.card}>
@@ -77,8 +78,8 @@ export default function ArticleCard({
             {footer}
           </Text>
           <Group spacing={0}>
-            <ActionIcon>
-              <Heart size={18} color={theme.colors.red[6]} />
+            <ActionIcon onClick={() => setActive(!active)}>
+              <Heart size={18} color={theme.colors.red[6]} fill={active ? theme.colors.red[6]: "none"}/>
             </ActionIcon>
             <ActionIcon>
               <Share size={16} color={theme.colors.blue[6]} />
