@@ -81,9 +81,6 @@ export default function ArticleCard({
               <Heart size={18} color={theme.colors.red[6]} />
             </ActionIcon>
             <ActionIcon>
-              <Bookmark size={18} color={theme.colors.yellow[6]} />
-            </ActionIcon>
-            <ActionIcon>
               <Share size={16} color={theme.colors.blue[6]} />
             </ActionIcon>
           </Group>
