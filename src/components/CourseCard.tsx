@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { createStyles, Card, Image, ActionIcon, Group, Text, Avatar, Badge } from '@mantine/core';
+import { createStyles, Card, Image, ActionIcon, Group, Text, Avatar, Badge, Modal } from '@mantine/core';
 import { Heart, Bookmark, Share } from 'tabler-icons-react';
+import CourseContent from './CourseContent';
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -47,46 +48,58 @@ export default function ArticleCard({
 }: ArticleCardFooterProps) {
   const { classes, theme } = useStyles();
   const [active, setActive] = useState(false);
+  const [opened, setOpened] = useState(false);
 
   return (
-    <Card withBorder p="lg" radius="md" className={classes.card}>
-      <Card.Section mb="sm">
-        <Image src={image} alt={title} height={180} />
-      </Card.Section>
+    <>
+      <Modal
+        opened={opened}
+        onClose={() => setOpened(false)}
+        title={title}
+        size="70%"
+      >
+        <CourseContent image={image} category={category} title={title} footer={footer} author={author}/>
+      </Modal>
 
-      <Badge>{category}</Badge>
+      <Card withBorder p="lg" radius="md" className={classes.card} onClick={() => setOpened(true)}>
+        <Card.Section mb="sm">
+          <Image src={image} alt={title} height={180} />
+        </Card.Section>
 
-      <div className={classes.fixed_size}>
-        <Text weight={700} className={classes.title} mt="xs" lineClamp={2}>
-          {title}
-        </Text>
-      </div>
+        <Badge>{category}</Badge>
 
-      <Group mt="lg">
-        <Avatar src={author.image} radius="sm" />
-        <div>
-          <Text weight={500}>{author.name}</Text>
-          <Text size="xs" color="dimmed">
-            {author.description}
+        <div className={classes.fixed_size}>
+          <Text weight={700} className={classes.title} mt="xs" lineClamp={2}>
+            {title}
           </Text>
         </div>
-      </Group>
 
-      <Card.Section className={classes.footer}>
-        <Group position="apart">
-          <Text size="xs" color="dimmed">
-            {footer}
-          </Text>
-          <Group spacing={0}>
-            <ActionIcon onClick={() => setActive(!active)}>
-              <Heart size={18} color={theme.colors.red[6]} fill={active ? theme.colors.red[6]: "none"}/>
-            </ActionIcon>
-            <ActionIcon>
-              <Share size={16} color={theme.colors.blue[6]} />
-            </ActionIcon>
-          </Group>
+        <Group mt="lg">
+          <Avatar src={author.image} radius="sm" />
+          <div>
+            <Text weight={500}>{author.name}</Text>
+            <Text size="xs" color="dimmed">
+              {author.description}
+            </Text>
+          </div>
         </Group>
-      </Card.Section>
-    </Card>
+
+        <Card.Section className={classes.footer}>
+          <Group position="apart">
+            <Text size="xs" color="dimmed">
+              {footer}
+            </Text>
+            <Group spacing={0}>
+              <ActionIcon onClick={() => setActive(!active)}>
+                <Heart size={18} color={theme.colors.red[6]} fill={active ? theme.colors.red[6]: "none"}/>
+              </ActionIcon>
+              <ActionIcon>
+                <Share size={16} color={theme.colors.blue[6]} />
+              </ActionIcon>
+            </Group>
+          </Group>
+        </Card.Section>
+      </Card>
+    </>
   );
 }
