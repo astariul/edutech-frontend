@@ -55,7 +55,6 @@ export default function ArticleCard({
       <Modal
         opened={opened}
         onClose={() => setOpened(false)}
-        title={title}
         size="70%"
       >
         <CourseContent image={image} category={category} title={title} footer={footer} author={author}/>

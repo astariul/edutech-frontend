@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createStyles, Center } from '@mantine/core';
+import { createStyles, Center, Text, Container } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   ifr_container: {
@@ -12,6 +12,16 @@ const useStyles = createStyles((theme) => ({
   ifr: {
     width: "80%",
     aspectRatio: "16/9",
+  },
+
+  fixed_size: {
+    height: theme.spacing.xl * 2,
+    display: "flex",
+    alignItems: "center",
+  },
+
+  title: {
+    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
   },
 }));
 
@@ -37,13 +47,20 @@ export default function CourseContent({
   const { classes, theme } = useStyles();
 
   return (
-    <Center>
-      <iframe
-        className={classes.ifr}
-        src="https://www.youtube.com/embed/E7wJTI-1dvQ"
-        allow="autoplay; encrypted-media"
-        title="video"
-      />
-    </Center>
+    <>
+      <Container className={classes.fixed_size} mb="xl">
+        <Text weight={700} className={classes.title} mt="xs" lineClamp={2} size="xl">
+          {title}
+        </Text>
+      </Container>
+      <Center mb="xl">
+        <iframe
+          className={classes.ifr}
+          src="https://www.youtube.com/embed/E7wJTI-1dvQ"
+          allow="autoplay; encrypted-media"
+          title="video"
+        />
+      </Center>
+    </>
   );
 }
