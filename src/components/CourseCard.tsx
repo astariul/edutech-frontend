@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createStyles, Card, Image, ActionIcon, Group, Text, Avatar, Badge, Modal } from '@mantine/core';
-import { Heart, Bookmark, Share } from 'tabler-icons-react';
+import { Heart, Share } from 'tabler-icons-react';
 import CourseContent from './CourseContent';
 
 const useStyles = createStyles((theme) => ({

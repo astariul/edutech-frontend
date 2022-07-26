@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { createStyles, Center, Text, Container } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
@@ -46,7 +46,7 @@ export default function CourseContent({
   video,
   author,
 }: CourseContentProps) {
-  const { classes, theme } = useStyles();
+  const { classes } = useStyles();
 
   return (
     <>
