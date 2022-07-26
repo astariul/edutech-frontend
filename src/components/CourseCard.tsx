@@ -32,6 +32,7 @@ interface ArticleCardFooterProps {
   category: string;
   title: string;
   footer: string;
+  video: string;
   author: {
     name: string;
     description: string;
@@ -44,6 +45,7 @@ export default function ArticleCard({
   category,
   title,
   footer,
+  video,
   author,
 }: ArticleCardFooterProps) {
   const { classes, theme } = useStyles();
@@ -57,7 +59,7 @@ export default function ArticleCard({
         onClose={() => setOpened(false)}
         size="70%"
       >
-        <CourseContent image={image} category={category} title={title} footer={footer} author={author}/>
+        <CourseContent image={image} category={category} title={title} footer={footer} video={video} author={author}/>
       </Modal>
 
       <Card withBorder p="lg" radius="md" className={classes.card} onClick={() => setOpened(true)}>

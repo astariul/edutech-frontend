@@ -30,6 +30,7 @@ const class_data = [
     "category": "frontend",
     "title": "Get started with React",
     "footer": "733 people followed this class",
+    "video": "https://www.youtube.com/embed/RFHj_vjVxqM",
     "author": {
       "name": "Elsa Gardenowl",
       "description": "Front-end engineer at Glassdoor",
@@ -41,6 +42,7 @@ const class_data = [
     "category": "frontend",
     "title": "Style your React component with CSS",
     "footer": "430 people followed this class",
+    "video": "https://www.youtube.com/embed/iDb4RGqqf3w",
     "author": {
       "name": "Elsa Gardenowl",
       "description": "Front-end engineer at Glassdoor",
@@ -52,6 +54,7 @@ const class_data = [
     "category": "backend",
     "title": "Python & FastAPI : write efficient REST APIs",
     "footer": "2467 people followed this class",
+    "video": "https://www.youtube.com/embed/jfKfPfyJRdk",
     "author": {
       "name": "Patrick Shyu",
       "description": "Tech lead at Google",
@@ -63,6 +66,7 @@ const class_data = [
     "category": "backend",
     "title": "Scaling your ML models to millions of users",
     "footer": "125 people followed this class",
+    "video": "https://www.youtube.com/embed/Ttwoztq_-Bw",
     "author": {
       "name": "Rina Artstain",
       "description": "Tech lead at Google",
@@ -74,6 +78,7 @@ const class_data = [
     "category": "backend",
     "title": "Supervised, Unsupervised learning, and Reinforcement learning : what's the difference ? A comprehensive study",
     "footer": "7 people followed this class",
+    "video": "https://www.youtube.com/embed/YSB8jrMgeJ0",
     "author": {
       "name": "Patrick Shyu",
       "description": "Tech lead at Google",

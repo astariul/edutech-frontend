@@ -30,6 +30,7 @@ interface CourseContentProps {
   category: string;
   title: string;
   footer: string;
+  video: string;
   author: {
     name: string;
     description: string;
@@ -42,6 +43,7 @@ export default function CourseContent({
   category,
   title,
   footer,
+  video,
   author,
 }: CourseContentProps) {
   const { classes, theme } = useStyles();
@@ -56,7 +58,7 @@ export default function CourseContent({
       <Center mb="xl">
         <iframe
           className={classes.ifr}
-          src="https://www.youtube.com/embed/E7wJTI-1dvQ"
+          src={video}
           allow="autoplay; encrypted-media"
           title="video"
         />
