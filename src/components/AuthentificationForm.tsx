@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from 'react';
 import { useForm, useLocalStorage } from '@mantine/hooks';
 import { Mail, Lock } from 'tabler-icons-react';
@@ -11,7 +12,7 @@ import {
   LoadingOverlay,
   Anchor,
 } from '@mantine/core';
-import {UserProfile} from './LocalStorage';
+import { UserProfile } from './LocalStorage';
 
 export interface AuthenticationFormProps {
   noShadow?: boolean;
@@ -23,11 +24,9 @@ export interface AuthenticationFormProps {
   modalSetOpened: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+
 export default function AuthenticationForm({
-  noShadow,
-  noPadding,
   noSubmit,
-  style,
   formType,
   setFormType, 
   modalSetOpened,
@@ -66,47 +65,44 @@ export default function AuthenticationForm({
     },
   });
 
-  const login = () => {
-    // Dummy function, replace with actual call to backend
-    let jwt_token;
-    if (form.values.email === 'user@gmail.com' && form.values.password === 'admin') {
-      jwt_token = 'jwt-token';
-    } else {
-      return null
+  const login = async (id: string, pw: string) => {
+    let user;
+    try {
+      const response = await axios.post(
+        "/auth/login",
+        { email: id, password: pw },
+        { withCredentials: true}
+      );
+      
+      user = {
+        token: response.data.token,
+        firstName: "",
+        lastName: "",
+        email: response.data.email,
+        avatar: "",
+      };
+      setLogin(user);
     }
-
-    // Also call backend to retrieve info for current user
-    // Dummy again
-    let user = {
-      token: jwt_token,
-      firstName: "Henry",
-      lastName: "Silkeater",
-      email: "user@gmail.com",
-      avatar: "https://images.unsplash.com/photo-1624298357597-fd92dfbec01d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80",
-    };
-
-    // Save user in local storage
-    setLogin(user);
+    catch (err) {
+      user = null;
+    }
     return user;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setLoading(true);
     setError(null);
-    setTimeout(() => {
-      if (formType === 'register') {
-        setError('Registration are not open yet');
+    if (formType === 'register') {
+      setError('Registration are not open yet');
+    } else {
+      const user = await login(form.values.email, form.values.password);
+      if (user) {
+        modalSetOpened(false);
       } else {
-        const user = login();
-        if (user) {
-          modalSetOpened(false);
-        } else {
-          setError('Unknown user / wrong password');
-        };
+        setError('id 또는 비밀번호가 일치하지 않습니다.')
       }
-
-      setLoading(false);
-    }, 500);
+    }
+    setLoading(false);
   };
 
   return (
@@ -134,8 +130,8 @@ export default function AuthenticationForm({
       <TextInput
         mt="md"
         required
-        placeholder="Your email"
-        label="Email"
+        placeholder="이메일"
+        label="아이디"
         icon={<Mail />}
         {...form.getInputProps('email')}
       />
@@ -143,8 +139,8 @@ export default function AuthenticationForm({
       <PasswordInput
         mt="md"
         required
-        placeholder="Password"
-        label="Password"
+        placeholder="비밀번호"
+        label="비밀번호"
         icon={<Lock />}
         {...form.getInputProps('password')}
       />
@@ -153,8 +149,8 @@ export default function AuthenticationForm({
         <PasswordInput
           mt="md"
           required
-          label="Confirm Password"
-          placeholder="Confirm password"
+          label="비밀번호확인"
+          placeholder="비밀번호확인"
           icon={<Lock />}
           {...form.getInputProps('confirmPassword')}
         />
@@ -181,15 +177,15 @@ export default function AuthenticationForm({
             type="button"
             color="gray"
             onClick={toggleFormType}
-            size="sm"
+            size="xs"
           >
             {formType === 'register'
               ? 'Have an account? Login'
-              : "Don't have an account? Register"}
+              : "아직 계정이 없으신가요? 가입하러가기"}
           </Anchor>
 
           <Button color="blue" type="submit">
-            {formType === 'register' ? 'Register' : 'Login'}
+            {formType === 'register' ? 'Register' : '로그인하기'}
           </Button>
         </Group>
       )}
