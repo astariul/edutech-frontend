@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from 'react';
 import { useForm, useLocalStorage } from '@mantine/hooks';
-import { Mail, Lock } from 'tabler-icons-react';
+import { Mail, Lock, UserCircle } from 'tabler-icons-react';
 import {
   TextInput,
   PasswordInput,
@@ -13,6 +13,7 @@ import {
   Anchor,
 } from '@mantine/core';
 import { UserProfile } from './LocalStorage';
+import { config } from "process";
 
 export interface AuthenticationFormProps {
   noShadow?: boolean;
@@ -34,6 +35,7 @@ export default function AuthenticationForm({
   const [, setLogin] = useLocalStorage<UserProfile | null>({ key: 'login', defaultValue: null });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [registered, setRegistered] = useLocalStorage<boolean>({ key: 'registered', defaultValue: false });
 
   const toggleFormType = () => {
     setFormType((current) => (current === 'register' ? 'login' : 'register'));
@@ -42,8 +44,7 @@ export default function AuthenticationForm({
 
   const form = useForm({
     initialValues: {
-      firstName: '',
-      lastName: '',
+      name: '',
       email: '',
       password: '',
       confirmPassword: '',
@@ -51,19 +52,39 @@ export default function AuthenticationForm({
     },
 
     validationRules: {
-      firstName: (value) => formType === 'login' || value.trim().length >= 2,
-      lastName: (value) => formType === 'login' || value.trim().length >= 2,
+      name: (value) => formType === 'login' || value.trim().length >= 2,
       email: (value) => /^\S+@\S+$/.test(value),
       password: (value) => formType === 'login' || /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(value),
       confirmPassword: (val, values) => formType === 'login' || val === values?.password,
     },
 
     errorMessages: {
-      email: 'Invalid email',
-      password: 'Password should contain 1 number, 1 letter and at least 6 characters',
-      confirmPassword: "Passwords don't match. Try again",
+      email: '이메일 형식이 올바르지 않습니다.',
+      password: '비밀번호는 최소 1자리 숫자와 1자리 문자를 포함하면서 총 6자리로 구성되어야 합니다.',
+      confirmPassword: "비밀번호가 일치하지 않습니다.",
     },
   });
+
+  const signup = (id: string, pw: string, name: string) => {
+    const data = {
+      name: name,
+      email: id,
+      password: pw,
+    };
+    axios.post(
+      "/auth/signup",
+      data,
+      { withCredentials: true}
+    )
+    .then( () => setRegistered(true) )
+    .catch( ( {response} ) => {
+      if (response.status == 409) {
+        setRegistered(true);
+        setError("존재하는 아이디입니다. 로그인해주세요")
+      }
+      response.status == 500 && setError("회원가입에 실패했습니다. 다시 시도해주세요");
+    });
+  };
 
   const login = async (id: string, pw: string) => {
     let user;
@@ -82,6 +103,7 @@ export default function AuthenticationForm({
         avatar: "",
       };
       setLogin(user);
+      setRegistered(false);
     }
     catch (err) {
       user = null;
@@ -92,8 +114,12 @@ export default function AuthenticationForm({
   const handleSubmit = async () => {
     setLoading(true);
     setError(null);
-    if (formType === 'register') {
-      setError('Registration are not open yet');
+    if (formType === 'register' && !registered ) {
+      signup(
+        form.values.email,
+        form.values.password,
+        form.values.name,
+      )
     } else {
       const user = await login(form.values.email, form.values.password);
       if (user) {
@@ -108,23 +134,15 @@ export default function AuthenticationForm({
   return (
     <form onSubmit={form.onSubmit(handleSubmit)}>
       <LoadingOverlay visible={loading} />
-      {formType === 'register' && (
-        <Group grow>
-          <TextInput
-            data-autofocus
-            required
-            placeholder="Your first name"
-            label="First name"
-            {...form.getInputProps('firstName')}
-          />
-
-          <TextInput
-            required
-            placeholder="Your last name"
-            label="Last name"
-            {...form.getInputProps('lastName')}
-          />
-        </Group>
+      { formType === 'register' && !registered && (
+        <TextInput
+          mt="md"
+          required
+          placeholder="이름"
+          label="이름"
+          icon={<UserCircle />}
+          {...form.getInputProps('name')}
+        />
       )}
 
       <TextInput
@@ -145,7 +163,7 @@ export default function AuthenticationForm({
         {...form.getInputProps('password')}
       />
 
-      {formType === 'register' && (
+      {formType === 'register' && !registered && (
         <PasswordInput
           mt="md"
           required
@@ -156,10 +174,11 @@ export default function AuthenticationForm({
         />
       )}
 
-      {formType === 'register' && (
+      {formType === 'register' && !registered && (
         <Checkbox
           mt="xl"
-          label="I agree to the terms of services "
+          size="xs"
+          label="이용약관에 동의합니다. "
           {...form.getInputProps('termsOfService', { type: 'checkbox' })}
         />
       )}
@@ -179,13 +198,13 @@ export default function AuthenticationForm({
             onClick={toggleFormType}
             size="xs"
           >
-            {formType === 'register'
-              ? 'Have an account? Login'
+            {(formType === 'register' && !registered)
+              ? '계정이 있으신가요? 로그인하러가기'
               : "아직 계정이 없으신가요? 가입하러가기"}
           </Anchor>
 
           <Button color="blue" type="submit">
-            {formType === 'register' ? 'Register' : '로그인하기'}
+            {(formType === 'register' && !registered) ? '가입하기' : '로그인하기'}
           </Button>
         </Group>
       )}
