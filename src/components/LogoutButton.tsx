@@ -1,7 +1,7 @@
 import { createStyles, Button, Tooltip } from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
 import { Logout } from 'tabler-icons-react';
-import {UserProfile} from './LocalStorage';
+import { UserProfile } from './LocalStorage';
 
 const useStyles = createStyles((theme) => ({
   logoutbtn: {
@@ -22,14 +22,19 @@ const useStyles = createStyles((theme) => ({
 export default function LogoutButton() {
   const { classes } = useStyles();
   const [, setLogin] = useLocalStorage<UserProfile | null>({ key: 'login', defaultValue: null });
+  const [, setRegistered] = useLocalStorage<boolean>({ key: 'registered', defaultValue: false });
 
+  const handleClick = () => {
+    setLogin(null);
+    setRegistered(false);
+  }
   return (
     <Tooltip
       label="Logout"
       position="bottom"
       withArrow
     >
-      <Button className={classes.logoutbtn} variant="subtle" color="gray" onClick={() => {setLogin(null)}}>
+      <Button className={classes.logoutbtn} variant="subtle" color="gray" onClick={handleClick}>
         <Logout />
       </Button>
     </Tooltip>
