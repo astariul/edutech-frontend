@@ -13,7 +13,6 @@ import {
   Anchor,
 } from '@mantine/core';
 import { UserProfile } from './LocalStorage';
-import { config } from "process";
 
 export interface AuthenticationFormProps {
   noShadow?: boolean;
@@ -78,11 +77,11 @@ export default function AuthenticationForm({
     )
     .then( () => setRegistered(true) )
     .catch( ( {response} ) => {
-      if (response.status == 409) {
+      if (response.status === 409) {
         setRegistered(true);
         setError("존재하는 아이디입니다. 로그인해주세요")
       }
-      response.status == 500 && setError("회원가입에 실패했습니다. 다시 시도해주세요");
+      response.status === 500 && setError("회원가입에 실패했습니다. 다시 시도해주세요");
     });
   };
 
