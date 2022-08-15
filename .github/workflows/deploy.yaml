@@ -14,11 +14,12 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
+          cache: 'yarn'
           node-version: 16
       - name: setup git config
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
           git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/astariul/edutech-frontend.git
-      - run: npm ci
-      - run: npm run deploy
+      - run: yarn ci
+      - run: yarn deploy
