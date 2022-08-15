@@ -21,5 +21,5 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
           git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/astariul/edutech-frontend.git
-      - run: yarn ci
+      - run: yarn install --frozen-lockfile
       - run: yarn deploy
