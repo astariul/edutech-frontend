@@ -1,5 +1,4 @@
 import CourseContent from '../components/CourseContent';
-import { createStyles } from '@mantine/core';
 import { useLocation } from 'react-router-dom';
 
 interface CourseProps {

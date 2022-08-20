@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyles, Center, Text, Container, Group, Title } from '@mantine/core';
+import { createStyles, Container, Group, Title } from '@mantine/core';
 import PaymentSection from './PaymentSection';
 
 const useStyles = createStyles((theme) => ({

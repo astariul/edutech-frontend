@@ -1,4 +1,4 @@
-import { Card, Container, Center, Title } from '@mantine/core';
+import { Container, Center, Title } from '@mantine/core';
 import CareerGrid from '../components/CareerGrid';
 
 

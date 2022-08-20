@@ -1,5 +1,5 @@
 import React from 'react';
-import { Anchor, createStyles, SimpleGrid, UnstyledButton } from '@mantine/core';
+import { createStyles, SimpleGrid, UnstyledButton } from '@mantine/core';
 import ArticleCard from './CourseCard';
 import { Link, useLocation } from "react-router-dom";
 
