@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import Home from './pages/Home';
+import Course from './pages/Course';
 import Courses from './pages/Courses';
 import UserPage from './pages/UserPage';
 import { MantineProvider, AppShell } from '@mantine/core';
@@ -10,6 +11,8 @@ import HeaderResponsive from './components/Header';
 import FooterSimple from './components/Footer';
 import NavbarMinimal from './components/VerticalNavBar';
 import {UserProfile} from './components/LocalStorage';
+import LearningCourse from './pages/LearningCourse';
+import Careers from './pages/Careers';
 
 
 function App() {
@@ -44,8 +47,11 @@ function App() {
       >
         <Routes>
           <Route path='/' element={<Home />}></Route>
-          <Route path='/courses' element={<Courses />}></Route>
+          <Route path='/career/courses' element={<Courses />}></Route>
+          <Route path='/course/*' element={<Course />}></Route>
+          <Route path='/courses' element={<Careers />}></Route>
           <Route path='/mypage/*' element={<UserPage />}></Route>
+          <Route path='/mypage/course/*' element={<LearningCourse />}></Route>
         </Routes>
       </AppShell>
     </MantineProvider>

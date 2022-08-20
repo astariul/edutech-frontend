@@ -16,10 +16,11 @@ export default function Courses() {
     <>
       <Container pt="xl" pb="xl" size="sm">
         <Center pt="xl" pb="xl">
-          <Title order={1} className={classes.page_title}>Search among thousands of courses</Title>
+          <Title order={1} className={classes.page_title}>코스 탐색</Title>
         </Center>
         <SearchBar />
       </Container>
+      <Container pt="md" pb="md"></Container>
       <Container pt="md" pb="md">
         <CourseGrid />
       </Container>

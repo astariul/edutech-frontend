@@ -11,7 +11,7 @@ export default function ProfileSummary() {
       <Avatar size={40} src={login.avatar} radius={40} />
       <div>
         <Text size="sm" weight={500}>
-          {login.firstName} {login.lastName}
+          {login.name}
         </Text>
         <Text size="xs" color="dimmed">
           {login.email}
