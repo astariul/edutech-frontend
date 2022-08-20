@@ -96,8 +96,9 @@ export default function AuthenticationForm({
       
       user = {
         token: response.data.token,
-        firstName: "",
-        lastName: "",
+        // firstName: "",
+        // lastName: "",
+        name: response.data.name,
         email: response.data.email,
         avatar: "",
       };

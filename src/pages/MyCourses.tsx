@@ -16,7 +16,7 @@ export default function MyCourses() {
     <>
       <Container pt="xl" pb="xl" size="sm">
         <Center pt="xl" pb="xl">
-          <Title order={1} className={classes.page_title}>Search among thousands of courses</Title>
+          <Title order={1} className={classes.page_title}>수강중인 강의 리스트</Title>
         </Center>
         <SearchBar />
       </Container>

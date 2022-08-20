@@ -117,6 +117,8 @@ export default function HeaderResponsive() {
     for (let link of links) {
       if (location.pathname.startsWith(link.link)) {
         setActive(link.link);
+      } else if (location.pathname.startsWith("/course") || (location.pathname.startsWith("/career"))) {
+        setActive('/courses')
       }
     }
   }, [location.pathname, setActive, toggleOpened]);

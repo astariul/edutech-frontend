@@ -15,7 +15,7 @@ export default function SearchBar(props: TextInputProps) {
           {theme.dir === 'ltr' ? <ArrowRight size={18} /> : <ArrowLeft size={18} />}
         </ActionIcon>
       }
-      placeholder="Search classes"
+      placeholder="강의 검색"
       rightSectionWidth={42}
       {...props}
     />

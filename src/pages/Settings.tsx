@@ -29,15 +29,12 @@ export default function Settings() {
 
   const formProfile = useForm({
     initialValues: {
-      firstName: login.firstName,
-      lastName: login.lastName,
+      name: login.name,
       email: login.email,
       avatar: login.avatar,
     },
 
     validationRules: {
-      firstName: (value) => value.trim().length >= 2,
-      lastName: (value) => value.trim().length >= 2,
       email: (value) => /^\S+@\S+$/.test(value),
       avatar: (value) => /https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}/.test(value),
     },
@@ -88,22 +85,24 @@ export default function Settings() {
   return (
     <Container size="xs" mt={75}>
       <Title order={2} pt="xl" pb="md">
-        Public profile
+        사용자 프로필 
       </Title>
       <form onSubmit={formProfile.onSubmit(saveChanges)}>
         <Grid>
           <Grid.Col span={6}>
             <TextInput
               data-autofocus
-              description="You can change your first name"
-              label="First name"
-              {...formProfile.getInputProps('firstName')}
+              description="유저명 변경하기"
+              label="유저명"
+              {...formProfile.getInputProps('name')}
             />
             <Space h="xs" />
             <TextInput
-              description="You can change your last name"
-              label="Last name"
-              {...formProfile.getInputProps('lastName')}
+              mt="md"
+              description="이메일 변경하기"
+              label="이메일"
+              icon={<Mail />}
+              {...formProfile.getInputProps('email')}
             />
           </Grid.Col>
           <Grid.Col offset={1} span={4} py="xl">
@@ -131,13 +130,6 @@ export default function Settings() {
           </Grid.Col>
         </Grid>
 
-        <TextInput
-          mt="md"
-          description="You can change your email"
-          label="Email"
-          icon={<Mail />}
-          {...formProfile.getInputProps('email')}
-        />
 
         {errorProfile && (
           <Text color="red" size="sm" mt="sm">
@@ -147,22 +139,22 @@ export default function Settings() {
 
         <Group py="xs">
           <Button color="blue" type="submit">
-            Save changes
+            저장하기
           </Button>
           {loadingProfile ? <Loader size="sm" /> : <></>}
         </Group>
       </form>
 
-      <Title order={2} mt="xl" mb="md">
+      {/* <Title order={2} mt="xl" mb="md">
         Security
-      </Title>
+      </Title> */}
 
       <form onSubmit={formPassword.onSubmit(changePassword)}>
         <PasswordInput
           mt="md"
           required
-          placeholder="Password"
-          label="Old Password"
+          placeholder=""
+          label="기존비밀번호"
           icon={<Lock />}
           {...formPassword.getInputProps('oldpassword')}
         />
@@ -170,8 +162,8 @@ export default function Settings() {
         <PasswordInput
           mt="md"
           required
-          placeholder="Password"
-          label="New Password"
+          placeholder=""
+          label="신규비밀번호"
           icon={<Lock />}
           {...formPassword.getInputProps('newpassword')}
         />
@@ -179,8 +171,8 @@ export default function Settings() {
         <PasswordInput
           mt="md"
           required
-          label="Confirm Password"
-          placeholder="Confirm password"
+          label="비밀번호확인"
+          placeholder=""
           icon={<Lock />}
           {...formPassword.getInputProps('confirmPassword')}
         />
@@ -193,7 +185,7 @@ export default function Settings() {
 
         <Group mt="xs">
           <Button color="blue" type="submit">
-            Change password
+            비밀번호 변경하기
           </Button>
           {loadingPassword ? <Loader size="sm" /> : <></>}
         </Group>

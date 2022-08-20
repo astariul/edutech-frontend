@@ -28,11 +28,13 @@ const useStyles = createStyles((theme) => ({
 }));
 
 interface ArticleCardFooterProps {
+  id: string;
   image: string;
   category: string;
   title: string;
   footer: string;
-  video: string;
+  description: string;
+  price: number;
   author: {
     name: string;
     description: string;
@@ -41,11 +43,13 @@ interface ArticleCardFooterProps {
 }
 
 export default function ArticleCard({
+  id,
   image,
   category,
   title,
   footer,
-  video,
+  description,
+  price,
   author,
 }: ArticleCardFooterProps) {
   const { classes, theme } = useStyles();
@@ -57,12 +61,21 @@ export default function ArticleCard({
       <Modal
         opened={opened}
         onClose={() => setOpened(false)}
-        size="70%"
+        size="100%"
       >
-        <CourseContent image={image} category={category} title={title} footer={footer} video={video} author={author}/>
+        <CourseContent
+          id={id}
+          image={image}
+          category={category}
+          title={title}
+          footer={footer}
+          description={description}
+          price={price}
+          author={author}
+        />
       </Modal>
 
-      <Card withBorder p="lg" radius="md" className={classes.card} onClick={() => setOpened(true)}>
+      <Card withBorder p="lg" radius="md" className={classes.card}>
         <Card.Section mb="sm">
           <Image src={image} alt={title} height={180} />
         </Card.Section>

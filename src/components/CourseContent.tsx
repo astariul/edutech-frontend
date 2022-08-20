@@ -1,9 +1,9 @@
 import React from 'react';
-import { createStyles, Center, Text, Container } from '@mantine/core';
+import { createStyles, Center, Text, Container, Group, Title } from '@mantine/core';
+import PaymentSection from './PaymentSection';
 
 const useStyles = createStyles((theme) => ({
   ifr_container: {
-
     width: "100%",
     paddingTop: "56.25%",
     position: "relative",
@@ -18,6 +18,7 @@ const useStyles = createStyles((theme) => ({
     height: theme.spacing.xl * 2,
     display: "flex",
     alignItems: "center",
+    padding: theme.spacing.xl
   },
 
   title: {
@@ -26,11 +27,13 @@ const useStyles = createStyles((theme) => ({
 }));
 
 interface CourseContentProps {
+  id: string;
   image: string;
   category: string;
   title: string;
   footer: string;
-  video: string;
+  description: string;
+  price: number;
   author: {
     name: string;
     description: string;
@@ -39,11 +42,13 @@ interface CourseContentProps {
 }
 
 export default function CourseContent({
+  id,
   image,
   category,
   title,
   footer,
-  video,
+  description,
+  price,
   author,
 }: CourseContentProps) {
   const { classes } = useStyles();
@@ -51,18 +56,20 @@ export default function CourseContent({
   return (
     <>
       <Container className={classes.fixed_size} mb="xl">
-        <Text weight={700} className={classes.title} mt="xs" lineClamp={2} size="xl">
-          {title}
-        </Text>
+        <Title order={1}>
+          강의제목
+        </Title>
       </Container>
-      <Center mb="xl">
-        <iframe
-          className={classes.ifr}
-          src={video}
-          allow="autoplay; encrypted-media"
-          title="video"
-        />
-      </Center>
+      <Container>
+      <Group>
+        <Container>
+          <Title order={2}>
+            강의 무료 맛보기 및 강의소개
+          </Title>
+        </Container>
+          <PaymentSection courseName={title} courseID={id} price={price}/>
+      </Group>
+      </Container>
     </>
   );
 }

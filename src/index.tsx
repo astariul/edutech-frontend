@@ -11,6 +11,13 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
+declare global {
+  interface Window {
+    IMP: any
+  }
+}
+
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
