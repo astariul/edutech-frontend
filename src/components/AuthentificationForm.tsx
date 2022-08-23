@@ -71,7 +71,7 @@ export default function AuthenticationForm({
       password: pw,
     };
     axios.post(
-      "/auth/signup",
+      "http://43.200.180.159:5001/auth/signup",
       data,
       { withCredentials: true}
     )
@@ -89,7 +89,7 @@ export default function AuthenticationForm({
     let user;
     try {
       const response = await axios.post(
-        "/auth/login",
+        "http://43.200.180.159:5001/auth/login",
         { email: id, password: pw },
         { withCredentials: true}
       );
