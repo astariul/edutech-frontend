@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useState } from 'react';
 import { useForm, useLocalStorage } from '@mantine/hooks';
 import { Mail, Lock, UserCircle } from 'tabler-icons-react';
@@ -34,7 +34,8 @@ export default function AuthenticationForm({
   const [, setLogin] = useLocalStorage<UserProfile | null>({ key: 'login', defaultValue: null });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [registered, setRegistered] = useLocalStorage<boolean>({ key: 'registered', defaultValue: false });
+  // const [registered, setRegistered] = useLocalStorage<boolean>({ key: 'registered', defaultValue: false });
+  const [registered] = useLocalStorage<boolean>({ key: 'registered', defaultValue: false });
 
   const toggleFormType = () => {
     setFormType((current) => (current === 'register' ? 'login' : 'register'));
@@ -72,7 +73,7 @@ export default function AuthenticationForm({
     //   password: pw,
     // };
     // axios.post(
-    //   "/auth/signup",
+    //   "http://43.200.180.159:5001/auth/signup",
     //   data,
     //   { withCredentials: true}
     // )
@@ -99,25 +100,29 @@ export default function AuthenticationForm({
       setLogin(user)
       return user;
     }
-    try {
-      const response = await axios.post(
-        "/auth/login",
-        { email: id, password: pw },
-        { withCredentials: true}
-      );
-      
-      user = {
-        token: response.data.token,
-        name: response.data.name,
-        email: response.data.email,
-        avatar: "",
-      };
-      setLogin(user);
-      setRegistered(false);
-    }
-    catch (err) {
+    else {
+      window.alert("현재 로그인은 ID: user@gmail.com | PW:admin 로만 가능합니다.")
       user = null;
     }
+    // try {
+    //   const response = await axios.post(
+    //     "http://43.200.180.159:5001/auth/login",
+    //     { email: id, password: pw },
+    //     { withCredentials: true}
+    //   );
+      
+    //   user = {
+    //     token: response.data.token,
+    //     name: response.data.name,
+    //     email: response.data.email,
+    //     avatar: "",
+    //   };
+    //   setLogin(user);
+    //   setRegistered(false);
+    // }
+    // catch (err) {
+    //   user = null;
+    // }
     return user;
   };
 
