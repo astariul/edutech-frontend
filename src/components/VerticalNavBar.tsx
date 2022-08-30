@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Navbar, Tooltip, UnstyledButton, createStyles, Group } from '@mantine/core';
+import { Navbar, Tooltip, UnstyledButton, createStyles, Group, Text } from '@mantine/core';
 import {
   Icon as TablerIcon,
-  Notebook,
-  Badge,
-  ChartLine,
+  DeviceLaptop,
+  // Notebook,
+  // Badge,
+  // ChartLine,
   FileCertificate,
-  Settings,
+  // Settings,
+  Users,
   News,
 } from 'tabler-icons-react';
 import { Link, useLocation } from 'react-router-dom';
 import LogoutButton from './LogoutButton';
+// import { iconSizes } from '@mantine/core/lib/components/Stepper/Step/Step.styles';
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -58,24 +61,26 @@ function NavbarLink({ icon: Icon, label, link, active, onClick }: NavbarLinkProp
 }
 
 const linksData = [
-  { icon: News, label: 'News', link: '/mypage' },
-  { icon: Notebook, label: 'Courses', link: '/mypage/courses' },
-  { icon: Badge, label: 'Milestones', link: '/mypage/milestones' },
-  { icon: ChartLine, label: 'Performances', link: '/mypage/performances' },
-  { icon: FileCertificate, label: 'Resume', link: '/mypage/resume' },
-  { icon: Settings, label: 'Settings', link: '/mypage/settings' },
+  { icon: News, label: '피드', link: '/feed' },
+  { icon: DeviceLaptop, label: '강의실', link: '/class' },
+  { icon: FileCertificate, label: '이력서', link: '/mypage/resume' },
 ];
 
 export default function NavbarMinimal() {
   const [active, setActive] = useState(0);
 
   const links = linksData.map((link, index) => (
-    <NavbarLink
-      {...link}
-      key={link.label}
-      active={index === active}
-      onClick={() => setActive(index)}
-    />
+    <>
+      <NavbarLink
+        icon={link.icon}
+        link={link.link}
+        label=""
+        key={link.label}
+        active={index === active}
+        onClick={() => setActive(index)}
+        />
+      <Text size="xs">{link.label}</Text>
+    </>
   ));
 
   const location = useLocation();
@@ -89,13 +94,14 @@ export default function NavbarMinimal() {
 
   return (
     <Navbar fixed position={{ top: 0, left: 0 }} width={{ base: 80 }} p="md">
-      <Navbar.Section grow mt={50}>
-        <Group direction="column" align="center" spacing={0}>
+      <Navbar.Section grow mt={200}>
+        <Group direction="column" align="center" spacing={15}>
           {links}
         </Group>
       </Navbar.Section>
       <Navbar.Section>
-        <Group direction="column" align="center" spacing={0}>
+        <Group direction="column" align="center" spacing={15}>
+          <Users />
           <LogoutButton />
         </Group>
       </Navbar.Section>

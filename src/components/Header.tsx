@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { createStyles, Header, Container, Group, Title, Space, Burger, Paper, Transition, Button, Anchor, UnstyledButton  } from '@mantine/core';
 import { Link, useLocation } from "react-router-dom";
 import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';
-import { Book } from 'tabler-icons-react';
 import LoginButton from './LoginButton';
-import SignupButton from './SignupButton';
 import LogoutButton from './LogoutButton';
 import ProfileSummary from './ProfileSummary';
 import {UserProfile} from './LocalStorage';
@@ -94,16 +92,28 @@ const useStyles = createStyles((theme) => ({
 
 const links = [
   {
-    "link": "/",
-    "label": "Discover"
+    "link": "/roadmap",
+    "label": "코스 로드맵"
+  },
+  {
+    "link": "/reviews",
+    "label": "강의 후기"
   },
   {
     "link": "/courses",
-    "label": "Courses"
+    "label": "커리어"
   },
   {
-    "link": "/mypage",
-    "label": "My page"
+    "link": "/live",
+    "label": "라이브"
+  },
+  {
+    "link": "/feed",
+    "label": "피드"
+  },
+  {
+    "link": "/class",
+    "label": "강의실"
   }
 ];
 
@@ -117,8 +127,6 @@ export default function HeaderResponsive() {
     for (let link of links) {
       if (location.pathname.startsWith(link.link)) {
         setActive(link.link);
-      } else if (location.pathname.startsWith("/course") || (location.pathname.startsWith("/career"))) {
-        setActive('/courses')
       }
     }
   }, [location.pathname, setActive, toggleOpened]);
@@ -154,7 +162,7 @@ export default function HeaderResponsive() {
   } else {
     logButtons = (
       <Group spacing={5} className={classes.links}>
-        <SignupButton />
+        {/* <SignupButton /> */}
         <LoginButton />
       </Group>
     );
@@ -165,8 +173,7 @@ export default function HeaderResponsive() {
       <Container className={classes.header}>
         <UnstyledButton  component={Link} to={"/"}>
           <Group spacing={5} className={classes.links}>
-            <Book />
-            <Title order={3}>EduTech</Title>
+            <Title order={3}>Super Coding</Title>
           </Group>
         </UnstyledButton >
         <Group spacing={5} className={classes.links}>
@@ -182,8 +189,7 @@ export default function HeaderResponsive() {
         />
         <Group className={classes.title_next_burger}>
           <Space w="md" />
-          <Book />
-          <Title order={3}>EduTech</Title>
+          <Title order={3}>Super Coding</Title>
         </Group>
 
         <Transition transition="slide-down" duration={200} mounted={opened}>

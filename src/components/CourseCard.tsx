@@ -6,6 +6,7 @@ import CourseContent from './CourseContent';
 const useStyles = createStyles((theme) => ({
   card: {
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,
+    maxWidth: 300
   },
 
   title: {
@@ -34,7 +35,7 @@ interface ArticleCardFooterProps {
   title: string;
   footer: string;
   description: string;
-  price: number;
+  orgPrice: number;
   author: {
     name: string;
     description: string;
@@ -42,42 +43,23 @@ interface ArticleCardFooterProps {
   };
 }
 
-export default function ArticleCard({
+const ArticleCard = ({
   id,
   image,
   category,
   title,
   footer,
   description,
-  price,
+  orgPrice,
   author,
-}: ArticleCardFooterProps) {
+}: ArticleCardFooterProps) => {
   const { classes, theme } = useStyles();
   const [active, setActive] = useState(false);
-  const [opened, setOpened] = useState(false);
-
   return (
     <>
-      <Modal
-        opened={opened}
-        onClose={() => setOpened(false)}
-        size="100%"
-      >
-        <CourseContent
-          id={id}
-          image={image}
-          category={category}
-          title={title}
-          footer={footer}
-          description={description}
-          price={price}
-          author={author}
-        />
-      </Modal>
-
       <Card withBorder p="lg" radius="md" className={classes.card}>
         <Card.Section mb="sm">
-          <Image src={image} alt={title} height={180} />
+          <Image src={(image === 'file' || image === 'images') ? 'https://images.unsplash.com/photo-1648287235569-b3e498e01dca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' : image} alt={""} height={180} />
         </Card.Section>
 
         <Badge>{category}</Badge>
@@ -117,3 +99,5 @@ export default function ArticleCard({
     </>
   );
 }
+
+export default ArticleCard;

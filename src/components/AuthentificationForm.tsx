@@ -1,4 +1,4 @@
-import axios from "axios";
+// import axios from "axios";
 import React, { useState } from 'react';
 import { useForm, useLocalStorage } from '@mantine/hooks';
 import { Mail, Lock, UserCircle } from 'tabler-icons-react';
@@ -34,7 +34,8 @@ export default function AuthenticationForm({
   const [, setLogin] = useLocalStorage<UserProfile | null>({ key: 'login', defaultValue: null });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [registered, setRegistered] = useLocalStorage<boolean>({ key: 'registered', defaultValue: false });
+  // const [registered, setRegistered] = useLocalStorage<boolean>({ key: 'registered', defaultValue: false });
+  const [registered] = useLocalStorage<boolean>({ key: 'registered', defaultValue: false });
 
   const toggleFormType = () => {
     setFormType((current) => (current === 'register' ? 'login' : 'register'));
@@ -65,49 +66,63 @@ export default function AuthenticationForm({
   });
 
   const signup = (id: string, pw: string, name: string) => {
-    const data = {
-      name: name,
-      email: id,
-      password: pw,
-    };
-    axios.post(
-      "http://43.200.180.159:5001/auth/signup",
-      data,
-      { withCredentials: true}
-    )
-    .then( () => setRegistered(true) )
-    .catch( ( {response} ) => {
-      if (response.status === 409) {
-        setRegistered(true);
-        setError("존재하는 아이디입니다. 로그인해주세요")
-      }
-      response.status === 500 && setError("회원가입에 실패했습니다. 다시 시도해주세요");
-    });
+    window.alert("회원가입은 일시 중단합니다. ID: user@gmail.com | PW:admin 로 로그인해주세요")
+    // const data = {
+    //   name: name,
+    //   email: id,
+    //   password: pw,
+    // };
+    // axios.post(
+    //   "http://43.200.180.159:5001/auth/signup",
+    //   data,
+    //   { withCredentials: true}
+    // )
+    // .then( () => setRegistered(true) )
+    // .catch( ( {response} ) => {
+    //   if (response.status === 409) {
+    //     setRegistered(true);
+    //     setError("존재하는 아이디입니다. 로그인해주세요")
+    //   }
+    //   response.status === 500 && setError("회원가입에 실패했습니다. 다시 시도해주세요");
+    // });
   };
-
+  
   const login = async (id: string, pw: string) => {
     let user;
-    try {
-      const response = await axios.post(
-        "http://43.200.180.159:5001/auth/login",
-        { email: id, password: pw },
-        { withCredentials: true}
-      );
-      
+    //TODO: 제거
+    if (id === 'user@gmail.com' && pw=== 'admin') {
       user = {
-        token: response.data.token,
-        // firstName: "",
-        // lastName: "",
-        name: response.data.name,
-        email: response.data.email,
-        avatar: "",
-      };
-      setLogin(user);
-      setRegistered(false);
+        token:'jwt-token',
+        email:'user@gmail.com',
+        name:'user',
+        avatar: "https://images.unsplash.com/photo-1624298357597-fd92dfbec01d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80",
+      }
+      setLogin(user)
+      return user;
     }
-    catch (err) {
+    else {
+      window.alert("현재 로그인은 ID: user@gmail.com | PW:admin 로만 가능합니다.")
       user = null;
     }
+    // try {
+    //   const response = await axios.post(
+    //     "http://43.200.180.159:5001/auth/login",
+    //     { email: id, password: pw },
+    //     { withCredentials: true}
+    //   );
+      
+    //   user = {
+    //     token: response.data.token,
+    //     name: response.data.name,
+    //     email: response.data.email,
+    //     avatar: "",
+    //   };
+    //   setLogin(user);
+    //   setRegistered(false);
+    // }
+    // catch (err) {
+    //   user = null;
+    // }
     return user;
   };
 
