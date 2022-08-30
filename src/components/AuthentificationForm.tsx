@@ -65,28 +65,40 @@ export default function AuthenticationForm({
   });
 
   const signup = (id: string, pw: string, name: string) => {
-    const data = {
-      name: name,
-      email: id,
-      password: pw,
-    };
-    axios.post(
-      "/auth/signup",
-      data,
-      { withCredentials: true}
-    )
-    .then( () => setRegistered(true) )
-    .catch( ( {response} ) => {
-      if (response.status === 409) {
-        setRegistered(true);
-        setError("존재하는 아이디입니다. 로그인해주세요")
-      }
-      response.status === 500 && setError("회원가입에 실패했습니다. 다시 시도해주세요");
-    });
+    window.alert("회원가입은 일시 중단합니다. ID: user@gmail.com | PW:admin 로 로그인해주세요")
+    // const data = {
+    //   name: name,
+    //   email: id,
+    //   password: pw,
+    // };
+    // axios.post(
+    //   "/auth/signup",
+    //   data,
+    //   { withCredentials: true}
+    // )
+    // .then( () => setRegistered(true) )
+    // .catch( ( {response} ) => {
+    //   if (response.status === 409) {
+    //     setRegistered(true);
+    //     setError("존재하는 아이디입니다. 로그인해주세요")
+    //   }
+    //   response.status === 500 && setError("회원가입에 실패했습니다. 다시 시도해주세요");
+    // });
   };
-
+  
   const login = async (id: string, pw: string) => {
     let user;
+    //TODO: 제거
+    if (id === 'user@gmail.com' && pw=== 'admin') {
+      user = {
+        token:'jwt-token',
+        email:'user@gmail.com',
+        name:'user',
+        avatar: "https://images.unsplash.com/photo-1624298357597-fd92dfbec01d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80",
+      }
+      setLogin(user)
+      return user;
+    }
     try {
       const response = await axios.post(
         "/auth/login",
@@ -96,8 +108,6 @@ export default function AuthenticationForm({
       
       user = {
         token: response.data.token,
-        // firstName: "",
-        // lastName: "",
         name: response.data.name,
         email: response.data.email,
         avatar: "",

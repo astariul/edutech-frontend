@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import Home from './pages/Home';
-import Course from './pages/Course';
-import Courses from './pages/Courses';
 import UserPage from './pages/UserPage';
 import { MantineProvider, AppShell } from '@mantine/core';
 import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';
@@ -12,7 +10,9 @@ import FooterSimple from './components/Footer';
 import NavbarMinimal from './components/VerticalNavBar';
 import {UserProfile} from './components/LocalStorage';
 import LearningCourse from './pages/LearningCourse';
-import Careers from './pages/Careers';
+import RoadMap from './pages/Roadmap';
+import ClassRoom from './pages/ClassRoom';
+import Overview from './pages/Overview';
 
 
 function App() {
@@ -21,10 +21,10 @@ function App() {
 
   const location = useLocation();
   useEffect(() => {
-    if (location.pathname.startsWith("/mypage")) {
-      toggleNavOpened(true);
-    } else {
+    if (location.pathname.startsWith("/class")) {
       toggleNavOpened(false);
+    } else {
+      toggleNavOpened(true);
     }
   }, [location.pathname, toggleNavOpened ]);
 
@@ -47,9 +47,12 @@ function App() {
       >
         <Routes>
           <Route path='/' element={<Home />}></Route>
-          <Route path='/career/courses' element={<Courses />}></Route>
-          <Route path='/course/*' element={<Course />}></Route>
-          <Route path='/courses' element={<Careers />}></Route>
+          <Route path='/roadmap' element={<RoadMap />}></Route>
+          {/* <Route path='/career/courses' element={<Courses />}></Route> */}
+          <Route path='/class/*' element={<ClassRoom />}></Route>
+          <Route path='/feed' element={<Overview />}></Route>
+          {/* <Route path='/course/*' element={<Course />}></Route> */}
+          {/* <Route path='/courses' element={<Careers />}></Route> */}
           <Route path='/mypage/*' element={<UserPage />}></Route>
           <Route path='/mypage/course/*' element={<LearningCourse />}></Route>
         </Routes>

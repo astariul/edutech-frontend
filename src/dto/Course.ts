@@ -16,7 +16,6 @@ export interface ICourse extends Course
     id: string,
     sold?: number,
     views?: number,
-    image: string,
     thumbnail?: {
         url: string,
         width: number,
