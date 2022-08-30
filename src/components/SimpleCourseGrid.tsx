@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from "react";
+import React, {/*useState, useEffect*/} from "react";
 // import CourseRepositry from "../repositories/Course";
-import { ICourse } from "../dto/Course";
-import { createStyles, Loader, SimpleGrid } from '@mantine/core';
+// import { ICourse } from "../dto/Course";
+import { createStyles, /*Loader,*/ SimpleGrid } from '@mantine/core';
 import SimpleCourseCard from './SimpleCourseCard';
 
 export const sampleCourses = [
@@ -83,35 +83,35 @@ interface SimpleCourseGridProps {
 }
 
 const SimpleCourseGrid = ({cols, roadMapeType}: SimpleCourseGridProps) => {
-    const [courses, setCourses] = useState<ICourse[]>([])
-    const [loading, setLoading] = useState(true);
+    // const [courses, setCourses] = useState<ICourse[]>([])
+    // const [loading, setLoading] = useState(true);
     const {classes}  = useStyles();
     const categoryDict : {[roadMapeType: string]: string[]} = {
         'frontend': ['html/css', 'react', 'typeScript'],
         'backend': ['backend', 'nodejs', 'django']
     }
 
-    useEffect(
-        () => {
-            // new CourseRepositry()
-            //     .getCourses()
-            //     .then(
-            //         (data) => setCourses(data)
-            //     )
-            setCourses(sampleCourses);
-            return () => {
-                setCourses([]);
-                setLoading(false);
-            }
-        }, []
-    )
+    // useEffect(
+    //     () => {
+    //         // new CourseRepositry()
+    //         //     .getCourses()
+    //         //     .then(
+    //         //         (data) => setCourses(data)
+    //         //     )
+    //         setCourses(sampleCourses);
+    //         return () => {
+    //             setCourses([]);
+    //             setLoading(false);
+    //         }
+    //     }, []
+    // )
 
-    if (loading) return <Loader />;
+    // if (loading) return <Loader />;
     return (
         <>
             <SimpleGrid cols={cols} className={classes.simpleCourseGrid}>
                 {
-                    courses.map(
+                    sampleCourses.map(
                         (course) => {
                         let counter = 0;
                         if ((counter < cols) && (categoryDict[roadMapeType].includes(course.category.toLocaleLowerCase()))) {

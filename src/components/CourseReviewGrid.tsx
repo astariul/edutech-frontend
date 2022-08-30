@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from "react";
+import React, {/*useState, useEffect*/} from "react";
 // import ReviewRepositry from "../repositories/Review";
-import { IReview } from "../dto/Review";
-import { createStyles, Loader, SimpleGrid } from '@mantine/core';
+// import { IReview } from "../dto/Review";
+import { createStyles, /*Loader,*/ SimpleGrid } from '@mantine/core';
 import CourseReviewCard from './CourseReviewCard';
 
 export const sampleReviews = [
@@ -36,31 +36,31 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const CourseReviewGrid = ({cols}: any) => {
-    const [reviews, setReviews] = useState<IReview[]>([])
-    const [loading, setLoading] = useState(true);
+    // const [reviews, setReviews] = useState<IReview[]>([])
+    // const [loading, setLoading] = useState(true);
     const {classes}  = useStyles();
 
-    useEffect(
-        () => {
-            // new ReviewRepositry()
-            //     .getReviews()
-            //     .then(
-            //         (data) => setReviews(data)
-            //     )
-            setReviews(sampleReviews);
-            return () => {
-                setReviews([]);
-                setLoading(false);
-            }
-        }, []
-    )
+    // useEffect(
+    //     () => {
+    //         // new ReviewRepositry()
+    //         //     .getReviews()
+    //         //     .then(
+    //         //         (data) => setReviews(data)
+    //         //     )
+    //         setReviews(sampleReviews);
+    //         return () => {
+    //             setReviews([]);
+    //             setLoading(false);
+    //         }
+    //     }, []
+    // )
 
-    if (loading) return <Loader />;
+    // if (loading) return <Loader />;
     return (
         <>
             <SimpleGrid cols={cols} className={classes.reviewGrid}>
                 {
-                    reviews.map(
+                    sampleReviews.map(
                         (review, index) => <CourseReviewCard key={index} {...review}/>
                     )
                 }
