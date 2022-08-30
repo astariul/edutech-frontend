@@ -54,13 +54,13 @@ export default function AuthenticationForm({
     validationRules: {
       name: (value) => formType === 'login' || value.trim().length >= 2,
       email: (value) => /^\S+@\S+$/.test(value),
-      password: (value) => formType === 'login' || /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(value),
+      password: (value) => formType === 'login' || /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,10}$/.test(value),
       confirmPassword: (val, values) => formType === 'login' || val === values?.password,
     },
 
     errorMessages: {
       email: '이메일 형식이 올바르지 않습니다.',
-      password: '비밀번호는 최소 1자리 숫자와 1자리 문자를 포함하면서 총 6자리로 구성되어야 합니다.',
+      password: '비밀번호는 최소 1자리 숫자와 1자리 문자를 포함하면서 6자 이상 10자 이하로 구성되어야 합니다.',
       confirmPassword: "비밀번호가 일치하지 않습니다.",
     },
   });
