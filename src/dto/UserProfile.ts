@@ -1,7 +1,11 @@
+export interface IUser {
+  email: string,
+  name: string,
+  userId: string
+}
 
 export interface IUserProfile {
-  token: string;
-  name: string;
-  email: string;
-  avatar: string;
+  name: string,
+  email: string,
+  avatar: string,
 }

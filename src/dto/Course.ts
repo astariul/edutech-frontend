@@ -1,3 +1,8 @@
+export interface IVideo{
+    number: number,
+    path: string
+}
+
 export interface Course
 {
     title: string,
@@ -20,13 +25,19 @@ export interface ICourse extends Course
         url: string,
         width: number,
         height: number
-    }
+    },
+    videos: IVideo[]
 }
 
-
-export interface IUserProfile {
-  token: string;
-  name: string;
-  email: string;
-  avatar: string;
+export interface ICourseStat
+{
+    title: string,
+    progess: {
+        my: number[],
+        average: number[],
+        superCoder: number[],
+        weekOnWeek: number,
+    },
+    currentCourse: string,
+    nextCourse: string
 }

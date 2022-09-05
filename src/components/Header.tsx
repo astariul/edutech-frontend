@@ -5,7 +5,7 @@ import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 import ProfileSummary from './ProfileSummary';
-import {UserProfile} from './LocalStorage';
+import { IUserProfile } from '../dto/UserProfile';
 
 const HEADER_HEIGHT = 60;
 
@@ -119,7 +119,7 @@ const links = [
 
 export default function HeaderResponsive() {
   const [opened, toggleOpened] = useBooleanToggle(false);
-  const [active, setActive] = useState(links[0].link);
+  const [active, setActive] = useState('');
   const { classes, cx } = useStyles();
 
   const location = useLocation();
@@ -127,6 +127,8 @@ export default function HeaderResponsive() {
     for (let link of links) {
       if (location.pathname.startsWith(link.link)) {
         setActive(link.link);
+      } else if (location.pathname === "/") {
+        setActive('');
       }
     }
   }, [location.pathname, setActive, toggleOpened]);
@@ -143,7 +145,7 @@ export default function HeaderResponsive() {
     </Anchor>
   ));
 
-  const [login] = useLocalStorage<UserProfile | null>({ key: 'login', defaultValue: null });
+  const [login] = useLocalStorage<IUserProfile | null>({ key: 'login', defaultValue: null });
   let logButtons;
   if (login) {
     logButtons = (

@@ -8,25 +8,31 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import HeaderResponsive from './components/Header';
 import FooterSimple from './components/Footer';
 import NavbarMinimal from './components/VerticalNavBar';
-import {UserProfile} from './components/LocalStorage';
 import LearningCourse from './pages/LearningCourse';
 import RoadMap from './pages/Roadmap';
 import ClassRoom from './pages/ClassRoom';
-import Overview from './pages/Overview';
-
+import MyClassRoom from './pages/MyClassRoom';
+import Feed from './pages/Feed';
+import AuthRepository from './repositories/Auth';
+import { IUserProfile } from './dto/UserProfile';
 
 function App() {
   const [navOpened, toggleNavOpened] = useBooleanToggle(false);
-  const [login] = useLocalStorage<UserProfile | null>({ key: 'login', defaultValue: null });
-
+  const [login, setLogin] = useLocalStorage<IUserProfile | null>({ key: 'login', defaultValue: null });
   const location = useLocation();
+
   useEffect(() => {
+    if (login) {
+      new AuthRepository()
+        .me()
+        .catch(() => setLogin(null))
+    }
     if (location.pathname.startsWith("/class")) {
       toggleNavOpened(false);
     } else {
       toggleNavOpened(true);
     }
-  }, [location.pathname, toggleNavOpened ]);
+  }, [location.pathname, toggleNavOpened, login, setLogin]);
 
   let navbar;
   if (navOpened && login) {
@@ -48,11 +54,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/roadmap' element={<RoadMap />}></Route>
-          {/* <Route path='/career/courses' element={<Courses />}></Route> */}
-          <Route path='/class/*' element={<ClassRoom />}></Route>
-          <Route path='/feed' element={<Overview />}></Route>
-          {/* <Route path='/course/*' element={<Course />}></Route> */}
-          {/* <Route path='/courses' element={<Careers />}></Route> */}
+          <Route path='/classrounge/*' element={<ClassRoom />}></Route>
+          <Route path='/class/*' element={<MyClassRoom />}></Route>
+          <Route path='/feed' element={<Feed />}></Route>
           <Route path='/mypage/*' element={<UserPage />}></Route>
           <Route path='/mypage/course/*' element={<LearningCourse />}></Route>
         </Routes>

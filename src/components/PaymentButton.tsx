@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from '@mantine/core';
 import { useLocalStorage } from "@mantine/hooks";
-import { UserProfile } from "./LocalStorage";
+import { IUserProfile } from '../dto/UserProfile';
 
 const { IMP } = window;
 IMP.init(process.env.REACT_APP_IAMPORT_ID && 'imp15438774');
@@ -17,7 +17,7 @@ interface PaymentButtonProps {
 
 const IamPortPaymentButton = (props: PaymentButtonProps) => {
 
-    const [login] = useLocalStorage<UserProfile | null>({ key: 'login', defaultValue: null });
+    const [login] = useLocalStorage<IUserProfile | null>({ key: 'login', defaultValue: null });
 
     const payCallback = (resposne: any) => {
         if (resposne.success) {

@@ -3,7 +3,7 @@ import { createStyles, SimpleGrid, Loader, UnstyledButton } from '@mantine/core'
 import ArticleCard from './CourseCard';
 import { ICourse } from '../dto/Course';
 import { Link, useLocation } from "react-router-dom";
-import CourseRepositry from '../repositories/Course';
+import CourseRepository from '../repositories/Course';
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -41,8 +41,8 @@ const CourseGrid = () => {
     }
 
     useEffect( () => {
-      new CourseRepositry()
-        .getCourses()
+      new CourseRepository()
+        .getAllCourses()
         .then(
           (courses) => {
             setCourses(courses);

@@ -1,22 +1,51 @@
 import React, {MouseEvent, useCallback} from 'react';
-import { AppShell, Grid, createStyles, Title, Group, Text, Divider, Box, Space} from '@mantine/core';
+import { Grid, createStyles, Title, Text, Divider, Box, Space} from '@mantine/core';
 import RoadMapNav from '../components/RoadMapNav';
 import CourseReviewGrid from '../components/CourseReviewGrid';
 import SimpleCourseGrid from "../components/SimpleCourseGrid";
-import VideoJS from '../components/Video';
 import { useState } from 'react';
+import ReactPlayer from 'react-player/lazy';
 
 const useStyles = createStyles((theme) => ({
+  roadMap: {
+    justifyContent: "flex-start",
+    flexDirectrion: "columns",
+    // marginLeft: "100px",
+  },
+  navBar: {
+    flex: "1 1 20%",
+    maxWidth: "20%",
+    marginTop: "50px",
+    marginLeft: "100px",
+    padding: 0,
+    '@media (max-width: 1760px)': {
+      display: "none"
+    }
+  },
+  courseInfo: {
+    flex: "1 1 50%",
+    marginTop: "50px",
+    marginLeft: "100px",
+  },
+  player: {
+    position: "absolute",
+    top: 0,
+    left: 0
+  },
+  playerBox: {
+    flex: "1 1 45%",
+    position: "relative",
+    // width: "100%",
+    // height: "100%",
+    minHeight: 400,
+  },
   courseInfoArea: {
-    marginLeft: 50,
-    marginRight: 50
+    marginTop: 50,
   },
   courseInfoBox : {
-    padding: 50,
-    width: 600,
-    height: 450,
-    display: "inline-block",
-    backgroundColor: "#D3D3D3"
+    flex: "1 1 30%",
+    backgroundColor: "#D3D3D3",
+    padding: "40px 60px"
   },
   gridBox: {
     position: 'relative',
@@ -24,27 +53,13 @@ const useStyles = createStyles((theme) => ({
     height: 300,
     backgroundColor: "#D3D3D3"
   },
-  sideBarModal: {
-    width: '100%'
-  }
+
 }));
 
 const RoadMap = () => {
-    const { classes } = useStyles();
-    const [roadMapType, setRoadMapType] = useState("frontend");
+  const { classes } = useStyles();
+  const [roadMapType, setRoadMapType] = useState("frontend");
 
-    const videoJsOptions = {
-        autoplay: false,
-        controls: true,
-        responsive: true,
-        aspectRatio: '4:3',
-        sources: [
-            {
-                src: '//vjs.zencdn.net/v/oceans.mp4',
-                type: 'video/mp4'
-            }
-        ]
-    };
   const roadMapTypeClickHandler = useCallback(
     (e: MouseEvent<HTMLHeadingElement>) => {
       e.stopPropagation();
@@ -53,83 +68,54 @@ const RoadMap = () => {
   )
 
   return (
-      <AppShell
-        zIndex={90}
-      >
-        <Grid columns={24} ml={70}>
-          {/* <MediaQuery
-            largerThan="sm" styles={{ display: 'none' }}
-          >
-            <Modal
-              opened={opened}
-              onClose={() => {}}
-              closeOnClickOutside={false}
-              closeOnEscape={false}
-              size='100%'
-              zIndex={90}
-            >
-              <Title order={1} align="center">
-                    포지션
-              </Title>
-              <Space h="xl"/>
-              <Title
-                  id={"frontend"}
-                  order={3}
-                  align="center"
-                  sx={{color: activeTitle === 'frontend' ? '#228BE6': '#212529'}}
-                  onClick={roadMapTypeClickHandler}
-              >
-                  Front-End 개발자
-              </Title>
-              <Space h="xl"/>
-              <Title
-                  id={"backend"}
-                  order={3}
-                  align="center"
-                  sx={{color: activeTitle === 'backend' ? '#228BE6': '#212529'}}
-                  onClick={roadMapTypeClickHandler}
-              >
-                  Back-End 개발자
-              </Title>
-            </Modal>
-          </MediaQuery> */}
-          <Grid.Col span={4}>
-            <RoadMapNav
-              onClickHandler={roadMapTypeClickHandler} 
-              activeTitle={roadMapType} 
-            />
-          </Grid.Col>
-          <Grid.Col span={20}>
-            <Box className={classes.courseInfoArea}>
-                <Group>
-                    <Box sx={{width: 600, height: 450}}>
-                      <VideoJS options={videoJsOptions} />
-                    </Box>
-                    <Box className={classes.courseInfoBox}>
-                        <Title order={1} align="center" p="xl">Front-End All-in-One</Title>
-                        <Divider size="sm" color="dark"></Divider>
-                        <Space h="md"/>
-                        <Box sx={(theme) => ({padding: theme.spacing.xl, backgroundColor: "#F8F8FF"})}>
-                            <Text align="center">러닝커브</Text>
-                        </Box>
-                        <Space h="md"/>
-                        <Box sx={(theme) => ({padding: theme.spacing.xl, backgroundColor: "#F8F8FF"})}>
-                            <Text align="center">스킬셋</Text>
-                        </Box>
-                    </Box>
-                </Group>
-                <Space h="xl"/>
-                <Box className={classes.gridBox}>
-                    <CourseReviewGrid cols={3}/>
-                </Box>
-                <Space h="xl"/>
-                <Box className={classes.gridBox}>
-                    <SimpleCourseGrid cols={3} roadMapeType={roadMapType}/>
-                </Box>
-            </Box>
-          </Grid.Col>
-        </Grid>
-      </AppShell>
+      <Grid className={classes.roadMap}>
+        <Grid.Col className={classes.navBar}>
+          <RoadMapNav
+            onClickHandler={roadMapTypeClickHandler} 
+            activeTitle={roadMapType} 
+          />
+        </Grid.Col>
+        <Grid.Col className={classes.courseInfo}>
+          <Grid sx={{justifyContent: "space-between", alignItems: "stretch"}}>
+            <Grid.Col className={classes.playerBox}>
+              <ReactPlayer
+                className={classes.player}
+                config={{ file: { 
+                  attributes: {
+                    controlsList: "nodownload"
+                  }
+                }}}
+                url={'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'}
+                width={"100%"}
+                height={"100%"}
+                controls={true}
+                />
+            </Grid.Col>
+            <Grid.Col sx={{maxWidth: "1%"}}/>
+            <Grid.Col className={classes.courseInfoBox}>
+              <Title order={1} align="center" p="xl">Front-End All-in-One</Title>
+              <Divider size="sm" color="dark"></Divider>
+              <Space h="md"/>
+              <Box sx={(theme) => ({padding: theme.spacing.xl, backgroundColor: "#F8F8FF"})}>
+                <Text align="center">러닝커브</Text>
+              </Box>
+              <Space h="md"/>
+              <Box sx={(theme) => ({padding: theme.spacing.xl, backgroundColor: "#F8F8FF"})}>
+                  <Text align="center">스킬셋</Text>
+              </Box>
+            </Grid.Col>
+            <Grid.Col sx={{maxWidth: "10%"}}/>
+          </Grid>
+          <Grid className={classes.courseInfoArea} sx={{justifyContent: "space-between", alignItems: "stretch"}}>
+              <Box className={classes.gridBox}>
+                  <CourseReviewGrid cols={3}/>
+              </Box>
+              <Box className={classes.gridBox}>
+                  <SimpleCourseGrid cols={3} roadMapeType={roadMapType}/>
+              </Box>
+          </Grid>
+        </Grid.Col>
+      </Grid>
   );
 }
 

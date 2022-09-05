@@ -1,30 +1,44 @@
 import axios from "axios";
 import { Course, ICourse } from "../dto/Course";
-import {sampleCourses} from '../data/courses';
+// import {sampleCourses} from '../data/courses';
 
 
-class CourseRepositry {
-    async getCourses(id: string = ""){
-        // const path = "/courses"
-        // const url = id === "" ? path : `${path}/id`
+class CourseRepository {
+    async getAllCourses(){
+        const ret = await axios.get<ICourse[]>(
+            process.env.REACT_APP_API_URL + "courses",
+            {withCredentials: true}
+        );
+        return ret.data;
+        // return await sampleCourses;
+    }
 
-        // const ret = await axios.get<ICourse[]>(url, {withCredentials: true});
-        // return ret.data;
-        // try {
-        // } catch {
-        // }
-        return await sampleCourses;
+    async getCourseById(id: string) {
+        const path = process.env.REACT_APP_API_URL + `courses?id=${id}`
+        const ret = await axios.get<ICourse>(path, {withCredentials: true});
+        return ret.data
+    }
+
+    async getMyCourse() {
+        const path = process.env.REACT_APP_API_URL + "courses/my"
+        const ret = await axios.get<ICourse[]>(
+            path,
+            {
+                withCredentials: true
+            }
+        );
+        return ret.data
     }
 
     async createCourse(url: string, course: Course) {
         const ret = await axios.post<ICourse>(url, course);
-        return ret.data;
+        return ret;
     }
 
     async updateCourse(url: string, course: Course) {
         const ret = await axios.put<ICourse>(url, course);
-        return ret.data;
+        return ret;
     }
 }
 
-export default CourseRepositry;
+export default CourseRepository;

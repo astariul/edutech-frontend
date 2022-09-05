@@ -4,7 +4,6 @@ import { createStyles, Navbar, Title } from '@mantine/core';
 const useStyles = createStyles((theme) => ({
   sideBar : {
     backgroundColor: '#D3D3D3',
-    width: '100%'
   },
 }));
 
@@ -19,8 +18,7 @@ const RoadMapNav = ({onClickHandler, activeTitle}: RoadMapNavProps) => {
 
 
     return (
-        <>
-        <Navbar hiddenBreakpoint="xl" hidden={true} p="xs" className={classes.sideBar}>
+        <Navbar hiddenBreakpoint={1760} hidden={true} p="xs" className={classes.sideBar}>
             <Navbar.Section sx={{marginTop:30, marginBottom:50}}>
                 <Title order={1} align="center">
                     포지션
@@ -49,7 +47,6 @@ const RoadMapNav = ({onClickHandler, activeTitle}: RoadMapNavProps) => {
                 </Title>
             </Navbar.Section>
         </Navbar>
-        </>
     )
 }
 

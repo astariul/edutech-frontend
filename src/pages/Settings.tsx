@@ -17,7 +17,7 @@ import {
   Space,
   Popover,
 } from '@mantine/core';
-import {UserProfile} from '../components/LocalStorage';
+import { IUserProfile } from '../dto/UserProfile';
 
 export default function Settings() {
   const [loadingProfile, setLoadingProfile] = useState(false);
@@ -25,7 +25,7 @@ export default function Settings() {
   const [errorProfile, setErrorProfile] = useState<string | null>(null);
   const [errorPassword, setErrorPassword] = useState<string | null>(null);
 
-  const [login] = useLocalStorage<UserProfile>({ key: 'login' });
+  const [login] = useLocalStorage<IUserProfile>({ key: 'login' });
 
   const formProfile = useForm({
     initialValues: {

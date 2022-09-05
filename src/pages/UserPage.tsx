@@ -3,14 +3,13 @@ import { useState } from 'react';
 import { createStyles, Center } from '@mantine/core';
 import AuthenticationForm from '../components/AuthentificationForm';
 import { Routes, Route } from 'react-router-dom';
-import Overview from './Overview';
+import Feed from './Feed';
 import Mycourses from './MyCourses';
 import Milestones from './Milestones';
 import Performances from './Performances';
 import Resume from './Resume';
 import Settings from './Settings';
-import {UserProfile} from '../components/LocalStorage';
-
+import { IUserProfile } from '../dto/UserProfile';
 
 const useStyles = createStyles((theme) => ({
   firstElem: {
@@ -21,7 +20,7 @@ const useStyles = createStyles((theme) => ({
 
 export default function UserPage() {
   const { classes } = useStyles();
-  const [login] = useLocalStorage<UserProfile | null>({ key: 'login', defaultValue: null });
+  const [login] = useLocalStorage<IUserProfile | null>({ key: 'login', defaultValue: null });
   const [formType, setFormType] = useState<'register' | 'login'>('login');
 
   let content;
@@ -34,7 +33,7 @@ export default function UserPage() {
   } else {
     content = (
       <Routes>
-        <Route path='' element={<Overview />}></Route>
+        <Route path='' element={<Feed />}></Route>
         <Route path='courses' element={<Mycourses />}></Route>
         <Route path='milestones' element={<Milestones />}></Route>
         <Route path='performances' element={<Performances />}></Route>
