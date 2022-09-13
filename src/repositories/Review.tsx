@@ -15,7 +15,6 @@ class ReviewRepositry {
         const ret = await axios.post<IReview>(
             process.env.REACT_APP_API_URL + "/review",
             review,
-            {withCredentials: true}
         );
         return ret;
     }
@@ -24,7 +23,6 @@ class ReviewRepositry {
         const ret = await axios.put<IReview>(
             process.env.REACT_APP_API_URL + "/review",
             review,
-            {withCredentials: true}
         );
         return ret;
     }

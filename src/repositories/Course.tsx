@@ -7,7 +7,7 @@ class CourseRepository {
   async getAllCourses(){
     const ret = await axios.get<ICourse[]>(
         process.env.REACT_APP_API_URL + "courses",
-        {withCredentials: true}
+        // {withCredentials: true}
     );
     return ret.data;
       // return await sampleCourses;
@@ -17,7 +17,7 @@ class CourseRepository {
     const path = process.env.REACT_APP_API_URL + `courses/${courseId}`;
     const ret = await axios.get<ICourseVideo>(
       path,
-      {withCredentials: true}
+      // {withCredentials: true}
     );
     return ret.data
   }
@@ -28,7 +28,7 @@ class CourseRepository {
       path,
       {
         headers: {Authorization: `Bearer ${token}`},
-        withCredentials: true
+        // withCredentials: true
       }
     );
     return ret.data
@@ -56,9 +56,9 @@ class CourseRepository {
     const path = process.env.REACT_APP_API_URL + `courses/season/${courseId}`
     const ret = await axios.get<IEpisode[]>(
       path,
-      {
-        withCredentials: true
-      }
+      // {
+      //   withCredentials: true
+      // }
     );
     return ret.data
   }
@@ -68,9 +68,9 @@ class CourseRepository {
                 + `courses/my/current/${courseId}/${epsideNumber}`
     const ret = await axios.post<{message: string}>(
       path,
-      {
-        withCredentials: true
-      }
+      // {
+      //   withCredentials: true
+      // }
     )
     return ret.data
   }
@@ -80,9 +80,9 @@ class CourseRepository {
                 + `courses/my/iscompleted/${courseId}/${epsideNumber}`
     const ret = await axios.get<boolean>(
       path,
-      {
-        withCredentials: true
-      }
+      // {
+      //   withCredentials: true
+      // }
     )
     return ret.data
   }

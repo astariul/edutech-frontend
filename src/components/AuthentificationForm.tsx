@@ -73,11 +73,7 @@ export default function AuthenticationForm({
       email: id,
       password: pw,
     };
-    axios.post(
-      process.env.REACT_APP_API_URL + "auth/signup",
-      data,
-      { withCredentials: true}
-    )
+    axios.post(process.env.REACT_APP_API_URL + "auth/signup", data)
     .then( () => setRegistered(true) )
     .catch( ( {response} ) => {
       if (response.status === 409) {
@@ -118,7 +114,6 @@ export default function AuthenticationForm({
       const response = await axios.post(
         process.env.REACT_APP_API_URL + "auth/login",
         { email: id, password: pw },
-        { withCredentials: true}
       );
       
       user = {
