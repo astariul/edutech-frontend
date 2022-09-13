@@ -1,5 +1,21 @@
 ## Release
 - `0.0.25`:
+    - 피드 API 연동
+    - 강의실 페이지 기능 추가
+      - 이어서 수강하기 버튼
+    - 강좌 페이지 수정
+    - 강의 시청 페이지 레이아웃 컴포넌트 수정
+    - 강의 시청 페이지, toogle 추가
+    - 코드 로드맵 페이지 레이아웃 컴포넌트 수정
+    - 비디오 플레이어 라이브러리 VideoJs에서 react-player로 변경
+    - 로그인 정보 유효성 확인 로직 추가(auth/me API 연동)
+    - Feed, Auth repository 클래스 추가
+    - UserProfile interface IUserProfile로 명칭 변경
+    - Overview 페이지 및 컴포넌트 Feed로 명칭 변경
+    - 설문 페이지 추가
+
+
+- `0.0.25`:
     - 코스 로드맵 페이지 추가
     - 강의실 페이지 추가
     - 헤더 수정

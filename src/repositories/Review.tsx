@@ -12,15 +12,21 @@ class ReviewRepositry {
     }
 
     async createReview(review: IReview) {
-        const path = "/review"
-        const ret = await axios.post<IReview>(path, review);
-        return ret.data;
+        const ret = await axios.post<IReview>(
+            process.env.REACT_APP_API_URL + "/review",
+            review,
+            {withCredentials: true}
+        );
+        return ret;
     }
 
     async updateReview(review: IReview) {
-        const path = "/review"
-        const ret = await axios.put<IReview>(path, review);
-        return ret.data;
+        const ret = await axios.put<IReview>(
+            process.env.REACT_APP_API_URL + "/review",
+            review,
+            {withCredentials: true}
+        );
+        return ret;
     }
 }
 

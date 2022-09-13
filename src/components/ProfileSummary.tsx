@@ -1,10 +1,10 @@
 import React from 'react';
 import { useLocalStorage } from '@mantine/hooks';
 import { Avatar, Group, Text } from '@mantine/core';
-import {UserProfile} from './LocalStorage';
+import { IUserProfile } from '../dto/UserProfile';
 
 export default function ProfileSummary() {
-  const [login] = useLocalStorage<UserProfile>({ key: 'login'});
+  const [login] = useLocalStorage<IUserProfile>({ key: 'login'});
 
   return (
     <Group spacing="sm">

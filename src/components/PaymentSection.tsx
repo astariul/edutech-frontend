@@ -2,7 +2,7 @@ import React from "react";
 import { Card, createStyles, Text } from '@mantine/core';
 import { useLocalStorage } from "@mantine/hooks";
 import IamPortPaymentButton from './PaymentButton';
-import { UserProfile } from "./LocalStorage";
+import { IUserProfile } from '../dto/UserProfile';
 
 interface PaymentSectionProps {
   courseID: string;
@@ -38,7 +38,7 @@ const PaymentSection = (props: PaymentSectionProps) => {
 
     const { classes } = useStyles()
     const merchantUID = getMerchantUID()
-    const [login] = useLocalStorage<UserProfile | null>({key: 'login', defaultValue: null});
+    const [login] = useLocalStorage<IUserProfile | null>({key: 'login', defaultValue: null});
 
     return (
       <>

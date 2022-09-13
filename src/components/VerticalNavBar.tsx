@@ -62,32 +62,31 @@ function NavbarLink({ icon: Icon, label, link, active, onClick }: NavbarLinkProp
 
 const linksData = [
   { icon: News, label: '피드', link: '/feed' },
-  { icon: DeviceLaptop, label: '강의실', link: '/class' },
+  { icon: DeviceLaptop, label: '강의실', link: '/myclass' },
   { icon: FileCertificate, label: '이력서', link: '/mypage/resume' },
 ];
 
 export default function NavbarMinimal() {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState('');
 
-  const links = linksData.map((link, index) => (
-    <>
+  const links = linksData.map((link) => (
+    <div key={link.label}>
       <NavbarLink
         icon={link.icon}
         link={link.link}
         label=""
-        key={link.label}
-        active={index === active}
-        onClick={() => setActive(index)}
+        active={link.label === active}
+        onClick={() => setActive(link.label)}
         />
       <Text size="xs">{link.label}</Text>
-    </>
+    </div>
   ));
 
   const location = useLocation();
   useEffect(() => {
     for (let link of linksData) {
       if (location.pathname.startsWith(link.link)) {
-        setActive(linksData.indexOf(link));
+        setActive(link.label);
       }
     }
   }, [location.pathname, setActive]);
