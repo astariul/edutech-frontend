@@ -62,7 +62,7 @@ function NavbarLink({ icon: Icon, label, link, active, onClick }: NavbarLinkProp
 
 const linksData = [
   { icon: News, label: '피드', link: '/feed' },
-  { icon: DeviceLaptop, label: '강의실', link: '/class' },
+  { icon: DeviceLaptop, label: '강의실', link: '/myclass' },
   { icon: FileCertificate, label: '이력서', link: '/mypage/resume' },
 ];
 

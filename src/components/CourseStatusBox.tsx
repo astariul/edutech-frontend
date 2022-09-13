@@ -1,6 +1,11 @@
-import React from 'react';
-import { createStyles, Container, Grid, Text, Button } from '@mantine/core';
-import { Link } from 'react-router-dom';
+import React, { /*useState*/ } from 'react';
+import { createStyles, Container, Grid, Text, Box, Space } from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
+import CourseRepository from '../repositories/Course';
+import { useCallback } from 'react';
+import { useLocalStorage } from '@mantine/hooks';
+import { IUserProfile } from '../dto/UserProfile';
+import { ICourse, IVideo } from '../dto/Course';
 
 const useStyles = createStyles((theme) => ({
   statusBox: {
@@ -54,13 +59,51 @@ const useStyles = createStyles((theme) => ({
 }));
 
 
-const CourseStatusBox = () => {
+interface CourseStatusBoxProps {
+  course: ICourse;
+  videos: IVideo[] | {message: string};
+  generateButtonGroup: () => JSX.Element|JSX.Element[];
+}
+
+const CourseStatusBox = ({course, videos, generateButtonGroup}: CourseStatusBoxProps) => {
+
+  const [login] = useLocalStorage<IUserProfile | null>({ key: 'login', defaultValue: null });
+  // const [nextEpisodePath, setNextEpisodePath] = useState("");
   const { classes } = useStyles();
+  const navigate = useNavigate();
+
+  const toNextEpisode = useCallback(
+    () => {
+    return new CourseRepository()
+      .getCurrentEpisode(login?.token as string, course.id)
+      .then(
+        (episode) => {
+          if (videos.hasOwnProperty("message")){
+            alert("강의 영상 업로드 전 입니다.")
+            return
+          }
+          else {
+            const title = course.title.split(" ").join("")
+            navigate(
+              `/class/${title}/${episode?.seasonNumber}/${episode?.number}`,
+              {
+                state: {
+                ...episode,
+                courseId: course.id,
+                courseTitle: course.title
+                }
+              }
+            )
+          }
+        }
+      )
+    }, [login, navigate, course, videos]
+  )
 
   return (
       <Grid className={classes.statusBox}>
         <Grid.Col className={classes.leftGrid}>
-          <Text className={classes.title}>FrontEnd-All-in-One</Text>
+          <Text className={classes.title}>{course.title}</Text>
           <Text className={classes.statusComment}>진척률통계</Text>
         </Grid.Col>
         <Grid.Col className={classes.middleGrid}>
@@ -69,21 +112,18 @@ const CourseStatusBox = () => {
         </Grid.Col>
         <Grid.Col className={classes.rightGrid}>
           <Grid className={classes.action}>
-            <Button
-              className={classes.actionItem}
-              component={Link}
-              to="/classrounge/*"
+            {generateButtonGroup()}
+            <Box>빈 영역</Box>
+            <Space h="xl"></Space>
+            <Text
+              underline
+              variant="link"
+              component="a"
+              onClick={toNextEpisode}
+              style={{cursor: "pointer"}}
             >
-              라운지 입장
-            </Button>
-            <Button
-              className={classes.actionItem}
-              component={Link}
-              to="/roadmap"
-            >
-              강좌 페이지
-            </Button>
-            <Button className={classes.actionItem}>이어서 수강하기</Button>
+              다음강의:
+            </Text>
           </Grid>
         </Grid.Col>
       </Grid>

@@ -5,7 +5,7 @@ import { Feed, IFeed } from '../dto/Feed';
 class FeedRepository {
     async getFeeds(pageNo: number, size: number = 0){
         const ret = await axios.get<{totalPages: number, feeds: IFeed[]}>(
-            process.env.REACT_APP_API_URL + `feeds?pageNo=${pageNo}?size=${size}`,
+            process.env.REACT_APP_API_URL + `feeds?pageNo=${pageNo}&size=${size}`,
             {
                 withCredentials: true
             }

@@ -1,14 +1,24 @@
 import { Title, Center, Container, createStyles } from '@mantine/core';
 import FeedCard from '../components/FeedCard';
 import FeedRepository from '../repositories/Feed';
-import { useEffect, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 import { IFeed } from '../dto/Feed';
+import { Pagination } from '@mantine/core';
+import { useCallback } from 'react';
+import { useLocalStorage } from '@mantine/hooks';
+import { IUserProfile } from '../dto/UserProfile';
+import AuthenticationForm from '../components/AuthentificationForm';
+
 
 const useStyles = createStyles((theme) => ({
   page_title: {
     fontWeight: 500,
     color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
   },
+  pagination: {
+    display: "flex",
+    justifyContent: "center"
+  }
 }));
 
 const sampleDatas = [
@@ -75,42 +85,84 @@ const sampleDatas = [
 ]
 
 const Feed = () => {
+  const numFeedPerPage = 10;
   const { classes } = useStyles();
   const [feeds, setFeeds] = useState<IFeed[]>([]);
-  // const [totalPage, setTotalPages] = useState<number>(1);
+  const [activePage, setPage] = useState(1);
+  const [totalPage, setTotalPages] = useState(1);
+  const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
+  const [formType, setFormType] = useState<"register" | "login">("login");
 
   useEffect(
     () => {
-      new FeedRepository()
-      .getFeeds(1)
-      .then(
-          (res) => {
-            setFeeds(res?.feeds);
-            // setTotalPages(res?.totalPages);
-          }
+      (login) && (
+        new FeedRepository()
+        .getFeeds(1, numFeedPerPage)
+        .then(
+            (res) => {
+              if (res?.totalPages === 0){
+                alert("피드가 없습니다.")
+                return
+              }
+              setFeeds(res?.feeds);
+              setTotalPages(res?.totalPages);
+            }
+        )
       )
-    }, [setFeeds]
+    }, [numFeedPerPage, login]
   )
 
   const feedData = (feeds) || (sampleDatas)
   const feed = feedData.map((f) => (
-    <Container pt="md">
-      <FeedCard key={f.id} postedAt={f.createdAt} body={f.text} author={{name:f.user.name, image:''}} likes={f.like}/>
+    <Container pt="md" key={f.id}>
+      <FeedCard postedAt={f.createdAt} body={f.text} author={{name:f.user.name, image:''}} likes={f.like}/>
     </Container>
   ));
 
+  const onClickPageButton = useCallback(
+    (e: MouseEvent<HTMLDivElement | HTMLButtonElement>) => {
+      const target = e.target as HTMLButtonElement;
+      const clickedPageNo = parseInt(target.innerText)
+      new FeedRepository()
+      .getFeeds(clickedPageNo, numFeedPerPage)
+      .then(
+          (res) => {
+            setFeeds(res?.feeds);
+            setPage(clickedPageNo);
+          }
+      )
+
+    }, [numFeedPerPage]
+  )
+
   return (
     <>
-      <Container pt="xl" size="sm">
-        <Center pt="xl" pb="xl">
-          <Title order={1} className={classes.page_title}>What's new ?</Title>
-        </Center>
-      </Container>
-      <Container pt="md" pb="md">
-        {feed}
-      </Container>
+      {
+        (!login) && (
+          <Center sx={{paddingTop: 100}}>
+              <AuthenticationForm formType={formType} setFormType={setFormType} modalSetOpened={() => void(0)} />
+          </Center>
+        )
+      }
+      {
+        (login) && (
+          <>
+            <Container pt="xl" size="sm">
+              <Center pt="xl" pb="xl">
+                <Title order={1} className={classes.page_title}>What's new ?</Title>
+              </Center>
+            </Container>
+            <Container pt="md" pb="md">
+              {feed}
+            </Container>
+            <Container pt="md" pb="md" className={classes.pagination}>
+              <Pagination page={activePage} onChange={setPage} total={totalPage} onClick={onClickPageButton} />
+            </Container>
+          </>
+        )
+      }
     </>
-  );
+  )
 }
 
 export default Feed;

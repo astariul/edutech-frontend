@@ -112,7 +112,7 @@ const links = [
     "label": "피드"
   },
   {
-    "link": "/class",
+    "link": "/myclass",
     "label": "강의실"
   }
 ];

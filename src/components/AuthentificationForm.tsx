@@ -34,6 +34,7 @@ export default function AuthenticationForm({
   const [, setLogin] = useLocalStorage<IUserProfile | null>({ key: 'login', defaultValue: null });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [, setAuthorized] = useLocalStorage<string | null>({ key: 'authorization', defaultValue: null });
   const [registered, setRegistered] = useLocalStorage<boolean>({ key: 'registered', defaultValue: false });
   // const [registered] = useLocalStorage<boolean>({ key: 'registered', defaultValue: false });
 
@@ -102,8 +103,10 @@ export default function AuthenticationForm({
           email:'user@gmail.com',
           name:'user',
           avatar: "https://images.unsplash.com/photo-1624298357597-fd92dfbec01d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80",
+          token: "jwt-token"
         }
       )
+      setAuthorized("authorized");
       return user;
     }
     // else {
@@ -124,8 +127,9 @@ export default function AuthenticationForm({
         avatar: "",
       };
       axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`;
-      setLogin({name: response.data.name, email: response.data.email, avatar: ""});
+      setLogin({name: response.data.name, email: response.data.email, avatar: "", token: response.data.token});
       setRegistered(false);
+      setAuthorized("authorized");
     }
     catch (err) {
       user = null;

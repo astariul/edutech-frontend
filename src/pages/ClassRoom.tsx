@@ -1,4 +1,4 @@
-import { createStyles, Grid, Container, Collapse, Center, Text, 
+import { createStyles, Grid, Container, Center, Text, 
   // Modal
 } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
@@ -8,8 +8,9 @@ import AuthenticationForm from "../components/AuthentificationForm";
 import { IUserProfile } from '../dto/UserProfile';
 import ReactPlayer from 'react-player/lazy';
 import CourseRepository from "../repositories/Course";
-import { IVideo } from "../dto/Course";
-// import { useParams } from "react-router-dom";
+import { IEpisode, IVideo } from "../dto/Course";
+import { useLocation, useNavigate } from "react-router-dom";
+import Toggle from '../components/Toggle';
 
 
 const useStyles = createStyles((theme) => ({
@@ -35,13 +36,11 @@ const useStyles = createStyles((theme) => ({
   },
   buttonContainer: {
     display: "flex",
-    width:"100%"
   },
-  courseSubCategoryText: {
+  seasonText: {
     flex: "0 0 70%",
-    textAlign: "center",
     paddingLeft: "105px",
-    fontSize: "22px",
+    fontSize: "20px",
     boxSizing: "border-box",
   },
   iconTriangle: {
@@ -54,187 +53,187 @@ const useStyles = createStyles((theme) => ({
   }
 }));
 
-let seasons = [1,2,3]
+type CourseEpisode = IEpisode & {courseId: string, courseTitle: string};
 
+const findUniqueSeasonNumber = (videos: IVideo[]) => {
+  const numbers = videos.map(
+    (each) => each.seasonNumber
+  )
+  return Array.from(new Set(numbers));
+}
+
+const findNextEpisode = (videos: IVideo[], currentEpisode: CourseEpisode): CourseEpisode => {
+  const ret = videos.find(
+    (each) =>
+      (
+        each.seasonNumber === currentEpisode.seasonNumber &&
+        each.number === currentEpisode.number &&
+        each.title === currentEpisode.title
+      )
+  )
+  return {
+    title: ret?.title as string,
+    number: ret?.number as number,
+    duration: ret?.duration as number,
+    seasonNumber: ret?.seasonNumber as number,
+    courseId: currentEpisode.courseId,
+    courseTitle: currentEpisode.courseTitle
+  };
+}
 
 const ClassRoom = () => {
 
-    const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
-    const [formType, setFormType] = useState<"register" | "login">("login");
-    const [opend, setOpend] = useState(false);
-    // const [
-    //   modalOpened,
-    //   setModalOpened
-    // ] = useState(false);
-    const [subCategory, setSubCategory] = useState("시즌 1");
-    // const [currentVideo, setCurrentVideo] = useState<number | null>(null);
-    // const [nextVideo, setNextVideo] = useState<number | null>(null);
-    // const [myCourse, setMyCourse] = useState<ICourse | null>(null);
-    const [courseVideos, setCourseVideos] = useState<IVideo[] | null>(null);
-    const {classes} = useStyles();
-    // const { courseId } = useParams();
-    const courseId = "630df6454d855e3ff3dffbb1"
+  const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
+  const [formType, setFormType] = useState<"register" | "login">("login");
+  
+  const [seasons, setSeasons] = useState<number[]>([]);
+  const [currentEpisode, setCurrentEpisode] = useState<CourseEpisode | null>(null);
+  const [courseVideos, setCourseVideos] = useState<IVideo[] | null>(null);
+  const [nextEpisode, setNextEpisode] = useState<CourseEpisode | null>(null);
+  const [videoUrl, setVideoUrl] = useState('')
+  const {classes} = useStyles();
+  const location = useLocation();
+  const navigate = useNavigate();
+  
+  const episode = location.state as CourseEpisode;
 
-    useEffect(
-      () => {
-        new CourseRepository()
-        .getCourseById(courseId as string)
-        .then(
-            (course) => {
-              // setMyCourse(course);
-              if (course.videos){
-                setCourseVideos(course.videos);
+  useEffect(
+    () => {
+      setCurrentEpisode(episode);
+      setVideoUrl(
+        `${process.env.REACT_APP_API_URL}courses/play/${currentEpisode?.courseId}/${currentEpisode?.number}}`
+      )
+            
+      new CourseRepository()
+      .getCourseById(episode.courseId as string)
+      .then(
+        (course) => {
+          const videos = course.videos as IVideo[];
+          setCourseVideos(videos);
+          setSeasons(findUniqueSeasonNumber(videos));
+          // setSeasons([1,2]);
+          // setCourseVideos([
+          //   {number:1, path: "", seasonNumber: 1, title: "intro", duration: 5},
+          //   {number:2, path: "", seasonNumber: 1, title: "lecture1", duration: 7},
+          // ]);
+          
+          setNextEpisode(findNextEpisode(videos, episode));
+        }
+      )
+    }
+    ,[currentEpisode, episode]
+  )
+
+  const onClickNextEpisode = useCallback(
+    (e: MouseEvent<HTMLHeadingElement>) => {
+      e.stopPropagation();
+      setCurrentEpisode(nextEpisode);
+      setVideoUrl(
+        `${process.env.REACT_APP_API_URL}courses/play/${currentEpisode?.courseId}/${currentEpisode?.number}}`
+      )
+            
+      new CourseRepository()
+      .getCourseById(nextEpisode?.courseId as string)
+      .then(
+        (course) => {
+          const videos = course.videos as IVideo[];
+          setCourseVideos(videos);
+          setSeasons(findUniqueSeasonNumber(videos));          
+          setNextEpisode(findNextEpisode(videos, currentEpisode as CourseEpisode));
+        }
+      )
+      // navigate(
+      //   `/class/${nextEpisode?.courseTitle}/${nextEpisode?.seasonNumber}/${nextEpisode?.number}`,
+      //   { state: nextEpisode }
+      // )
+    }, [currentEpisode, nextEpisode]
+  )
+  
+  const onClickCompleteEpisode = useCallback(
+    (e: MouseEvent<HTMLHeadingElement>) => {
+      e.stopPropagation();
+      navigate(`/survey/${currentEpisode?.courseId}`)
+    }, [currentEpisode, navigate]
+  )
+  
+  const onContinueToNextEpisode = useCallback(() => {
+    // 현재 강의(비디오) 플레이 완료 시 다음 에피소드 학습 이어가기 질문 모달
+    }, []
+  )
+
+  // const modalCloseHandler = useCallback(() => {
+  //   // 모달 종료시 메인 페이지로 이동
+  //   setModalOpened(false);
+  //   }, [setModalOpened]
+  // )
+
+  const ToggleSeason = seasons.map(
+    (num) => {
+      return (
+        <Toggle
+          key={num}
+          Name={<Text className={classes.seasonText}>시즌 {num}</Text>}
+          Icon={<TriangleInverted className={classes.iconTriangle}/>}
+          Items={
+            (courseVideos as IVideo[]).map(
+              (video) => {
+                return (
+                  <Grid.Col key={video.number} sx={{textAlign: "center"}}>
+                    EP0{video.number}  {video.title}  {video.hasOwnProperty("duration") ? video.duration + ":00": ""}
+                  </Grid.Col>
+                )
               }
-              else{
-              //  setModalOpened(true);
-              }
-              // setCurrentVideo(course.videos?.at(0)?.path as string);
-              // setNextVideo(course.videos?.at(1)?.number);
-            }
-        )
-        .catch(( {response} ) => {
-          console.log("err", response);
-          if (response.status.toString().startsWith("4"))
-          {
-            // setModalOpened(true);
+            )
           }
-        });
-      }, [courseId]
-    )
+        />
+      )
+    }
+  )
 
-    const clickNextHandler = useCallback(
-      (e: MouseEvent<HTMLHeadingElement>) => {
-        e.stopPropagation();
-        //  백엔드 다음강의 api 호출
-      }, []
-    )
-    
-    const clickDoneHandler = useCallback(
-      (e: MouseEvent<HTMLHeadingElement>) => {
-        e.stopPropagation();
-        //  백엔드 수강완료 api 호출
-      }, []
-    )
-
-    const clickSubCategoryHandler = useCallback(
-      (e: MouseEvent<HTMLHeadingElement>) => {
-        e.stopPropagation();
-        const target = e.target as HTMLElement;
-        setSubCategory(target.innerText);
-      }, []
-    )
-  
-    const subCategories = seasons.map(
-      (num) => {
-        return (
-          <Grid.Col key={num} sx={{textAlign: "center"}} onClick={clickSubCategoryHandler}>
-            시즌-{num}
-          </Grid.Col>
-        )
-      }
-    )
-
-    const onEndedHandler = useCallback(() => {
-      // 현재 강의(비디오) 플레이 완료 시 현재 강의, 다음 강의 상태 변경
-        // setCurrentVideo(nextVideo);
-      }, []
-    )
-  
-    // const modalCloseHandler = useCallback(() => {
-    //   // 모달 종료시 메인 페이지로 이동
-    //   setModalOpened(false);
-    //   }, [setModalOpened]
-    // )
-
-    const videos = (courseVideos) || ([
-        {
-          number: 1,
-          path: ""
-        },
-        {
-          number: 2,
-          path: ""
-        },
-        {
-          number: 3,
-          path: ""
-        },
-    ])
-
-    const episodes = videos?.map(
-      (video) => {
-        return (
-          <Grid.Col key={video.number} sx={{textAlign: "center"}}>
-            EP-{video.number}
-          </Grid.Col>
-        )
-      }
-    )
-  
     return (
-        <>
-        {/* <Modal
-          opened={modalOpened}
-          onClose={modalCloseHandler}
-        >
-          <Text>
-              요청하신 강의 동영상을 찾을 수 없습니다.
-          </Text>
-          <Text>
-            강의 또는 유닛이 존재하지 않습니다.
-          </Text>
-        </Modal> */}
-        {
-          (login) && (
-            <Grid className={classes.classRoom}>
-                <Grid.Col className={classes.videoContainer}>
-                  <ReactPlayer
-                    config={{ file: { 
-                      attributes: {
-                        controlsList: 'nodownload'
-                      }
-                    }}}
-                    url={ `${process.env.REACT_APP_API_URL}courses/play/${courseId}/2}`}
-                    height="100%"
-                    width="100%"
-                    controls={true}
-                    onEnded={onEndedHandler}
-                  />
-                </Grid.Col>
-                <Grid.Col className={classes.sidebar}>
-                  <Grid className={classes.sidebarContent} sx={{backgroundColor: "#D3D3D3", boxSizing: "border-box"}}>
-                    <Grid.Col sx={{fontSize: "20px", padding: "20px"}} onClick={clickDoneHandler}>수강 완료하기</Grid.Col>
-                    <Grid.Col sx={{backgroundColor: "#F8F9FA", width:"100%", padding: "4px"}}/>
-                    <Grid.Col sx={{fontSize: "20px", padding: "20px 50px 10px 50px"}} onClick={clickNextHandler}>다음 강의</Grid.Col>
-                    <Grid.Col sx={{fontSize: "17px", padding: "0px"}}>EP-1</Grid.Col>
-                    <Grid.Col sx={{backgroundColor: "#F8F9FA", width:"100%", padding: "8px"}}/>
-                    <Container sx={{fontSize: "20px", padding: "30px 0px 30px 0px", display: "flex", boxSizing: "border-box", border: "2px solid black", width:"100%"}}>
-                      <Text sx={{fontSize: "20px", flex: "0 0 50%", textAlign: "center"}}>목차</Text>
-                      <Text sx={{fontSize: "20px", flex: "0 0 50%", textAlign: "center"}}>채팅</Text>
-                    </Container>
-                    <Grid.Col sx={{backgroundColor: "#F8F9FA", width:"100%"}}/>
-                    <Grid.Col className={classes.buttonContainer} onClick={() => setOpend((o) => !o)}>
-                      <Text className={classes.courseSubCategoryText}>{subCategory}</Text>
-                      <TriangleInverted className={classes.iconTriangle}/>
-                    </Grid.Col>
-                  <Collapse in={opend}>
-                    {subCategories}
-                  </Collapse>
-                    {episodes}
-                  </Grid>
-                </Grid.Col>
-            </Grid>
-          )
-      }
+      <>
       {
-        (!login) && (
-          <Center sx={{paddingTop: 100}}>
-              <AuthenticationForm formType={formType} setFormType={setFormType} modalSetOpened={() => void(0)} />
-          </Center>
+        (login) && (
+          <Grid className={classes.classRoom}>
+              <Grid.Col className={classes.videoContainer}>
+                <ReactPlayer
+                  config={
+                    { file: { attributes: { controlsList: 'nodownload' }}}
+                  }
+                  url={videoUrl}
+                  height="100%"
+                  width="100%"
+                  controls={true}
+                  onEnded={onContinueToNextEpisode}
+                />
+              </Grid.Col>
+              <Grid.Col className={classes.sidebar}>
+                <Grid className={classes.sidebarContent} sx={{backgroundColor: "#D3D3D3", boxSizing: "border-box"}}>
+                  <Grid.Col sx={{fontSize: "20px", padding: "20px"}} onClick={onClickCompleteEpisode}>수강 완료하기</Grid.Col>
+                  <Grid.Col sx={{backgroundColor: "#F8F9FA", width:"100%", padding: "4px"}}/>
+                  <Grid.Col sx={{fontSize: "20px", padding: "20px 50px 10px 50px"}} onClick={onClickNextEpisode}>다음 강의</Grid.Col>
+                  <Grid.Col sx={{fontSize: "17px", padding: "0px"}}>EP0{nextEpisode?.number}: {nextEpisode?.title}</Grid.Col>
+                  <Grid.Col sx={{backgroundColor: "#F8F9FA", width:"100%", padding: "8px"}}/>
+                  <Container sx={{fontSize: "20px", padding: "30px 0px 30px 0px", display: "flex", boxSizing: "border-box", border: "2px solid black", width:"100%"}}>
+                    <Text sx={{fontSize: "20px", flex: "0 0 50%", textAlign: "center"}}>목차</Text>
+                    <Text sx={{fontSize: "20px", flex: "0 0 50%", textAlign: "center"}}>채팅</Text>
+                  </Container>
+                  <Grid.Col sx={{backgroundColor: "#F8F9FA", width:"100%"}}/>
+                  {ToggleSeason}
+                </Grid>
+              </Grid.Col>
+          </Grid>
         )
-      }
-      </>
-    )
+    }
+    {
+      (!login) && (
+        <Center sx={{paddingTop: 100}}>
+            <AuthenticationForm formType={formType} setFormType={setFormType} modalSetOpened={() => void(0)} />
+        </Center>
+      )
+    }
+    </>
+  )
 }
 
 export default ClassRoom;
