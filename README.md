@@ -1,5 +1,13 @@
 ## Release
-- `0.0.25`:
+- `0.0.27`
+    - 미사용 스크립트 제거(`CourseGrid.tsx`, `UserPage.tsx`, `MyCourses.tsx`, `Course.tsx`)
+    - 수강중인 강의가 없을시 `수강중인 강의가 없습니다.` 모달 나타나도록 수정
+    - 강의실 페이지 코스 탐색하기 가기로 되어 있는 문구 수정
+    - Feed Repository getFeeds 메서드 인자 추가
+    - `scripts/deploy.sh` 파일에서 staging, production 환경별로 다른 포트 사용하도록 수정
+    - 회원가입 비밀번호 자리수 조건 6자리 이상 15자리 이하로 수정
+
+- `0.0.26`:
     - 피드 API 연동
     - 강의실 페이지 기능 추가
       - 이어서 수강하기 버튼

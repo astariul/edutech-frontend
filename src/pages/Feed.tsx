@@ -97,7 +97,7 @@ const Feed = () => {
     () => {
       (login) && (
         new FeedRepository()
-        .getFeeds(1, numFeedPerPage)
+        .getFeeds(login?.token, 1, numFeedPerPage)
         .then(
             (res) => {
               if (res?.totalPages === 0){
@@ -124,7 +124,7 @@ const Feed = () => {
       const target = e.target as HTMLButtonElement;
       const clickedPageNo = parseInt(target.innerText)
       new FeedRepository()
-      .getFeeds(clickedPageNo, numFeedPerPage)
+      .getFeeds(login?.token as string, clickedPageNo, numFeedPerPage)
       .then(
           (res) => {
             setFeeds(res?.feeds);
@@ -132,7 +132,7 @@ const Feed = () => {
           }
       )
 
-    }, [numFeedPerPage]
+    }, [numFeedPerPage, login]
   )
 
   return (

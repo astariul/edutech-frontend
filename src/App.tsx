@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import Home from './pages/Home';
-import UserPage from './pages/UserPage';
 import { MantineProvider, AppShell } from '@mantine/core';
 import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';
 import { Routes, Route, useLocation } from 'react-router-dom';
@@ -68,7 +67,6 @@ function App() {
           <Route path='/course/*' element={<Course />}></Route>
           <Route path='/myclass' element={<MyClassRoom />}></Route>
           <Route path='/feed' element={<Feed />}></Route>
-          <Route path='/mypage/*' element={<UserPage />}></Route>
           <Route path='/mypage/course/*' element={<LearningCourse />}></Route>
           <Route path='/survey/*' element={<Survey />}></Route>
         </Routes>

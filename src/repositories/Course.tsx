@@ -7,7 +7,6 @@ class CourseRepository {
   async getAllCourses(){
     const ret = await axios.get<ICourse[]>(
         process.env.REACT_APP_API_URL + "courses",
-        // {withCredentials: true}
     );
     return ret.data;
       // return await sampleCourses;
@@ -17,7 +16,6 @@ class CourseRepository {
     const path = process.env.REACT_APP_API_URL + `courses/${courseId}`;
     const ret = await axios.get<ICourseVideo>(
       path,
-      // {withCredentials: true}
     );
     return ret.data
   }
@@ -26,10 +24,7 @@ class CourseRepository {
     const path = process.env.REACT_APP_API_URL + "courses/my"
     const ret = await axios.get<ICourseVideo[]>(
       path,
-      {
-        headers: {Authorization: `Bearer ${token}`},
-        // withCredentials: true
-      }
+      { headers: {Authorization: `Bearer ${token}`} }
     );
     return ret.data
   }

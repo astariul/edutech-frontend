@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Center, Container, createStyles } from "@mantine/core";
+import { Button, Center, Container, createStyles, Modal } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
 import CourseStatusBox from "../components/CourseStatusBox";
 import { IUserProfile } from '../dto/UserProfile';
@@ -46,6 +46,7 @@ const MyClassRoom = () => {
   const [formType, setFormType] = useState<'register' | 'login'>('login');
   const {classes} = useStyles();
   const [myCourses, setMyCourses] = useState<ICourseVideo[]>([]);
+  const [opened, setOpened] = useState(true);
   const navigate = useNavigate();
 
   useEffect(
@@ -126,17 +127,33 @@ const MyClassRoom = () => {
   return (
     <>
     {
-      (login) && (
+      (myCourses.length === 0) && (
+        <>
+        {
+          <Modal
+            opened={opened}
+            onClose={() => setOpened(false)}
+          >
+            수강중인 강의가 없습니다.
+          </Modal>
+        }
+        </>
+      )
+    }
+    {
+      (login) && (myCourses.length > 0) && (
         <>
           {
             myCourses.map(
               (each, index) => {
-                return <CourseStatusBox
-                        key={index}
-                        course={each.course}
-                        videos={each.videos}
-                        generateButtonGroup={() => getbuttonGroup(each.course, each.videos)}
-                        />
+                return (                    
+                  <CourseStatusBox
+                    key={index}
+                    course={each.course}
+                    videos={each.videos}
+                    generateButtonGroup={() => getbuttonGroup(each.course, each.videos)}
+                  />
+                )
               }
             )
           }
@@ -146,7 +163,7 @@ const MyClassRoom = () => {
               component={Link}
               to={"/roadmap"}
             >
-              코스 탐색하기 가기
+              코스 탐색하러 가기
             </Button>
           </Container>
         </>

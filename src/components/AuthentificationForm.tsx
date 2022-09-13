@@ -55,13 +55,13 @@ export default function AuthenticationForm({
     validationRules: {
       name: (value) => formType === 'login' || value.trim().length >= 2,
       email: (value) => /^\S+@\S+$/.test(value),
-      password: (value) => formType === 'login' || /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,10}$/.test(value),
+      password: (value) => formType === 'login' || /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,15}$/.test(value),
       confirmPassword: (val, values) => formType === 'login' || val === values?.password,
     },
 
     errorMessages: {
       email: '이메일 형식이 올바르지 않습니다.',
-      password: '비밀번호는 최소 1자리 숫자와 1자리 문자를 포함하면서 6자 이상 10자 이하로 구성되어야 합니다.',
+      password: '비밀번호는 최소 1자리 숫자와 1자리 문자를 포함하면서 6자 이상 15자 이하로 구성되어야 합니다.',
       confirmPassword: "비밀번호가 일치하지 않습니다.",
     },
   });
@@ -86,29 +86,6 @@ export default function AuthenticationForm({
   
   const login = async (id: string, pw: string) => {
     let user;
-    //TODO: 제거
-    if (id === 'user@gmail.com' && pw=== 'admin') {
-      user = {
-        token:'jwt-token',
-        email:'user@gmail.com',
-        name:'user',
-        avatar: "https://images.unsplash.com/photo-1624298357597-fd92dfbec01d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80",
-      }
-      setLogin(
-        {
-          email:'user@gmail.com',
-          name:'user',
-          avatar: "https://images.unsplash.com/photo-1624298357597-fd92dfbec01d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=250&q=80",
-          token: "jwt-token"
-        }
-      )
-      setAuthorized("authorized");
-      return user;
-    }
-    // else {
-      // window.alert("현재 로그인은 ID: user@gmail.com | PW:admin 로만 가능합니다.")
-      // user = null;
-    // }
     try {
       axios.defaults.headers.common["Access-Control-Allow-Origin"] = true;
       const response = await axios.post(
