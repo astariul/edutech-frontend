@@ -15,6 +15,7 @@ import AuthRepository from './repositories/Auth';
 import { IUserProfile } from './dto/UserProfile';
 import Survey from './pages/Survey';
 import Course from './pages/Course';
+import ClassRoom from './pages/ClassRoom';
 
 function App() {
   const [navOpened, toggleNavOpened] = useBooleanToggle(false);
@@ -66,6 +67,7 @@ function App() {
           <Route path='/roadmap' element={<RoadMap />}></Route>
           <Route path='/course/*' element={<Course />}></Route>
           <Route path='/myclass' element={<MyClassRoom />}></Route>
+          <Route path='/class/*' element={<ClassRoom />}></Route>
           <Route path='/feed' element={<Feed />}></Route>
           <Route path='/mypage/course/*' element={<LearningCourse />}></Route>
           <Route path='/survey/*' element={<Survey />}></Route>
