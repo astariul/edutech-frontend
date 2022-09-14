@@ -60,7 +60,7 @@ const MyClassRoom = () => {
         )
     }, [login]
   )
-  
+ 
   // const courses = (myCourses) || myCourseStats
   // console.log(course)
 
@@ -75,7 +75,7 @@ const MyClassRoom = () => {
         }
       )
     }
-  
+
   const onResumeCourse = (course: ICourse, videos: IVideo[] | { message: string }) => {
     new CourseRepository()
       .getCurrentEpisode(login?.token as string, course.id)
@@ -127,7 +127,7 @@ const MyClassRoom = () => {
   return (
     <>
     {
-      (myCourses.length === 0) && (
+      (login) && (myCourses.length === 0) && (
         <>
         {
           <Modal
