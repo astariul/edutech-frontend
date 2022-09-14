@@ -78,16 +78,14 @@ const Course = () => {
         (season) => {
           const rows = (videos as IVideo[]).map(
             (video) => {
-              if (video.seasonNumber === season) {
-                return (
-                  <tr key={video.title}>
-                    <td>EP{video.number}</td>
-                    <td>{video.title}</td>
-                    <td>{video.duration}</td>
-                    <td><Checkbox color={"black"}/></td>
-                  </tr>
-                )
-              }
+              return (video.seasonNumber === season) && (
+                <tr key={video.title}>
+                  <td>EP{video.number}</td>
+                  <td>{video.title}</td>
+                  <td>{video.duration}</td>
+                  <td><Checkbox color={"black"}/></td>
+                </tr>
+              )
             }
           )
           const table = (

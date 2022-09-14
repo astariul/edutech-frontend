@@ -63,7 +63,7 @@ const ClassRoom = () => {
   const [courseId] = useState(episode?.courseId)
   const [courseTitle] = useState(episode?.courseTitle)
   const [seasons, setSeasons] = useState<number[]>([]);
-  const [currentEpisode, setCurrentEpisode] = useState<CourseEpisode | null>(null);
+  const [, setCurrentEpisode] = useState<CourseEpisode | null>(null);
   const [courseVideos, setCourseVideos] = useState<IVideo[] | null>(null);
   const [nextEpisode, setNextEpisode] = useState<CourseEpisode | null>(null);
   const [videoUrl, setVideoUrl] = useState(
@@ -86,7 +86,7 @@ const ClassRoom = () => {
         }
       )
     }
-    ,[episode]
+    ,[episode, courseId]
   )
 
   const onClickNextEpisode = useCallback(
@@ -111,14 +111,14 @@ const ClassRoom = () => {
           }
         }
       )
-    }, [courseVideos, nextEpisode]
+    }, [courseVideos, nextEpisode, courseId, courseTitle, navigate]
   )
 
   const onClickCompleteEpisode = useCallback(
     (e: MouseEvent<HTMLHeadingElement>) => {
       e.stopPropagation();
       navigate(`/survey/${courseId}`)
-    }, [login, currentEpisode, navigate]
+    }, [courseId, navigate]
   )
 
   const onClickTargetEpisode = useCallback(
@@ -141,7 +141,7 @@ const ClassRoom = () => {
         `/class/${courseTitle.split(" ").join("")}/${video.seasonNumber}/${video.number}`,
         { state: targetEpisode }
       )
-    }, []
+    }, [courseId, courseTitle, courseVideos, navigate]
   )
 
   const ToggleSeason = seasons.map(
