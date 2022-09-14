@@ -11,7 +11,7 @@ const Toggle = ({ Name, Icon, Items }: toggleProps) => {
   const [toggled, setToggled] = useState(false);
   return (
     <div style={{display: "flex", width: "100%", flexDirection: "column"}}>
-      <Grid.Col style={{display: "flex"}} onClick={() => setToggled((o) => !o)}>
+      <Grid.Col style={{display: "flex", cursor: "pointer"}} onClick={() => setToggled((o) => !o)}>
         {Name}
         {Icon}
       </Grid.Col>
