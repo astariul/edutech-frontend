@@ -46,7 +46,7 @@ const MyClassRoom = () => {
   const [formType, setFormType] = useState<'register' | 'login'>('login');
   const {classes} = useStyles();
   const [myCourses, setMyCourses] = useState<ICourseVideo[]>([]);
-  const [opened, setOpened] = useState(true);
+  const [opened, setOpened] = useState(false);
   const navigate = useNavigate();
 
   useEffect(
@@ -55,14 +55,14 @@ const MyClassRoom = () => {
         .getMyCourse(login?.token as string)
         .then(
           (courses) => {
+            if (courses.length === 0) {
+              setOpened(true);
+            }
             setMyCourses(courses);
           }
         )
     }, [login]
   )
-  
-  // const courses = (myCourses) || myCourseStats
-  // console.log(course)
 
   const navigateCourse = (course: ICourse, videos: IVideo[] | { message: string }) => {
       navigate(
@@ -75,7 +75,7 @@ const MyClassRoom = () => {
         }
       )
     }
-  
+
   const onResumeCourse = (course: ICourse, videos: IVideo[] | { message: string }) => {
     new CourseRepository()
       .getCurrentEpisode(login?.token as string, course.id)
@@ -127,7 +127,7 @@ const MyClassRoom = () => {
   return (
     <>
     {
-      (myCourses.length === 0) && (
+      (login) && (myCourses.length === 0) && (
         <>
         {
           <Modal
