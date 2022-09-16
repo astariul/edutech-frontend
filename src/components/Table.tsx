@@ -1,17 +1,18 @@
 import { Table } from "@mantine/core";
 import React, {useCallback, useState} from "react"
+import { ArrowBarDown } from "tabler-icons-react";
 
 interface ToggleTableProps {
-  headers: string[];
-  rows: (string | number | JSX.Element)[];
+  header: string[];
+  rows: JSX.Element[];
 }
 
-const ToggleTable = ({ headers, rows }: ToggleTableProps) => {
-  const [toggled, setToggled] = useState("block");
+const ToggleTable = ({ header, rows }: ToggleTableProps) => {
+  const [toggled, setToggled] = useState("");
 
   const onToggleHandler = useCallback(
     () => {
-      toggled === "block" ? setToggled("none") : setToggled("block")
+      toggled === "none" ? setToggled("") : setToggled("none")
     }, [toggled, setToggled]
   )
   return (
@@ -19,22 +20,17 @@ const ToggleTable = ({ headers, rows }: ToggleTableProps) => {
       <thead onClick={onToggleHandler}>
         <tr>
           {
-            headers.map( (header) => {
+            header.map( (name) => {
               return (
-                <th key={header} style={{fontSize: 18, textAlign: "center"}}>{header}</th>
+                <th key={name} style={{fontSize: 18, textAlign: "center"}}>{name}</th>
               )
             })
           }
+          <th><ArrowBarDown  style={{display: "inline-block", width:"100%"}} strokeWidth={2} color={"black"}/></th>
         </tr>
       </thead>
-      <tbody style={{display: toggled}}>
-        <tr>
-          {
-            rows.map( (row, index) => {
-              return <td key={index}>{row}</td>
-            })
-          }
-        </tr> 
+      <tbody style={{textAlign: "center", display: toggled}}>
+        {rows}
       </tbody>
     </Table>
   )
