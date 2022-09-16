@@ -89,6 +89,7 @@ const RoadMap = () => {
                 width={"100%"}
                 height={"100%"}
                 controls={true}
+                muted={false}
                 />
             </Grid.Col>
             <Grid.Col sx={{maxWidth: "1%"}}/>

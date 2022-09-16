@@ -1,4 +1,4 @@
-import React, { /*useState*/ } from 'react';
+import React, { useState } from 'react';
 import { createStyles, Container, Grid, Text, Box, Space } from '@mantine/core';
 import { useNavigate } from 'react-router-dom';
 import CourseRepository from '../repositories/Course';
@@ -6,10 +6,15 @@ import { useCallback } from 'react';
 import { useLocalStorage } from '@mantine/hooks';
 import { IUserProfile } from '../dto/UserProfile';
 import { ICourse, IVideo } from '../dto/Course';
+import { CourseEpisode, findNextEpisode } from '../utils/common';
+import { useEffect } from 'react';
 
 const useStyles = createStyles((theme) => ({
   statusBox: {
-    margin: "100px 100px",
+    marginTop: "100px",
+    marginBottom: "30px",
+    marginLeft: "300px",
+    marginRight: "300px",
     borderRadius: "15px",
     backgroundColor: "#D3D3D3",
     maxWidth: "100%",
@@ -68,36 +73,46 @@ interface CourseStatusBoxProps {
 const CourseStatusBox = ({course, videos, generateButtonGroup}: CourseStatusBoxProps) => {
 
   const [login] = useLocalStorage<IUserProfile | null>({ key: 'login', defaultValue: null });
-  // const [nextEpisodePath, setNextEpisodePath] = useState("");
+  const [nextEpisode, setNextEpisode] = useState<CourseEpisode | null>(null);
   const { classes } = useStyles();
   const navigate = useNavigate();
 
-  const toNextEpisode = useCallback(
+  useEffect(
     () => {
-    return new CourseRepository()
+      new CourseRepository()
       .getCurrentEpisode(login?.token as string, course.id)
       .then(
         (episode) => {
-          if (videos.hasOwnProperty("message")){
-            alert("강의 영상 업로드 전 입니다.")
-            return
-          }
-          else {
-            const title = course.title.split(" ").join("")
-            navigate(
-              `/class/${title}/${episode?.seasonNumber}/${episode?.number}`,
+          setNextEpisode(
+            findNextEpisode(
+              videos as IVideo[], 
               {
-                state: {
                 ...episode,
                 courseId: course.id,
-                courseTitle: course.title
-                }
+                courseTitle: course.title,
               }
             )
+          )
+        }
+      )
+    }, [login, course, videos, setNextEpisode]
+  );
+
+  const toNextEpisode = useCallback(
+    () => {
+      const title = course.title.split(" ").join("");
+      navigate(
+        `/class/${title}/${nextEpisode?.seasonNumber}/${nextEpisode?.number}`,
+        {
+          state: {
+            ...nextEpisode,
+            courseId: course.id,
+            courseTitle: course.title
           }
         }
       )
-    }, [login, navigate, course, videos]
+    },
+    [course, navigate, nextEpisode]
   )
 
   return (
@@ -122,7 +137,7 @@ const CourseStatusBox = ({course, videos, generateButtonGroup}: CourseStatusBoxP
               onClick={toNextEpisode}
               style={{cursor: "pointer"}}
             >
-              다음강의:
+              다음강의: EP-{nextEpisode?.number}
             </Text>
           </Grid>
         </Grid.Col>

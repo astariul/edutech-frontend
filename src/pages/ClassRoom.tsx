@@ -1,6 +1,4 @@
-import { createStyles, Grid, Container, Center, Text, 
-  // Modal
-} from "@mantine/core";
+import { createStyles, Grid, Container, Center, Text} from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
 import React, { MouseEvent, useCallback, useEffect, useState } from "react";
 import { TriangleInverted } from "tabler-icons-react";
@@ -63,17 +61,18 @@ const ClassRoom = () => {
   const [courseId] = useState(episode?.courseId)
   const [courseTitle] = useState(episode?.courseTitle)
   const [seasons, setSeasons] = useState<number[]>([]);
-  const [, setCurrentEpisode] = useState<CourseEpisode | null>(null);
+  const [currentEpisode, setCurrentEpisode] = useState<CourseEpisode | null>(null);
   const [courseVideos, setCourseVideos] = useState<IVideo[] | null>(null);
   const [nextEpisode, setNextEpisode] = useState<CourseEpisode | null>(null);
-  const [videoUrl, setVideoUrl] = useState(
-    `${process.env.REACT_APP_API_URL}courses/play/${courseId}/${episode?.number}`
-  )
+  const [videoUrl, setVideoUrl] = useState("")
   const {classes} = useStyles();
   const navigate = useNavigate();
 
   useEffect(
     () => {
+      setVideoUrl(
+        `${process.env.REACT_APP_API_URL}courses/play/${courseId}/${episode?.number}`
+      )
       new CourseRepository()
       .getCourseById(courseId)
       .then(
@@ -85,6 +84,12 @@ const ClassRoom = () => {
           setNextEpisode(findNextEpisode(videos, episode));
         }
       )
+      return () => {
+        setCurrentEpisode(null);
+        setCourseVideos(null);
+        setSeasons([])
+        setNextEpisode(null);
+      }
     }
     ,[episode, courseId]
   )
@@ -117,8 +122,15 @@ const ClassRoom = () => {
   const onClickCompleteEpisode = useCallback(
     (e: MouseEvent<HTMLHeadingElement>) => {
       e.stopPropagation();
+      new CourseRepository()
+      .completeEpisode(login?.token as string, courseId, currentEpisode?.number as number)
+      .then(
+        () => {
+          navigate(`/survey/${courseId}`)
+        }
+      )
       navigate(`/survey/${courseId}`)
-    }, [courseId, navigate]
+    }, [login, courseId, currentEpisode, navigate]
   )
 
   const onClickTargetEpisode = useCallback(
@@ -143,6 +155,13 @@ const ClassRoom = () => {
       )
     }, [courseId, courseTitle, courseVideos, navigate]
   )
+
+  const onSaveCurrentEpisode = (
+    token: string, courseId: string, episodeNumber: number
+  ) => {
+    new CourseRepository()
+    .saveCurrentEpisode(token, courseId, episodeNumber);
+  }
 
   const ToggleSeason = seasons.map(
     (season) => {
@@ -185,6 +204,12 @@ const ClassRoom = () => {
                 width="100%"
                 muted={false}
                 controls={true}
+                onPlay={() => onSaveCurrentEpisode(
+                    login?.token,
+                    courseId,
+                    (currentEpisode as CourseEpisode).number,
+                  )
+                }
               />
             </Grid.Col>
             <Grid.Col className={classes.sidebar}>
