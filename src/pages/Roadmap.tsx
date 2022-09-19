@@ -87,7 +87,7 @@ const CourseRoadMap = () => {
         "/payment",
         { state:course }
       );
-    }, [course]
+    }, [course, navigate]
   )
 
   useEffect(
