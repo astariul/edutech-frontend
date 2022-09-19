@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import CourseRepository from '../repositories/Course';
 import { useCallback } from 'react';
 import { useLocalStorage } from '@mantine/hooks';
-import { IUserProfile } from '../dto/UserProfile';
-import { ICourse, IVideo } from '../dto/Course';
+import { IUserProfile } from '../typings/db';
+import { ICourse, IVideo } from '../typings/db';
 import { CourseEpisode, findNextEpisode } from '../utils/common';
 import { useEffect } from 'react';
 

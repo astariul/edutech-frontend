@@ -3,10 +3,10 @@ import { useLocalStorage } from "@mantine/hooks";
 import React, { MouseEvent, useCallback, useEffect, useState } from "react";
 import { TriangleInverted } from "tabler-icons-react";
 import AuthenticationForm from "../components/AuthentificationForm";
-import { IUserProfile } from '../dto/UserProfile';
+import { IUserProfile } from '../typings/db';
 import ReactPlayer from 'react-player/lazy';
 import CourseRepository from "../repositories/Course";
-import { IVideo } from "../dto/Course";
+import { IVideo } from "../typings/db";
 import { useLocation, useNavigate } from "react-router-dom";
 import Toggle from '../components/Toggle';
 import { CourseEpisode, findNextEpisode, findUniqueSeasonNumber } from "../utils/common";
@@ -84,14 +84,7 @@ const ClassRoom = () => {
           setNextEpisode(findNextEpisode(videos, episode));
         }
       )
-      return () => {
-        setCurrentEpisode(null);
-        setCourseVideos(null);
-        setSeasons([])
-        setNextEpisode(null);
-      }
-    }
-    ,[episode, courseId]
+    },[episode, courseId]
   )
 
   const onClickNextEpisode = useCallback(
@@ -233,7 +226,7 @@ const ClassRoom = () => {
   {
     (!login) && (
       <Center sx={{paddingTop: 100}}>
-          <AuthenticationForm formType={formType} setFormType={setFormType} modalSetOpened={() => void(0)} />
+        <AuthenticationForm formType={formType} setFormType={setFormType} modalSetOpened={() => void(0)} />
       </Center>
     )
   }

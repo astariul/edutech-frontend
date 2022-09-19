@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocalStorage } from '@mantine/hooks';
 import { Avatar, Group, Text } from '@mantine/core';
-import { IUserProfile } from '../dto/UserProfile';
+import { IUserProfile } from '../typings/db';
 
 export default function ProfileSummary() {
   const [login] = useLocalStorage<IUserProfile>({ key: 'login'});

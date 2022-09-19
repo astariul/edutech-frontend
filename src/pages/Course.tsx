@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import CourseStatusBox from '../components/CourseStatusBox';
-import { ICourse, IVideo, ICourseVideo } from '../dto/Course';
+import { ICourse, IVideo, ICourseVideo } from '../typings/db';
 import CourseRepository from '../repositories/Course';
 import { useLocalStorage } from '@mantine/hooks';
 import { useNavigate } from "react-router-dom";
-import { IUserProfile } from '../dto/UserProfile';
+import { IUserProfile } from '../typings/db';
 import { Button, Center, Grid, } from '@mantine/core';
 import { Square, SquareCheck } from 'tabler-icons-react';
 import { findUniqueSeasonNumber } from '../utils/common';
@@ -25,7 +25,6 @@ const Course = () => {
 
   useEffect(
     () => {
-      console.log("useEffect", videos)
       if (!videos) {
         console.log(videos);
       }

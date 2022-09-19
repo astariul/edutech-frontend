@@ -1,5 +1,5 @@
 import React from "react";
-import { IReview } from '../dto/Review';
+import { IReview } from '../typings/db';
 import { createStyles, Grid, Box, Paper, Text, SimpleGrid } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({

@@ -1,6 +1,6 @@
 import React, {/*useState, useEffect*/} from "react";
 // import ReviewRepositry from "../repositories/Review";
-// import { IReview } from "../dto/Review";
+// import { IReview } from "../typings/db";
 import { createStyles, /*Loader,*/ SimpleGrid } from '@mantine/core';
 import CourseReviewCard from './CourseReviewCard';
 

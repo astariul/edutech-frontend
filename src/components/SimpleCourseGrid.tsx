@@ -1,6 +1,6 @@
 import React, {/*useState, useEffect*/} from "react";
 // import CourseRepositry from "../repositories/Course";
-// import { ICourse } from "../dto/Course";
+// import { ICourse } from "../typings/db";
 import { createStyles, /*Loader,*/ SimpleGrid } from '@mantine/core';
 import SimpleCourseCard from './SimpleCourseCard';
 

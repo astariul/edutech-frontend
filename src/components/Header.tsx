@@ -5,7 +5,7 @@ import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 import ProfileSummary from './ProfileSummary';
-import { IUserProfile } from '../dto/UserProfile';
+import { IUserProfile } from '../typings/db';
 
 const HEADER_HEIGHT = 60;
 
