@@ -1,11 +1,12 @@
 import axios from "axios";
-import { ICourseVideo, ICourse, IEpisode } from "../dto/Course";
+import { ICourseVideo, ICourse, IEpisode } from "../typings/db";
 
 
 class CourseRepository {
-  async getAllCourses(){
+  async getAllCourses(token: string){
     const ret = await axios.get<ICourse[]>(
         process.env.REACT_APP_API_URL + "courses",
+        { headers: {Authorization: `Bearer ${token}`} }
     );
     return ret.data;
   }

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IMe } from "../dto/UserProfile";
+import { IMe } from "../typings/db";
 
 
 class AuthRepository {

@@ -2,11 +2,11 @@ import { Title, Center, Container, createStyles } from '@mantine/core';
 import FeedCard from '../components/FeedCard';
 import FeedRepository from '../repositories/Feed';
 import { MouseEvent, useEffect, useState } from 'react';
-import { IFeed } from '../dto/Feed';
+import { IFeed } from '../typings/db';
 import { Pagination } from '@mantine/core';
 import { useCallback } from 'react';
 import { useLocalStorage } from '@mantine/hooks';
-import { IUserProfile } from '../dto/UserProfile';
+import { IUserProfile } from '../typings/db';
 import AuthenticationForm from '../components/AuthentificationForm';
 
 
@@ -126,10 +126,10 @@ const Feed = () => {
       new FeedRepository()
       .getFeeds(login?.token as string, clickedPageNo, numFeedPerPage)
       .then(
-          (res) => {
-            setFeeds(res?.feeds);
-            setPage(clickedPageNo);
-          }
+        (res) => {
+          setFeeds(res?.feeds);
+          setPage(clickedPageNo);
+        }
       )
 
     }, [numFeedPerPage, login]
