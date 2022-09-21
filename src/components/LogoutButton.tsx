@@ -1,7 +1,7 @@
 import { createStyles, Button, Tooltip } from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
 import { Logout } from 'tabler-icons-react';
-import { IUserProfile } from '../dto/UserProfile';
+import { IUserProfile } from '../typings/db';
 
 const useStyles = createStyles((theme) => ({
   logoutbtn: {

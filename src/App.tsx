@@ -8,14 +8,15 @@ import HeaderResponsive from './components/Header';
 import FooterSimple from './components/Footer';
 import NavbarMinimal from './components/VerticalNavBar';
 import LearningCourse from './pages/LearningCourse';
-import RoadMap from './pages/Roadmap';
+import CourseRoadMap from './pages/Roadmap';
 import MyClassRoom from './pages/MyClassRoom';
 import Feed from './pages/Feed';
 import AuthRepository from './repositories/Auth';
-import { IUserProfile } from './dto/UserProfile';
+import { IUserProfile } from './typings/db';
 import Survey from './pages/Survey';
 import Course from './pages/Course';
 import ClassRoom from './pages/ClassRoom';
+import Payment from './pages/payment/Payment';
 
 function App() {
   const [navOpened, toggleNavOpened] = useBooleanToggle(false);
@@ -64,13 +65,14 @@ function App() {
       >
         <Routes>
           <Route path='/' element={<Home />}></Route>
-          <Route path='/roadmap' element={<RoadMap />}></Route>
+          <Route path='/roadmap' element={<CourseRoadMap />}></Route>
           <Route path='/course/*' element={<Course />}></Route>
           <Route path='/myclass' element={<MyClassRoom />}></Route>
           <Route path='/class/*' element={<ClassRoom />}></Route>
           <Route path='/feed' element={<Feed />}></Route>
           <Route path='/mypage/course/*' element={<LearningCourse />}></Route>
           <Route path='/survey/*' element={<Survey />}></Route>
+          <Route path='/payment' element={<Payment/>}></Route>
         </Routes>
       </AppShell>
     </MantineProvider>

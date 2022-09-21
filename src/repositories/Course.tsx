@@ -1,11 +1,12 @@
 import axios from "axios";
-import { ICourseVideo, ICourse, IEpisode } from "../dto/Course";
+import { ICourseVideo, ICourse, IEpisode } from "../typings/db";
 
 
 class CourseRepository {
-  async getAllCourses(){
+  async getAllCourses(token: string){
     const ret = await axios.get<ICourse[]>(
         process.env.REACT_APP_API_URL + "courses",
+        { headers: {Authorization: `Bearer ${token}`} }
     );
     return ret.data;
   }
@@ -55,17 +56,25 @@ class CourseRepository {
     return ret
   }
 
-  async isCompletedEpisode(courseId: string, epsideNumber: number) {
+  async isCompletedEpisode(token: string, courseId: string, episodeNumber: number) {
     const path = process.env.REACT_APP_API_URL
-                + `courses/my/iscompleted/${courseId}/${epsideNumber}`
-    const ret = await axios.get<boolean>(
+                + `courses/my/iscompleted/${courseId}/${episodeNumber}`
+    const ret = await axios.get<{result: string}>(
       path,
+      { headers: {Authorization: `Bearer ${token}`} }
     )
-    return ret.data
+    return ret.data["result"]
   }
 
-  async createCourseSeason() {
-
+  async completeEpisode(token: string, courseId: string, episodeNumber: number) {
+    const path = process.env.REACT_APP_API_URL
+                + `courses/my/iscompleted/${courseId}/${episodeNumber}`
+    const ret = await axios.put<{message: string}>(
+      path,
+      { id: courseId, number: episodeNumber },
+      { headers: {Authorization: `Bearer ${token}`} }
+    )
+    return ret;
   }
 
   async createCourse(url: string, course: ICourse) {

@@ -17,7 +17,7 @@ import {
   Space,
   Popover,
 } from '@mantine/core';
-import { IUserProfile } from '../dto/UserProfile';
+import { IUserProfile } from '../typings/db';
 
 export default function Settings() {
   const [loadingProfile, setLoadingProfile] = useState(false);

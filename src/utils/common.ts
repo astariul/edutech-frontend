@@ -1,4 +1,4 @@
-import { IEpisode, IVideo } from '../dto/Course';
+import { IEpisode, IVideo } from '../typings/db';
 
 
 export type CourseEpisode = IEpisode & { courseId: string, courseTitle: string };

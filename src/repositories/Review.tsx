@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IReview } from "../dto/Review";
+import { IReview } from "../typings/db";
 import { sampleReviews } from "../data/reviews";
 
 class ReviewRepositry {

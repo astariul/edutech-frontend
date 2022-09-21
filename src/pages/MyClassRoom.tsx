@@ -2,26 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Button, Center, Container, createStyles, Modal } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
 import CourseStatusBox from "../components/CourseStatusBox";
-import { IUserProfile } from '../dto/UserProfile';
+import { IUserProfile } from '../typings/db';
 import AuthenticationForm from "../components/AuthentificationForm";
-import { ICourseVideo, ICourse, IVideo } from '../dto/Course';
+import { ICourseVideo, ICourse, IVideo } from '../typings/db';
 import { Link, useNavigate } from "react-router-dom";
 import CourseRepository from "../repositories/Course";
-
-// const myCourseStats: ICourseStat[] = [
-//   {
-//     "id": "63199f7d1547b23bea79610e",
-//     "title": "HTML Master",
-//     "progess": {
-//       "my": [1, 2, 2.3, 3, 3.3, 3.8, 5, 6, 7, 8],
-//       "average": [1, 1.8, 2.2, 3, 3.3, 3.8, 4, 4.2, 4.4, 6],
-//       "superCoder": [1, 2, 2.5, 4, 4.3, 5, 5.4, 6, 7.5, 10],
-//       "weekOnWeek": 5.5
-//     },
-//     "nextCourse": "EP-02",
-//     "currentCourse": "EP-01",
-//   }
-// ]
 
 const useStyles = createStyles((theme) => ({
   buttonContainer: {

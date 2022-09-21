@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Feed, IFeed } from '../dto/Feed';
+import { Feed, IFeed } from '../typings/db';
 
 
 class FeedRepository {
