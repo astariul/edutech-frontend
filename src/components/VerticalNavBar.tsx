@@ -16,6 +16,11 @@ import LogoutButton from './LogoutButton';
 // import { iconSizes } from '@mantine/core/lib/components/Stepper/Step/Step.styles';
 
 const useStyles = createStyles((theme) => ({
+  navBar: {
+    "@media screen and (max-width: 1024px)": {
+      dispaly: "none"
+    }
+  },
   link: {
     width: 50,
     height: 50,
@@ -92,7 +97,7 @@ export default function NavbarMinimal() {
   }, [location.pathname, setActive]);
 
   return (
-    <Navbar fixed position={{ top: 0, left: 0 }} width={{ base: 80 }} p="md">
+    <Navbar hiddenBreakpoint={1024} hidden={true} fixed position={{ top: 0, left: 0 }} width={{ base: 80 }} p="md">
       <Navbar.Section grow mt={200}>
         <Group direction="column" align="center" spacing={15}>
           {links}

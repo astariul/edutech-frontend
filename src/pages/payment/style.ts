@@ -2,52 +2,64 @@ import { createStyles } from "@mantine/core";
 
 const useStyles = createStyles(() => ({
   layout: {
-    justifyContent: "space-between",
-    maxWidth: "100%",
-    flexDirection: "row",
-    marginTop: "100px",
-    marginLeft: "400px",
-    marginRight: "200px"
+    display: "flex",
+    flexGrow: 1,
+    position: "relative",
+    width: "auto",
+    "@media (min-width: 1025px) and (max-width: 1200px)": {
+      padding: "0 24px",
+    },
+    "@media screen and (min-width: 1366px)": {
+      width: "1160px",
+    },
+    "@media (min-width: 1200px)": {
+      maxWidth: "1160px",
+    },
+    "@media screen and (max-width: 1024px)": {
+      flexDirection: "column",
+      boxSizing: "border-box",
+    },
   },
   cart: {
-    flex: "1 1 70%"
+    display: "block",
+    padding: 0,
+    width: "100%",
+    marginTop: "30px",
+    marginLeft: "120px",
+    marginRight: "32px",
+    boxSizing: "inherit",
+    "@media screen and (max-width: 1024px)": {
+      minWidth: "100%",
+      width: "100%",
+      maxWidth: "100%",
+      marginLeft: "0",
+      marginRight: "0",
+      padding: "24px"
+    }
   },
-  payment: {
-    flex: "1 1 30%",
+  cartAside: {
+    display: "block",
+    position: "relative",
     width: "300px",
     minWidth: "300px",
     maxWidth: "300px",
-    padding: "0px"
+    paddingTop: "30px",
+    paddingBottom: 0,
+    paddingLeft: 0,
+    paddingRight: 0,
+    boxSizing: "inherit",
+    "@media screen and (max-width: 1024px)": {
+      minWidth: "100%",
+      width: "100%",
+      maxWidth: "100%",
+      padding: "24px",
+    }
   },
-  buyerInfoSection: {
+  sectionBuyerInfo: {
+    display: "block"
   },
-  buyerInfoHeader: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "0px"
-  },
-  buyerInfo: {
-    display: "block",
-    marginBlockStart: "1em",
-    marginBlockEnd: "1em",
-    marginInlineStart: "0px",
-    marginInlineEnd: "0px",
-    fontSize: "14px",
-    letterSpacing: "-.3px",
-    LineHeight: 1.43,
-    fontWeight: 400
-  },
-  buyerInfoDt: {
-    display: "block",
-    minWidth: "80px"
-  },
-  buyerInfoDD: {
-    display: "block",
-    margin: "0px",
-    // marginInlineStart: "40px",
-    maxWidth: "calc(100% - 80px)",
-    wordBreak: "break-all",
+  sectionPayment: {
+    display: "block"
   }
 }));
 

@@ -1,20 +1,27 @@
 import React, { useCallback, useState } from "react"
-import { Card, Center, Divider, Grid, Space, Title, Container } from '@mantine/core';
-import useStyles from "./style";
+import { Center, Space } from '@mantine/core';
 import { useLocalStorage } from "@mantine/hooks";
+import { useLocation } from "react-router-dom";
 import { ICourse, IUserProfile } from "../../typings/db";
 import AuthenticationForm from "../../components/AuthentificationForm";
 import PaymentSection from "../../components/payment/PaymentSection";
-import { useLocation } from "react-router-dom";
-import { Button } from '@mantine/core';
 import PaymentMethodModal from "../../components/paymentMethodModal/PaymentMethodModal";
+import BuyerInfo from "../../components/buyerInfo/buyerInfo";
+import useStyles from "./style";
+import BuyerInfoModifiable from "../../components/buyerInfoModifiable/buyerInfoModifiable";
+import PaymentCart from "../../components/paymentCart/paymentCart";
+
 
 const Payment = () => {
 
   const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
+  const [coursesInCart] = useLocalStorage<ICourse[] | []>({ key: "coursesInCart", defaultValue: [] });
   const [formType, setFormType] = useState<"register" | "login">("login");
   const [opened, setOpened] = useState(false);
-  const [tel] = useState("010-xxxx-xxxx");
+  const [modification, setModification] = useState(false);
+  const [name, setName] = useState(login?.name as string);
+  const [email, setEmail] = useState(login?.email as string)
+  const [tel, setTel] = useState("010-xxxx-xxxx");
   const {classes} = useStyles();
   const location = useLocation();
   const course = location.state as ICourse;
@@ -28,6 +35,14 @@ const Payment = () => {
   )
   const showPaymentMethodModal = useCallback(
     () => setOpened(true), []
+  )
+  const saveModifiedValues = useCallback(
+    (name: string, email: string, tel: string) => {
+      setName(name);
+      setEmail(email);
+      setTel(tel);
+      setModification(false);
+    }, []
   )
 
   return (
@@ -52,36 +67,33 @@ const Payment = () => {
     }
     {
       (login) && (
-        <Grid className={classes.layout}>
-          <Grid.Col className={classes.cart}>
-            장바구니 영역
-          </Grid.Col>
-          <Grid.Col className={classes.payment}>
-            <PaymentSection price={course.orgPrice} onClickHandler={showPaymentMethodModal}/>
-            <Space h={10}/>
-            <Card className={classes.buyerInfoSection} withBorder p={20} shadow="sm" radius="md">
-              <Container className={classes.buyerInfoHeader}>
-                <Title order={6}>구매자정보</Title>
-                <Button variant="subtle" compact>수정하기</Button>
-              </Container>
-              <Divider my="sm" variant="dotted" />
-              <dl className={classes.buyerInfo}>
-                <div style={{display: "flex"}}>
-                  <dt className={classes.buyerInfoDt}>이름</dt>
-                  <dd className={classes.buyerInfoDD}>{login.name}</dd>
-                </div>
-                <div style={{display: "flex"}}>
-                  <dt className={classes.buyerInfoDt}>이메일</dt>
-                  <dd className={classes.buyerInfoDD}>{login.email}</dd>
-                </div>
-                <div style={{display: "flex"}}>
-                  <dt className={classes.buyerInfoDt}>휴대폰번호</dt>
-                  <dd className={classes.buyerInfoDD}>{tel}</dd>
-                </div>
-              </dl>
-            </Card>
-          </Grid.Col>
-        </Grid>
+        <section style={{"display": "block"}}>
+          <div className={classes.layout}>
+            <section className={classes.cart}>
+              <PaymentCart courses={coursesInCart}/>
+            </section>
+            <aside className={classes.cartAside}>
+              <section className={classes.sectionPayment}>
+                <PaymentSection onClickHandler={showPaymentMethodModal}/>
+              </section>
+              <section className={classes.sectionBuyerInfo}>
+                <Space h={10}/>
+                {
+                  modification ?
+                  <BuyerInfoModifiable
+                    buyer={{name:name, email: email, tel: tel}}
+                    saveValues={saveModifiedValues}
+                  />
+                  :
+                  <BuyerInfo
+                    buyer={{name:name, email: email, tel: tel}}
+                    onclickModificaion={() => setModification(true)}
+                  />
+                }
+              </section>
+            </aside>
+          </div>
+        </section>
       )
     }
     {
