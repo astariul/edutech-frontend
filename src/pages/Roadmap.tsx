@@ -72,6 +72,7 @@ const useStyles = createStyles((theme) => ({
 const CourseRoadMap = () => {
   const { classes } = useStyles();
   const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
+  const [coursesInCart, setCoursesInCart] = useLocalStorage<ICourse[] | []>({ key: "coursesInCart", defaultValue: [] });
   const [roadMapType, setRoadMapType] = useState("frontend");
   const [course, setCourse] = useState<ICourse>();
   const navigate = useNavigate();
@@ -87,7 +88,12 @@ const CourseRoadMap = () => {
         "/payment",
         { state:course }
       );
-    }, [course, navigate]
+      const notIncludedCourses = coursesInCart.filter(
+        (courseInCart) => courseInCart.id !== (course as ICourse).id
+      ) && [course as ICourse]
+      setCoursesInCart(notIncludedCourses);
+
+    }, [course, navigate, coursesInCart, setCoursesInCart]
   )
 
   useEffect(

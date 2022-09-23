@@ -61,11 +61,7 @@ export interface ICourse {
   id: string;
   sold?: number;
   views?: number;
-  thumbnail?: {
-    url: string;
-    width: number;
-    height: number;
-  },
+  thumbnail: string
 }
 
 export interface ICourseVideo {
