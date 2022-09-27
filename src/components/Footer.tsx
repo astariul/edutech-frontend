@@ -13,7 +13,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   logo: {
-    maxWidth: 300,
+    maxWidth: 500,
 
     [theme.fn.smallerThan('sm')]: {
       display: 'flex',
@@ -184,10 +184,8 @@ export function FooterLinks() {
           </Text><Space w="md" />
           </div>
           <Text size="xs" color="dimmed" className={classes.description}>
-            <p>
-            상호명 (수정 필요) : Super coding(슈퍼코딩) 대표이사 : XXX 사업자등록번호 : XXX-XX-XXXXX
+            상호명 (수정 필요) : Super coding(슈퍼코딩) 대표이사 : XXX 사업자등록번호 : XXX-XX-XXXXX<br/>
             이메일 (수정 필요) : support@~ 전화 : XX-XXX-XXXX 주소 : 미정
-            </p>
           </Text>
         </div>
         <div className={classes.groups}>{groups}</div>
