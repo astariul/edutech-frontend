@@ -152,7 +152,7 @@ export function FooterLinks() {
 
   return (
     <footer className={classes.footer}>
-      <Container className={classes.inner}>
+      <Container className={classes.inner} size="lg">
         <div className={classes.logo}>
           <Group spacing={0} className={classes.social} position="left" noWrap>
             <ActionIcon size="lg">
@@ -192,7 +192,7 @@ export function FooterLinks() {
         </div>
         <div className={classes.groups}>{groups}</div>
       </Container>
-      <Container className={classes.afterFooter}>
+      <Container className={classes.afterFooter} size="lg">
         <Text color="dimmed" size="sm">
           © 2022 supercoding.dev (?). All rights reserved.
         </Text>
