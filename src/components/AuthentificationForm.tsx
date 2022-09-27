@@ -39,6 +39,7 @@ export default function AuthenticationForm({
   // const [registered] = useLocalStorage<boolean>({ key: 'registered', defaultValue: false });
 
   const toggleFormType = () => {
+    setRegistered(false);
     setFormType((current) => (current === 'register' ? 'login' : 'register'));
     setError(null);
   };
@@ -74,10 +75,13 @@ export default function AuthenticationForm({
       password: pw,
     };
     axios.post(process.env.REACT_APP_API_URL + "auth/signup", data)
-    .then( () => setRegistered(true) )
+    .then( () => {
+        setRegistered(true);
+        window.alert("회원가입되었습니다. 로그인해주세요");
+      }
+    )
     .catch( ( {response} ) => {
       if (response.status === 409) {
-        setRegistered(true);
         setError("존재하는 아이디입니다. 로그인해주세요")
       }
       response.status === 500 && setError("회원가입에 실패했습니다. 다시 시도해주세요");

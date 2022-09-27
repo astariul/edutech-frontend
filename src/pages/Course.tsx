@@ -118,7 +118,7 @@ const Course = () => {
           const rows = (videos as IVideo[]).map(
             (video) => {
               return (video.seasonNumber === season) && (
-                  <tr key={video.title}>
+                  <tr key={video.number}>
                     <td style={{cursor: "pointer"}} onClick={() => {navigateToClassRoom(course, video)}}>EP{video.number}</td>
                     <td style={{cursor: "pointer"}} onClick={() => {navigateToClassRoom(course, video)}}>{video.title}</td>
                     <td>{video.duration}</td>
