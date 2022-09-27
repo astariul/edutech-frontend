@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStyles, Overlay, Container, Title, Text } from '@mantine/core';
+import { createStyles, Overlay, Container, Title, Text, Button } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   hero: {
@@ -54,6 +54,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   control: {
+    color: theme.white,
     marginTop: theme.spacing.xl * 1.5,
 
     [theme.fn.smallerThan('sm')]: {
@@ -73,15 +74,14 @@ export default function HeroContentLeft() {
         zIndex={0}
       />
       <Container className={classes.container}>
-        <Title className={classes.title}>Learn software development. Lend interviews. Get offers.</Title>
-        <Text className={classes.description} size="xl" mt="xl">
+        <Text component="a" href="#" className={classes.title}>Learn software development. Lend interviews. Get offers.</Text>
+        <Text component="a" href="#" className={classes.description} size="xl" mt="xl">
           EduTech helps thousands of students learning real-life skills in software development.
           Access various classes, unlock new skills, discuss with a large community.
         </Text>
-
-        {/* <Button variant="gradient" size="xl" radius="xl" className={classes.control} component="a" rel="noopener noreferrer" href="#">
-          Get started
-        </Button> */}
+        <Text component="a" className={classes.control} href="#">
+          Get started (Arrow)
+        </Text>
       </Container>
     </div>
   );
