@@ -5,7 +5,7 @@ import { MantineProvider, AppShell } from '@mantine/core';
 import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import HeaderResponsive from './components/Header';
-import FooterSimple from './components/Footer';
+import {FooterLinks} from './components/Footer';
 import NavbarMinimal from './components/VerticalNavBar';
 import LearningCourse from './pages/LearningCourse';
 import CourseRoadMap from './pages/Roadmap';
@@ -58,7 +58,7 @@ function App() {
       <AppShell
         navbar={navbar}
         header={<HeaderResponsive />}
-        footer={<FooterSimple />}
+        footer={<FooterLinks />}
         styles={(theme) => ({
           main: { padding: '0px' },
         })}
