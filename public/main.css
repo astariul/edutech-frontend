@@ -39,3 +39,7 @@ html {
   height: 100%;
   object-fit: cover;
 } */
+
+.css-fix {
+  white-space: pre-wrap;
+}
