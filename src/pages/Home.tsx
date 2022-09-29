@@ -1,9 +1,9 @@
 import HeroContentLeft from '../components/HeroHeader';
-import {ArticlesCardsGrid} from "../components/first_component";
+import {ArticlesCardsGrid} from '../components/first_component';
 import {CarouselFirst} from '../components/second_component';
-import {ArticlesCardsGrid2} from "../components/third_component";
+import {ArticlesCardsGrid2} from '../components/third_component';
 import Intro from '../components/Intro';
-import Features from '../components/Features';
+import {ArticlesCardsGrid3} from '../components/fifth_component';
 import UpAffix from '../components/affix';
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
       <CarouselFirst />
       <ArticlesCardsGrid2 />
       <Intro />
-      <Features />
+      <ArticlesCardsGrid3 />
       <UpAffix />
     </>
   );
