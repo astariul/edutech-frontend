@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ICourseVideo, ICourse, IEpisode } from "../typings/db";
+import { ICourseVideo, ICourse, IEpisode, IProgress } from "../typings/db";
 
 
 class CourseRepository {
@@ -68,13 +68,23 @@ class CourseRepository {
 
   async completeEpisode(token: string, courseId: string, episodeNumber: number) {
     const path = process.env.REACT_APP_API_URL
-                + `courses/my/iscompleted/${courseId}/${episodeNumber}`
+                + `courses/complete/${courseId}/${episodeNumber}`
     const ret = await axios.put<{message: string}>(
       path,
       { id: courseId, number: episodeNumber },
       { headers: {Authorization: `Bearer ${token}`} }
     )
     return ret;
+  }
+
+  async getProgress(token: string, courseId: string) {
+    const path = process.env.REACT_APP_API_URL
+                + `courses/my/progress/${courseId}`
+    const ret = await axios.get<IProgress>(
+      path,
+      { headers: {Authorization: `Bearer ${token}`} }
+    )
+    return ret.data;
   }
 
   async createCourse(url: string, course: ICourse) {

@@ -1,15 +1,23 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Center, Container, createStyles, Modal } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
-import CourseStatusBox from "../components/CourseStatusBox";
-import { IUserProfile } from '../typings/db';
-import AuthenticationForm from "../components/AuthentificationForm";
-import { ICourseVideo, ICourse, IVideo } from '../typings/db';
 import { Link, useNavigate } from "react-router-dom";
+import CourseStatusBox from "../components/courseStatusBox/CourseStatusBox";
+import AuthenticationForm from "../components/AuthentificationForm";
 import CourseRepository from "../repositories/Course";
+import { IUserProfile } from '../typings/db';
+import { ICourseVideo, ICourse, IVideo } from '../typings/db';
 
 const useStyles = createStyles((theme) => ({
+  main: {
+    marginTop: 0,
+    marginBottom: 0,
+    marginLeft: "80px",
+    marginRight: "auto",
+    padding: "12px"
+  },
   buttonContainer: {
+    margin: "24px auto",
     display: "flex",
     justifyContent: "center",
   },
@@ -91,6 +99,7 @@ const MyClassRoom = () => {
     <>
       <Button
         style={{width: "140px", marginTop: "4px", marginBottom: "4px"}}
+        onClick={() => {window.alert("서비스 준비중 입니다.")}}
       >
         라운지 입장
       </Button>
@@ -127,7 +136,7 @@ const MyClassRoom = () => {
     }
     {
       (login) && (myCourses.length > 0) && (
-        <>
+        <div className={classes.main}>
           {
             myCourses.map(
               (each, index) => {
@@ -151,7 +160,7 @@ const MyClassRoom = () => {
               코스 탐색하러 가기
             </Button>
           </Container>
-        </>
+        </div>
       )
     }
     {

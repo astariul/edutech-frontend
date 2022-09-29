@@ -115,3 +115,9 @@ export interface Buyer {
   email: string;
   tel: string;
 }
+
+export interface IProgress {
+  totalNumberOfEpisodes: number,
+  episodeNumbers: number[],
+  timesOfTaken: string[],
+}

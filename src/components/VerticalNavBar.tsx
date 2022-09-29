@@ -3,17 +3,12 @@ import { Navbar, Tooltip, UnstyledButton, createStyles, Group, Text } from '@man
 import {
   Icon as TablerIcon,
   DeviceLaptop,
-  // Notebook,
-  // Badge,
-  // ChartLine,
   FileCertificate,
-  // Settings,
   Users,
   News,
 } from 'tabler-icons-react';
 import { Link, useLocation } from 'react-router-dom';
 import LogoutButton from './LogoutButton';
-// import { iconSizes } from '@mantine/core/lib/components/Stepper/Step/Step.styles';
 
 const useStyles = createStyles((theme) => ({
   navBar: {
@@ -68,7 +63,7 @@ function NavbarLink({ icon: Icon, label, link, active, onClick }: NavbarLinkProp
 const linksData = [
   { icon: News, label: '피드', link: '/feed' },
   { icon: DeviceLaptop, label: '강의실', link: '/myclass' },
-  { icon: FileCertificate, label: '이력서', link: '/mypage/resume' },
+  { icon: FileCertificate, label: '이력서', link: '/resume' },
 ];
 
 export default function NavbarMinimal() {

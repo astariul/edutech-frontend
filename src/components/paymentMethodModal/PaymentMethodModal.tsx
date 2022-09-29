@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Button, Modal, Grid } from '@mantine/core';
 import { useLocalStorage } from "@mantine/hooks";
 import { Buyer, IUserProfile, MyOrder } from '../../typings/db';
@@ -28,20 +28,11 @@ const PaymentMethodModal = (
 ) => {
   const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
   const { classes } = useStyles();
-  const merchantUID = useRef("");
-
-  useEffect(
-    () => {
-      new OrderRepository()
-      .start(login?.token as string, order.orderId)
-      .then(({id}) => {merchantUID.current = id})
-    }, [login, order.orderId]
-  )
 
   const payCallback = (response: any) => {
     if (response.success) {
       new OrderRepository()
-      .completeOrderById(login?.token as string, merchantUID.current, response.imp_uid)
+      .completeOrderById(login?.token as string, order.orderId, response.imp_uid)
       .then(
         (myorder) => {
           if (myorder.isPaid) {
@@ -63,7 +54,7 @@ const PaymentMethodModal = (
       IMP.request_pay({
         pg: "html5_inicis",
         pay_method: "card",
-        merchant_uid: merchantUID.current,
+        merchant_uid: order.orderId,
         name: "",
         amount: order.orgPrice,
         buyer_email: buyer.email,

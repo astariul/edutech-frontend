@@ -79,10 +79,10 @@ const useStyles = createStyles((theme) => ({
 
 interface SimpleCourseGridProps {
     cols: number,
-    roadMapeType: string
+    roadMapeType?: string
 }
 
-const SimpleCourseGrid = ({cols, roadMapeType}: SimpleCourseGridProps) => {
+const SimpleCourseGrid = ({cols, roadMapeType="frontend"}: SimpleCourseGridProps) => {
     // const [courses, setCourses] = useState<ICourse[]>([])
     // const [loading, setLoading] = useState(true);
     const {classes}  = useStyles();

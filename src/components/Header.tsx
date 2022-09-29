@@ -1,5 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { createStyles, Header, Container, Group, Title, Space, Burger, Paper, Transition, Button, Anchor, UnstyledButton  } from '@mantine/core';
+import { useState, useEffect } from 'react';
+import { 
+  createStyles,
+  Header, 
+  Container, 
+  Group, 
+  Title, 
+  Space, 
+  Burger, 
+  Paper, 
+  Transition, 
+  Anchor, 
+  UnstyledButton  } from '@mantine/core';
 import { Link, useLocation } from "react-router-dom";
 import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';
 import LoginButton from './LoginButton';
@@ -96,12 +107,12 @@ const links = [
     "label": "코스 로드맵"
   },
   {
-    "link": "/reviews",
-    "label": "강의 후기"
+    "link": "/career",
+    "label": "커리어"
   },
   {
-    "link": "/courses",
-    "label": "커리어"
+    "link": "/resume",
+    "label": "이력서"
   },
   {
     "link": "/live",
@@ -133,17 +144,30 @@ export default function HeaderResponsive() {
     }
   }, [location.pathname, setActive, toggleOpened]);
 
-  const items = links.map((link) => (
-    <Anchor
-      component={Link}
-      key={link.label}
-      to={link.link}
-      className={cx(classes.link, { [classes.linkActive]: active === link.link })}
-      underline={false}
-    > 
-      {link.label}
-    </Anchor>
-  ));
+  const items = links.map((link) => {
+    if (["/reviews", "/career", "/live"].includes(link.link)) {
+      return (
+        <div
+          className={cx(classes.link, { [classes.linkActive]: active === link.link })}
+          onClick={() => window.alert("서비스 준비중입니다.")}>{link.label}
+        </div>
+      )
+    }
+    else {
+      return (
+        <Anchor
+          component={Link}
+          key={link.label}
+          to={link.link}
+          className={cx(classes.link, { [classes.linkActive]: active === link.link })}
+          underline={false}
+        > 
+          {link.label}
+        </Anchor>
+      )
+    }
+    }
+  );
 
   const [login] = useLocalStorage<IUserProfile | null>({ key: 'login', defaultValue: null });
   let logButtons;
@@ -164,7 +188,6 @@ export default function HeaderResponsive() {
   } else {
     logButtons = (
       <Group spacing={5} className={classes.links}>
-        {/* <SignupButton /> */}
         <LoginButton />
       </Group>
     );
@@ -198,12 +221,7 @@ export default function HeaderResponsive() {
           {(styles) => (
             <Paper className={classes.dropdown} withBorder style={styles}>
               {items}
-              <Button variant="outline">
-                Sign up
-              </Button>
-              <Button>
-                Login
-              </Button>
+              <LoginButton />
             </Paper>
           )}
         </Transition>

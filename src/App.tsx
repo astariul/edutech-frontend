@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import './App.css';
+import { useEffect } from 'react';
 import Home from './pages/Home';
 import { MantineProvider, AppShell } from '@mantine/core';
 import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';
@@ -13,10 +12,11 @@ import MyClassRoom from './pages/MyClassRoom';
 import Feed from './pages/Feed';
 import AuthRepository from './repositories/Auth';
 import { IUserProfile } from './typings/db';
-import Survey from './pages/Survey';
+import Survey from './pages/survey/Survey';
 import Course from './pages/Course';
 import ClassRoom from './pages/ClassRoom';
 import Payment from './pages/payment/Payment';
+import Resume from './pages/resume/Resume';
 
 function App() {
   const [navOpened, toggleNavOpened] = useBooleanToggle(false);
@@ -39,10 +39,10 @@ function App() {
   }
 
   useEffect(() => {
-    if (location.pathname.startsWith("/class")) {
+    if (location.pathname.startsWith("/class") || location.pathname.startsWith("/roadmap")) {
       toggleNavOpened(false);
     } else {
-      toggleNavOpened(true);
+      toggleNavOpened(false);
     }
   }, [location.pathname, toggleNavOpened]);
 
@@ -73,6 +73,7 @@ function App() {
           <Route path='/mypage/course/*' element={<LearningCourse />}></Route>
           <Route path='/survey/*' element={<Survey />}></Route>
           <Route path='/payment' element={<Payment/>}></Route>
+          <Route path='/resume' element={<Resume/>}></Route>
         </Routes>
       </AppShell>
     </MantineProvider>
