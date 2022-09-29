@@ -4,7 +4,7 @@ import {CarouselFirst} from '../components/second_component';
 import {ArticlesCardsGrid2} from '../components/third_component';
 import {CarouselSecond} from '../components/fourth_component';
 import {ArticlesCardsGrid3} from '../components/fifth_component';
-import UpAffix from '../components/affix';
+import UpAffix from '../components/UpAffix';
 
 export default function Home() {
   return (
