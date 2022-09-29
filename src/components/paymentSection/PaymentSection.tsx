@@ -1,8 +1,9 @@
-import React, { useCallback } from "react";
+import { useCallback } from "react";
 import { Button, Card, Text } from '@mantine/core';
 import { useLocalStorage } from "@mantine/hooks";
-import { ICourse } from "../../typings/db";
+import { ICourse, IUserProfile } from "../../typings/db";
 import useStyles from "./style";
+import OrderRepository from '../../repositories/Order';
 
 
 interface PaymentSectionProps {
@@ -11,6 +12,7 @@ interface PaymentSectionProps {
 
 const PaymentSection = ({onClickHandler} : PaymentSectionProps) => {
   const { classes } = useStyles();
+  const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
   const [coursesInCart,] = useLocalStorage<ICourse[] | []>({ key: "coursesInCart", defaultValue: [] });
   const sumPrice = useCallback(
     (courses: ICourse[]) => {
@@ -27,7 +29,8 @@ const PaymentSection = ({onClickHandler} : PaymentSectionProps) => {
   return (
     <Card withBorder p="xl" shadow="sm" radius="md">
       <Text weight={700} size="xl" className={classes.price}>
-        {sumPrice(coursesInCart).toString()}원
+        {sumPrice(coursesInCart) === 0 ? "무료" : sumPrice(coursesInCart).toString() + "원"}
+        
       </Text>
       <Button
         color="blue"
@@ -36,7 +39,7 @@ const PaymentSection = ({onClickHandler} : PaymentSectionProps) => {
         radius="md"
         onClick={onClickHandler}
       >
-       결제하기
+       {sumPrice(coursesInCart) === 0 ? "수강하기" : "결제하기"}
       </Button>
     </Card>
   );

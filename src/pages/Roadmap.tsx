@@ -1,71 +1,96 @@
-import React, {MouseEvent, useCallback} from 'react';
+import React, {MouseEvent, useCallback, useEffect, useState} from 'react';
 import { Grid, createStyles, Title, Text, Divider, Box, Space, Button} from '@mantine/core';
+import { useLocalStorage } from '@mantine/hooks';
+import { useNavigate } from 'react-router-dom';
+import ReactPlayer from 'react-player/lazy';
 import RoadMapNav from '../components/RoadMapNav';
 import CourseReviewGrid from '../components/CourseReviewGrid';
 import SimpleCourseGrid from "../components/SimpleCourseGrid";
-import { useState } from 'react';
-import ReactPlayer from 'react-player/lazy';
-import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import LearningCurve from '../components/learningCurve/LearningCurve';
 import CourseRepository from '../repositories/Course';
-import { useLocalStorage } from '@mantine/hooks';
 import { IUserProfile, ICourse } from '../typings/db';
+import { calculateProgressStatByDate } from '../utils/common';
+import { BorderRadius } from 'tabler-icons-react';
+import Star from '../components/stars/Stars';
 
 const useStyles = createStyles((theme) => ({
-  roadMap: {
-    justifyContent: "flex-start",
-    flexDirectrion: "columns",
-    // marginLeft: "100px",
+  descriptionHeader: {
+    padding: "40px 0",
+    background: "#002333"
   },
-  navBar: {
-    flex: "1 1 20%",
-    maxWidth: "20%",
-    marginTop: "50px",
-    marginLeft: "100px",
-    padding: 0,
-    '@media (max-width: 1760px)': {
-      display: "none"
-    }
+  descriptionContainer: {
+    boxSizing: "border-box",
+    margin: "0 auto",
+    padding: "0 20px",
+    maxWidth: "1200px",
+  },
+  courseHeader: {
+    padding: "0 24px",
+    flexBasis: "55.3%",
+    maxWidth: "55.3%",
+    color: "#D0EBFF"
+  },
+  courseTitle: {
+    marginBottom: "20px",
   },
   courseInfo: {
-    flex: "1 1 50%",
-    marginTop: "50px",
-    marginLeft: "100px",
+    display: "flex",
+    flexWrap: "wrap",
+    fontWeight: 400,
+    lineHeight: 1.43,
+    fontSize: "14px",
+    marginBottom: "8px",
+    letterSpacing: "-.3px",
+    alignItems: "center",
+    flexDirection: "row"
   },
-  player: {
-    position: "absolute",
-    top: 0,
-    left: 0
+  courseStar: {
+    marginRight: "10px"
   },
-  playerBox: {
-    flex: "1 1 45%",
-    position: "relative",
-    minHeight: 400,
+  learningCurve: {
+    display: "inline-flex",
+    justifyContent: "center",
+    flexBasis: "40.45%",
+    width: "40.45%",
+    padding: 0,
+    overflow: "hidden",
   },
-  courseInfoArea: {
+  courseInfoBox : {
+    display:"flex",
+    flex:"0 1 auto",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    padding: "12px",
+    maxHeight: "100%"
+  },
+  coursesArea: {
+    width: "100%",
+    maxWidth: "100%",
     marginTop: 50,
     justifyContent: "space-between",
     alignItems: "stretch"
   },
-  courseInfoBox : {
-    display:"flex",
-    flexDirection: "column",
-    flex: "1 1 30%",
-    backgroundColor: "#D3D3D3",
-    padding: "40px 60px"
-  },
   gridBox: {
+    margin: "0 auto",
     position: 'relative',
-    width: 1216,
+    width: "100%",
+    maxWidth: "1200px",
     height: 300,
-    backgroundColor: "#D3D3D3"
+    backgroundColor: "#ADB5BD"
   },
   registerButton: {
-    fontSize: "17px", 
-    marginTop: "30px",
-    marginLeft: "50px",
-    marginRight: "50px",
-    height: "50px"
+    fontSize: "15px", 
+    letterSpacing: "0.5px",
+    marginTop: "15px",
+    marginLeft: "auto",
+    marginRight: "auto",
+    height: "55px",
+    width: "276px",
+    backgroundColor: "transparent",
+    border: "1px solid #D0EBFF",
+    "&:hover": {
+      backgroundColor: "transparent"
+    }
   }
 }));
 
@@ -73,15 +98,11 @@ const CourseRoadMap = () => {
   const { classes } = useStyles();
   const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
   const [coursesInCart, setCoursesInCart] = useLocalStorage<ICourse[] | []>({ key: "coursesInCart", defaultValue: [] });
-  const [roadMapType, setRoadMapType] = useState("frontend");
   const [course, setCourse] = useState<ICourse>();
   const navigate = useNavigate();
-  const roadMapTypeClickHandler = useCallback(
-    (e: MouseEvent<HTMLHeadingElement>) => {
-      e.stopPropagation();
-      setRoadMapType(e?.currentTarget.id);
-    }, []
-  )
+  const [progress, setProgress] = useState<number[]>([]);
+  const [date, setDate] = useState<string[]>([]);
+
   const onRegister = useCallback(
     () => {
       navigate(
@@ -109,57 +130,82 @@ const CourseRoadMap = () => {
     }, [login, setCourse]
   )
 
+  useEffect(
+    () => {
+      setProgress([
+        23, 24, 30, 35,
+        36, 37, 39, 40,
+        42, 48, 50, 55,
+        75, 80, 85, 95
+      ]);
+      setDate([
+        "W1", "W2", "W3", "W4",
+        "W5", "W6", "W7", "W8",
+        "W9", "W10", "W11", "W12",
+        "W13", "W14", "W15", "W16",
+      ]);
+    }, [setProgress, setDate]
+  )
+
   return (
-    <Grid className={classes.roadMap}>
-      <Grid.Col className={classes.navBar}>
-        <RoadMapNav
-          onClickHandler={roadMapTypeClickHandler} 
-          activeTitle={roadMapType} 
-        />
-      </Grid.Col>
-      <Grid.Col className={classes.courseInfo}>
-        <Grid sx={{justifyContent: "space-between", alignItems: "stretch"}}>
-          <Grid.Col className={classes.playerBox}>
-            <ReactPlayer
-              className={classes.player}
-              config={{ file: { 
-                attributes: {
-                  controlsList: "nodownload"
-                }
-              }}}
-              url={'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'}
-              width={"100%"}
-              height={"100%"}
-              controls={true}
-              muted={false}
-            />
-          </Grid.Col>
-          <Grid.Col style={{maxWidth: "1%"}}/>
-          <Grid.Col className={classes.courseInfoBox}>
-            <Title order={1} align="center" p="xl">{course?.title}</Title>
-            <Divider size="sm" color="dark"></Divider>
-            <Space h="md"/>
-            <Box sx={(theme) => ({padding: theme.spacing.xl, backgroundColor: "#F8F8FF"})}>
-              <Text align="center">러닝커브</Text>
-            </Box>
-            <Space h="md"/>
-            <Box sx={(theme) => ({padding: theme.spacing.xl, backgroundColor: "#F8F8FF"})}>
-              <Text align="center">스킬셋</Text>
-            </Box>
-            <Button className={classes.registerButton} onClick={onRegister}>수강신청 하기</Button>
-          </Grid.Col>
-          <Grid.Col style={{maxWidth: "10%"}}/>
-        </Grid>
-        <Grid className={classes.courseInfoArea}>
-          <Box className={classes.gridBox}>
+    <div>        
+      <div>
+        <section>
+        <div>
+          <div className={classes.descriptionHeader}>
+            <div className={classes.descriptionContainer}>
+              <div className={classes.courseInfoBox}>
+                <div className={classes.courseHeader}>
+                  <Title order={6} align="left">{course?.category}</Title>
+                  <Title className={classes.courseTitle} order={1} align="left">
+                    {course?.title} - {course?.description}
+                  </Title>
+                  <div className={classes.courseInfo}>
+                    <span className={classes.courseStar}>
+                      <Star howmany={5} size={15}></Star>
+                    </span>
+                    <span><strong>by {course?.instructorName || "이경엽 CTO at Spacewalk"}</strong></span>
+                  </div>
+                  <Button className={classes.registerButton} onClick={onRegister}>수강신청 하기</Button>
+                </div>
+                <div className={classes.learningCurve}>
+                  <LearningCurve
+                    datas={{
+                      main: {
+                        title: "진척율(%)",
+                        data: progress
+                      }
+                    }}
+                    dates={date}
+                    colors={["#D0EBFF"]}
+                    height={"140%"}
+                    width={"152%"}
+                    title={"수강생 Avg Learning Curve"}
+                    fontColor={"#D0EBFF"}
+                    gridLineColor={"transparent"}
+                    markerSize={4}
+                    lineWidth={3}
+                    style={{
+                      margin: "0",
+                      backgroundColor: "transparent",
+                    }}
+                    />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </section>
+        <Grid className={classes.coursesArea}>
+          <div className={classes.gridBox}>
             <CourseReviewGrid cols={3}/>
-          </Box>
+          </div>
           <Box className={classes.gridBox}>
-            <SimpleCourseGrid cols={3} roadMapeType={roadMapType}/>
+            <SimpleCourseGrid cols={3}/>
           </Box>
         </Grid>
-      </Grid.Col>
-    </Grid>
+      </div>
+    </div>
   );
 }
 

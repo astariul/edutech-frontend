@@ -41,7 +41,7 @@ const Stars = ({howmany} :any) => {
             <SimpleGrid cols={howmany} spacing={1} className={classes.star}>
                 {
                     Array.from(Array(howmany).keys()).map(
-                        (_, index) => <p key={index}>&#11088;</p>
+                        (_, index) => <p key={index}>⭐</p>
                     )
                 }
             </SimpleGrid>

@@ -80,7 +80,7 @@ const IamPortPaymentButton = (
       radius="md"
       onClick={buttonClickHandler}
     >
-      결제하기
+      {price === 0 ? "수강하기" : "결제하기"}
     </Button>
   );
 }

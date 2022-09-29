@@ -4,7 +4,7 @@ import { IOrder } from '../typings/db';
 
 class OrderRepository {
   async start(token: string, courseId: string){
-    const ret = await axios.post<{id: string}>(
+    const ret = await axios.post<string>(
       process.env.REACT_APP_API_URL + "order/start",
       { courseId: courseId },
       { headers: {Authorization: `Bearer ${token}`} }
@@ -12,7 +12,7 @@ class OrderRepository {
     return ret.data;
   }
 
-  async completeOrderById(token: string, orderId: string, paymentId: string) {
+  async completeOrderById(token: string, orderId: string, paymentId: string | number) {
     const ret = await axios.post<IOrder>(
       process.env.REACT_APP_API_URL + `order/complete/${orderId}`,
       { paymentId: paymentId },

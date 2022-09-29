@@ -2,6 +2,7 @@ import { createStyles } from "@mantine/core";
 
 const useStyles = createStyles(() => ({
   layout: {
+    margin: "0 auto",
     display: "flex",
     flexGrow: 1,
     position: "relative",

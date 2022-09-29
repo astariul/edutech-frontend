@@ -1,67 +1,13 @@
-import React, { useState } from 'react';
-import { createStyles, Container, Grid, Text, Box, Space } from '@mantine/core';
-import { useNavigate } from 'react-router-dom';
-import CourseRepository from '../repositories/Course';
-import { useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
+import { Container, Grid, Text, Space } from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
-import { IUserProfile } from '../typings/db';
-import { ICourse, IVideo } from '../typings/db';
-import { CourseEpisode, findNextEpisode } from '../utils/common';
-import { useEffect } from 'react';
-
-const useStyles = createStyles((theme) => ({
-  statusBox: {
-    marginTop: "100px",
-    marginBottom: "30px",
-    marginLeft: "300px",
-    marginRight: "300px",
-    borderRadius: "15px",
-    backgroundColor: "#D3D3D3",
-    maxWidth: "100%",
-  },
-  leftGrid: {
-    flex: "1 1 30%",
-  },
-  middleGrid: {
-    flex: "1 1 50%",
-  },
-  rightGrid: {
-    flex: "1 1 20%",
-  },
-  action: {
-    alignItems: "center",
-    textAlign:"center",
-    flexDirection: "column",
-    justifyContent:"space-between",
-    padding: "8px 12px"
-  },
-  actionItem: {
-    width: "140px",
-    marginTop: "4px",
-    marginBottom: "4px"
-  },
-  chart: {
-    padding: "8px 12px",
-    boxSizing: "border-box",
-  },
-  statusComment: {
-    fontSize: "17px",
-    padding: "8px 12px",
-    textAlign:"center",
-    boxSizing: "border-box",
-  },
-  outcomeComment: {
-    fontSize: "15px",
-    padding: "8px 12px",
-    color: "red",
-    boxSizing: "border-box",
-  },
-  title: {
-    fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-    fontSize: "30px",
-    textAlign:"center",
-  },
-}));
+import { useNavigate } from 'react-router-dom';
+import { IUserProfile } from '../../typings/db';
+import { ICourse, IVideo } from '../../typings/db';
+import CourseRepository from '../../repositories/Course';
+import LearningCurve from '../learningCurve/LearningCurve';
+import { CourseEpisode, findNextEpisode, calculateProgressStatByDate } from '../../utils/common';
+import useStyles from './style';
 
 
 interface CourseStatusBoxProps {
@@ -76,6 +22,8 @@ const CourseStatusBox = ({course, videos, generateButtonGroup}: CourseStatusBoxP
   const [nextEpisode, setNextEpisode] = useState<CourseEpisode | null>(null);
   const { classes } = useStyles();
   const navigate = useNavigate();
+  const [progress, setProgress] = useState<number[]>([]);
+  const [date, setDate] = useState<string[]>([]);
 
   useEffect(
     () => {
@@ -98,6 +46,19 @@ const CourseStatusBox = ({course, videos, generateButtonGroup}: CourseStatusBoxP
     }, [login, course, videos, setNextEpisode]
   );
 
+  useEffect(
+    () => {
+      new CourseRepository()
+      .getProgress(login?.token as string, course.id)
+      .then(
+        (data) => {
+          const [retProgressStat, retDate] = calculateProgressStatByDate(data);
+          setProgress(retProgressStat as number[]);
+          setDate(retDate as string[]);
+        })
+      }, [login, setProgress, setDate, course]
+  )
+
   const toNextEpisode = useCallback(
     () => {
       const title = course.title.split(" ").join("");
@@ -116,19 +77,30 @@ const CourseStatusBox = ({course, videos, generateButtonGroup}: CourseStatusBoxP
   )
 
   return (
-      <Grid className={classes.statusBox}>
+      <Grid className={classes.main}>
         <Grid.Col className={classes.leftGrid}>
           <Text className={classes.title}>{course.title}</Text>
-          <Text className={classes.statusComment}>진척률통계</Text>
         </Grid.Col>
         <Grid.Col className={classes.middleGrid}>
-          <Container className={classes.chart}>chart 영역</Container>
+          <Container className={classes.chart}>
+            <LearningCurve
+              datas={{
+                main: {
+                  title: "내 진척율(%)",
+                  data: progress
+                }
+              }}
+              dates={date}
+              lineWidth={5}
+              title={"Learning Curve"}
+              // xaxisType={"datetime"}
+            />
+          </Container>
           <Text className={classes.outcomeComment}>슈퍼코더는 수료후 초봉5,000만원의 조건으로 3달 안에 입사를 성공하였습니다.</Text>
         </Grid.Col>
         <Grid.Col className={classes.rightGrid}>
           <Grid className={classes.action}>
             {generateButtonGroup()}
-            <Box>빈 영역</Box>
             <Space h="xl"></Space>
             <Text
               underline

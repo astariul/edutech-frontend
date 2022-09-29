@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import CourseStatusBox from '../components/CourseStatusBox';
+import CourseStatusBox from '../components/courseStatusBox/CourseStatusBox';
 import { ICourse, IVideo, ICourseVideo } from '../typings/db';
 import CourseRepository from '../repositories/Course';
 import { useLocalStorage } from '@mantine/hooks';
