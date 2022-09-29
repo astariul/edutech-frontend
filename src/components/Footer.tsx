@@ -3,7 +3,7 @@ import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram, IconBrandFacebo
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    marginTop: 120,
+    marginTop: 0,
     paddingTop: theme.spacing.xl,
     paddingBottom: theme.spacing.xl * 2,
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
