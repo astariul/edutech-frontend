@@ -1,9 +1,8 @@
 import { useCallback } from "react";
 import { Button, Card, Text } from '@mantine/core';
 import { useLocalStorage } from "@mantine/hooks";
-import { ICourse, IUserProfile } from "../../typings/db";
+import { ICourse } from "../../typings/db";
 import useStyles from "./style";
-import OrderRepository from '../../repositories/Order';
 
 
 interface PaymentSectionProps {
@@ -12,7 +11,6 @@ interface PaymentSectionProps {
 
 const PaymentSection = ({onClickHandler} : PaymentSectionProps) => {
   const { classes } = useStyles();
-  const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
   const [coursesInCart,] = useLocalStorage<ICourse[] | []>({ key: "coursesInCart", defaultValue: [] });
   const sumPrice = useCallback(
     (courses: ICourse[]) => {
