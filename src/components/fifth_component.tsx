@@ -91,7 +91,7 @@ export function ArticlesCardsGrid3() {
 
   return (
     <div className={classes.con}>
-    <Container py="xl" size="lg" mt={20} style = {{height: '500px'}}>
+    <Container py="xl" size="lg" mt={20} style = {{height: '425px'}}>
       <Text className={classes.suptitle}>산타 프렌즈에게 물어보세요.</Text>
       <Text mt={0} mb="xl" color="dimmed">앱 이용방법, 공부법, 개선사항에 대해 언제든지 이야기해주세요.</Text>
       <SimpleGrid cols={4} breakpoints={[{ maxWidth: 'sm', cols: 1 }]}>
