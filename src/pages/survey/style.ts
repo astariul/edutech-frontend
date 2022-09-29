@@ -1,4 +1,4 @@
-import { BackgroundImage, createStyles } from "@mantine/core";
+import { createStyles } from "@mantine/core";
 
 const useStyles = createStyles(() => ({
   main: {

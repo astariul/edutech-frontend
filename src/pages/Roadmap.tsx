@@ -1,16 +1,12 @@
-import React, {MouseEvent, useCallback, useEffect, useState} from 'react';
-import { Grid, createStyles, Title, Text, Divider, Box, Space, Button} from '@mantine/core';
+import React, {useCallback, useEffect, useState} from 'react';
+import { Grid, createStyles, Title, Box, Button} from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
 import { useNavigate } from 'react-router-dom';
-import ReactPlayer from 'react-player/lazy';
-import RoadMapNav from '../components/RoadMapNav';
 import CourseReviewGrid from '../components/CourseReviewGrid';
 import SimpleCourseGrid from "../components/SimpleCourseGrid";
 import LearningCurve from '../components/learningCurve/LearningCurve';
 import CourseRepository from '../repositories/Course';
 import { IUserProfile, ICourse } from '../typings/db';
-import { calculateProgressStatByDate } from '../utils/common';
-import { BorderRadius } from 'tabler-icons-react';
 import Star from '../components/stars/Stars';
 
 const useStyles = createStyles((theme) => ({

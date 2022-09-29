@@ -1,8 +1,7 @@
-import React, { CSSProperties, useState } from "react";
+import { CSSProperties } from "react";
 import Chart from "react-apexcharts";
 import { ApexOptions } from "apexcharts";
 import useStyles from './style';
-import { CSSObject } from "@mantine/core";
 
 interface LearningCurveProps {
   datas: {

@@ -6,7 +6,6 @@ import { Checkbox, Divider } from '@mantine/core';
 import { Button } from '@mantine/core';
 import { useCallback, useState } from 'react';
 import { CloseButton, Title } from '@mantine/core';
-import { ReactNode } from 'react';
 
 
 interface PeriodYearMonthProps {
@@ -19,7 +18,6 @@ interface ResumeBody3InputProps {
   input2Placeholder: string;
   input3Placeholder: string;
 }
-
 
 const PeriodYearMonth = ({showEndPeriod}: PeriodYearMonthProps) => {
   const {classes, cx} = useStylesPeriodYearMonth();
@@ -104,7 +102,7 @@ const ResumeBody3Input = ({header, input1Placeholder, input2Placeholder, input3P
   const removeItem = useCallback(
     (num: number) => {
       const filtered = numAdded.filter(
-        (addedNum) => addedNum != num
+        (addedNum) => addedNum !== num
       )
       setNumAdded(filtered);
       setShowEndedPeriod(false);

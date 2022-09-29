@@ -1,5 +1,4 @@
-import React from "react";
-import { Box, SimpleGrid } from '@mantine/core';
+import { SimpleGrid } from '@mantine/core';
 import useStyles from "./style";
 
 interface StarsProps {
