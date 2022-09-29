@@ -40,8 +40,9 @@ const Course = () => {
                     [`EP${video.number}`]: data,
                   }
                 }
-              )}
-          )
+              )
+            }
+            )
       }
       return () => {
         isCompletes.current = {}
@@ -78,6 +79,7 @@ const Course = () => {
     <>
       <Button
         style={{width: "140px", marginTop: "4px", marginBottom: "4px"}}
+        onClick={() => window.alert("서비스 준비중입니다.")}
       >
         라운지 입장
       </Button>

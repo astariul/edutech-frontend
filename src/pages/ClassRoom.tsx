@@ -74,7 +74,7 @@ const ClassRoom = () => {
         `${process.env.REACT_APP_API_URL}courses/play/${courseId}/${episode?.number}`
       )
       new CourseRepository()
-      .getCourseById(courseId)
+      .getCourseById(login?.token as string, courseId)
       .then(
         (course) => {
           const videos = course.videos as IVideo[];
@@ -84,7 +84,7 @@ const ClassRoom = () => {
           setNextEpisode(findNextEpisode(videos, episode));
         }
       )
-    },[episode, courseId]
+    },[login, episode, courseId]
   )
 
   const onClickNextEpisode = useCallback(

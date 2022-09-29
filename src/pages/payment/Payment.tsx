@@ -79,7 +79,8 @@ const Payment = () => {
         <PaymentMethodModal
           order={{
             orderId: merchantUID.current,
-            orgPrice: course.orgPrice
+            orgPrice: course.orgPrice,
+            dcPrice: course.dcPrice,
           }}
           buyer={{
             name: login.name,
@@ -101,7 +102,7 @@ const Payment = () => {
             </section>
             <aside className={classes.cartAside}>
               <section className={classes.sectionPayment}>
-                <PaymentSection onClickHandler={course.orgPrice === 0 ? registerCourse : showPaymentMethodModal}/>
+                <PaymentSection onClickHandler={course.dcPrice === 0 ? registerCourse : showPaymentMethodModal}/>
               </section>
               <section className={classes.sectionBuyerInfo}>
                 <Space h={10}/>

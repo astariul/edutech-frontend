@@ -54,13 +54,17 @@ export interface ICourse {
   description: string;
   image: string;
   level: string;
-  instructorName: string;
+  instructor: {
+    name: string;
+    description: string;
+    picture: string;
+  };
   orgPrice: number;
-  dcPrice?: number;
-  tags?: string[];
+  dcPrice: number;
+  tags: string[];
   id: string;
-  sold?: number;
-  views?: number;
+  sold: number;
+  views: number;
   thumbnail: string
 }
 
@@ -107,7 +111,7 @@ export interface IOrder {
 export interface MyOrder {
   orderId: string;
   orgPrice: number;
-  
+  dcPrice: number;
 }
 
 export interface Buyer {

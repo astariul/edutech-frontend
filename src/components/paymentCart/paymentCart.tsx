@@ -39,7 +39,7 @@ const CourseCard = ({course}: CourseCardProps) => {
         <h3 className={classes.courseCardTitle}>{course.title}</h3>
       </div>
       <div className={classes.courseCardPrice}>
-        <span>{course.orgPrice}원</span>
+        <span>{course.dcPrice}원</span>
       </div>
       <CloseButton className={classes.close} onClick={() => {removeItem(course.id)}}/>
     </article>
