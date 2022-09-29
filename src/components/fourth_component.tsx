@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 // import required modules
-import { Navigation } from "swiper";
+import { Navigation, Autoplay } from "swiper";
 
 import btn_image from "../img/btn_play.png";
 
@@ -115,7 +115,7 @@ export function CarouselSecond() {
             roundLengths={true}
             // pagination={{ clickable: true }}            
             navigation = {true}
-            autoplay = {{delay: 1000}}
+            autoplay = {{delay: 2000}}
             loop = {true}
             loopFillGroupWithBlank={true}
             breakpoints={{
@@ -132,7 +132,7 @@ export function CarouselSecond() {
                   spaceBetween: 20,
                 },
               }}
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             >
             <SwiperSlide className={classes.card}>
               <a className={classes.img_box} href="https://youtu.be/HDBQEI1aTYw" target="_blank" rel="noreferrer">
