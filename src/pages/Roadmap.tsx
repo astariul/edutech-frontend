@@ -116,11 +116,10 @@ const CourseRoadMap = () => {
   useEffect(
     () => {
       new CourseRepository()
-      .getAllCourses(login?.token as string)
+      .getCourseById(login?.token as string, "63346df60875520b1d117aad")
       .then(
-        (courses) => {
-          setCourse(courses[0]);
-          return
+        (courseVideos) => {
+          setCourse(courseVideos.course);
         }
       )
     }, [login, setCourse]
@@ -154,13 +153,13 @@ const CourseRoadMap = () => {
                 <div className={classes.courseHeader}>
                   <Title order={6} align="left">{course?.category}</Title>
                   <Title className={classes.courseTitle} order={1} align="left">
-                    {course?.title} - {course?.description}
+                    {course?.title}
                   </Title>
                   <div className={classes.courseInfo}>
                     <span className={classes.courseStar}>
                       <Star howmany={5} size={15}></Star>
                     </span>
-                    <span><strong>by {course?.instructorName || "이경엽 CTO at Spacewalk"}</strong></span>
+                    <span><strong>by {course?.instructor.name} {course?.instructor.description}</strong></span>
                   </div>
                   <Button className={classes.registerButton} onClick={onRegister}>수강신청 하기</Button>
                 </div>

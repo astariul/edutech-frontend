@@ -11,10 +11,11 @@ class CourseRepository {
     return ret.data;
   }
 
-  async getCourseById(courseId: string) {
+  async getCourseById(token: string, courseId: string) {
     const path = process.env.REACT_APP_API_URL + `courses/${courseId}`;
     const ret = await axios.get<ICourseVideo>(
       path,
+      { headers: {Authorization: `Bearer ${token}`} }
     );
     return ret.data
   }

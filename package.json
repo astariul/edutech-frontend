@@ -1,6 +1,6 @@
 {
   "name": "edutech-frontend",
-  "version": "0.0.33",
+  "version": "0.0.34",
   "homepage": "https://team-edutech.github.io/",
   "private": true,
   "dependencies": {
@@ -65,7 +65,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://3.37.64.30:5001",
+  "proxy": "http://3.37.241.70:5001",
   "devDependencies": {
     "gh-pages": "^4.0.0"
   }
