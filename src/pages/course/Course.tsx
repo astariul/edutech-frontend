@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import CourseStatusBox from '../../components/courseStatusBox/CourseStatusBox';
 import { ICourse, IVideo, ICourseVideo } from '../../typings/db';
@@ -21,7 +21,6 @@ const Course = () => {
   const navigate = useNavigate();
   const [formType, setFormType] = useState<"register" | "login">("login");
   const {course, videos} = location.state as ICourseVideo;
-  const isCompletes = useRef<{[key: string]:string}>({});
   const [table, setTable] = useState<JSX.Element | JSX.Element[]>();
   const {classes} = useStyles();
 
@@ -85,7 +84,7 @@ const Course = () => {
   )
 
   const generateTable = useCallback(
-    (videos: IVideo[] | { message: string }) => {
+    (takenEpisodes: number[], videos: IVideo[] | { message: string }) => {
     if (videos.hasOwnProperty("message")){
       return (
         <div>강의 영상 업로드전 입니다.</div>
@@ -104,7 +103,7 @@ const Course = () => {
                     <td>
                       {
                         (
-                          isCompletes.current[`EP${video.number}`] === "true" ?
+                          takenEpisodes.includes(video.number) ?
                           <SquareCheck color={"black"} strokeWidth={2} /> :
                           <Square color={"black"} strokeWidth={2} />
                         )
@@ -126,7 +125,7 @@ const Course = () => {
         }
       )
     )
-  }, [course, navigateToClassRoom, classes]
+  }, [course, navigateToClassRoom]
   )
 
   useEffect(
@@ -135,26 +134,14 @@ const Course = () => {
         console.log(videos);
       }
       else {
-        (videos as IVideo[]).forEach(
-          (video) => {
-            new CourseRepository()
-              .isCompletedEpisode(login?.token as string, course.id, video.number)
-              .then(
-                (data) => {
-                  isCompletes.current = {
-                    ...isCompletes.current,
-                    [`EP${video.number}`]: data,
-                  };
-                  setTable(generateTable(videos));
-                }
-              )
-            }
-            )
+        new CourseRepository()
+        .getProgress(login?.token as string, course.id)
+        .then( ({episodeNumbers}) => {
+          setTable(generateTable(episodeNumbers, videos));
+        })
       }
-      return () => {
-        isCompletes.current = {}
-      }
-  }, [login, course, videos, isCompletes, setTable, generateTable]);
+
+  }, [login, course, videos, setTable, generateTable]);
 
   return (
     <>
