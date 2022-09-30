@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { IUserProfile } from '../typings/db';
 import { Button, Center, Grid, } from '@mantine/core';
 import { Square, SquareCheck } from 'tabler-icons-react';
-import { findUniqueSeasonNumber } from '../utils/common';
+import { findUniqueSeasonNumber, secondsToMinutesString } from '../utils/common';
 import AuthenticationForm from '../components/AuthentificationForm';
 import ToggleTable from '../components/Table';
 import { useCallback } from 'react';
@@ -123,7 +123,7 @@ const Course = () => {
                   <tr key={video.number}>
                     <td style={{cursor: "pointer"}} onClick={() => {navigateToClassRoom(course, video)}}>EP{video.number}</td>
                     <td style={{cursor: "pointer"}} onClick={() => {navigateToClassRoom(course, video)}}>{video.title}</td>
-                    <td>{video.duration}</td>
+                    <td>{secondsToMinutesString(video.duration)}</td>
                     <td>
                       {
                         (
