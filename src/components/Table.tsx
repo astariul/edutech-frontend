@@ -1,5 +1,5 @@
+import {useCallback, useState} from "react"
 import { Table } from "@mantine/core";
-import React, {useCallback, useState} from "react"
 import { ArrowBarDown } from "tabler-icons-react";
 
 interface ToggleTableProps {
@@ -22,11 +22,13 @@ const ToggleTable = ({ header, rows }: ToggleTableProps) => {
           {
             header.map( (name) => {
               return (
-                <th key={name} style={{fontSize: 18, textAlign: "center"}}>{name}</th>
+                <th key={name} style={{fontSize:16, textAlign:"center", padding: "8px", width: "200px", backgroundColor: "#F1F3F5"}}>{name}</th>
               )
             })
           }
-          <th><ArrowBarDown  style={{display: "inline-block", width:"100%"}} strokeWidth={2} color={"black"}/></th>
+          <th style={{width: "200px", textAlign:"center", padding: "8px", backgroundColor: "#F1F3F5"}}>
+            <ArrowBarDown strokeWidth={2} color={"black"}/>
+          </th>
         </tr>
       </thead>
       <tbody style={{textAlign: "center", display: toggled}}>
