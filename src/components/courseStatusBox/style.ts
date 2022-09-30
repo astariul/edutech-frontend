@@ -3,7 +3,9 @@ import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   main: {
-    margin: "0 auto",
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginBottom: "48px",
     maxWidth: "1160px",
     borderRadius: "15px",
     backgroundColor: "#D3D3D3",

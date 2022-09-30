@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Modal, Grid } from '@mantine/core';
 import { useLocalStorage } from "@mantine/hooks";
-import { Buyer, IUserProfile, MyOrder } from '../../typings/db';
+import { Buyer, IOrder, IUserProfile, MyOrder } from '../../typings/db';
 import OrderRepository from '../../repositories/Order';
 import useStyles from "./style";
 
@@ -15,6 +15,8 @@ interface PaymentMethodModalProps {
   paymentMethods: JSX.Element[];
   opened: boolean;
   handleClose: () => void;
+  onSuccssHandler?: (order: IOrder) => void;
+  onFailHandler?: () => void;
 }
 
 const PaymentMethodModal = (
@@ -24,6 +26,8 @@ const PaymentMethodModal = (
     paymentMethods,
     opened,
     handleClose,
+    onSuccssHandler = (order: IOrder) => {},
+    onFailHandler = () => {},
   }: PaymentMethodModalProps
 ) => {
   const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
@@ -35,18 +39,20 @@ const PaymentMethodModal = (
       .completeOrderById(login?.token as string, order.orderId, response.imp_uid)
       .then(
         (myorder) => {
-          if (myorder.isPaid) {
-            alert(
-              `결제 완료되었습니다.
-                결제완료금액: ${myorder.amountPaid}원
-              `
-            )
-          }
-        }
-      )
+          onSuccssHandler(myorder)
+        //   if (myorder.isPaid) {
+        //     onSuccssHandler
+        //     alert(
+        //       `결제 완료되었습니다.
+        //         결제완료금액: ${myorder.amountPaid}원
+        //       `
+        //     )
+
+        //   }
+        })
     } else {
       // TODO: 결제실패 로직 구현
-      alert("결제 실패하였습니다.")
+      onFailHandler()
     }
   };
   const requestPayment = () => {

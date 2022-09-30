@@ -11,6 +11,7 @@ import useStyles from "./style";
 import BuyerInfoModifiable from "../../components/buyerInfoModifiable/buyerInfoModifiable";
 import PaymentCart from "../../components/paymentCart/paymentCart";
 import OrderRepository from "../../repositories/Order";
+import CourseRepository from '../../repositories/Course';
 
 
 const Payment = () => {
@@ -62,14 +63,24 @@ const Payment = () => {
       new OrderRepository()
       .completeOrderById(login?.token as string, merchantUID.current, 0)
       .then(
-        () => window.alert("수강신청 완료되었습니다. 강의실 페이지에서 수강현황을 확인해보세요")
-      )
-      .catch(
-        (err) => {
-          window.alert(`수강신청에 실패했습니다. 다시 시도해주세요. 에러코드: ${err.response.status}` )
+        () => {
+          new CourseRepository()
+          .registerCourse(login?.token as string, coursesInCart[0].id)
+          .then(
+            () => window.alert("수강신청 완료되었습니다. 강의실 페이지에서 수강현황을 확인해보세요")
+          )
         }
       )
-    }, [login]
+      .catch(
+        (err) => {  
+          new OrderRepository()
+          .deleteOrderById(login?.token as string, merchantUID.current)
+          .then(
+            () => window.alert(`수강신청에 실패했습니다. 다시 시도해주세요. 에러코드: ${err.response.status}` )
+          )
+        }
+      )
+    }, [login, coursesInCart]
   )
 
   return (

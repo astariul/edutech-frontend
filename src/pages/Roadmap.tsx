@@ -8,6 +8,7 @@ import LearningCurve from '../components/learningCurve/LearningCurve';
 import CourseRepository from '../repositories/Course';
 import { IUserProfile, ICourse } from '../typings/db';
 import Star from '../components/stars/Stars';
+import AuthRepository from '../repositories/Auth';
 
 const useStyles = createStyles((theme) => ({
   descriptionHeader: {
@@ -101,16 +102,33 @@ const CourseRoadMap = () => {
 
   const onRegister = useCallback(
     () => {
-      navigate(
-        "/payment",
-        { state:course }
-      );
-      const notIncludedCourses = coursesInCart.filter(
-        (courseInCart) => courseInCart.id !== (course as ICourse).id
-      ) && [course as ICourse]
-      setCoursesInCart(notIncludedCourses);
+      new AuthRepository()
+      .me(login?.token as string)
+      .then(
+        ({data}) => {
+          data.myCourses.forEach(
+            (each) => {
+              if (each.courseId === (course as ICourse).id) {
+                window.alert("수강중인 강의입니다. 강의실 페이지로 이동합니다.");
+                navigate("/myclass");
+                return;
+              } else{
+                navigate(
+                  "/payment",
+                  { state:course }
+                );
+                const notIncludedCourses = coursesInCart.filter(
+                  (courseInCart) => courseInCart.id !== (course as ICourse).id
+                ) && [course as ICourse]
+                setCoursesInCart(notIncludedCourses);
+                return;
+              }
+            }
+          )
+        }
+      )
 
-    }, [course, navigate, coursesInCart, setCoursesInCart]
+    }, [login, course, navigate, coursesInCart, setCoursesInCart]
   )
 
   useEffect(
