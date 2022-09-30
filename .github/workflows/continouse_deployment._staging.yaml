@@ -23,7 +23,7 @@ jobs:
 
       - name: Build
         env:
-          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
+          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_STG_URL }}
           REACT_APP_IAMPORT_ID: ${{ secrets.REACT_APP_IAMPORT_ID }}
           REACT_APP_IAMPORT_REST_API_SECRET: ${{ secrets.REACT_APP_IAMPORT_REST_API_SECRET }}
           REACT_APP_IAMPORT_REST_API_KEY: ${{ secrets.REACT_APP_IAMPORT_REST_API_KEY }}

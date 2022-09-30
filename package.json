@@ -1,6 +1,6 @@
 {
   "name": "edutech-frontend",
-  "version": "0.0.34",
+  "version": "0.0.35",
   "homepage": "https://team-edutech.github.io/",
   "private": true,
   "dependencies": {

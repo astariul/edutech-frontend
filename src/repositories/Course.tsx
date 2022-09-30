@@ -88,6 +88,16 @@ class CourseRepository {
     return ret.data;
   }
 
+  async registerCourse(token: string, courseId: string) {
+    const path = process.env.REACT_APP_API_URL
+                + `courses/register/${courseId}`
+    const ret = await axios.put(
+      path,
+      { headers: {Authorization: `Bearer ${token}`} }
+    )
+    return ret;
+  }
+
   async createCourse(url: string, course: ICourse) {
     const ret = await axios.post<ICourse>(url, course);
     return ret;
