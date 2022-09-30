@@ -65,7 +65,7 @@ export default function FooterSimple() {
       <Container className={classes.inner}>
         <Group className={classes.links}>
           <Book />
-          <Title order={3}>EduTech</Title>
+          <Title order={3}>Super Coding</Title>
         </Group>
         <Group className={classes.links}>
           <ContactLink />

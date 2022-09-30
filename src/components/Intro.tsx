@@ -28,7 +28,7 @@ export default function Intro() {
 
   return (
     <Container my="md" mt={80}>
-      <Title order={1} id="edutech-intro" className={classes.intro_title}>EduTech, a new learning platform</Title>
+      <Title order={1} id="edutech-intro" className={classes.intro_title}>Super Coding, a new learning platform</Title>
       <Grid align="center">
         <Grid.Col xs={4} className={classes.intro_line}>
           <Image
@@ -39,12 +39,12 @@ export default function Intro() {
           />
         </Grid.Col>
         <Grid.Col xs={8} className={classes.intro_line_text}>
-          <Text size="lg">EduTech is on a mission to make software development job accessible to everyone.</Text>
+          <Text size="lg">Super Coding is on a mission to make software development job accessible to everyone.</Text>
           <Space h="md" />
           <Text size="lg">We provide online courses with high-quality content.</Text>
         </Grid.Col>
         <Grid.Col xs={8} className={classes.intro_line_text_left}>
-          <Text size="lg">But Edutech, it's also a community of learners.</Text>
+          <Text size="lg">But Super Coding, it's also a community of learners.</Text>
           <Space h="md" />
           <Text size="lg">Participate in the community, learn together, earn prices, and get the job of your dreams.</Text>
         </Grid.Col>
