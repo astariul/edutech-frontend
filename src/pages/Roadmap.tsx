@@ -108,7 +108,7 @@ const CourseRoadMap = () => {
         { state:course }
       );
       const notIncludedCourses = coursesInCart.filter(
-        (courseInCart) => courseInCart.id !== (course as ICourse).id
+        (courseInCart) => courseInCart.id !== course?.id
       ) && [course as ICourse]
       setCoursesInCart(notIncludedCourses);
       return;
@@ -141,10 +141,11 @@ const CourseRoadMap = () => {
         ({data}) => {
           data.myCourses.forEach(
             (each) => {
-              if (each.courseId === (course as ICourse).id) {
+              if (each.courseId === course?.id) {
                 setRegistered(true);
                 return;
               }
+              setRegistered(false);
             }
           )
         }

@@ -52,7 +52,7 @@ export interface ICourse {
   title: string;
   category: string;
   description: string;
-  image: string;
+  images: string[];
   level: string;
   instructor: {
     name: string;
@@ -65,7 +65,9 @@ export interface ICourse {
   id: string;
   sold: number;
   views: number;
-  thumbnail: string
+  thumbnail: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface ICourseVideo {
