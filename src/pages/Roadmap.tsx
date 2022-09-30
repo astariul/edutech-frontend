@@ -75,7 +75,7 @@ const useStyles = createStyles((theme) => ({
     height: 300,
     backgroundColor: "#ADB5BD"
   },
-  registerButton: {
+  button: {
     fontSize: "15px", 
     letterSpacing: "0.5px",
     marginTop: "15px",
@@ -115,10 +115,17 @@ const CourseRoadMap = () => {
     }, [navigate, course, coursesInCart, setCoursesInCart]
 )
 
-  const onRegister = useCallback(
+  const onClickHandler = useCallback(
     () => {
-      registered ? navigate("/myclass") : toPayment();
-    }, [registered, navigate, toPayment]
+       if (login && registered) {
+        navigate("/myclass")
+       } else if (login) {
+        toPayment();
+       } else {
+        window.alert("로그인해주세요");
+       }
+
+    }, [login, registered, navigate, toPayment]
   )
 
   useEffect(
@@ -189,8 +196,8 @@ const CourseRoadMap = () => {
                     </span>
                     <span><strong>by {course?.instructor.name} {course?.instructor.description}</strong></span>
                   </div>
-                  <Button className={classes.registerButton} onClick={onRegister}>
-                    {registered ? "강의실로 바로가기" : "수강신청 하기"}
+                  <Button className={classes.button} onClick={onClickHandler}>
+                    {(login && registered) ? "강의실로 바로가기" : "수강신청 하기"}
                   </Button>
                 </div>
                 <div className={classes.learningCurve}>
