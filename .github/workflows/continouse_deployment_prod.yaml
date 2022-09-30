@@ -5,6 +5,8 @@ on:
 jobs: # Job 설정
   build:
     runs-on: ubuntu-latest
+    env: 
+      CI: false
 
     steps:
       - name: Checkout source code
