@@ -82,3 +82,29 @@ export const calculateProgressStatByDate = (progress: IProgress) => {
   const retDate = Object.keys(dateToEpisode);
   return [retProgressStat, retDate];
 }
+
+export const secondsToMinutesString = (seconds: number) => {
+  /*
+    seconds = 323 => return "05:23"
+    seconds = 60 => return "01:00"
+    seconds = 71 => return "01:11"
+    seconds = 9 => return "00:09"
+  */
+   if (seconds <= 0) {
+    return "00:00";
+   }
+   const min = Math.floor(seconds / 60);
+   const sec = seconds % 60;
+   let minuteString, secondString;
+
+   if (min < 1) {
+    minuteString = "00";
+   } else if (min < 10){
+    minuteString = `0${min}`;
+   } else {
+    minuteString = min.toString();
+   }
+   secondString = sec === 0 ? "00" : sec.toString();
+   secondString = secondString.length === 1 ? `0${secondString}`: secondString;
+   return `${minuteString}:${secondString}`;
+}

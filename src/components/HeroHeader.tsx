@@ -75,7 +75,7 @@ export default function HeroContentLeft() {
       <Container className={classes.container}>
         <Title className={classes.title}>Learn software development. Lend interviews. Get offers.</Title>
         <Text className={classes.description} size="xl" mt="xl">
-          EduTech helps thousands of students learning real-life skills in software development.
+          Super Coding helps thousands of students learning real-life skills in software development.
           Access various classes, unlock new skills, discuss with a large community.
         </Text>
 

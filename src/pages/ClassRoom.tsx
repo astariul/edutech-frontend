@@ -9,7 +9,7 @@ import CourseRepository from "../repositories/Course";
 import { IVideo } from "../typings/db";
 import { useLocation, useNavigate } from "react-router-dom";
 import Toggle from '../components/Toggle';
-import { CourseEpisode, findNextEpisode, findUniqueSeasonNumber } from "../utils/common";
+import { CourseEpisode, findNextEpisode, findUniqueSeasonNumber, secondsToMinutesString } from "../utils/common";
 
 
 const useStyles = createStyles((theme) => ({
@@ -169,7 +169,7 @@ const ClassRoom = () => {
                 return (
                   (season === video.seasonNumber) && (
                     <Grid.Col key={video.number} sx={{textAlign: "center", cursor: "pointer"}} onClick={onClickTargetEpisode(video)}>
-                      EP0{video.number}  {video.title}  {video.hasOwnProperty("duration") ? video.duration + ":00": ""}
+                      EP0{video.number} {video.title} [{secondsToMinutesString(video.duration)}]
                     </Grid.Col>
                   )
                 )

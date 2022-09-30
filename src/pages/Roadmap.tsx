@@ -75,7 +75,7 @@ const useStyles = createStyles((theme) => ({
     height: 300,
     backgroundColor: "#ADB5BD"
   },
-  registerButton: {
+  button: {
     fontSize: "15px", 
     letterSpacing: "0.5px",
     marginTop: "15px",
@@ -99,36 +99,33 @@ const CourseRoadMap = () => {
   const navigate = useNavigate();
   const [progress, setProgress] = useState<number[]>([]);
   const [date, setDate] = useState<string[]>([]);
+  const [registered, setRegistered] = useState(false);
 
-  const onRegister = useCallback(
+  const toPayment = useCallback(
     () => {
-      new AuthRepository()
-      .me(login?.token as string)
-      .then(
-        ({data}) => {
-          data.myCourses.forEach(
-            (each) => {
-              if (each.courseId === (course as ICourse).id) {
-                window.alert("수강중인 강의입니다. 강의실 페이지로 이동합니다.");
-                navigate("/myclass");
-                return;
-              } else{
-                navigate(
-                  "/payment",
-                  { state:course }
-                );
-                const notIncludedCourses = coursesInCart.filter(
-                  (courseInCart) => courseInCart.id !== (course as ICourse).id
-                ) && [course as ICourse]
-                setCoursesInCart(notIncludedCourses);
-                return;
-              }
-            }
-          )
-        }
-      )
+      navigate(
+        "/payment",
+        { state:course }
+      );
+      const notIncludedCourses = coursesInCart.filter(
+        (courseInCart) => courseInCart.id !== course?.id
+      ) && [course as ICourse]
+      setCoursesInCart(notIncludedCourses);
+      return;
+    }, [navigate, course, coursesInCart, setCoursesInCart]
+)
 
-    }, [login, course, navigate, coursesInCart, setCoursesInCart]
+  const onClickHandler = useCallback(
+    () => {
+       if (login && registered) {
+        navigate("/myclass")
+       } else if (login) {
+        toPayment();
+       } else {
+        window.alert("로그인해주세요");
+       }
+
+    }, [login, registered, navigate, toPayment]
   )
 
   useEffect(
@@ -141,6 +138,26 @@ const CourseRoadMap = () => {
         }
       )
     }, [login, setCourse]
+  )
+
+  useEffect(
+    () => {
+      new AuthRepository()
+      .me(login?.token as string)
+      .then(
+        ({data}) => {
+          data.myCourses.forEach(
+            (each) => {
+              if (each.courseId === course?.id) {
+                setRegistered(true);
+                return;
+              }
+              setRegistered(false);
+            }
+          )
+        }
+      )
+    }, [login, course, coursesInCart, setRegistered]
   )
 
   useEffect(
@@ -179,7 +196,9 @@ const CourseRoadMap = () => {
                     </span>
                     <span><strong>by {course?.instructor.name} {course?.instructor.description}</strong></span>
                   </div>
-                  <Button className={classes.registerButton} onClick={onRegister}>수강신청 하기</Button>
+                  <Button className={classes.button} onClick={onClickHandler}>
+                    {(login && registered) ? "강의실로 바로가기" : "수강신청 하기"}
+                  </Button>
                 </div>
                 <div className={classes.learningCurve}>
                   <LearningCurve
