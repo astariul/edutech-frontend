@@ -1,7 +1,7 @@
 {
   "name": "SuperCoding-frontend",
   "version": "0.0.39",
-  "homepage": "supercoding.net",
+  "homepage": "http://supercoding.net",
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.6.9",
