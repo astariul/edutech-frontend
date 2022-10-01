@@ -28,7 +28,7 @@ export default function Intro() {
 
   return (
     <Container my="md" mt={80}>
-      <Title order={1} id="edutech-intro" className={classes.intro_title}>Super Coding, a new learning platform</Title>
+      <Title order={1} id="SuperCoding-intro" className={classes.intro_title}>Super Coding, a new learning platform</Title>
       <Grid align="center">
         <Grid.Col xs={4} className={classes.intro_line}>
           <Image

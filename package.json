@@ -1,7 +1,7 @@
 {
-  "name": "edutech-frontend",
-  "version": "0.0.38",
-  "homepage": "https://team-edutech.github.io/",
+  "name": "SuperCoding-frontend",
+  "version": "0.0.39",
+  "homepage": "supercoding.net",
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.6.9",
