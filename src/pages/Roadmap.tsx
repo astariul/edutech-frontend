@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 import { Grid, createStyles, Title, Box, Button} from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
 import { useNavigate } from 'react-router-dom';
@@ -197,7 +197,7 @@ const CourseRoadMap = () => {
                     <span><strong>by {course?.instructor.name} {course?.instructor.description}</strong></span>
                   </div>
                   <Button className={classes.button} onClick={onClickHandler}>
-                    {(login && registered) ? "강의실로 바로가기" : "수강신청 하기"}
+                    {(login && registered) ? "강의실 바로가기" : "수강신청 하기"}
                   </Button>
                 </div>
                 <div className={classes.learningCurve}>

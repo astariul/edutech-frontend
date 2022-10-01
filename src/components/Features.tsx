@@ -73,13 +73,13 @@ const mockdata = [
     icon: Certificate,
     title: 'Best Learning Quality',
     description:
-      'Edutech\'s courses are high quality, and teach you real-life skills. Learn and evaluate yourself, be ready for your dream job.',
+      'Super Coding\'s courses are high quality, and teach you real-life skills. Learn and evaluate yourself, be ready for your dream job.',
   },
   {
     icon: Coin,
     title: 'Very Affordable Pricing',
     description:
-      'EduTech\' courses are very affordable, because we believe education should be accessible for all.',
+      'Super Coding\' courses are very affordable, because we believe education should be accessible for all.',
   },
 ];
 

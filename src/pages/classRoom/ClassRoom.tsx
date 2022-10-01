@@ -1,56 +1,21 @@
-import { createStyles, Grid, Container, Center, Text} from "@mantine/core";
-import { useLocalStorage } from "@mantine/hooks";
-import React, { MouseEvent, useCallback, useEffect, useState } from "react";
-import { TriangleInverted } from "tabler-icons-react";
-import AuthenticationForm from "../components/AuthentificationForm";
-import { IUserProfile } from '../typings/db';
-import ReactPlayer from 'react-player/lazy';
-import CourseRepository from "../repositories/Course";
-import { IVideo } from "../typings/db";
+import { MouseEvent, useCallback, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Toggle from '../components/Toggle';
-import { CourseEpisode, findNextEpisode, findUniqueSeasonNumber, secondsToMinutesString } from "../utils/common";
+import ReactPlayer from 'react-player/lazy';
+import { Grid, Container, Center, Text} from "@mantine/core";
+import { useLocalStorage } from "@mantine/hooks";
+import { TriangleInverted } from "tabler-icons-react";
+import AuthenticationForm from "../../components/AuthentificationForm";
+import { IUserProfile, IVideo } from '../../typings/db';
+import CourseRepository from "../../repositories/Course";
+import Toggle from '../../components/Toggle';
+import {
+  CourseEpisode,
+  findNextEpisode,
+  findUniqueSeasonNumber,
+  secondsToMinutesString
+} from "../../utils/common";
+import useStyles from "./style";
 
-
-const useStyles = createStyles((theme) => ({
-  classRoom: {
-    justifyContent: "space-between",
-    alignItems: "start",
-    maxWidth: "100%",
-    flexDirection: "row",
-    marginLeft: "0px"
-  },
-  sidebar: {
-    margin: '2.4rem 1rem 1rem',
-    flex: "1 1 20%",
-  },
-  sidebarContent: {
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  videoContainer : {
-    flex: "1 1 70%",
-    margin: '2.4rem',
-    padding: 0,
-  },
-  buttonContainer: {
-    display: "flex",
-  },
-  seasonText: {
-    flex: "0 0 70%",
-    paddingLeft: "105px",
-    fontSize: "20px",
-    boxSizing: "border-box",
-  },
-  iconTriangle: {
-    fill: "#101113",
-    flex: "0 0 30%",
-    boxSizing: "border-box",
-    justifyContent: "center",
-    paddingTop: "6px",
-    paddingLeft: "30px"
-  }
-}));
 
 const ClassRoom = () => {
 
@@ -84,7 +49,7 @@ const ClassRoom = () => {
           setNextEpisode(findNextEpisode(videos, episode));
         }
       )
-    },[login, episode, courseId]
+    }, [login, episode, courseId]
   )
 
   const onClickNextEpisode = useCallback(
@@ -112,18 +77,43 @@ const ClassRoom = () => {
     }, [courseVideos, nextEpisode, courseId, courseTitle, navigate]
   )
 
-  const onClickCompleteEpisode = useCallback(
-    (e: MouseEvent<HTMLHeadingElement>) => {
-      e.stopPropagation();
+  const onSaveCurrentEpisode = useCallback(
+    (
+      token: string,
+      courseId: string,
+      episodeNumber: number
+    ) => {
       new CourseRepository()
-      .completeEpisode(login?.token as string, courseId, currentEpisode?.number as number)
+      .saveCurrentEpisode(token, courseId, episodeNumber);
+    }, []
+  )
+
+  const onClickCompleteEpisode = useCallback(
+    async (e: MouseEvent<HTMLHeadingElement>) => {
+      e.stopPropagation();
+      const {episodeNumbers} = await new CourseRepository()
+      .getProgress(login?.token as string, courseId)
+      if (episodeNumbers.includes(currentEpisode?.number as number)) {
+        window.alert("이미 수강완료하였습니다. 다음 강의 학습해주세요")
+        return
+      }
+      new CourseRepository()
+      .completeEpisode(
+        login?.token as string,
+        courseId,
+        currentEpisode?.number as number
+      )
       .then(
         () => {
-          navigate(`/survey/${courseId}`)
+          onSaveCurrentEpisode(
+            login?.token as string,
+            courseId,
+            currentEpisode?.number as number
+          );
+          navigate(`/survey/${courseId}`);
         }
       )
-      navigate(`/survey/${courseId}`)
-    }, [login, courseId, currentEpisode, navigate]
+    }, [login, courseId, currentEpisode, navigate, onSaveCurrentEpisode]
   )
 
   const onClickTargetEpisode = useCallback(
@@ -149,13 +139,6 @@ const ClassRoom = () => {
     }, [courseId, courseTitle, courseVideos, navigate]
   )
 
-  const onSaveCurrentEpisode = (
-    token: string, courseId: string, episodeNumber: number
-  ) => {
-    new CourseRepository()
-    .saveCurrentEpisode(token, courseId, episodeNumber);
-  }
-
   const ToggleSeason = seasons.map(
     (season) => {
       return (
@@ -163,12 +146,23 @@ const ClassRoom = () => {
           key={season}
           Name={<Text className={classes.seasonText}>시즌 {season}</Text>}
           Icon={<TriangleInverted className={classes.iconTriangle}/>}
+          toggleOpened={(season === episode.seasonNumber ? true: false)}
           Items={
             (courseVideos as IVideo[]).map(
               (video) => {
+                let curEpiBackgroundColor = "#F1F3F5";
+                let curEpiFontColor = "#1A1B1E";
+                if (season === video.seasonNumber && currentEpisode?.number === video.number) {
+                  curEpiBackgroundColor = "#002333";
+                  curEpiFontColor = "#DEE2E6";
+                }
                 return (
                   (season === video.seasonNumber) && (
-                    <Grid.Col key={video.number} sx={{textAlign: "center", cursor: "pointer"}} onClick={onClickTargetEpisode(video)}>
+                    <Grid.Col
+                      key={video.number}
+                      sx={{textAlign: "center", cursor: "pointer", color: curEpiFontColor, backgroundColor: curEpiBackgroundColor}}
+                      onClick={onClickTargetEpisode(video)}
+                    >
                       EP0{video.number} {video.title} [{secondsToMinutesString(video.duration)}]
                     </Grid.Col>
                   )

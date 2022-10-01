@@ -5,10 +5,11 @@ interface toggleProps {
   Name: ReactNode;
   Icon: ReactNode;
   Items: ReactNode[];
+  toggleOpened?: boolean;
 }
 
-const Toggle = ({ Name, Icon, Items }: toggleProps) => {
-  const [toggled, setToggled] = useState(false);
+const Toggle = ({ Name, Icon, Items, toggleOpened=false}: toggleProps) => {
+  const [toggled, setToggled] = useState(toggleOpened);
   return (
     <div style={{display: "flex", width: "100%", flexDirection: "column"}}>
       <Grid.Col style={{display: "flex", cursor: "pointer"}} onClick={() => setToggled((o) => !o)}>

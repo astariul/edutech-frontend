@@ -109,7 +109,7 @@ const Course = () => {
                         )
                       }
                     </td>
-                    <td style={{cursor: "pointer"}} onClick={() => {navigateToClassRoom(course, video)}}>{"에피소드 시청하기"}</td>
+                    <td style={{cursor: "pointer"}} onClick={() => {navigateToClassRoom(course, video)}}>{"에피소드 학습하기"}</td>
                   </tr>
                 )
               }
@@ -125,7 +125,7 @@ const Course = () => {
         }
       )
     )
-  }, [course, navigateToClassRoom]
+  }, [course, navigateToClassRoom, classes.table]
   )
 
   useEffect(

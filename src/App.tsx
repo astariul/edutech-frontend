@@ -14,7 +14,7 @@ import AuthRepository from './repositories/Auth';
 import { IUserProfile } from './typings/db';
 import Survey from './pages/survey/Survey';
 import Course from './pages/course/Course';
-import ClassRoom from './pages/ClassRoom';
+import ClassRoom from './pages/classRoom/ClassRoom';
 import Payment from './pages/payment/Payment';
 import Resume from './pages/resume/Resume';
 
