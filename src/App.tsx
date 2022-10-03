@@ -71,7 +71,7 @@ function App() {
           <Route path='/class/*' element={<ClassRoom />}></Route>
           <Route path='/feed' element={<Feed />}></Route>
           <Route path='/mypage/course/*' element={<LearningCourse />}></Route>
-          <Route path='/survey/*' element={<Survey />}></Route>
+          <Route path='/survey/:courseId/:episodeNumber' element={<Survey />}></Route>
           <Route path='/payment' element={<Payment/>}></Route>
           <Route path='/resume' element={<Resume/>}></Route>
         </Routes>

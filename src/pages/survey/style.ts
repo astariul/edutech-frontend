@@ -13,11 +13,15 @@ const useStyles = createStyles(() => ({
   question: {
     margin: "24px auto",
   },
+  radio: {
+    minWidth: "1024px"
+  },
   title: {
     margin: "8px auto",
     fontSize: "32px"
   },
-  answer: { 
+  answer: {
+    margin: "24px auto",
     border: "none",
     height: "auto",
     minWidth: "1024px",

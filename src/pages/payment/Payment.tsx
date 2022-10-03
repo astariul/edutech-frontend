@@ -11,23 +11,48 @@ import useStyles from "./style";
 import BuyerInfoModifiable from "../../components/buyerInfoModifiable/buyerInfoModifiable";
 import PaymentCart from "../../components/paymentCart/paymentCart";
 import OrderRepository from "../../repositories/Order";
-import CourseRepository from '../../repositories/Course';
+import AuthRepository from "../../repositories/Auth";
 
 
 const Payment = () => {
 
-  const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
+  const [login,] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
   const [coursesInCart] = useLocalStorage<ICourse[] | []>({ key: "coursesInCart", defaultValue: [] });
   const [formType, setFormType] = useState<"register" | "login">("login");
   const [opened, setOpened] = useState(false);
   const [modification, setModification] = useState(false);
-  const [name, setName] = useState(login?.name as string);
-  const [email, setEmail] = useState(login?.email as string)
-  const [tel, setTel] = useState("010-0000-0000");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [tel, setTel] = useState("");
   const {classes} = useStyles();
   const location = useLocation();
   const course = location.state as ICourse;
   const merchantUID = useRef("");
+  const [registered, setRegistered] = useState(false);
+
+  useEffect(
+    () => {
+      new AuthRepository()
+      .me(login?.token as string)
+      .then(
+        ({data}) => {
+          data.myCourses.forEach(
+            (each) => {
+              if (each.courseId === course?.id) {
+                setRegistered(true);
+                return;
+              }
+              setRegistered(false);
+            }
+            )
+          }
+          )
+      setName(login?.name as string);
+      setEmail(login?.email as string);
+      setTel("010-0000-0000");
+      return () => setRegistered(false);
+    }, [login, course, setRegistered]
+  )
 
   useEffect(
     () => {
@@ -60,27 +85,26 @@ const Payment = () => {
 
   const registerCourse = useCallback(
     () => {
-      new OrderRepository()
-      .completeOrderById(login?.token as string, merchantUID.current, 0)
-      .then(
-        () => {
-          new CourseRepository()
-          .registerCourse(login?.token as string, coursesInCart[0].id)
-          .then(
-            () => window.alert("수강신청 완료되었습니다. 강의실 페이지에서 수강현황을 확인해보세요")
-          )
-        }
-      )
-      .catch(
-        (err) => {  
-          new OrderRepository()
-          .deleteOrderById(login?.token as string, merchantUID.current)
-          .then(
-            () => window.alert(`수강신청에 실패했습니다. 다시 시도해주세요. 에러코드: ${err.response.status}` )
-          )
-        }
-      )
-    }, [login, coursesInCart]
+      if (registered) {
+        window.alert("수강중인 강의입니다. 강의실 페이지에서 수강현황을 확인해보세요")
+      }
+      else {
+        new OrderRepository()
+        .completeOrderById(login?.token as string, merchantUID.current, 0)
+        .then(
+          () => window.alert("수강신청 완료되었습니다. 강의실 페이지에서 수강현황을 확인해보세요")
+        )
+        .catch(
+          (err) => {  
+            new OrderRepository()
+            .deleteOrderById(login?.token as string, merchantUID.current)
+            .then(
+              () => window.alert(`수강신청에 실패했습니다. 다시 시도해주세요. 에러코드: ${err.response.status}` )
+            )
+          }
+        )
+      }
+    }, [login, registered]
   )
 
   return (
@@ -125,7 +149,11 @@ const Payment = () => {
                   />
                   :
                   <BuyerInfo
-                    buyer={{name:name, email: email, tel: tel}}
+                    buyer={{
+                      name: name,
+                      email: email,
+                      tel: tel
+                    }}
                     onclickModificaion={() => setModification(true)}
                   />
                 }

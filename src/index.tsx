@@ -4,12 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { HashRouter } from 'react-router-dom';
-import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
-const client = new ApolloClient({
-  uri: "https://api.spacex.land/graphql/",
-  cache: new InMemoryCache()
-});
 
 declare global {
   interface Window {
@@ -24,9 +19,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <HashRouter>
-      <ApolloProvider client={client}>
-        <App />
-      </ApolloProvider>
+      <App />
     </HashRouter>
   </React.StrictMode>
 );

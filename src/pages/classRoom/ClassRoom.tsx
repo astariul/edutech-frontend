@@ -97,23 +97,17 @@ const ClassRoom = () => {
         window.alert("이미 수강완료하였습니다. 다음 강의 학습해주세요")
         return
       }
-      new CourseRepository()
-      .completeEpisode(
-        login?.token as string,
-        courseId,
-        currentEpisode?.number as number
-      )
-      .then(
-        () => {
-          onSaveCurrentEpisode(
-            login?.token as string,
-            courseId,
-            currentEpisode?.number as number
-          );
-          navigate(`/survey/${courseId}`);
+      navigate(
+        `/survey/${courseId}/${currentEpisode?.number}`,
+        {
+          state: {
+          ...nextEpisode,
+          courseId: courseId,
+          courseTitle: currentEpisode?.courseTitle
+          }
         }
-      )
-    }, [login, courseId, currentEpisode, navigate, onSaveCurrentEpisode]
+      );
+    }, [login, courseId, currentEpisode, nextEpisode, navigate]
   )
 
   const onClickTargetEpisode = useCallback(

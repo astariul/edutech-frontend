@@ -1,5 +1,5 @@
 import {useCallback, useEffect, useState} from 'react';
-import { Grid, createStyles, Title, Box, Button} from '@mantine/core';
+import { Grid, createStyles, Title, Box, Button, Center} from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
 import { useNavigate } from 'react-router-dom';
 import CourseReviewGrid from '../components/CourseReviewGrid';
@@ -9,6 +9,7 @@ import CourseRepository from '../repositories/Course';
 import { IUserProfile, ICourse } from '../typings/db';
 import Star from '../components/stars/Stars';
 import AuthRepository from '../repositories/Auth';
+import AuthenticationForm from '../components/AuthentificationForm';
 
 const useStyles = createStyles((theme) => ({
   descriptionHeader: {
@@ -93,7 +94,9 @@ const useStyles = createStyles((theme) => ({
 
 const CourseRoadMap = () => {
   const { classes } = useStyles();
+  const [openForm, setOpenForm] = useState(false);
   const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
+  const [formType, setFormType] = useState<"register" | "login">("login");
   const [coursesInCart, setCoursesInCart] = useLocalStorage<ICourse[] | []>({ key: "coursesInCart", defaultValue: [] });
   const [course, setCourse] = useState<ICourse>();
   const navigate = useNavigate();
@@ -122,10 +125,10 @@ const CourseRoadMap = () => {
        } else if (login) {
         toPayment();
        } else {
-        window.alert("로그인해주세요");
+        setOpenForm(true);
        }
 
-    }, [login, registered, navigate, toPayment]
+    }, [login, registered, navigate, toPayment, setOpenForm]
   )
 
   useEffect(
@@ -157,7 +160,8 @@ const CourseRoadMap = () => {
           )
         }
       )
-    }, [login, course, coursesInCart, setRegistered]
+      return () => setRegistered(false);
+    }, [login, course, setRegistered]
   )
 
   useEffect(
@@ -178,66 +182,79 @@ const CourseRoadMap = () => {
   )
 
   return (
-    <div>        
-      <div>
-        <section>
+    <>
+    {
+      (login || !openForm) && (
+      <div>        
         <div>
-          <div className={classes.descriptionHeader}>
-            <div className={classes.descriptionContainer}>
-              <div className={classes.courseInfoBox}>
-                <div className={classes.courseHeader}>
-                  <Title order={6} align="left">{course?.category}</Title>
-                  <Title className={classes.courseTitle} order={1} align="left">
-                    {course?.title}
-                  </Title>
-                  <div className={classes.courseInfo}>
-                    <span className={classes.courseStar}>
-                      <Star howmany={5} size={15}></Star>
-                    </span>
-                    <span><strong>by {course?.instructor.name} {course?.instructor.description}</strong></span>
+          <section>
+          <div>
+            <div className={classes.descriptionHeader}>
+              <div className={classes.descriptionContainer}>
+                <div className={classes.courseInfoBox}>
+                  <div className={classes.courseHeader}>
+                    <Title order={6} align="left">{course?.category}</Title>
+                    <Title className={classes.courseTitle} order={1} align="left">
+                      {course?.title}
+                    </Title>
+                    <div className={classes.courseInfo}>
+                      <span className={classes.courseStar}>
+                        <Star howmany={5} size={15}></Star>
+                      </span>
+                      <span><strong>by {course?.instructor.name} {course?.instructor.description}</strong></span>
+                    </div>
+                    <Button className={classes.button} onClick={onClickHandler}>
+                      {(login && registered) ? "강의실 바로가기" : "수강신청 하기"}
+                    </Button>
                   </div>
-                  <Button className={classes.button} onClick={onClickHandler}>
-                    {(login && registered) ? "강의실 바로가기" : "수강신청 하기"}
-                  </Button>
-                </div>
-                <div className={classes.learningCurve}>
-                  <LearningCurve
-                    datas={{
-                      main: {
-                        title: "진척율(%)",
-                        data: progress
-                      }
-                    }}
-                    dates={date}
-                    colors={["#D0EBFF"]}
-                    height={"140%"}
-                    width={"152%"}
-                    title={"수강생 Avg Learning Curve"}
-                    fontColor={"#D0EBFF"}
-                    gridLineColor={"transparent"}
-                    markerSize={4}
-                    lineWidth={3}
-                    style={{
-                      margin: "0",
-                      backgroundColor: "transparent",
-                    }}
-                    />
+                  <div className={classes.learningCurve}>
+                    <LearningCurve
+                      datas={{
+                        main: {
+                          title: "진척율(%)",
+                          data: progress
+                        }
+                      }}
+                      dates={date}
+                      colors={["#D0EBFF"]}
+                      height={"140%"}
+                      width={"152%"}
+                      title={"수강생 Avg Learning Curve"}
+                      fontColor={"#D0EBFF"}
+                      gridLineColor={"transparent"}
+                      markerSize={4}
+                      lineWidth={3}
+                      style={{
+                        margin: "0",
+                        backgroundColor: "transparent",
+                      }}
+                      />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          </section>
+          <Grid className={classes.coursesArea}>
+            <div className={classes.gridBox}>
+              <CourseReviewGrid cols={3}/>
+            </div>
+            <Box className={classes.gridBox}>
+              <SimpleCourseGrid cols={3}/>
+            </Box>
+          </Grid>
         </div>
-        </section>
-        <Grid className={classes.coursesArea}>
-          <div className={classes.gridBox}>
-            <CourseReviewGrid cols={3}/>
-          </div>
-          <Box className={classes.gridBox}>
-            <SimpleCourseGrid cols={3}/>
-          </Box>
-        </Grid>
       </div>
-    </div>
+      )
+    }
+    {
+      (openForm) && (
+        <Center sx={{paddingTop: 100}}>
+          <AuthenticationForm formType={formType} setFormType={setFormType} modalSetOpened={() => void(0)} />
+        </Center>
+      )
+    }
+    </>
   );
 }
 

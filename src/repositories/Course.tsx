@@ -46,12 +46,12 @@ class CourseRepository {
     return ret.data
   }
 
-  async saveCurrentEpisode(token: string, courseId: string, epsideNumber: number) {
+  async saveCurrentEpisode(token: string, courseId: string, episodeNumber: number) {
     const path = process.env.REACT_APP_API_URL
-                + `courses/my/current/${courseId}/${epsideNumber}`
+                + `courses/my/current/${courseId}/${episodeNumber}`
     const ret = await axios.post<{message: string}>(
       path,
-      { id: courseId, number: epsideNumber },
+      { id: courseId, number: episodeNumber },
       { headers: {Authorization: `Bearer ${token}`} }
     )
     return ret
@@ -93,6 +93,17 @@ class CourseRepository {
                 + `courses/register/${courseId}`
     const ret = await axios.put(
       path,
+      { headers: {Authorization: `Bearer ${token}`} }
+    )
+    return ret;
+  }
+
+  async saveReview(token: string, courseId: string, episodeNumber: number, review: any) {
+    const path = process.env.REACT_APP_API_URL
+                + `courses/review/${courseId}/${episodeNumber}`
+    const ret = await axios.post(
+      path,
+      { content: review },
       { headers: {Authorization: `Bearer ${token}`} }
     )
     return ret;
