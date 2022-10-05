@@ -1,7 +1,5 @@
-import React from 'react';
-import { createStyles, Container, Group, Title, Anchor } from '@mantine/core';
+import { createStyles, Container, Group, Anchor } from '@mantine/core';
 import { Link } from "react-router-dom";
-import { Book } from 'tabler-icons-react';
 import ContactLink from './ContactLink';
 
 const useStyles = createStyles((theme) => ({
@@ -63,10 +61,6 @@ export default function FooterSimple() {
   return (
     <div className={classes.footer}>
       <Container className={classes.inner}>
-        <Group className={classes.links}>
-          <Book />
-          <Title order={3}>Super Coding</Title>
-        </Group>
         <Group className={classes.links}>
           <ContactLink />
           {items}
