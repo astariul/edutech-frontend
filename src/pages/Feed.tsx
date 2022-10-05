@@ -11,6 +11,9 @@ import AuthenticationForm from '../components/AuthentificationForm';
 
 
 const useStyles = createStyles((theme) => ({
+  main: {
+    marginTop: "80px"
+  },
   page_title: {
     fontWeight: 500,
     color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
@@ -146,7 +149,7 @@ const Feed = () => {
       }
       {
         (login) && (
-          <>
+          <div className={classes.main}>
             <Container pt="xl" size="sm">
               <Center pt="xl" pb="xl">
                 <Title order={1} className={classes.page_title}>What's new ?</Title>
@@ -158,7 +161,7 @@ const Feed = () => {
             <Container pt="md" pb="md" className={classes.pagination}>
               <Pagination page={activePage} onChange={setPage} total={totalPage} onClick={onClickPageButton} />
             </Container>
-          </>
+          </div>
         )
       }
     </>
