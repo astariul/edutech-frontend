@@ -1,14 +1,28 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-y: scroll;
+  text-rendering: optimizeLegibility;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  /* 사용할 폰트의 이름 */
+  font-family: "AlongSanss2";
+  font-display: fallback;
+
+  /* 
+  src: 사용할 폰트의 위치 및 형식 
+     Safari, Android, iOS => ttf
+     Modern Browsers => woff
+     IE6-IE8 => eot
+  */
+  src: local("AlongSanss2"), url("./static/fonts/AlongSanss2-Regular.eot"), 
+        url("./static/fonts/AlongSanss2-Regular.woff2") format("woff2"),
+        url("./static/fonts/AlongSanss2-Regular.woff") format("woff"),
+        url("./static/fonts/AlongSanss2-Regular.otf") format("opentype"),
+        url("./static/fonts/AlongSanss2-Regular.eot?iefix") format("embedded-opentype");
+
+  /* 사용할 폰트의 기본 스타일 */
+  font-weight: 400;
+  font-style: normal;
 }
