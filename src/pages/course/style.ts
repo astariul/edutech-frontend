@@ -2,7 +2,7 @@ import { createStyles } from "@mantine/core";
 
 const useStyles = createStyles(() => ({
   main: {
-    margin: "20px auto",
+    margin: "80px auto",
     maxWidth: "1248px",
   },
   tableContainer: {

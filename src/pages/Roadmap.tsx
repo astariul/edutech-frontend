@@ -13,6 +13,7 @@ import AuthenticationForm from '../components/AuthentificationForm';
 
 const useStyles = createStyles((theme) => ({
   descriptionHeader: {
+    marginTop: "80px",
     padding: "40px 0",
     background: "#002333"
   },

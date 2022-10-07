@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Home from './pages/Home';
-import { MantineProvider, AppShell } from '@mantine/core';
+import { MantineProvider, AppShell, Center } from '@mantine/core';
 import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import HeaderResponsive from './components/Header';
+import HeaderResponsive from './components/header/Header';
 import FooterSimple from './components/Footer';
 import NavbarMinimal from './components/VerticalNavBar';
 import LearningCourse from './pages/LearningCourse';
@@ -17,11 +17,13 @@ import Course from './pages/course/Course';
 import ClassRoom from './pages/classRoom/ClassRoom';
 import Payment from './pages/payment/Payment';
 import Resume from './pages/resume/Resume';
+import AuthenticationForm from './components/AuthentificationForm';
 
 function App() {
   const [navOpened, toggleNavOpened] = useBooleanToggle(false);
   const [login, setLogin] = useLocalStorage<IUserProfile | null>({ key: 'login', defaultValue: null });
   const [authorized, setAuthorized] = useLocalStorage<string | null>({ key: 'authorization', defaultValue: null });
+  const [, setFormType] = useState<"register" | "login">("login");
   const location = useLocation();
 
   if (authorized) {
@@ -65,6 +67,22 @@ function App() {
       >
         <Routes>
           <Route path='/' element={<Home />}></Route>
+          <Route
+            path='/signup'
+            element={
+              <Center sx={{marginTop: 100}}>
+                <AuthenticationForm formType={"register"} setFormType={setFormType} modalSetOpened={() => void(0)} />
+              </Center>
+            }>
+          </Route>
+          <Route
+            path='/login'
+            element={
+              <Center sx={{paddingTop: 100}}>
+                <AuthenticationForm formType={"login"} setFormType={setFormType} modalSetOpened={() => void(0)}/>
+              </Center>
+            }>
+          </Route>
           <Route path='/roadmap' element={<CourseRoadMap />}></Route>
           <Route path='/course/*' element={<Course />}></Route>
           <Route path='/myclass' element={<MyClassRoom />}></Route>

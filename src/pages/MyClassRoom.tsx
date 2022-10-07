@@ -10,7 +10,7 @@ import { ICourseVideo, ICourse, IVideo } from '../typings/db';
 
 const useStyles = createStyles((theme) => ({
   main: {
-    marginTop: 0,
+    marginTop: "80px",
     marginBottom: 0,
     marginLeft: "80px",
     marginRight: "auto",

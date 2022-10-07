@@ -1,4 +1,7 @@
 ## Release
+- `0.0.42`
+    - [ED-241](https://team-edutech.atlassian.net/browse/ED-241?atlOrigin=eyJpIjoiNDFiNWVkMWEyNDAyNDU1NzlkYWQ3NTg2MGVjMzg5MWYiLCJwIjoiamlyYS1zbGFjay1pbnQifQ) ED-241 GNB 기획에 맞게 수정하기
+
 - `0.0.41`
     - supercoding logo 적용
 
