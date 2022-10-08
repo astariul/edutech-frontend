@@ -1,10 +1,11 @@
 import { createStyles, Container, Group, Anchor } from '@mantine/core';
 import { Link } from "react-router-dom";
+import BizInfo from './bizInfo/BizInfo';
 import ContactLink from './ContactLink';
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    marginTop: 120,
+    margin: "0 auto 120px auto",
     borderTop: `1px solid ${
       theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
     }`,
@@ -66,6 +67,7 @@ export default function FooterSimple() {
           {items}
         </Group>
       </Container>
+      <BizInfo />
     </div>
   );
 }
