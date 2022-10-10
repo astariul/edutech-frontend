@@ -38,7 +38,7 @@ const rightLinks = [
     "label": "회원가입"
   },
   {
-    "link": "/login",
+    "link": "/login/method",
     "label": "로그인"
   },
   {
@@ -94,7 +94,7 @@ const HeaderResponsive = () => {
         </Anchor>
       )
     }
-    else if ("/login" === link.link) {
+    else if (link.link.startsWith("/login")) {
       return (
         <>
         {

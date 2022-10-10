@@ -5,14 +5,13 @@ import { Mail, Lock, UserCircle } from 'tabler-icons-react';
 import {
   TextInput,
   PasswordInput,
-  Group,
   Checkbox,
   Button,
   Text,
   LoadingOverlay,
-  Anchor,
 } from '@mantine/core';
 import { IUserProfile } from "../typings/db";
+import { useNavigate } from "react-router-dom";
 
 export interface AuthenticationFormProps {
   noShadow?: boolean;
@@ -36,13 +35,7 @@ export default function AuthenticationForm({
   const [error, setError] = useState<string | null>(null);
   const [, setAuthorized] = useLocalStorage<string | null>({ key: 'authorization', defaultValue: null });
   const [registered, setRegistered] = useLocalStorage<boolean>({ key: 'registered', defaultValue: false });
-  // const [registered] = useLocalStorage<boolean>({ key: 'registered', defaultValue: false });
-
-  const toggleFormType = () => {
-    setRegistered(false);
-    setFormType((current) => (current === 'register' ? 'login' : 'register'));
-    setError(null);
-  };
+  const navigate = useNavigate();
 
   const form = useForm({
     initialValues: {
@@ -78,11 +71,12 @@ export default function AuthenticationForm({
     .then( () => {
         setRegistered(true);
         window.alert("회원가입되었습니다. 로그인해주세요");
+        navigate("/login/form");
       }
     )
     .catch( ( {response} ) => {
       if (response.status === 409) {
-        setError("존재하는 아이디입니다. 로그인해주세요")
+        setError("존재하는 아이디입니다. 다른 아이디로 가입해주세요")
       }
       response.status === 500 && setError("회원가입에 실패했습니다. 다시 시도해주세요");
     });
@@ -192,23 +186,9 @@ export default function AuthenticationForm({
       )}
 
       {!noSubmit && (
-        <Group position="apart" mt="xl">
-          <Anchor
-            component="button"
-            type="button"
-            color="gray"
-            onClick={toggleFormType}
-            size="xs"
-          >
-            {(formType === 'register' && !registered)
-              ? '계정이 있으신가요? 로그인하러가기'
-              : "아직 계정이 없으신가요? 가입하러가기"}
-          </Anchor>
-
-          <Button color="blue" type="submit">
-            {(formType === 'register' && !registered) ? '가입하기' : '로그인하기'}
-          </Button>
-        </Group>
+        <Button color="blue" type="submit" style={{margin: "12px auto", width: "100%"}}>
+          {(formType === 'register' && !registered) ? '가입하기' : '로그인하기'}
+        </Button>
       )}
     </form>
   );

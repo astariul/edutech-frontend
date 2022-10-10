@@ -1,4 +1,11 @@
 ## Release
+- `0.0.44`
+    - [ED-246](https://team-edutech.atlassian.net/browse/SC-246) 로그인 디자인 적용
+    - [ED-249](https://team-edutech.atlassian.net/browse/SC-249) GNB에 로그아웃 기능 추가하기
+
+- `0.0.43`
+    - [ED-247](https://team-edutech.atlassian.net/browse/SC-247) 사업자정보 추가
+
 - `0.0.42`
     - [ED-241](https://team-edutech.atlassian.net/browse/ED-241?atlOrigin=eyJpIjoiNDFiNWVkMWEyNDAyNDU1NzlkYWQ3NTg2MGVjMzg5MWYiLCJwIjoiamlyYS1zbGFjay1pbnQifQ) ED-241 GNB 기획에 맞게 수정하기
 

@@ -25,6 +25,7 @@ const useStyles = createStyles((theme) => ({
     fontSize: "12px",
     fontFamily: "AlongSanss2",
     fontWeight: 600,
+    cursor: "pointer"
   }
 }));
 

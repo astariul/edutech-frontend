@@ -18,6 +18,8 @@ import ClassRoom from './pages/classRoom/ClassRoom';
 import Payment from './pages/payment/Payment';
 import Resume from './pages/resume/Resume';
 import AuthenticationForm from './components/AuthentificationForm';
+import AuthMethodModal from './components/authMethod/AuthMethodModal';
+import AuthFormModal from './components/authForm/AuthFormModal';
 
 function App() {
   const [navOpened, toggleNavOpened] = useBooleanToggle(false);
@@ -76,13 +78,25 @@ function App() {
             }>
           </Route>
           <Route
-            path='/login'
+            path='/login/method'
             element={
-              <Center sx={{paddingTop: 100}}>
-                <AuthenticationForm formType={"login"} setFormType={setFormType} modalSetOpened={() => void(0)}/>
-              </Center>
+              <AuthMethodModal
+                key={Date.now()}
+                modalOpen={true}
+                authType={"로그인"}
+                easyMethods={
+                  [
+                    {image: require("../src/static/image/naver.png"), title: "네이버로 시작하기"},
+                    {image: require("../src/static/image/kakaotalk.png"), title: "카카오톡으로 시작하기"},
+                    {image: require("../src/static/image/google.png"), title: "구글로 시작하기"},
+                    {image: require("../src/static/image/apple.png"), title: "Apple로 시작하기"},
+                    {image: require("../src/static/image/facebook.png"), title: "페이스북으로 시작하기"},
+                  ]
+                }
+              />
             }>
           </Route>
+          <Route path='/login/form' element={<AuthFormModal modalOpen={true} authType={"로그인"}/>}></Route>
           <Route path='/roadmap' element={<CourseRoadMap />}></Route>
           <Route path='/course/*' element={<Course />}></Route>
           <Route path='/myclass' element={<MyClassRoom />}></Route>
