@@ -1,4 +1,5 @@
 import { createStyles } from "@mantine/core";
+import { BlockList } from "net";
 
 const useStyles = createStyles(() => ({
   cart: {
@@ -88,6 +89,15 @@ const useStyles = createStyles(() => ({
     minWidth: "150px",
     textAlign: "right"
   },
+  container:{
+    display: "block",
+    wordBreak: "keep-all",
+  },
+  courseTagGreen:{
+    backgroundColor: "background: #00A607",
+
+  },
+
   close: {
 
   }
