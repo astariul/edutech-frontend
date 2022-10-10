@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { Checkbox, CloseButton, Divider, Title } from "@mantine/core";
+import { Checkbox, CloseButton, Title } from "@mantine/core";
 import useStyles from "./style";
 import { ICourse } from "../../typings/db";
 import { useLocalStorage } from "@mantine/hooks";
@@ -51,8 +51,8 @@ const PaymentCart = ({courses}: PaymentCartProps) => {
 
   return (
     <>
-      <Title className={classes.title}>강의바구니</Title>
-      <Divider />
+      <Title className={classes.title}>결제하기</Title>
+      
       <section className={classes.body}>
         <section>
           <div></div>
