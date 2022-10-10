@@ -48,10 +48,15 @@ const useStyles = createStyles(() => ({
     marginRight: "16px"
   },
   courseCardImage: {
-    marginRight: "16px",
-    width: "100%",
-    maxWidth: "120px",
-    minWidth: "120px",
+    // position: "absolute",
+    height: "185px",
+    left: "236px",
+    right: "836px",
+    top: "189px",
+    // marginRight: "16px",
+    // width: "100%",
+    // maxWidth: "120px",
+    // minWidth: "120px",
   },
   image: {
     height: "100%",
