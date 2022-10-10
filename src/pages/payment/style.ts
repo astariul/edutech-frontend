@@ -7,18 +7,20 @@ const useStyles = createStyles(() => ({
     flexGrow: 1,
     position: "relative",
     width: "auto",
-    "@media (min-width: 1025px) and (max-width: 1200px)": {
-      padding: "24px 24px",
-    },
-    "@media screen and (min-width: 1366px)": {
-      width: "1160px",
-    },
-    "@media (min-width: 1200px)": {
-      maxWidth: "1160px",
-    },
+    
     "@media screen and (max-width: 1024px)": {
       flexDirection: "column",
       boxSizing: "border-box",
+    },
+    "@media (min-width: 1025px) and (max-width: 1200px)": {
+      padding: "24px 24px",
+    },
+    "@media (min-width: 1200px)": {
+      padding: "24px 24px",
+      maxWidth: "1160px",
+    },
+    "@media screen and (min-width: 1366px)": {
+      width: "1160px",
     },
   },
   cart: {
