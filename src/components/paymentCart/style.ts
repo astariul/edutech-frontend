@@ -1,4 +1,5 @@
 import { createStyles } from "@mantine/core";
+import { heights } from "@mantine/core/lib/components/Badge/Badge.styles";
 import { BlockList } from "net";
 
 const useStyles = createStyles(() => ({
@@ -97,16 +98,34 @@ const useStyles = createStyles(() => ({
     display: "flex",
     wordBreak: "keep-all",
   },
-  courseTagItem:{
-    backgroundColor: ""
-
-  },
   
-  courseTagGreen:{
+  courseTagBoxGreen:{
     backgroundColor: "#00A607",
+    width: "72px",
+    height: "24px",
+    textAlign: "center",
+    
+  },
+  courseTagBoxGray:{
+    backgroundColor: "#515151",
+    width: "72px",
+    height: "24px",
+    textAlign: "center",
+    
+  },
+  courseTagBoxBlue:{
+    backgroundColor: "#2895E3",
+    width: "72px",
+    height: "24px",
+    textAlign: "center",
+    
+  },
+
+
+  courseTagItem:{
     color: "white",
     width: "40px",
-    textAlign: "center",
+    margin: "auto",
     fontFamily: "Inter",
     fontStyle: "normal",
     fontWeight: "bold",

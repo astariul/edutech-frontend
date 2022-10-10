@@ -43,12 +43,25 @@ const CourseCard = ({course}: CourseCardProps) => {
         <div> 3</div>
       </Container>
       <Container className={classes.container}>
-        환급
+        
       </Container>
       <Group spacing = "md">
-        <div className={classes.courseTagGreen}>
-          Live
+        <div className = {classes.courseTagBoxGreen}>
+          <div className = {classes.courseTagItem}>
+            Live 
           </div>
+        </div>
+        <div className = {classes.courseTagBoxGray}>
+          <div className = {classes.courseTagItem}>
+            인강 
+          </div>
+        </div>
+        <div className = {classes.courseTagBoxBlue}>
+          <div className = {classes.courseTagItem}>
+            환급 
+          </div>
+        </div>
+
       </Group> 
       <div className={classes.courseCardInfo}>
         <h3 className={classes.courseCardTitle}>{course.title}</h3>
