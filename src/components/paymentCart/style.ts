@@ -93,8 +93,26 @@ const useStyles = createStyles(() => ({
     display: "block",
     wordBreak: "keep-all",
   },
+  container2:{
+    display: "flex",
+    wordBreak: "keep-all",
+  },
+  courseTagItem:{
+    backgroundColor: ""
+
+  },
+  
   courseTagGreen:{
-    backgroundColor: "background: #00A607",
+    backgroundColor: "#00A607",
+    color: "white",
+    width: "40px",
+    textAlign: "center",
+    fontFamily: "Inter",
+    fontStyle: "normal",
+    fontWeight: "bold",
+    fontSize: "13px",
+    height: "18px",
+    lineHeight: "18px",
 
   },
 

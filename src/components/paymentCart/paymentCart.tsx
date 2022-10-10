@@ -38,14 +38,16 @@ const CourseCard = ({course}: CourseCardProps) => {
       {/** List */}
 
       <Container className={classes.container}>
-        d
+        <div> 1</div>
+        <div> 2</div>
+        <div> 3</div>
       </Container>
       <Container className={classes.container}>
         환급
       </Container>
       <Group spacing = "md">
         <div className={classes.courseTagGreen}>
-          live
+          Live
           </div>
       </Group> 
       <div className={classes.courseCardInfo}>
