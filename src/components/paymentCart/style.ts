@@ -20,7 +20,14 @@ const useStyles = createStyles(() => ({
 
   },
   list: {
-    minHeight: "465px",
+    //position: "absolute",
+    width: "868px",
+    height: "185px",
+    left: "236px",
+    top: "189px",
+
+    
+    //minHeight: "465px",
   },
   courseCard: {
     display: "flex",
@@ -30,6 +37,13 @@ const useStyles = createStyles(() => ({
   checker: {
     // alignItems: "flex-start"
     // marginLeft: "10px",
+    // position: "absolute",
+    // left: "12.5%",
+    // right: "12.5%",
+    // top: "12.5%",
+    // bottom: "12.5%",
+
+
     marginTop: "-10px",
     marginRight: "16px"
   },
