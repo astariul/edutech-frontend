@@ -8,7 +8,7 @@ const useStyles = createStyles(() => ({
     position: "relative",
     width: "auto",
     "@media (min-width: 1025px) and (max-width: 1200px)": {
-      padding: "0 24px",
+      padding: "24px 24px",
     },
     "@media screen and (min-width: 1366px)": {
       width: "1160px",

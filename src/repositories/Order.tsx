@@ -4,12 +4,13 @@ import { IOrder } from '../typings/db';
 
 class OrderRepository {
   async start(token: string, courseId: string){
-    const ret = await axios.post<string>(
+     const ret = await axios.post<string>(
       process.env.REACT_APP_API_URL + "order/start",
       { courseId: courseId },
       { headers: {Authorization: `Bearer ${token}`} }
     );
     return ret.data;
+    
   }
 
   async completeOrderById(token: string, orderId: string, paymentId: string | number) {
