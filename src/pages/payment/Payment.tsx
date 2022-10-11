@@ -139,7 +139,7 @@ const Payment = () => {
     }
     {
       (login) && (
-        <section style={{"display": "block"}}>
+        <div className={classes.main}>
           <div className={classes.layout}>
             <section className={classes.cart}>
               <PaymentCart courses={coursesInCart}/>
@@ -169,16 +169,9 @@ const Payment = () => {
               </section>
             </aside>
           </div>
-        </section>
+        </div>
       )
     }
-    {/* {
-      (!login) && (
-        <Center sx={{paddingTop: 100}}>
-          <AuthenticationForm formType={formType} setFormType={setFormType} modalSetOpened={() => void(0)} />
-        </Center>
-      )
-    } */}
     </>
   )
 }
