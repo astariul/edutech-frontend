@@ -30,7 +30,8 @@ const CourseCard = ({course}: CourseCardProps) => {
   return (
     <section className={classes.courseCard}>
       <Checkbox className={classes.checker} />
-      <Space w="lg"/>
+      <Space w={50}/>
+        {/** To-do: 이미지 크기 고정시켜놔야함 */}
         <div className={classes.courseCardImage}>
           <figure className={classes.courseThumbnail}>
             <img className={classes.image} src={("courseImageSample.png" || course.thumbnail)} alt="코스이미지" />
