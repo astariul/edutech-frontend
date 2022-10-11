@@ -1,5 +1,5 @@
-import React, { useCallback } from "react";
-import { Checkbox, CloseButton, Title, Group, Container, Space, Avatar, Text } from "@mantine/core";
+import { useCallback } from "react";
+import { Title, Group, Container, Space, Avatar, Text } from "@mantine/core";
 import useStyles from "./style";
 import { ICourse } from "../../typings/db";
 import { useLocalStorage } from "@mantine/hooks";
@@ -29,8 +29,9 @@ const CourseCard = ({course}: CourseCardProps) => {
 
   return (
     <section className={classes.courseCard}>
-      <Checkbox className={classes.checker} />
-      <Space w={50}/>
+      {/** Note: 체크박스가 수행하는 기능이 없으므로 일단 comment 하였음 */}
+      {/* <Checkbox className={classes.checker} /> */}
+      {/* <Space w={50}/> */}
         {/** To-do: 이미지 크기 고정시켜놔야함 */}
         <div className={classes.courseCardImage}>
           <figure className={classes.courseThumbnail}>
