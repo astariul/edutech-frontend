@@ -136,7 +136,14 @@ const CourseRoadMap = () => {
       .getCourseById(login?.token as string, "63346df60875520b1d117aad")
       .then(
         (courseVideos) => {
-          setCourse(courseVideos.course);
+          // setCourse(courseVideos.course);
+          // TODO: 아래 코드 제거, 결제 프로세스 테스트를 위해 임의로 100원 설정함
+          const course = {
+            ...courseVideos.course,
+            orgPrice: 100,
+            dcPrice: 100,
+          };
+          setCourse(course);
         }
       )
     }, [login, setCourse]
