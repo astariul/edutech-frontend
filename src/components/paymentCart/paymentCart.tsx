@@ -28,25 +28,18 @@ const CourseCard = ({course}: CourseCardProps) => {
   )
 
   return (
-    <article className={classes.courseCard}>
+    <section className={classes.courseCard}>
       <Checkbox className={classes.checker} />
-      <div className={classes.courseCardImage}>
-        <figure className={classes.courseThumbnail}>
-          <img className={classes.image} src={("courseImageSample.png" || course.thumbnail)} alt="코스이미지" />
-        </figure>
-      </div>
+        <div className={classes.courseCardImage}>
+          <figure className={classes.courseThumbnail}>
+            <img className={classes.image} src={("courseImageSample.png" || course.thumbnail)} alt="코스이미지" />
+          </figure>
+        </div>
       {/** List */}
-
+      <div>
       <Container className={classes.container}>
-        <div> 1</div>
-        <div> 2</div>
-        <div> 3</div>
-      </Container>
-      <Container className={classes.container}>
-        
-      </Container>
-      <Group spacing = "md">
-        <div className = {classes.courseTagBoxGreen}>
+      <Group spacing = "xs">
+      <div className = {classes.courseTagBoxGreen}>
           <div className = {classes.courseTagItem}>
             Live 
           </div>
@@ -61,16 +54,18 @@ const CourseCard = ({course}: CourseCardProps) => {
             환급 
           </div>
         </div>
-
-      </Group> 
+        </Group>
+      </Container>
+      
       <div className={classes.courseCardInfo}>
         <h3 className={classes.courseCardTitle}>{course.title}</h3>
       </div>
-      <div className={classes.courseCardPrice}>
+      {/* <div className={classes.courseCardPrice}>
         <span>{course.dcPrice}원</span>
+      </div> */}
+      {/* <CloseButton className={classes.close} onClick={() => {removeItem(course.id)}}/> */}
       </div>
-      <CloseButton className={classes.close} onClick={() => {removeItem(course.id)}}/>
-    </article>
+    </section>
   )
 }
 

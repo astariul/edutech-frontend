@@ -71,8 +71,8 @@ const useStyles = createStyles(() => ({
     margin: "0"
   },
   courseCardInfo: {
-    display: "flex",
-    width: "100%",
+    display: "block",
+    width: "468px",
     wordBreak: "break-all",
     flexDirection: "column"
   },
@@ -91,7 +91,9 @@ const useStyles = createStyles(() => ({
     textAlign: "right"
   },
   container:{
-    display: "block",
+    // display: "block",
+    // display: "inline",
+    display: "flex",
     wordBreak: "keep-all",
   },
   container2:{
