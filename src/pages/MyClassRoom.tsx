@@ -43,7 +43,7 @@ const MyClassRoom = () => {
   useEffect(
     () => {
       if (!login) {
-        window.alert("로그인이 필요합니다.")
+        window.alert("로그인 상태가 아닙니다. 로그인해주세요")
         navigate("/login/method");
         return
       }

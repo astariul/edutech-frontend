@@ -32,7 +32,7 @@ const Payment = () => {
   useEffect(
     () => {
       if (!login) {
-        window.alert("결제를 진행하기 위해서는 로그인되어야 합니다.");
+        window.alert("결제를 진행하기 위해서는 로그인해야 합니다.");
         naviagate("/login/method");
         return
       }
@@ -61,7 +61,7 @@ const Payment = () => {
   useEffect(
     () => {
       if (!login) {
-        window.alert("결제를 진행하기 위해서는 로그인되어야 합니다.");
+        window.alert("결제를 진행하기 위해서는 로그인해야 합니다.");
         naviagate("/login/method");
         return
       }
