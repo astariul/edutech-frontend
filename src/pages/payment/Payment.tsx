@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react"
-import { Center, Space } from '@mantine/core';
+import { Space } from '@mantine/core';
 import { useLocalStorage } from "@mantine/hooks";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ICourse, IUserProfile } from "../../typings/db";
-import AuthenticationForm from "../../components/AuthentificationForm";
 import PaymentSection from "../../components/paymentSection/PaymentSection";
 import PaymentMethodModal from "../../components/paymentMethodModal/PaymentMethodModal";
 import BuyerInfo from "../../components/buyerInfo/buyerInfo";
@@ -18,7 +17,6 @@ const Payment = () => {
 
   const [login,] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
   const [coursesInCart] = useLocalStorage<ICourse[] | []>({ key: "coursesInCart", defaultValue: [] });
-  const [formType, setFormType] = useState<"register" | "login">("login");
   const [opened, setOpened] = useState(false);
   const [modification, setModification] = useState(false);
   const [name, setName] = useState("");
@@ -29,9 +27,15 @@ const Payment = () => {
   const course = location.state as ICourse;
   const merchantUID = useRef("");
   const [registered, setRegistered] = useState(false);
+  const naviagate = useNavigate();
 
   useEffect(
     () => {
+      if (!login) {
+        window.alert("결제를 진행하기 위해서는 로그인되어야 합니다.");
+        naviagate("/login/method");
+        return
+      }
       new AuthRepository()
       .me(login?.token as string)
       .then(
@@ -56,6 +60,11 @@ const Payment = () => {
 
   useEffect(
     () => {
+      if (!login) {
+        window.alert("결제를 진행하기 위해서는 로그인되어야 합니다.");
+        naviagate("/login/method");
+        return
+      }
       new OrderRepository()
       .start(login?.token as string, course.id)
       .then((id) => {
@@ -163,13 +172,13 @@ const Payment = () => {
         </section>
       )
     }
-    {
+    {/* {
       (!login) && (
         <Center sx={{paddingTop: 100}}>
           <AuthenticationForm formType={formType} setFormType={setFormType} modalSetOpened={() => void(0)} />
         </Center>
       )
-    }
+    } */}
     </>
   )
 }
