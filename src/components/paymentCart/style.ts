@@ -1,7 +1,4 @@
 import { createStyles } from "@mantine/core";
-import { heights } from "@mantine/core/lib/components/Badge/Badge.styles";
-import { BlockList } from "net";
-import { LetterSpacing } from "tabler-icons-react";
 
 const useStyles = createStyles(() => ({
   cart: {
