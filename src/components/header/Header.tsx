@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   Header, 
   Group, 
@@ -55,7 +55,7 @@ const HeaderResponsive = () => {
   const [opened, toggleOpened] = useBooleanToggle(false);
   const { classes, cx } = useStyles();
   const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
-
+  const location = useLocation();
 
   const middleLinkItems = middleLinks.map((link) => {
     if (["/live"].includes(link.link)) {
@@ -149,7 +149,7 @@ const HeaderResponsive = () => {
   );
 
   return (
-    <Header className={classes.main} height={"80px"} >
+    <Header className={classes.main} height={"80px"} hidden={location.pathname.startsWith("/class")}>
       <div className={classes.header}>
         <UnstyledButton  component={Link} to={"/"}>
           <Group className={classes.biContainer}>
