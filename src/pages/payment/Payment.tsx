@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import { Space } from '@mantine/core';
 import { useLocalStorage } from "@mantine/hooks";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ICourse, IUserProfile } from "../../typings/db";
+import { ICourse, IOrder, IUserProfile } from "../../typings/db";
 import PaymentSection from "../../components/paymentSection/PaymentSection";
 import PaymentMethodModal from "../../components/paymentMethodModal/PaymentMethodModal";
 import BuyerInfo from "../../components/buyerInfo/buyerInfo";
@@ -55,7 +55,7 @@ const Payment = () => {
       setEmail(login?.email as string);
       setTel("010-0000-0000");
       return () => setRegistered(false);
-    }, [login, course, setRegistered]
+    }, [login, course, setRegistered, naviagate]
   )
 
   useEffect(
@@ -70,16 +70,9 @@ const Payment = () => {
       .then((id) => {
         merchantUID.current = id;
       })
-    }, [login, course, merchantUID]
+    }, [login, course, merchantUID, naviagate]
   )
 
-  const paymentMethods = (
-    ["신용카드", "가상계좌"].map(
-      (method) => {
-        return <span key={method}>{method}</span>
-      }
-    )
-  )
   const showPaymentMethodModal = useCallback(
     () => setOpened(true), []
   )
@@ -115,6 +108,32 @@ const Payment = () => {
       }
     }, [login, registered]
   )
+  
+  const successPayment = useCallback(
+    (order: IOrder) => {
+      if (order.isPaid) {
+        window.alert(
+          `결제 완료되었습니다.
+            결제완료금액: ${order.amountPaid}원
+          `
+        )
+      } else {
+        window.alert(
+         `주문하신 상품이 최종 결제되지 않았습니다.
+          다시 한번 확인해주세요`
+        )
+      }
+
+    }, []
+  )
+
+  const failPayment = useCallback(
+    () => {
+      window.alert(
+        `결제가 실패하였습니다. 다시 시도해주세요`
+      )
+    }, []
+  )
 
   return (
     <>
@@ -125,6 +144,7 @@ const Payment = () => {
             orderId: merchantUID.current,
             orgPrice: course.orgPrice,
             dcPrice: course.dcPrice,
+            productName: course.title
           }}
           buyer={{
             name: login.name,
@@ -132,8 +152,10 @@ const Payment = () => {
             tel: tel
           }}
           opened={opened}
-          paymentMethods={paymentMethods}
-          handleClose={() => setOpened(false)}
+          paymentMethods={["신용카드"]}
+          modalCloser={(close: boolean) => setOpened(!close)}
+          onSuccessHandler={successPayment}
+          onFailHandler={failPayment}
         />
       )
     }
