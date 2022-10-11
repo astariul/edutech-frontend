@@ -6,10 +6,9 @@ import CourseRepository from '../../repositories/Course';
 import { useLocalStorage } from '@mantine/hooks';
 import { useNavigate } from "react-router-dom";
 import { IUserProfile } from '../../typings/db';
-import { Button, Center } from '@mantine/core';
+import { Button } from '@mantine/core';
 import { Square, SquareCheck } from 'tabler-icons-react';
 import { findUniqueSeasonNumber, secondsToMinutesString } from '../../utils/common';
-import AuthenticationForm from '../../components/AuthentificationForm';
 import ToggleTable from '../../components/Table';
 import { useCallback } from 'react';
 import useStyles from './style';
@@ -19,7 +18,6 @@ const Course = () => {
   const [login] = useLocalStorage<IUserProfile | null>({ key: 'login', defaultValue: null });
   const location = useLocation();
   const navigate = useNavigate();
-  const [formType, setFormType] = useState<"register" | "login">("login");
   const {course, videos} = location.state as ICourseVideo;
   const [table, setTable] = useState<JSX.Element | JSX.Element[]>();
   const {classes} = useStyles();
@@ -130,6 +128,11 @@ const Course = () => {
 
   useEffect(
     () => {
+      if (!login) {
+        window.alert("로그인 상태가 아닙니다. 로그인해주세요");
+        navigate("/login/method");
+        return
+      }
       if (!videos) {
         console.log(videos);
       }
@@ -141,7 +144,7 @@ const Course = () => {
         })
       }
 
-  }, [login, course, videos, setTable, generateTable]);
+  }, [login, course, videos, setTable, generateTable, navigate]);
 
   return (
     <>
@@ -157,13 +160,6 @@ const Course = () => {
               {table}
             </div>
           </div>
-        )
-      }
-      {
-        (!login) && (
-          <Center sx={{paddingTop: 100}}>
-              <AuthenticationForm formType={formType} setFormType={setFormType} modalSetOpened={() => void(0)} />
-          </Center>
         )
       }
     </>
