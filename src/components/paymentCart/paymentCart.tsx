@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { Checkbox, CloseButton, Title, Group, Container, Space } from "@mantine/core";
+import { Checkbox, CloseButton, Title, Group, Container, Space, Avatar, Text } from "@mantine/core";
 import useStyles from "./style";
 import { ICourse } from "../../typings/db";
 import { useLocalStorage } from "@mantine/hooks";
@@ -67,6 +67,15 @@ const CourseCard = ({course}: CourseCardProps) => {
         <span>{course.dcPrice}원</span>
       </div> */}
       {/* <CloseButton className={classes.close} onClick={() => {removeItem(course.id)}}/> */}
+      <Group>
+        <Avatar src={"./tutor_ky.png"} alt={"이경엽"} radius="xl" />
+        <div>
+          <Text size="sm">{"이경엽"}</Text>
+          <Text size="xs" color="dimmed">
+            {"Spacewalk CTO"}
+          </Text>
+        </div>
+      </Group>
       </div>
     </section>
   )
