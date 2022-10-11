@@ -57,7 +57,7 @@ const MyClassRoom = () => {
             setMyCourses(courses);
           }
         )
-    }, [login]
+    }, [login, navigate]
   )
 
   const navigateCourse = (course: ICourse, videos: IVideo[] | { message: string }) => {
