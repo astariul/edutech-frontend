@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { Button, Center, Container, createStyles, Modal } from "@mantine/core";
+import { Button, Container, createStyles, Modal } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
 import { Link, useNavigate } from "react-router-dom";
 import CourseStatusBox from "../components/courseStatusBox/CourseStatusBox";
-import AuthenticationForm from "../components/AuthentificationForm";
 import CourseRepository from "../repositories/Course";
 import { IUserProfile } from '../typings/db';
 import { ICourseVideo, ICourse, IVideo } from '../typings/db';
@@ -36,7 +35,6 @@ const useStyles = createStyles((theme) => ({
 
 const MyClassRoom = () => {
   const [login] = useLocalStorage<IUserProfile | null>({ key: 'login', defaultValue: null });
-  const [formType, setFormType] = useState<'register' | 'login'>('login');
   const {classes} = useStyles();
   const [myCourses, setMyCourses] = useState<ICourseVideo[]>([]);
   const [opened, setOpened] = useState(false);
@@ -44,6 +42,11 @@ const MyClassRoom = () => {
 
   useEffect(
     () => {
+      if (!login) {
+        window.alert("로그인이 필요합니다.")
+        navigate("/login/method");
+        return
+      }
       new CourseRepository()
         .getMyCourse(login?.token as string)
         .then(
@@ -161,13 +164,6 @@ const MyClassRoom = () => {
             </Button>
           </Container>
         </div>
-      )
-    }
-    {
-      (!login) && (
-        <Center sx={{paddingTop: 100}}>
-          <AuthenticationForm formType={formType} setFormType={setFormType} modalSetOpened={() => void(0)} />
-        </Center>
       )
     }
     </>
