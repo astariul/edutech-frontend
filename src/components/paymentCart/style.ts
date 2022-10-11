@@ -1,6 +1,7 @@
 import { createStyles } from "@mantine/core";
 import { heights } from "@mantine/core/lib/components/Badge/Badge.styles";
 import { BlockList } from "net";
+import { LetterSpacing } from "tabler-icons-react";
 
 const useStyles = createStyles(() => ({
   cart: {
@@ -78,7 +79,7 @@ const useStyles = createStyles(() => ({
   },
   courseCardTitle: {
     textAlign: "left",
-    fontSize: "18px",
+    fontSize: "24px",
     wordBreak: "break-all",
     margin: 0
   },
@@ -90,7 +91,7 @@ const useStyles = createStyles(() => ({
     minWidth: "150px",
     textAlign: "right"
   },
-  container:{
+  courseContainer:{
     // display: "block",
     // display: "inline",
     display: "flex",

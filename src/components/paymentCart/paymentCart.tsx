@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { Checkbox, CloseButton, Title, Group, Container } from "@mantine/core";
+import { Checkbox, CloseButton, Title, Group, Container, Space } from "@mantine/core";
 import useStyles from "./style";
 import { ICourse } from "../../typings/db";
 import { useLocalStorage } from "@mantine/hooks";
@@ -30,14 +30,16 @@ const CourseCard = ({course}: CourseCardProps) => {
   return (
     <section className={classes.courseCard}>
       <Checkbox className={classes.checker} />
+      <Space w="lg"/>
         <div className={classes.courseCardImage}>
           <figure className={classes.courseThumbnail}>
             <img className={classes.image} src={("courseImageSample.png" || course.thumbnail)} alt="코스이미지" />
           </figure>
         </div>
       {/** List */}
+      <Space w={30}/>
       <div>
-      <Container className={classes.container}>
+      <Container className={classes.courseContainer}>
       <Group spacing = "xs">
       <div className = {classes.courseTagBoxGreen}>
           <div className = {classes.courseTagItem}>
