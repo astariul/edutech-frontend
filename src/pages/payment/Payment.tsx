@@ -128,9 +128,9 @@ const Payment = () => {
   )
 
   const failPayment = useCallback(
-    () => {
+    (response: any) => {
       window.alert(
-        `결제 실패하였습니다. 다시 시도해주세요`
+        `결제에 실패하였습니다. 에러 내용: ${response.error_msg}`
       )
     }, []
   )

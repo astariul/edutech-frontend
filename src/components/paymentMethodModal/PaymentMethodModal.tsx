@@ -15,7 +15,7 @@ interface PaymentMethodModalProps {
   opened: boolean;
   modalCloser: (close: boolean) => void;
   onSuccessHandler?: (order: IOrder) => void;
-  onFailHandler?: () => void;
+  onFailHandler?: (response: any) => void;
 }
 
 const PaymentMethodModal = (
@@ -39,11 +39,12 @@ const PaymentMethodModal = (
       .then(
         (myorder) => {
           // Note: onSuccessHandler가 결제 성공시 로직을 담당한다.
-          onSuccessHandler(myorder)
+          // TODO myorder 데이터로 가상계좌 발급을 통한 결제성공을 구분할 수 없음. 백엔드 협의 후 수정 필요
+          onSuccessHandler(myorder);
         })
     } else {
       // Note: onFailHandler이 결제 실패 로직을 담당한다.
-      onFailHandler()
+      onFailHandler(response);
     }
   };
   const requestPayment = (order: MyOrder, buyer: Buyer, method: string) => {
