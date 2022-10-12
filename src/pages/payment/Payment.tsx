@@ -130,7 +130,7 @@ const Payment = () => {
   const failPayment = useCallback(
     () => {
       window.alert(
-        `결제가 실패하였습니다. 다시 시도해주세요`
+        `결제 실패하였습니다. 다시 시도해주세요`
       )
     }, []
   )
@@ -152,7 +152,7 @@ const Payment = () => {
             tel: tel
           }}
           opened={opened}
-          paymentMethods={["신용카드"]}
+          paymentMethods={["신용카드", "실시간계좌이체", "가상계좌", "휴대폰소액결제"]}
           modalCloser={(close: boolean) => setOpened(!close)}
           onSuccessHandler={successPayment}
           onFailHandler={failPayment}

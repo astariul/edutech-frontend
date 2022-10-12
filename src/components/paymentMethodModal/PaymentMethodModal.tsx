@@ -6,7 +6,7 @@ import useStyles from "./style";
 
 
 const { IMP } = window;
-IMP.init(process.env.REACT_APP_IAMPORT_ID && 'imp15438774');
+IMP.init(process.env.REACT_APP_IAMPORT_ID);
 
 interface PaymentMethodModalProps {
   order: MyOrder;
@@ -48,17 +48,25 @@ const PaymentMethodModal = (
   };
   const requestPayment = (order: MyOrder, buyer: Buyer, method: string) => {
     let payMethod;
+    const digital = true;
+    // (참고) 결제수단 구분 코드 : https://chai-iamport.gitbook.io/iamport/sdk/javascript-sdk/payrq
     switch (method) {
       case "신용카드":
-        payMethod = "card"
+        payMethod = "card";
+        break;
+      case "실시간계좌이체":
+        payMethod = "trans";
         break;
       case "가상계좌":
-        payMethod = ""
+        payMethod = "vbank";
+        break;
+      case "휴대폰소액결제":
+        payMethod = "phone";
         break;
     }
     if (login) {
       IMP.request_pay({
-        pg: "html5_inicis",
+        pg: "html5_inicis", //이니시스웹표준
         pay_method: payMethod,
         merchant_uid: order.orderId,
         name: order.productName,
@@ -66,6 +74,8 @@ const PaymentMethodModal = (
         buyer_email: buyer.email,
         buyer_name: buyer.name,
         buyer_tel: buyer.tel,
+        currency: "KRW",
+        digital: digital
       }, payCallback)
     } else {
       // TODO: 디자인된 Modal 적용
