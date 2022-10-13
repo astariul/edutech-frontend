@@ -137,9 +137,18 @@ const AuthFormModal = ({modalOpen, authType}: AuthFormModalProps) => {
               component="button"
               type="button"
               size="xs"
-              onClick={() => navigate("/login/finder")}
+              onClick={() => navigate("/login/idfinder")}
+              mr = "xs"
               >
-              아이디 비밀번호찾기
+              아이디
+            </Anchor>
+            <Anchor
+              component="button"
+              type="button"
+              size="xs"
+              onClick={() => navigate("/login/pwfinder")}
+              >
+              비밀번호찾기
             </Anchor>
           </div>
         )

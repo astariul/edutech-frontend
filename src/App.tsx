@@ -99,7 +99,8 @@ function App() {
               />
             }>
           </Route>
-          <Route path='/login/finder' element={<AuthFinderModal modalOpen={true} authType={"아이디"}/>}></Route>
+          <Route path='/login/idfinder' element={<AuthFinderModal modalOpen={true} authType={"아이디"}/>}></Route>
+          <Route path='/login/pwfinder' element={<AuthFinderModal modalOpen={true} authType={"비밀번호"}/>}></Route>
           <Route path='/login/form' element={<AuthFormModal modalOpen={true} authType={"로그인"}/>}></Route>
           <Route path='/roadmap' element={<CourseRoadMap />}></Route>
           <Route path='/course/*' element={<Course />}></Route>

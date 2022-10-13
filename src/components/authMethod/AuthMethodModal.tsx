@@ -84,9 +84,18 @@ const AuthMethodModal = ({
             component="button"
             type="button"
             size="xs"
-            onClick={() => navigate("/login/finder")}
-          >
-            아이디 비밀번호찾기
+            onClick={() => navigate("/login/idfinder")}
+            mr = "xs"
+            >
+            아이디
+          </Anchor>
+          <Anchor
+            component="button"
+            type="button"
+            size="xs"
+            onClick={() => navigate("/login/pwfinder")}
+            >
+            비밀번호찾기
           </Anchor>
         </div>
       </div>
