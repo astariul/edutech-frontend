@@ -79,6 +79,7 @@ const AuthMethodModal = ({
             onClick={() => navigate("/login/form")}
           />
         </div>
+        {/* 아이디 찾기와 비밀번호 찾기로 각각 이동하는 링크 구현 */}
         <div className={classes.idpwFinder}>
           <Anchor
             component="button"

@@ -1,14 +1,10 @@
 
 import { Anchor } from "@mantine/core";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import Modal from "../modal/Modal";
 import useStyles from './style';
-import AuthRepository from '../../repositories/Auth';
-import { useForm, useLocalStorage } from '@mantine/hooks';
-import { IUserProfile } from "../../typings/db";
+import { useForm } from '@mantine/hooks';
 import { useNavigate } from "react-router-dom";
-import { validateLocaleAndSetLanguage } from "typescript";
-import { formList } from "@mantine/form";
 
 interface formInputProps {
   value: {
@@ -20,6 +16,7 @@ interface formInputProps {
   password?: boolean;
 }
 
+// FIXME: 임시로 authType을 분기 처리를 위한 값으로 사용
 interface AuthFormModalProps {
   modalOpen: boolean;
   authType: "이메일입력" | "비밀번호변경";
@@ -43,6 +40,7 @@ const AuthPwModal = ({modalOpen, authType}: AuthFormModalProps) => {
   const {classes} = useStyles();
   const [opened, setOpened] = useState(modalOpen);
 
+  // FIXME: 기존 형식에 따라서 구현되어 있지만, 실제로 validation하지 않음
   const form = useForm({
     initialValues: {
       name: "",
@@ -68,50 +66,14 @@ const AuthPwModal = ({modalOpen, authType}: AuthFormModalProps) => {
       code: "인증번호를 입력해주세요.",
     },
   });
-
-  // const login = useCallback( // 수정 필요
-  //   async (id: string, password: string) => {
-      
-  //     try {
-  //       const response = await new AuthRepository()
-  //       .login(id, password)
-  //       setLogin(
-  //         {
-  //           name: response.data.name,
-  //           email: response.data.email,
-  //           avatar: "",
-  //           token: response.data.token
-  //         }
-  //       );
-  //       setRegistered(false);
-  //       setAuthorized("authorized");
-  //       navigate("/");
-  //     }
-  //     catch (err) {
-  //       window.alert("id 또는 비밀번호가 일치하지 않습니다.")
-  //     }
-  //   }, [setAuthorized, setLogin, setRegistered, navigate]
-  // )
-
-  // const handleSubmit = useCallback( // 수정 필요
-  //   async () => {
-  //     switch (authType) {
-  //       case "아이디":
-  //         login(form.values.email, form.values.password);
-  //         break;
-  //       case "비밀번호":
-  //         console.log("회원가입");
-  //         break;
-  //     }
-  //   }, [authType, login, form]
-  // )
   
   return (
     <Modal
       show={opened}
       onCloseModal={() => setOpened(false)}
       >
-      <div>
+      {/* FIXME: form 제출 구현 필요 */}
+      <form>
         <div className={classes.inner}>
           <div className={classes.title}>
             <img className={classes.logo} src="supercodinglogo.png" alt="supercodiong logo" />
@@ -146,7 +108,7 @@ const AuthPwModal = ({modalOpen, authType}: AuthFormModalProps) => {
             </button>
           </div>
         </div>
-      </div>
+      </form>
       {
         (
           <div className={classes.idpwFinder}>

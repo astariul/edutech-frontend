@@ -1,14 +1,11 @@
-
+// AuthFormModal 참조하여 구성
 import { Anchor } from "@mantine/core";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import Modal from "../modal/Modal";
 import useStyles from './style';
-import AuthRepository from '../../repositories/Auth';
-import { useForm, useLocalStorage } from '@mantine/hooks';
-import { IUserProfile } from "../../typings/db";
+import { useForm } from '@mantine/hooks';
 import { useNavigate } from "react-router-dom";
-import { validateLocaleAndSetLanguage } from "typescript";
-import { formList } from "@mantine/form";
+
 
 interface formInputProps {
   value: {
@@ -42,6 +39,7 @@ const FormInput = ({value, placeholder, authType="비밀번호", isButton=false,
             {...value}
           />
         </div>
+        {/* FIXME: 버튼 활성/비활성화 로직 없음. 현재는 버튼 입력시 무조건 다음 단계로 넘어감 */}
         <button 
           className={classes.identifyButton}
           onClick = {() => navigate(authType === "아이디"? "/login/idfinder2" : "/login/pwfinder2")}
@@ -69,6 +67,7 @@ const AuthFinderModal = ({modalOpen, authType}: AuthFormModalProps) => {
     setSelectedMethod(event.target.value);
   };
   
+  // FIXME: 기존 형식에 따라서 구현되어 있지만, 실제로 validation하지 않음
   const form = useForm({
     initialValues: {
       name: "",
@@ -91,48 +90,12 @@ const AuthFinderModal = ({modalOpen, authType}: AuthFormModalProps) => {
     },
   });
 
-  // const login = useCallback( // 수정 필요
-  //   async (id: string, password: string) => {
-      
-  //     try {
-  //       const response = await new AuthRepository()
-  //       .login(id, password)
-  //       setLogin(
-  //         {
-  //           name: response.data.name,
-  //           email: response.data.email,
-  //           avatar: "",
-  //           token: response.data.token
-  //         }
-  //       );
-  //       setRegistered(false);
-  //       setAuthorized("authorized");
-  //       navigate("/");
-  //     }
-  //     catch (err) {
-  //       window.alert("id 또는 비밀번호가 일치하지 않습니다.")
-  //     }
-  //   }, [setAuthorized, setLogin, setRegistered, navigate]
-  // )
-
-  // const handleSubmit = useCallback( // 수정 필요
-  //   async () => {
-  //     switch (authType) {
-  //       case "아이디":
-  //         login(form.values.email, form.values.password);
-  //         break;
-  //       case "비밀번호":
-  //         console.log("회원가입");
-  //         break;
-  //     }
-  //   }, [authType, login, form]
-  // )
-
   return (
     <Modal
       show={opened}
       onCloseModal={() => setOpened(false)}
       >
+      {/* FIXME: form 제출 구현 필요 */}
       <form>
         <div className={classes.inner}>
           <div className={classes.title}>
@@ -180,6 +143,7 @@ const AuthFinderModal = ({modalOpen, authType}: AuthFormModalProps) => {
             />
           </div>
           <div className={classes.submitButtonWrapper}>
+            {/* FIXME: 버튼은 다음 단계로 넘어가게 설정되어 있음 */}
             <button 
               className={classes.submitButton}
               type="submit"

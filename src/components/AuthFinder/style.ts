@@ -54,6 +54,7 @@ const useStyles = createStyles(() => ({
     lineHeight: "43px",
     letterSpacing: "-2px",
   },
+  // 휴대전화 인증 vs 본인확인 이메일 인증을 위한 radio 항목 style
   radioContainer: {
     display: "flex",
     flexDrection: "row",
@@ -63,6 +64,7 @@ const useStyles = createStyles(() => ({
     marginTop: "31px",
 
   },
+  // 휴대전화 인증 vs 본인확인 이메일 인증을 위한 radio 항목 style
   radio: {
     width: "14px",
     height: "14px",
@@ -70,6 +72,7 @@ const useStyles = createStyles(() => ({
     left: "5px",
     marginRight: "11px"
   },
+  // 휴대전화 인증 vs 본인확인 이메일 인증을 위한 radio 항목 style
   radioText: {
     float: "left",
     color: "#111111",
@@ -104,6 +107,7 @@ const useStyles = createStyles(() => ({
     fontSize: "18px",
     lineHeight: "26px",
   },
+  // 인증 요청 및 인증 완료 버튼 style
   identifyButton: {
     width: "114px",
     height: "52px",
@@ -138,7 +142,7 @@ const useStyles = createStyles(() => ({
     fontFamily: "NotoSansKR",
     fontStyle: "normal",
   },
-
+  // 아이디 찾기 후 아이디 반환 부분 style
   idRevealer: {
     display: "flex",
     flexDirection: "column",
@@ -158,7 +162,7 @@ const useStyles = createStyles(() => ({
     lineHeight: "20px",
     letterSpacing: "-0.5px",
   },
-
+  // 비밀번호 찾기 첫화면에서 안내문 style 
   subtleText: {
     width: "312px",
     height: "20px",

@@ -1,72 +1,31 @@
 
 import { Anchor } from "@mantine/core";
-import { useCallback, useState } from "react";
+import {useState } from "react";
 import Modal from "../modal/Modal";
 import useStyles from './style';
-import AuthRepository from '../../repositories/Auth';
-import { useForm, useLocalStorage } from '@mantine/hooks';
-import { IUserProfile } from "../../typings/db";
 import { useNavigate } from "react-router-dom";
-import { validateLocaleAndSetLanguage } from "typescript";
-import { formList } from "@mantine/form";
 
 interface AuthFormModalProps {
   modalOpen: boolean;
 }
 
+// FIXME: 아이디 반환 구현 필요. 현재는 임시 이메일 반환
 const IdRevealer = () => {
   const {classes} = useStyles();
 
-    return (
-      <div className={classes.idRevealer}>
-        <div className={classes.input}>
-            justin@supercoding.com
-        </div>
+  return (
+    <div className={classes.idRevealer}>
+      <div className={classes.input}>
+          justin@supercoding.com
       </div>
-    )
+    </div>
+  )
 }
 
 const AuthIdModal = ({modalOpen}: AuthFormModalProps) => {
   const navigate = useNavigate();
   const {classes} = useStyles();
   const [opened, setOpened] = useState(modalOpen);
-
-  // const login = useCallback( // 수정 필요
-  //   async (id: string, password: string) => {
-      
-  //     try {
-  //       const response = await new AuthRepository()
-  //       .login(id, password)
-  //       setLogin(
-  //         {
-  //           name: response.data.name,
-  //           email: response.data.email,
-  //           avatar: "",
-  //           token: response.data.token
-  //         }
-  //       );
-  //       setRegistered(false);
-  //       setAuthorized("authorized");
-  //       navigate("/");
-  //     }
-  //     catch (err) {
-  //       window.alert("id 또는 비밀번호가 일치하지 않습니다.")
-  //     }
-  //   }, [setAuthorized, setLogin, setRegistered, navigate]
-  // )
-
-  // const handleSubmit = useCallback( // 수정 필요
-  //   async () => {
-  //     switch (authType) {
-  //       case "아이디":
-  //         login(form.values.email, form.values.password);
-  //         break;
-  //       case "비밀번호":
-  //         console.log("회원가입");
-  //         break;
-  //     }
-  //   }, [authType, login, form]
-  // )
 
   return (
     <Modal
@@ -81,6 +40,7 @@ const AuthIdModal = ({modalOpen}: AuthFormModalProps) => {
           </div>
           <IdRevealer/>
           <div className={classes.submitButtonWrapper}>
+            {/* FIXME: 로그인 창으로 넘어가는 링크 설정 필요 */}
             <button className={classes.submitButton} type="submit" >
               로그인하기
             </button>
