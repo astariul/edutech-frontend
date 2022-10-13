@@ -137,6 +137,26 @@ const useStyles = createStyles(() => ({
     fontWeight: 500,
     fontFamily: "NotoSansKR",
     fontStyle: "normal",
+  },
+
+  idRevealer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    gap: "14px",
+    marginTop: "31px",
+    marginBottom: "91px",
+    boxSizing: "border-box",
+    width: "364px",
+    height: "52px",
+    border: "1px solid #DDDDDD",
+    borderRadius: "6px",
+    fontWeight: 500,
+    fontStyle: "normal",
+    fontFamily: "NotoSansKR",
+    fontSize: "12px",
+    lineHeight: "20px",
+    letterSpacing: "-0.5px",
   }
 }));
 
