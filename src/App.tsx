@@ -21,6 +21,8 @@ import AuthenticationForm from './components/AuthentificationForm';
 import AuthMethodModal from './components/authMethod/AuthMethodModal';
 import AuthFormModal from './components/authForm/AuthFormModal';
 import AuthFinderModal from './components/AuthFinder/AuthFinderModal';
+import AuthIdModal from './components/AuthFinder/AuthIdModal';
+import AuthPwModal from './components/AuthFinder/AuthPwModal';
 
 
 
@@ -100,7 +102,10 @@ function App() {
             }>
           </Route>
           <Route path='/login/idfinder' element={<AuthFinderModal modalOpen={true} authType={"아이디"}/>}></Route>
-          <Route path='/login/pwfinder' element={<AuthFinderModal modalOpen={true} authType={"비밀번호"}/>}></Route>
+          <Route path='/login/idfinder2' element={<AuthIdModal modalOpen={true}/>}></Route>
+          <Route path='/login/pwfinder' element={<AuthPwModal modalOpen={true} authType={"이메일입력"}/>}></Route>
+          <Route path='/login/pwfinder2' element={<AuthFinderModal modalOpen={true} authType={"비밀번호"}/>}></Route>
+          <Route path='/login/pwfinder3' element={<AuthPwModal modalOpen={true} authType={"비밀번호변경"}/>}></Route>
           <Route path='/login/form' element={<AuthFormModal modalOpen={true} authType={"로그인"}/>}></Route>
           <Route path='/roadmap' element={<CourseRoadMap />}></Route>
           <Route path='/course/*' element={<Course />}></Route>

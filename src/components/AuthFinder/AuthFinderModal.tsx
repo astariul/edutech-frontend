@@ -17,6 +17,7 @@ interface formInputProps {
     error: React.ReactNode;
   };
   placeholder: string;
+  authType?: string;
   isButton?: boolean;
   buttonName?: string;
 }
@@ -26,7 +27,8 @@ interface AuthFormModalProps {
   authType: "아이디" | "비밀번호";
 }
 
-const FormInput = ({value, placeholder, isButton=false, buttonName=""}: formInputProps) => {
+const FormInput = ({value, placeholder, authType="비밀번호", isButton=false, buttonName=""}: formInputProps) => {
+  const navigate = useNavigate();
   const {classes} = useStyles();
 
   if (isButton) {
@@ -42,7 +44,7 @@ const FormInput = ({value, placeholder, isButton=false, buttonName=""}: formInpu
         </div>
         <button 
           className={classes.identifyButton}
-          type="submit"
+          onClick = {() => navigate(authType === "아이디"? "/login/idfinder2" : "/login/pwfinder2")}
         >
           {buttonName} 
         </button>
@@ -165,19 +167,25 @@ const AuthFinderModal = ({modalOpen, authType}: AuthFormModalProps) => {
             <FormInput 
                 value={form.getInputProps(selectedMethod === "phone" ? "phone" : "email")} 
                 placeholder={selectedMethod === "phone" ? "휴대폰 번호 ('-' 제외)" : "이메일주소"}
+                authType = {authType}
                 isButton={true}
                 buttonName = "인증 요청"
             />
             <FormInput
               value={form.getInputProps("code")}
               placeholder="인증번호"
+              authType = {authType}
               isButton={true}
               buttonName = "인증 완료"
             />
           </div>
           <div className={classes.submitButtonWrapper}>
-            <button className={classes.submitButton} type="submit" >
-              로그인하기
+            <button 
+              className={classes.submitButton}
+              type="submit"
+              onClick={() => {authType === "아이디" ? (navigate("/login/idfinder")): navigate("/login/pwfinder3")}}
+              >
+              {authType==="아이디"? "로그인하기":"다음"}
             </button>
           </div>
         </div>
