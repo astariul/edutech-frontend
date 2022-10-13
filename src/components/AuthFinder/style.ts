@@ -157,6 +157,25 @@ const useStyles = createStyles(() => ({
     fontSize: "12px",
     lineHeight: "20px",
     letterSpacing: "-0.5px",
+  },
+
+  subtleText: {
+    width: "312px",
+    height: "20px",
+    marginTop: "12px",
+    marginLeft: "20px",
+    marginBottom: "61px",
+    color: "#BDBDBD",
+    fontWeight: 400,
+    fontStyle: "normal",
+    fontFamily: "NotoSansKR",
+    fontSize: "12px",
+    lineHeight: "20px",
+    letterSpacing: "-0.5px",
+    backgroundColor: "transparent",
+    borderStyle: "none",
+    border: 0,
+    outline: 0
   }
 }));
 
