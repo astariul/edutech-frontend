@@ -7,6 +7,7 @@
     - [SC-248](https://team-edutech.atlassian.net/browse/SC-248) 스테이징 환경 배포 방식 변경
     - 기존 로그인 폼 활용하던 부분 제거하고 로그인 페이지로 이동 시키도록 변경
     - [SC-267](https://team-edutech.atlassian.net/browse/SC-267) 강의 시청 페이지 해더가 나오는 이슈 수정
+    - [SC-268](https://team-edutech.atlassian.net/browse/SC-268) 결제 PG사 추가
 
 - `0.0.44`
     - [ED-246](https://team-edutech.atlassian.net/browse/SC-246) 로그인 디자인 적용
