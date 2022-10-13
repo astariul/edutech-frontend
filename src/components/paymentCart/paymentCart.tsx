@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { Checkbox, CloseButton, Divider, Title } from "@mantine/core";
+import { Checkbox, CloseButton, Title, Group, Container, Space, Avatar, Text } from "@mantine/core";
 import useStyles from "./style";
 import { ICourse } from "../../typings/db";
 import { useLocalStorage } from "@mantine/hooks";
@@ -28,21 +28,56 @@ const CourseCard = ({course}: CourseCardProps) => {
   )
 
   return (
-    <article className={classes.courseCard}>
+    <section className={classes.courseCard}>
       <Checkbox className={classes.checker} />
-      <div className={classes.courseCardImage}>
-        <figure className={classes.courseThumbnail}>
-          <img className={classes.image} src={("courseImageSample.png" || course.thumbnail)} alt="코스이미지" />
-        </figure>
-      </div>
+      <Space w={50}/>
+        {/** To-do: 이미지 크기 고정시켜놔야함 */}
+        <div className={classes.courseCardImage}>
+          <figure className={classes.courseThumbnail}>
+            <img className={classes.image} src={("courseImageSample.png" || course.thumbnail)} alt="코스이미지" />
+          </figure>
+        </div>
+      {/** List */}
+      <Space w={30}/>
+      <div>
+      <Container className={classes.courseContainer}>
+      <Group spacing = "xs">
+      <div className = {classes.courseTagBoxGreen}>
+          <div className = {classes.courseTagItem}>
+            Live 
+          </div>
+        </div>
+        <div className = {classes.courseTagBoxGray}>
+          <div className = {classes.courseTagItem}>
+            인강 
+          </div>
+        </div>
+        <div className = {classes.courseTagBoxBlue}>
+          <div className = {classes.courseTagItem}>
+            환급 
+          </div>
+        </div>
+        </Group>
+      </Container>
+      
       <div className={classes.courseCardInfo}>
         <h3 className={classes.courseCardTitle}>{course.title}</h3>
       </div>
-      <div className={classes.courseCardPrice}>
+      {/* <div className={classes.courseCardPrice}>
         <span>{course.dcPrice}원</span>
+      </div> */}
+      {/* <CloseButton className={classes.close} onClick={() => {removeItem(course.id)}}/> */}
+      <Group>
+        <Avatar src={"./tutor_ky.png"} alt={"이경엽"} radius="xl" />
+        <div>
+          <Text size="sm">{"이경엽"}</Text>
+          <Text size="xs" color="dimmed">
+            {"Spacewalk CTO"}
+          </Text>
+        </div>
+      </Group>
       </div>
-      <CloseButton className={classes.close} onClick={() => {removeItem(course.id)}}/>
-    </article>
+    </section>
   )
 }
 
@@ -51,8 +86,8 @@ const PaymentCart = ({courses}: PaymentCartProps) => {
 
   return (
     <>
-      <Title className={classes.title}>강의바구니</Title>
-      <Divider />
+      <Title className={classes.title}>결제하기</Title>
+      
       <section className={classes.body}>
         <section>
           <div></div>
