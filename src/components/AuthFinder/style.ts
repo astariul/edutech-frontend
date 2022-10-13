@@ -118,6 +118,9 @@ const useStyles = createStyles(() => ({
     letterSpacing: "-0.5px",
     lineHeight: "20px",
     float: "right",
+    "&[disabled]":{
+      backgroundColor: "#B5B5B5",
+    }
   },
   idpwFinder: {
     position: "absolute",
