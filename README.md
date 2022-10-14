@@ -1,4 +1,14 @@
 ## Release
+- `0.0.45`
+    - [SC-266](https://team-edutech.atlassian.net/browse/SC-266) 아임포트 가입을 위한 결제 모듈 작업
+      - 아임포트 결제 모듈 호출이 되지 않는 이슈 수정
+    - [SC-263](https://team-edutech.atlassian.net/browse/SC-263) 결제페이지 상단이 가려지는 버그 수정
+      - 결제카트에 추가된 TAG들이 정렬되도록 수정 
+    - [SC-248](https://team-edutech.atlassian.net/browse/SC-248) 스테이징 환경 배포 방식 변경
+    - 기존 로그인 폼 활용하던 부분 제거하고 로그인 페이지로 이동 시키도록 변경
+    - [SC-267](https://team-edutech.atlassian.net/browse/SC-267) 강의 시청 페이지 해더가 나오는 이슈 수정
+    - [SC-268](https://team-edutech.atlassian.net/browse/SC-268) 결제 PG사 추가
+
 - `0.0.44`
     - [ED-246](https://team-edutech.atlassian.net/browse/SC-246) 로그인 디자인 적용
     - [ED-249](https://team-edutech.atlassian.net/browse/SC-249) GNB에 로그아웃 기능 추가하기

@@ -114,6 +114,7 @@ export interface MyOrder {
   orderId: string;
   orgPrice: number;
   dcPrice: number;
+  productName: string;
 }
 
 export interface Buyer {

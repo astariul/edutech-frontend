@@ -1,7 +1,4 @@
 import { createStyles } from "@mantine/core";
-import { heights } from "@mantine/core/lib/components/Badge/Badge.styles";
-import { BlockList } from "net";
-import { LetterSpacing } from "tabler-icons-react";
 
 const useStyles = createStyles(() => ({
   cart: {
@@ -96,6 +93,7 @@ const useStyles = createStyles(() => ({
     // display: "inline",
     display: "flex",
     wordBreak: "keep-all",
+    padding: 0,
   },
   container2:{
     display: "flex",
@@ -103,37 +101,37 @@ const useStyles = createStyles(() => ({
   },
   
   courseTagBoxGreen:{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: "#00A607",
     width: "72px",
     height: "24px",
-    textAlign: "center",
-    
   },
   courseTagBoxGray:{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: "#515151",
     width: "72px",
     height: "24px",
-    textAlign: "center",
-    
   },
   courseTagBoxBlue:{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     backgroundColor: "#2895E3",
     width: "72px",
     height: "24px",
-    textAlign: "center",
-    
   },
-
-
   courseTagItem:{
+    textAlign: "center",
     color: "white",
-    width: "40px",
     margin: "auto",
     fontFamily: "Inter",
     fontStyle: "normal",
     fontWeight: "bold",
     fontSize: "13px",
-    height: "18px",
     lineHeight: "18px",
 
   },

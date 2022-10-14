@@ -1,10 +1,9 @@
 import { MouseEvent, useCallback, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import ReactPlayer from 'react-player/lazy';
-import { Grid, Container, Center, Text} from "@mantine/core";
+import { Grid, Container, Text} from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
 import { TriangleInverted } from "tabler-icons-react";
-import AuthenticationForm from "../../components/AuthentificationForm";
 import { IUserProfile, IVideo } from '../../typings/db';
 import CourseRepository from "../../repositories/Course";
 import Toggle from '../../components/Toggle';
@@ -22,7 +21,6 @@ const ClassRoom = () => {
   const location = useLocation();
   const episode = location.state as CourseEpisode;
   const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
-  const [formType, setFormType] = useState<"register" | "login">("login");
   const [courseId] = useState(episode?.courseId)
   const [courseTitle] = useState(episode?.courseTitle)
   const [seasons, setSeasons] = useState<number[]>([]);
@@ -35,6 +33,12 @@ const ClassRoom = () => {
 
   useEffect(
     () => {
+      if (!login) {
+        window.alert("로그인 상태가 아닙니다. 로그인해주세요");
+        navigate("/login/method");
+        return
+      }
+
       setVideoUrl(
         `${process.env.REACT_APP_API_URL}courses/play/${courseId}/${episode?.number}`
       )
@@ -49,7 +53,7 @@ const ClassRoom = () => {
           setNextEpisode(findNextEpisode(videos, episode));
         }
       )
-    }, [login, episode, courseId]
+    }, [login, episode, courseId, navigate]
   )
 
   const onClickNextEpisode = useCallback(
@@ -210,13 +214,6 @@ const ClassRoom = () => {
             </Grid.Col>
         </Grid>
       )
-  }
-  {
-    (!login) && (
-      <Center sx={{paddingTop: 100}}>
-        <AuthenticationForm formType={formType} setFormType={setFormType} modalSetOpened={() => void(0)} />
-      </Center>
-    )
   }
   </>
 )

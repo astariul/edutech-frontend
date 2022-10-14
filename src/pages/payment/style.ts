@@ -1,6 +1,9 @@
 import { createStyles } from "@mantine/core";
 
 const useStyles = createStyles(() => ({
+  main: {
+    marginTop: "80px"
+  },
   layout: {
     margin: "0 auto",
     display: "flex",

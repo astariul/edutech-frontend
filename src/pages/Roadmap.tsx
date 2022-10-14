@@ -1,5 +1,5 @@
 import {useCallback, useEffect, useState} from 'react';
-import { Grid, createStyles, Title, Box, Button, Center} from '@mantine/core';
+import { Grid, createStyles, Title, Box, Button } from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
 import { useNavigate } from 'react-router-dom';
 import CourseReviewGrid from '../components/CourseReviewGrid';
@@ -9,7 +9,6 @@ import CourseRepository from '../repositories/Course';
 import { IUserProfile, ICourse } from '../typings/db';
 import Star from '../components/stars/Stars';
 import AuthRepository from '../repositories/Auth';
-import AuthenticationForm from '../components/AuthentificationForm';
 
 const useStyles = createStyles((theme) => ({
   descriptionHeader: {
@@ -95,9 +94,7 @@ const useStyles = createStyles((theme) => ({
 
 const CourseRoadMap = () => {
   const { classes } = useStyles();
-  const [openForm, setOpenForm] = useState(false);
   const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
-  const [formType, setFormType] = useState<"register" | "login">("login");
   const [coursesInCart, setCoursesInCart] = useLocalStorage<ICourse[] | []>({ key: "coursesInCart", defaultValue: [] });
   const [course, setCourse] = useState<ICourse>();
   const navigate = useNavigate();
@@ -126,10 +123,11 @@ const CourseRoadMap = () => {
        } else if (login) {
         toPayment();
        } else {
-        setOpenForm(true);
+        window.alert("로그인이 필요합니다.");
+        navigate("/login/method");
        }
 
-    }, [login, registered, navigate, toPayment, setOpenForm]
+    }, [login, registered, navigate, toPayment]
   )
 
   useEffect(
@@ -138,7 +136,14 @@ const CourseRoadMap = () => {
       .getCourseById(login?.token as string, "63346df60875520b1d117aad")
       .then(
         (courseVideos) => {
-          setCourse(courseVideos.course);
+          // setCourse(courseVideos.course);
+          // TODO: 아래 코드 제거, 결제 프로세스 테스트를 위해 임의로 100원 설정함
+          const course = {
+            ...courseVideos.course,
+            orgPrice: 100,
+            dcPrice: 100,
+          };
+          setCourse(course);
         }
       )
     }, [login, setCourse]
@@ -184,8 +189,6 @@ const CourseRoadMap = () => {
 
   return (
     <>
-    {
-      (login || !openForm) && (
       <div>        
         <div>
           <section>
@@ -246,15 +249,6 @@ const CourseRoadMap = () => {
           </Grid>
         </div>
       </div>
-      )
-    }
-    {
-      (openForm) && (
-        <Center sx={{paddingTop: 100}}>
-          <AuthenticationForm formType={formType} setFormType={setFormType} modalSetOpened={() => void(0)} />
-        </Center>
-      )
-    }
     </>
   );
 }

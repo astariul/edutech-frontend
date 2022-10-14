@@ -1,5 +1,5 @@
-import React, { useCallback } from "react";
-import { Checkbox, CloseButton, Title, Group, Container, Space, Avatar, Text } from "@mantine/core";
+import { useCallback } from "react";
+import { Title, Group, Container, Space, Avatar, Text } from "@mantine/core";
 import useStyles from "./style";
 import { ICourse } from "../../typings/db";
 import { useLocalStorage } from "@mantine/hooks";
@@ -13,7 +13,7 @@ interface CourseCardProps {
 }
 
 const CourseCard = ({course}: CourseCardProps) => {
-  const {classes} = useStyles();
+  const {classes, cx} = useStyles();
   const [coursesInCart, setCoursesInCart] = useLocalStorage<ICourse[] | []>(
     { key: "coursesInCart", defaultValue: [] }
   );
@@ -29,8 +29,9 @@ const CourseCard = ({course}: CourseCardProps) => {
 
   return (
     <section className={classes.courseCard}>
-      <Checkbox className={classes.checker} />
-      <Space w={50}/>
+      {/** Note: 체크박스가 수행하는 기능이 없으므로 일단 comment 하였음 */}
+      {/* <Checkbox className={classes.checker} /> */}
+      {/* <Space w={50}/> */}
         {/** To-do: 이미지 크기 고정시켜놔야함 */}
         <div className={classes.courseCardImage}>
           <figure className={classes.courseThumbnail}>
@@ -41,22 +42,16 @@ const CourseCard = ({course}: CourseCardProps) => {
       <Space w={30}/>
       <div>
       <Container className={classes.courseContainer}>
-      <Group spacing = "xs">
-      <div className = {classes.courseTagBoxGreen}>
-          <div className = {classes.courseTagItem}>
-            Live 
+        <Group spacing = "xs">
+          <div className = {cx(classes.courseTagBoxGreen, classes.courseTagItem)}>
+              Live
           </div>
-        </div>
-        <div className = {classes.courseTagBoxGray}>
-          <div className = {classes.courseTagItem}>
-            인강 
+          <div className = {cx(classes.courseTagBoxGray, classes.courseTagItem)}>
+              인강
           </div>
-        </div>
-        <div className = {classes.courseTagBoxBlue}>
-          <div className = {classes.courseTagItem}>
-            환급 
+          <div className = {cx(classes.courseTagBoxBlue, classes.courseTagItem)}>
+              환급
           </div>
-        </div>
         </Group>
       </Container>
       
@@ -68,11 +63,11 @@ const CourseCard = ({course}: CourseCardProps) => {
       </div> */}
       {/* <CloseButton className={classes.close} onClick={() => {removeItem(course.id)}}/> */}
       <Group>
-        <Avatar src={"./tutor_ky.png"} alt={"이경엽"} radius="xl" />
+        <Avatar src={"./tutor_ky.png"} alt={course.instructor.name} radius="xl" />
         <div>
-          <Text size="sm">{"이경엽"}</Text>
+          <Text size="sm">{course.instructor.name}</Text>
           <Text size="xs" color="dimmed">
-            {"Spacewalk CTO"}
+            {course.instructor.description}
           </Text>
         </div>
       </Group>

@@ -1,6 +1,6 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { Textarea, Button, Radio, RadioGroup, Center} from "@mantine/core";
+import { Textarea, Button, Radio, RadioGroup } from "@mantine/core";
 import { useForm } from '@mantine/form';
 import { useLocalStorage } from "@mantine/hooks";
 import CourseRepository from '../../repositories/Course';
@@ -9,7 +9,6 @@ import {
   CourseEpisode,
 } from "../../utils/common";
 import useStyles from './style';
-import AuthenticationForm from "../../components/AuthentificationForm";
 
 type SurveyValue = {
   questions: {title: string, answer: string, comment: string}[]
@@ -23,7 +22,16 @@ const Survey = () => {
   const {courseId, episodeNumber} = useParams(); 
   const {classes} = useStyles();
   const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
-  const [formType, setFormType] = useState<"register" | "login">("login");
+
+  useEffect(
+    () => {
+      if (!login) {
+        window.alert("로그인 상태가 아닙니다. 로그인해주세요");
+        navigate("/login/method");
+        return
+      }
+
+  }, [login, navigate]);
 
   const form = useForm<SurveyValue>({
     initialValues: {
@@ -157,13 +165,6 @@ const Survey = () => {
         </div>
       </form>
     )
-    }
-    {
-      (!login) && (
-        <Center sx={{paddingTop: 100}}>
-          <AuthenticationForm formType={formType} setFormType={setFormType} modalSetOpened={() => void(0)} />
-        </Center>
-      )
     }
     </>
   );

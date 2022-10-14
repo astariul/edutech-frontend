@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - staging
+  pull_request:
+    branches:
+      - staging
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -32,27 +35,9 @@ jobs:
           REACT_APP_IAMPORT_REST_API_KEY: ${{ secrets.REACT_APP_IAMPORT_REST_API_KEY }}
         run: yarn build
 
-      - name: zip create 
-        run: zip -qq -r ./build.zip .
-        shell: bash
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
-          aws-region: ${{ secrets.AWS_REGION }}
-
-      - name: Upload to S3
+      - name: Deploy to S3
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
         run: |
-          aws s3 cp --region ap-northeast-2 ./build.zip s3://front-deployment/staging/build.zip
-
-      - name: Deploy
-        run: aws deploy create-deployment
-          --application-name frontContinouseDeployment
-          --deployment-config-name CodeDeployDefault.AllAtOnce
-          --deployment-group-name staging
-          --s3-location bucket=front-deployment,key=staging/build.zip,bundleType=zip
+          aws s3 cp --recursive --region ap-northeast-2 build s3://${{ secrets.STAGING_BUCKET_NAME }}
