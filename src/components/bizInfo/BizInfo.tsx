@@ -10,7 +10,8 @@ const BizInfo = () => {
           <span>대표자: 서지원 | </span>
           <span>사업자 등록번호: 311-86-02881</span>
           <br></br>
-          <span>주: 서울특별시 강남구 역삼동 837-24 프린스타워 9층</span>
+          <span>주소: 서울특별시 강남구 역삼동 837-24 프린스타워 9층</span>
+
         </div>
       </section>
     </div>
