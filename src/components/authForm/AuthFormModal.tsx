@@ -130,6 +130,7 @@ const AuthFormModal = ({modalOpen, authType}: AuthFormModalProps) => {
           </div>
         </div>
       </form>
+      {/* 아이디 찾기와 비밀번호 찾기로 각각 이동하는 링크 구현 */}
       {
         (authType === "로그인") && (
           <div className={classes.idpwFinder}>
@@ -137,8 +138,18 @@ const AuthFormModal = ({modalOpen, authType}: AuthFormModalProps) => {
               component="button"
               type="button"
               size="xs"
+              onClick={() => navigate("/login/idfinder")}
+              mr = "xs"
               >
-              아이디 비밀번호찾기
+              아이디
+            </Anchor>
+            <Anchor
+              component="button"
+              type="button"
+              size="xs"
+              onClick={() => navigate("/login/pwfinder")}
+              >
+              비밀번호찾기
             </Anchor>
           </div>
         )
