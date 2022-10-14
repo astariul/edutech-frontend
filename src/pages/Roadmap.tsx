@@ -140,8 +140,8 @@ const CourseRoadMap = () => {
           // TODO: 아래 코드 제거, 결제 프로세스 테스트를 위해 임의로 100원 설정함
           const course = {
             ...courseVideos.course,
-            orgPrice: 100,
-            dcPrice: 100,
+            orgPrice: 800000,
+            dcPrice: 410000,
           };
           setCourse(course);
         }
