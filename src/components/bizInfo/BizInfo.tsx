@@ -5,7 +5,7 @@ const BizInfo = () => {
   return (
     <div className={classes.main}>
       <section className={classes.infoSection}>
-        <h4 className={classes.header}>슈퍼코딩(주) 사업자정보</h4>
+        <h4 className={classes.header}>슈퍼러닝(주) 사업자정보</h4>
         <div className={classes.body}>
           <span>대표자: 서지원 | </span>
           <span>사업자 등록번호: 311-86-02881</span>
