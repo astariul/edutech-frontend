@@ -1,0 +1,40 @@
+name: continouseDeployment
+on:
+  pull_request:
+    branches:
+      - staging
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env: 
+      CI: false
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: use Node v16
+        uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+          node-version: 16
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build
+        env:
+          REACT_APP_API_URL: ${{ secrets.REACT_APP_API_DEV_URL }}
+          REACT_APP_IAMPORT_ID: ${{ secrets.REACT_APP_IAMPORT_ID }}
+          REACT_APP_IAMPORT_REST_API_SECRET: ${{ secrets.REACT_APP_IAMPORT_REST_API_SECRET }}
+          REACT_APP_IAMPORT_REST_API_KEY: ${{ secrets.REACT_APP_IAMPORT_REST_API_KEY }}
+        run: yarn build
+
+      - name: Deploy to S3
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
+        run: |
+          aws s3 cp --recursive --region ap-northeast-2 build s3://${{ secrets.DEV_BUCKET_NAME }}
