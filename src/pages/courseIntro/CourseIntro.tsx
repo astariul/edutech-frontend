@@ -17,7 +17,7 @@ const CourseIntro = () => {
   const [coursesInCart, setCoursesInCart] = useLocalStorage<ICourse[] | []>({ key: "coursesInCart", defaultValue: [] });
   const [course, setCourse] = useState<ICourse>();
   const [courses, setCourses] = useState<ICourse[]>();
-  const [courseTitle, setCourseTitle] = useState("Javascript 고급 과정 ");
+  const [clickedCourseIdx, setClickedCourseIdx] = useState(0);
   const [start, setStart] = useState(10);
   const navigate = useNavigate();
   const [progress, setProgress] = useState<number[]>([]);
@@ -58,7 +58,7 @@ const CourseIntro = () => {
       .getAllCourses(login?.token as string)
       .then(
         (courses) => {
-          const target = courses.find(course => course.title === courseTitle)
+          const target = courses.find((course, index) => index === clickedCourseIdx)
           const course = {
             ...target as ICourse,
           };
@@ -66,7 +66,7 @@ const CourseIntro = () => {
           setCourses(courses);
         }
       )
-    }, [login, setCourses, courseTitle, setCourse]
+    }, [login, setCourses, setCourse, clickedCourseIdx]
   )
 
   useEffect(
@@ -166,21 +166,22 @@ const CourseIntro = () => {
               <p className={classes.coursesSubtext}>최신 실무 기반 프런트엔드기술을 학습하세요!</p>
               <div className={classes.coursesCards}>
                   {
-                    courses?.filter(each => each?.title !== courseTitle)
-                    .map((each) => (
-                      <div className={classes.card} onClick={() => {setCourse(each); setCourseTitle(each.title); setStart(Math.floor(Math.random()*10))}}>
-                        <ArticleCard
-                          key={each.id}
-                          id={each.id}
-                          image={getCourseImagePath(each.title) as string}
-                          title={each.title}
-                          category={each.category}
-                          description={each.description}
-                          footer={each.level}
-                          orgPrice={each.orgPrice}
-                          author={each.instructor}
-                        />
-                      </div>
+                    courses?.map((each, index) => (
+                      (index !== clickedCourseIdx) && (
+                        <div className={classes.card} onClick={() => {setCourse(each); setClickedCourseIdx(index); setStart(Math.floor(Math.random()*10))}}>
+                          <ArticleCard
+                            key={each.id}
+                            id={each.id}
+                            image={getCourseImagePath(each.title) as string}
+                            title={each.title}
+                            category={each.category}
+                            description={each.description}
+                            footer={each.level}
+                            orgPrice={each.orgPrice}
+                            author={each.instructor}
+                          />
+                        </div>
+                      )
                   ))
                 }
               </div>
