@@ -1,8 +1,12 @@
 name: continouseDeployment
 on:
+  push:
+    branches:
+      - development
+
   pull_request:
     branches:
-      - staging
+      - development
 jobs:
   build:
     runs-on: ubuntu-latest
