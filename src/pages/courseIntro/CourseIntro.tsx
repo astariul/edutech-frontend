@@ -58,7 +58,7 @@ const CourseIntro = () => {
       .getAllCourses(login?.token as string)
       .then(
         (courses) => {
-          const target = courses.find((course, index) => index === clickedCourseIdx)
+          const target = courses.find((_, index) => index === clickedCourseIdx)
           const course = {
             ...target as ICourse,
           };
@@ -81,12 +81,13 @@ const CourseIntro = () => {
                 setRegistered(true);
                 return;
               }
-              setRegistered(false);
+              else {
+                setRegistered(false);
+              }
             }
           )
         }
       )
-      return () => setRegistered(false);
     }, [login, course, setRegistered]
   )
 
