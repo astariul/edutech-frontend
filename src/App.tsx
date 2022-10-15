@@ -7,7 +7,6 @@ import HeaderResponsive from './components/header/Header';
 import FooterSimple from './components/Footer';
 import NavbarMinimal from './components/VerticalNavBar';
 import LearningCourse from './pages/LearningCourse';
-import CourseRoadMap from './pages/Roadmap';
 import MyClassRoom from './pages/MyClassRoom';
 import Feed from './pages/Feed';
 import AuthRepository from './repositories/Auth';
@@ -20,6 +19,7 @@ import Resume from './pages/resume/Resume';
 import AuthenticationForm from './components/AuthentificationForm';
 import AuthMethodModal from './components/authMethod/AuthMethodModal';
 import AuthFormModal from './components/authForm/AuthFormModal';
+import CourseIntro from './pages/courseIntro/CourseIntro';
 
 function App() {
   const [navOpened, toggleNavOpened] = useBooleanToggle(false);
@@ -97,7 +97,8 @@ function App() {
             }>
           </Route>
           <Route path='/login/form' element={<AuthFormModal modalOpen={true} authType={"로그인"}/>}></Route>
-          <Route path='/roadmap' element={<CourseRoadMap />}></Route>
+          {/* <Route path='/roadmap' element={<CourseRoadMap />}></Route> */}
+          <Route path='/roadmap' element={<CourseIntro />}></Route>
           <Route path='/course/*' element={<Course />}></Route>
           <Route path='/myclass' element={<MyClassRoom />}></Route>
           <Route path='/class/*' element={<ClassRoom />}></Route>

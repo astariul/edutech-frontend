@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { createStyles, Card, Image, ActionIcon, Group, Text, Avatar, Badge } from '@mantine/core';
 import { Heart, Share } from 'tabler-icons-react';
 
@@ -25,6 +25,12 @@ const useStyles = createStyles((theme) => ({
       theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[2]
     }`,
   },
+
+  authorDiscription: {
+    maxWidth: "177px",
+    minHeight: "40px",
+    overflowWrap: "break-word"
+  }
 }));
 
 interface ArticleCardFooterProps {
@@ -38,7 +44,7 @@ interface ArticleCardFooterProps {
   author: {
     name: string;
     description: string;
-    image: string;
+    picture: string;
   };
 }
 
@@ -69,11 +75,11 @@ const ArticleCard = ({
           </Text>
         </div>
 
-        <Group mt="lg">
-          <Avatar src={author.image} radius="sm" />
+        <Group style={{marginTop:"2px", alignItems:"flex-start"}}>
+          <Avatar src={author.picture} radius="sm" size={35} />
           <div>
             <Text weight={500}>{author.name}</Text>
-            <Text size="xs" color="dimmed">
+            <Text className={classes.authorDiscription} size="xs" color="dimmed">
               {author.description}
             </Text>
           </div>

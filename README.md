@@ -1,4 +1,13 @@
 ## Release
+- `0.0.47`
+    - [SC-270] 코스소개 페이지에서 다른 코스도 결제가능하도록 하기
+
+- `0.0.46`
+    - [SC-269](https://team-edutech.atlassian.net/browse/SC-266) 대표번호 추가
+    - 통신 판매업 신고번호 추가
+    - 법인명 수정
+    - FE All-in-One 강좌 가격 수정
+
 - `0.0.45`
     - [SC-266](https://team-edutech.atlassian.net/browse/SC-266) 아임포트 가입을 위한 결제 모듈 작업
       - 아임포트 결제 모듈 호출이 되지 않는 이슈 수정
