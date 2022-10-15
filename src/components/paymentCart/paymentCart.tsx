@@ -3,6 +3,7 @@ import { Title, Group, Container, Space, Avatar, Text } from "@mantine/core";
 import useStyles from "./style";
 import { ICourse } from "../../typings/db";
 import { useLocalStorage } from "@mantine/hooks";
+import { getCourseImagePath } from "../../utils/common";
 
 interface PaymentCartProps {
   courses: ICourse[];
@@ -35,7 +36,7 @@ const CourseCard = ({course}: CourseCardProps) => {
         {/** To-do: 이미지 크기 고정시켜놔야함 */}
         <div className={classes.courseCardImage}>
           <figure className={classes.courseThumbnail}>
-            <img className={classes.image} src={("courseImageSample.png" || course.thumbnail)} alt="코스이미지" />
+            <img className={classes.image} src={getCourseImagePath(coursesInCart[0].title) as string} alt="코스이미지" />
           </figure>
         </div>
       {/** List */}
