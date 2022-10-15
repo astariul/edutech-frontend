@@ -108,3 +108,21 @@ export const secondsToMinutesString = (seconds: number) => {
    secondString = secondString.length === 1 ? `0${secondString}`: secondString;
    return `${minuteString}:${secondString}`;
 }
+
+export const getCourseImagePath = (courseTitle: string) => {
+  let imagePath;
+  const firtst = courseTitle.split(" ")[0].toLowerCase();
+  switch (firtst) {
+    case "html":
+      imagePath = "./courseImage_HTML.png";
+      break;
+    case "javascript":
+      imagePath = "./courseImage_Javascript.png";
+      break;
+    case "프론트엔드":
+      imagePath = "./courseImage_frontend.png";
+      break;
+  }
+
+  return imagePath;
+}
