@@ -14,12 +14,12 @@ class OrderRepository {
   }
 
   async completeOrderById(token: string, orderId: string, paymentId: string | number) {
-    const ret = await axios.post<IOrder>(
+    const ret = await axios.post(
       process.env.REACT_APP_API_URL + `order/complete/${orderId}`,
       { paymentId: paymentId },
       { headers: {Authorization: `Bearer ${token}`} }
     );
-    return ret.data
+    return ret
   }
 
   async getAllOrders(token: string) {
