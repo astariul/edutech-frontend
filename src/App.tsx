@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import Home from './pages/Home';
+import Home from './pages/home/Home';
 import { MantineProvider, AppShell, Center } from '@mantine/core';
 import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import HeaderResponsive from './components/header/Header';
-import FooterSimple from './components/Footer';
+import Footer from './components/Footer/Footer';
 import NavbarMinimal from './components/VerticalNavBar';
 import LearningCourse from './pages/LearningCourse';
 import MyClassRoom from './pages/MyClassRoom';
@@ -62,7 +62,7 @@ function App() {
       <AppShell
         navbar={navbar}
         header={<HeaderResponsive />}
-        footer={<FooterSimple />}
+        footer={<Footer />}
         styles={(theme) => ({
           main: { padding: '0px' },
         })}

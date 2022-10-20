@@ -7,7 +7,7 @@ import { Pagination } from '@mantine/core';
 import { useCallback } from 'react';
 import { useLocalStorage } from '@mantine/hooks';
 import { IUserProfile } from '../typings/db';
-import AuthenticationForm from '../components/AuthentificationForm';
+import { useNavigate } from 'react-router-dom';
 
 
 const useStyles = createStyles((theme) => ({
@@ -94,10 +94,16 @@ const Feed = () => {
   const [activePage, setPage] = useState(1);
   const [totalPage, setTotalPages] = useState(1);
   const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
-  const [formType, setFormType] = useState<"register" | "login">("login");
+  const navigate = useNavigate();
 
   useEffect(
     () => {
+      if (!login) {
+        window.alert("로그인 상태가 아닙니다. 로그인해주세요")
+        navigate("/login/method");
+        return
+      }
+  
       (login) && (
         new FeedRepository()
         .getFeeds(login?.token, 1, numFeedPerPage)
@@ -112,7 +118,7 @@ const Feed = () => {
             }
         )
       )
-    }, [numFeedPerPage, login]
+    }, [numFeedPerPage, login, navigate]
   )
 
   const feedData = (feeds) || (sampleDatas)
@@ -140,13 +146,6 @@ const Feed = () => {
 
   return (
     <>
-      {
-        (!login) && (
-          <Center sx={{paddingTop: 100}}>
-              <AuthenticationForm formType={formType} setFormType={setFormType} modalSetOpened={() => void(0)} />
-          </Center>
-        )
-      }
       {
         (login) && (
           <div className={classes.main}>
