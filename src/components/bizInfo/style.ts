@@ -8,8 +8,13 @@ const useStyles = createStyles(() => ({
     alignItems: "flex-end",
   },
   infoSection: {
-    lineHeight: 1.5,
-    fontFamily: "AlongSanss2"
+    lineHeight: "20px",
+    fontFamily: "NotoSansKR",
+    fontStyle: "normal",
+    fontWeight: 400,
+    fontSize: "12px",
+    letterSpacing: "-0.02em",
+    color: "#363636",
   },
   header: {
     maring: "25px 0 9px 0",
