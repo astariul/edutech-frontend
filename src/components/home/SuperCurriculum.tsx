@@ -1,5 +1,4 @@
 
-import { Overlay } from "@mantine/core";
 import useSuperCurriculumStyles from "./superCurriculumStyle";
 
 const SuperCurriculum = () => {
