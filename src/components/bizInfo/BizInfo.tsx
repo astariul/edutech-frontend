@@ -12,7 +12,8 @@ const BizInfo = () => {
           <span>통신판매업 신고번호: 2022-서울강남-05580 </span>
           <br></br>
           <span>주소: 서울특별시 강남구 역삼동 837-24 프린스타워 9층 | </span>
-          <span>전화: 070-8808-6020</span>
+          <span>전화: 070-8808-6020 |</span>
+          <span>email: contact.supercoding@gmail.com</span>
 
         </div>
       </section>
