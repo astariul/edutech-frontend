@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import { Space } from '@mantine/core';
 import { useLocalStorage } from "@mantine/hooks";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Buyer, ICourse, IOrder, IUserProfile, MyOrder } from "../../typings/db";
+import { Buyer, ICourse, IUserProfile, MyOrder } from "../../typings/db";
 import PaymentSection from "../../components/paymentSection/PaymentSection";
 import PaymentMethodModal from "../../components/paymentMethodModal/PaymentMethodModal";
 import BuyerInfo from "../../components/buyerInfo/buyerInfo";
@@ -13,6 +13,8 @@ import OrderRepository from "../../repositories/Order";
 import AuthRepository from "../../repositories/Auth";
 import PaymentPGModal from "../../components/paymentPGModal/PaymentPGModal";
 import PaymentConfig from "../../config";
+import { AxiosResponse } from "axios";
+import MessageModal from '../../components/messageModal/MessageModal';
 
 const { IMP } = window;
 IMP.init(process.env.REACT_APP_IAMPORT_ID);
@@ -35,6 +37,8 @@ const Payment = () => {
   const naviagate = useNavigate();
   const config = new PaymentConfig()
   const [pgCode, setPGCode] = useState("");
+  const [messageModalOpened, setMessageModalOpened] = useState<boolean>(false);
+  const [message, setMessage] = useState("");
 
   useEffect(
     () => {
@@ -53,7 +57,9 @@ const Payment = () => {
                 setRegistered(true);
                 return;
               }
-              setRegistered(false);
+              else{
+                setRegistered(false);
+              }
             }
             )
           }
@@ -81,7 +87,14 @@ const Payment = () => {
   )
 
   const showPGModal = useCallback(
-    () => setPGModalOpened(true), []
+    () => {
+      if (!registered) {
+        setPGModalOpened(true);
+      } else {
+        setMessage("결제완료된 건입니다. 내강의실 페이지에서 수강현황을 확인해보세요");
+        setMessageModalOpened(true);
+      }
+    }, [registered, setMessage, setPGModalOpened, setMessageModalOpened]
   )
 
   const showPayMethodModal = useCallback(
@@ -106,7 +119,7 @@ const Payment = () => {
         new OrderRepository()
         .completeOrderById(login?.token as string, merchantUID.current, 0)
         .then(
-          () => window.alert("수강신청 완료되었습니다. 강의실 페이지에서 수강현황을 확인해보세요")
+          () => window.alert("수강신청 완료되었습니다. 내강의실 페이지에서 수강현황을 확인해보세요")
         )
         .catch(
           (err) => {  
@@ -122,38 +135,41 @@ const Payment = () => {
   )
   
   const successPayment = useCallback(
-    (order: IOrder) => {
-      if (order.isPaid) {
-        window.alert(
-          `결제 완료되었습니다.
-            결제완료금액: ${order.amountPaid}원
-          `
-        )
-      } else {
-        window.alert(
-         `주문하신 상품이 최종 결제되지 않았습니다.
-          다시 한번 확인해주세요`
-        )
+    (result: AxiosResponse<any, any>) => {
+      switch(result.status) {
+        case 200:
+          setMessage("가상계좌가 성공적으로 발급되었습니다.");
+          break;
+        case 201:
+          setMessage("결제 완료되었습니다. 내 강의실 페이지에서 수강현황을 확인해보세요");
+          setRegistered(true);
+          break;
+        case 400:
+          setMessage("비정상적인 결제 요청으로 결제 프로세스가 종료되었습니다.");
+          setRegistered(false);
+          break;
       }
-
-    }, []
+      setMessageModalOpened(true);
+    }, [setMessage, setMessageModalOpened]
   )
 
   const failPayment = useCallback(
     (response: any) => {
-      window.alert(
-        `결제에 실패하였습니다. 에러 내용: ${response.error_msg}`
-      )
-    }, []
+      setMessage(
+        `결제 실패하였습니다. |
+         세부 내용: ${response.error_msg}`
+      );
+      setMessageModalOpened(true);
+    }, [setMessage, setMessageModalOpened]
   )
+
   const payCallback = (response: any) => {
     if (response.success) {
       new OrderRepository()
       .completeOrderById(login?.token as string, merchantUID.current, response.imp_uid)
       .then(
-        (myorder) => {
-          // TODO myorder 데이터로 가상계좌 발급을 통한 결제성공을 구분할 수 없음. 백엔드 협의 후 수정 필요
-          successPayment(myorder);
+        (result) => {
+          successPayment(result);
         })
     } else {
       failPayment(response);
@@ -183,12 +199,22 @@ const Payment = () => {
       }, payCallback)
     } else {
       // TODO: 디자인된 Modal 적용
-      alert("결제를 진행하려면 로그인이 필요합니다.")
+      alert("결제를 진행하려면 로그인해야 합니다.")
     }
   }
 
   return (
     <>
+    {
+      (login) && (   
+        <MessageModal
+          open={messageModalOpened}
+          mainMessage={message.split("|")[0]}
+          detailMessage={message.split("|")[1]}
+          onCloseModal={(open) => setMessageModalOpened(!open)}
+        />
+      )
+    }
     {
       // 결제하기 클릭시 PG사 선택모달이 먼저 열림
       (login) && (
