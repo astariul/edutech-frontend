@@ -67,7 +67,10 @@ const ArticleCard = ({
           <Image src={(image === 'file' || image === 'images') ? 'https://images.unsplash.com/photo-1648287235569-b3e498e01dca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' : image} alt={""} height={180} />
         </Card.Section>
 
-        <Badge>{category}</Badge>
+        <Group style={{gap: "5px"}}>
+          <Badge>{category}</Badge>
+          <Badge>8주과정</Badge>
+        </Group>
 
         <div className={classes.fixed_size}>
           <Text weight={700} className={classes.title} mt="xs" lineClamp={2}>

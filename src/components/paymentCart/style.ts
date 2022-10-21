@@ -124,6 +124,14 @@ const useStyles = createStyles(() => ({
     width: "72px",
     height: "24px",
   },
+  courseTagBoxGrape:{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#862E9C",
+    width: "72px",
+    height: "24px",
+  },
   courseTagItem:{
     textAlign: "center",
     color: "white",

@@ -118,7 +118,10 @@ const CourseIntro = () => {
               <div className={classes.descriptionContainer}>
                 <div className={classes.courseInfoBox}>
                   <div className={classes.courseHeader}>
-                    <Title order={6} align="left">{course?.category}</Title>
+                    <div style={{display:"flex", gap: "12px"}}>
+                      <Title order={6} align="left">{course?.category}</Title>
+                      <Title order={6} align="left">수강기간 8주</Title>
+                    </div>
                     <Title className={classes.courseTitle} order={1} align="left">
                       {course?.title}
                     </Title>
