@@ -8,6 +8,10 @@ const useSuperCourseStyles = createStyles((theme) => ({
     backgroundPosition: "center, center",
     width: "100%",
     marginTop: "80px",
+
+    [`@media (max-width: 900px)`]: {
+      marginTop: "0px",
+    }
   },
   
   category: {
@@ -23,18 +27,21 @@ const useSuperCourseStyles = createStyles((theme) => ({
     alignItems: "center",
     textAlign: "center",
 
-    [`@media (max-width: 850px)`]: {
-      display: "none"
+    [`@media (max-width: 900px)`]: {
+      display: "none",
     }
   },
 
   mainInner: {
-    backgroundBlendMode: "normal, multiply, normal",
     fontFamily: "NotoSansKR",
     display: "flex",
     flexDirection: "column",
     paddingTop: "58px",
-    paddingBottom: "58px"
+    paddingBottom: "58px",
+
+    [`@media (max-width: 900px)`]: {
+      paddingTop: "181px"
+    }
   },
 
   messageArea : {
@@ -79,6 +86,10 @@ const useSuperCourseStyles = createStyles((theme) => ({
     textAlign: "center",
     fontSize: "78.22px",
     color: "#FFFFFF",
+
+    [`@media (max-width: 850px)`]: {
+      paddingTop: "11.55px",
+    }
   },
 
   titleTop: {

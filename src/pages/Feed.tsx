@@ -12,7 +12,11 @@ import { useNavigate } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   main: {
-    marginTop: "80px"
+    marginTop: "80px",
+
+    "@media screen and (max-width: 900px)": {
+      marginTop: "200px",
+    }
   },
   page_title: {
     fontWeight: 500,

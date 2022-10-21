@@ -4,6 +4,10 @@ const useStyles = createStyles(() => ({
   main: {
     margin: "80px auto",
     maxWidth: "1248px",
+
+    "@media screen and (max-width: 900px)": {
+      marginTop: "200px",
+    }
   },
   tableContainer: {
     margin: "0 auto",
