@@ -153,7 +153,7 @@ const HeaderResponsive = () => {
       <div className={classes.header}>
         <UnstyledButton  component={Link} to={"/"}>
           <Group className={classes.biContainer}>
-            <img className={classes.bi} src="supercodingbi.png" alt=""></img>
+            <img className={classes.bi} src={require("../../../src/static/image/supercodingbi.png")} alt=""></img>
           </Group>
         </UnstyledButton >
         <Group spacing={0} className={classes.middleLinkGroup}>
