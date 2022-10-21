@@ -122,6 +122,9 @@ export const getCourseImagePath = (courseTitle: string) => {
     case "프론트엔드":
       imagePath = "./courseImage_frontend.png";
       break;
+    case "백엔드":
+      imagePath = "./courseImage_backend.png";
+      break;
   }
 
   return imagePath;

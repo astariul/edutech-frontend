@@ -53,6 +53,9 @@ const CourseCard = ({course}: CourseCardProps) => {
           <div className = {cx(classes.courseTagBoxBlue, classes.courseTagItem)}>
               환급
           </div>
+          <div className = {cx(classes.courseTagBoxGrape, classes.courseTagItem)}>
+              8주 과정
+          </div>
         </Group>
       </Container>
       

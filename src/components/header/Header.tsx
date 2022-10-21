@@ -6,29 +6,34 @@ import {
   Paper, 
   Transition, 
   Anchor, 
-  UnstyledButton,  
+  UnstyledButton,
 } from '@mantine/core';
 import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';
 import Profile from '../profile/Profile';
 import { IUserProfile } from '../../typings/db';
 import useStyles from './style';
+import { useEffect, useState } from "react";
 
 const middleLinks = [
   {
-    "link": "/live",
-    "label": "무료강의 / 라이브"
+    "link": "/roadmap",
+    "label": "슈퍼코스"
   },
   {
-    "link": "/roadmap",
-    "label": "코스소개"
+    "link": "/live",
+    "label": "슈퍼무료강의"
   },
   {
     "link": "/resume",
-    "label": "이력서 업그레이드"
+    "label": "슈퍼이력서"
   },
   {
     "link": "/feed",
-    "label": "네트워킹"
+    "label": "슈퍼커뮤니티"
+  },
+  {
+    "link": "/myclass",
+    "label": "내강의실"
   },
 ];
 
@@ -41,14 +46,6 @@ const rightLinks = [
     "link": "/login/method",
     "label": "로그인"
   },
-  {
-    "link": "/myclass",
-    "label": "내 강의실"
-  },
-  {
-    "link": "/help",
-    "label": "고객센터"
-  },
 ];
 
 const HeaderResponsive = () => {
@@ -56,13 +53,24 @@ const HeaderResponsive = () => {
   const { classes, cx } = useStyles();
   const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
   const location = useLocation();
+  const [active, setActive] = useState("");
 
+  useEffect(() => {
+    for (let link of middleLinks) {
+      if (location.pathname.startsWith(link.link)) {
+        setActive(link.link);
+      } else if (location.pathname === "/") {
+        setActive('');
+      }
+    }
+  }, [location.pathname, setActive, toggleOpened]);
+  
   const middleLinkItems = middleLinks.map((link) => {
     if (["/live"].includes(link.link)) {
       return (
         <Anchor
           underline={false}
-          className={classes.middleLink}
+          className={cx(classes.middleLink, { [classes.linkActive]: active === link.link })}
           onClick={() => window.alert("서비스 준비중입니다.")}>{link.label}
         </Anchor>
       )
@@ -73,7 +81,7 @@ const HeaderResponsive = () => {
           component={Link}
           key={link.label}
           to={link.link}
-          className={classes.middleLink}
+          className={cx(classes.middleLink, { [classes.linkActive]: active === link.link })}
           underline={false}
         > 
           {link.label}
@@ -149,14 +157,33 @@ const HeaderResponsive = () => {
   );
 
   return (
-    <Header className={classes.main} height={"80px"} hidden={location.pathname.startsWith("/class")}>
+    <>
+    <Header className={classes.main} height={80} hidden={location.pathname.startsWith("/class")}>
       <div className={classes.header}>
         <UnstyledButton  component={Link} to={"/"}>
           <Group className={classes.biContainer}>
-            <img className={classes.bi} src="supercodingbi.png" alt=""></img>
+            <img className={classes.bi} src={require("../../../src/static/image/supercodingbi.png")} alt=""></img>
+          </Group>
+          <Group className={classes.biContainer}>
+            <img className={classes.biMobile} src={require("../../../src/static/image/supercodingBIWhite.png")} alt=""></img>
           </Group>
         </UnstyledButton >
         <Group spacing={0} className={classes.middleLinkGroup}>
+          {middleLinkItems}
+        </Group>
+        <Group spacing={0} className={classes.rightLinkGroup}>
+          {rightLinkItems}
+        </Group>
+      </div>
+    </Header>
+    <Header className={classes.mainMobile} height={100} hidden={location.pathname.startsWith("/class")}>
+      <div className={classes.header}>
+        <UnstyledButton component={Link} to={"/"}>
+          <Group className={classes.biContainer}>
+            <img className={classes.biMobile} src={require("../../../src/static/image/supercodingBIWhite.png")} alt=""></img>
+          </Group>
+        </UnstyledButton >
+        <Group hidden={true} spacing={0} className={classes.middleLinkGroupMobile}>
           {middleLinkItems}
         </Group>
         <Group spacing={0} className={classes.rightLinkGroup}>
@@ -166,9 +193,8 @@ const HeaderResponsive = () => {
           opened={opened}
           onClick={() => toggleOpened()}
           className={classes.burger}
-          size="sm"
+          color="#FFFFFF"
         />
-
         <Transition transition="slide-down" duration={200} mounted={opened}>
           {(styles) => (
             <>
@@ -184,6 +210,7 @@ const HeaderResponsive = () => {
         </Transition>
       </div>
     </Header>
+    </>
   );
 }
 

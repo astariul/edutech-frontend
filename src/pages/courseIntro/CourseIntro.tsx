@@ -10,6 +10,7 @@ import useStyles from './style';
 import { Button, Title } from '@mantine/core';
 import ArticleCard from '../../components/CourseCard';
 import { getCourseImagePath } from '../../utils/common';
+import { useMediaQuery } from '@mantine/hooks';
 
 const CourseIntro = () => {
   const { classes } = useStyles();
@@ -23,6 +24,7 @@ const CourseIntro = () => {
   const [progress, setProgress] = useState<number[]>([]);
   const [date, setDate] = useState<string[]>([]);
   const [registered, setRegistered] = useState(false);
+  const mobileSreen = useMediaQuery('(max-width: 550px)');
 
   const toPayment = useCallback(
     () => {
@@ -118,7 +120,10 @@ const CourseIntro = () => {
               <div className={classes.descriptionContainer}>
                 <div className={classes.courseInfoBox}>
                   <div className={classes.courseHeader}>
-                    <Title order={6} align="left">{course?.category}</Title>
+                    <div style={{display:"flex", gap: "12px"}}>
+                      <Title order={6} align="left">{course?.category}</Title>
+                      <Title order={6} align="left">수강기간 8주</Title>
+                    </div>
                     <Title className={classes.courseTitle} order={1} align="left">
                       {course?.title}
                     </Title>
@@ -144,7 +149,7 @@ const CourseIntro = () => {
                       dates={date}
                       colors={["#D0EBFF"]}
                       height={"140%"}
-                      width={"152%"}
+                      width={mobileSreen ? "300px" : "500px"}
                       title={"Learning Curve"}
                       fontColor={"#D0EBFF"}
                       gridLineColor={"transparent"}

@@ -7,7 +7,28 @@ const useStyles = createStyles((theme) => ({
     height: "80px",
     left: "0px",
     top: "0px",
+
+    "@media screen and (max-width: 900px)": {
+      display: "none",
+    },
+
   },
+
+  mainMobile: {
+    display: "none",
+
+    "@media screen and (max-width: 900px)": {
+      display: "block",
+      position: "absolute",
+      width: "100%",
+      left: "0px",
+      top: "0px",
+      backgroundColor: "hsla(234, 100%, 30%, 1)",
+      borderStyle: "none",
+    },
+
+  },
+
   line: {
     position: "absolute",
     width: "1440px",
@@ -16,44 +37,80 @@ const useStyles = createStyles((theme) => ({
     top: "80px",
     border: "1px solid #E4E4E4",
   },
+
   biContainer: {
     padding: "0px",
-    marginLeft: "31px",
-    marginRight: "234px"
   },
+
   bi: {
-    position: "absolute",
     width: "225px",
     height: "32px",
-    left: "31px",
-    top: "24px",
-  },
-  middleLinkGroup: {
-    width: "auto",
-    height: "24px",
-    top: "28px",
-    gap: "49px",
-    alignItems: "flex-start",
 
-    "@media (max-width: 900px)": {
-      display: 'none',
+    "@media screen and (max-width: 900px)": {
+      display: "none",
     },
   },
+
+  biMobile: {
+    display: "none",
+
+    "@media screen and (max-width: 900px)": {
+      position: "absolute",
+      display: "block",
+      width: "175.72px",
+      height: "25px",
+      left: "5.333vw",
+      top: "59px",
+    },
+  },
+
+  middleLinkGroup: {
+    left: "33.889vw",
+    right: "33.889vw",
+    height: "24px",
+    gap: "2.778vw",
+    alignItems: "center",
+    justifyContent: "space-between",
+
+    "@media (max-width: 900px)": {
+      display: "none",
+    },
+  },
+
+  middleLinkGroupMobile: {
+    display: "none",
+
+    "@media (max-width: 900px)": {
+      position: "absolute",
+      display: "flex",
+      flexWrap: "nowrap",
+      width: "100%",
+      top: "100px",
+      left: "0",
+      height: "55px",
+      alignItems: "center",
+      justifyContent: "space-between",
+      border: "1px solid rgba(255, 255, 255, 0.1)",
+      backgroundColor: "hsla(234, 100%, 45%, 0.2)",
+    },
+
+  },
+
   rightLinkGroup: {
     width: "auto",
     height: "auto",
-    left: "1163px",
+    // marginRight: "2.569vw",
     top: "28px",
     alignItems: "flex-start",
     alignContent: "center",
-    marginRight: "54px",
-    gap: "17px",
+    gap: "1.181vw",
 
     "@media screen and (max-width: 900px)": {
       display: "none",
     },
 
   },
+
   dropdown: {
     position: 'absolute',
     top: "80px",
@@ -64,6 +121,8 @@ const useStyles = createStyles((theme) => ({
     borderTopLeftRadius: 0,
     borderTopWidth: 0,
     overflow: 'hidden',
+    backgroundColor: "#0018ED",
+    borderStyle: "none",
 
     "@media screen and (min-width: 900px)": {
       display: 'none',
@@ -72,21 +131,25 @@ const useStyles = createStyles((theme) => ({
 
   header: {
     margin: "0 0",
-    display: 'flex',
-    alignItems: 'center',
-    height: '100%',
-    "@media screen and (min-width: 900px)": {
-      justifyContent: 'space-between',
-    },
+    paddingTop: "24px",
+    paddingLeft: "2.153vw",
+    paddingRight: "2.569vw",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: 'space-between',
+
   },
 
   burger: {
     display: "none",
 
     "@media screen and (max-width: 900px)": {
-      display: "block",
       position: "absolute",
-      right: "32px"
+      display: "block",
+      width: "18px",
+      height: "3px",
+      top: "64px",
+      right: "5.6vw",
     },
   },
 
@@ -99,20 +162,27 @@ const useStyles = createStyles((theme) => ({
 
     margin: "0px 0px",
     textDecoration: "none",
-    fontFamily: "AlongSanss2",
+    fontFamily: "NotoSansKR",
     fontStyle: "normal",
     fontWeight: 600,
     fontSize: "14px",
     lineHeight: "24px",
     textAlign: "center",
     textTransform: "uppercase",
-    color: "#272727",
+    color: "#3F3F3F",
     boxSizing: "border-box",
-    letterSpacing: "-0.699px",
+    letterSpacing: "-1px",
 
     "@media screen and (max-width: 900px)": {
+      fontFamily: "AlongSanss2",
+      fontWeight: 700,
+      color: "rgba(255, 255, 255, 0.5)",
       borderRadius: 0,
-      margin: "8px 12px",
+      marginTop: "14px",
+      marginBottom: "17px",
+      marginLeft: "5.333vw",
+      marginRight: "5.333vw",
+      wordBreak: "keep-all",
     },
   },
 
@@ -132,21 +202,35 @@ const useStyles = createStyles((theme) => ({
     lineHeight: "24px",
     textAlign: "center",
     textTransform: "uppercase",
-    color: "#272727",
+    color: "#363636",
     boxSizing: "border-box",
     letterSpacing: "-0.699px",
 
     "@media screen and (max-width: 900px)": {
       borderRadius: 0,
+      fontWeight: 700,
       fontSize: "14px",
-      margin: "8px 12px",
+      color: "rgba(255, 255, 255, 0.5)",
+      marginTop: "14px",
+      marginBottom: "17px",
       paddingTop: 0
     },
   },
 
   align: {
     paddingTop: 2.5
-  }
+  },
+
+  linkActive: {
+    "&": {
+      color: "#0094FF",
+    },
+    "@media screen and (max-width: 900px)": {
+       "&": {
+        color: "#FFFFFF",
+      },
+    },
+  },
 
 }));
 

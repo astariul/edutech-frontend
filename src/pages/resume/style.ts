@@ -112,6 +112,10 @@ export const useStyles = createStyles(() => ({
     margin: "0 auto",
     padding: "0",
     maxWidth: "1060px",
+
+    "@media screen and (max-width: 900px)": {
+      marginTop: "200px",
+    },
     "@media (min-width: 1025px) and (max-width: 1200px)": {
       width: "90%"
     },
