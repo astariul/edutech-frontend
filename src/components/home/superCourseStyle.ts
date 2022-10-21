@@ -42,6 +42,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     [`@media (max-width: 900px)`]: {
       paddingTop: "181px"
     }
+
   },
 
   messageArea : {
