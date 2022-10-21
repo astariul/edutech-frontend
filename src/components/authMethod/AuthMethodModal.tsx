@@ -56,7 +56,7 @@ const AuthMethodModal = ({
     >
       <div className={classes.inner}>
         <div className={classes.title}>
-          <img className={classes.logo} src="supercodinglogo.png" alt="supercodiong logo" />
+          <img className={classes.logo} src={require("../../../src/static/image/supercodinglogo.png")} alt="supercodiong logo" />
           <div className={classes.titleText}>{authType}</div>
         </div>
         <div className={classes.methodContainer}>
