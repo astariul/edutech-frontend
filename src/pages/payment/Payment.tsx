@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Buyer, ICourse, IUserProfile, MyOrder } from "../../typings/db";
 import PaymentSection from "../../components/paymentSection/PaymentSection";
 import PaymentMethodModal from "../../components/paymentMethodModal/PaymentMethodModal";
+import PaymentMethod from "../../components/PaymentMethod/PaymentMethod";
 import BuyerInfo from "../../components/buyerInfo/buyerInfo";
 import useStyles from "./style";
 import BuyerInfoModifiable from "../../components/buyerInfoModifiable/buyerInfoModifiable";
@@ -288,6 +289,7 @@ const Payment = () => {
             </aside>
           </div>
           <hr style ={{border: "solid 1px #E2E2E2", width: "80%"}}/>
+          <PaymentMethod/>
         </div>
       )
     }
