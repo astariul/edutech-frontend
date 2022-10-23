@@ -287,6 +287,7 @@ const Payment = () => {
               </section>
             </aside>
           </div>
+          <hr style ={{border: "solid 1px #E2E2E2", width: "80%"}}/>
         </div>
       )
     }
