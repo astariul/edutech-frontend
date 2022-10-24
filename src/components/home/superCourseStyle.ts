@@ -4,10 +4,8 @@ const useSuperCourseStyles = createStyles((theme) => ({
   mainTop: {
     position: "relative",
     backgroundImage: "url(/image/home/superCourseBackground.png)",
-    backgroundSize: "cover, cover",
-    backgroundPosition: "center, center",
+    backgroundSize: "cover",
     width: "100%",
-    marginTop: "80px",
 
     [`@media (max-width: 900px)`]: {
       marginTop: "0px",
@@ -15,6 +13,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
   },
   
   category: {
+    paddingTop: "80px",
     position: "absolute",
     fontFamily: "AlongSanss2",
     lineHeight: "41px",
@@ -46,6 +45,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
   },
 
   messageArea : {
+    paddingTop: "80px",
     marginLeft: "auto",
     marginRight: "auto",
     display: "flex",
