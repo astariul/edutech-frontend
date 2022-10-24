@@ -80,9 +80,12 @@ const useStyles = createStyles((theme) => ({
       }
     },
     
-    "& > div:nth-of-type(3)": {
+    "& > form > div:nth-of-type(1)": {
+      display: "flex",
+      alignItems: "center",
       borderTop: "1px solid #E4E4E4",
       height: "61px",
+      paddingLeft: "20px",
   
       "& > div > input": {
         padding: 0,
@@ -99,13 +102,13 @@ const useStyles = createStyles((theme) => ({
       }
     },
 
-    "& > div:nth-of-type(4)": {
+    "& > form > div:nth-of-type(2)": {
       borderTop: "1px solid #E4E4E4",
       height: "203px",
       
       "& > div > textarea": {
         paddingTop: "14px",
-        paddingLeft: "0px",
+        paddingLeft: "19.52px",
         paddingRight: "0px",
         width: "227px",
         height: "204px",
@@ -120,7 +123,8 @@ const useStyles = createStyles((theme) => ({
       }
     },
 
-    "& > button": {
+    "& > form > button": {
+      width: "100%",
       height: "49px",
       backgroundColor: "#0094FF",
       border: 0,

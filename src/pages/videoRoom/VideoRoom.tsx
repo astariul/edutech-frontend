@@ -1,5 +1,5 @@
 
-import { useLocalStorage } from '@mantine/hooks';
+import { useForm, useLocalStorage } from '@mantine/hooks';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ICourseVideo, IUserProfile, IVideo } from '../../typings/db';
@@ -32,6 +32,21 @@ const VideoSection = ({videoUrl}: {videoUrl: string}) => {
 
 const QuestionSection = ({instructorName}: {instructorName: string}) => {
   const {classes} = useStyles();
+
+  const form = useForm<{title: string; content: string}>({
+    initialValues: {
+      title: "",
+      content: "",
+    }
+  });
+
+  //TODO: 백엔드 API 적용
+  const register = useCallback(
+    (values: {title: string; content: string}) => {
+      alert("준비중입니다.");
+    }, []
+  );
+
   return (
     <section className={classes.questionSection}>
       <div>학습질문 작성하기</div>
@@ -42,9 +57,17 @@ const QuestionSection = ({instructorName}: {instructorName: string}) => {
           <span id="guide">슈코치에게<br/> 궁금한점을 물어보세요!</span>
         </div>
       </div>
-      <TextInput placeholder="제목을 입력해주세요."/>
-      <Textarea placeholder="내용을 입력해주세요."/>
-      <Button radius={0}>등록하기</Button>
+      <form onSubmit={form.onSubmit((values) => register(values))}>
+        <TextInput
+          placeholder="제목을 입력해주세요."
+          {...form.getInputProps("title")}
+          />
+        <Textarea
+          placeholder="내용을 입력해주세요."
+          {...form.getInputProps("content")}
+          />
+        <Button radius={0} type="submit">등록하기</Button>
+      </form>
     </section>
   )
 }
