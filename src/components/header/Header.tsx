@@ -158,7 +158,7 @@ const HeaderResponsive = () => {
 
   return (
     <>
-    <Header className={classes.main} height={80} hidden={location.pathname.startsWith("/class")}>
+    <Header className={classes.main} height={80}>
       <div className={classes.header}>
         <UnstyledButton  component={Link} to={"/"}>
           <Group className={classes.biContainer}>
