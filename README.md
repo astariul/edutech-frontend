@@ -1,4 +1,8 @@
 ## Release
+- `0.0.50`
+    - [SC-279](https://team-edutech.atlassian.net/browse/SC-279) 내 강의실 페이지 디자인 적용
+    - [SC-281](https://team-edutech.atlassian.net/browse/SC-281) 강의 시청 페이지 디자인 적용
+
 - `0.0.49`
     - Home 디자인 시안 적용
 
