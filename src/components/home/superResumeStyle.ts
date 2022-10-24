@@ -162,16 +162,6 @@ const useSuperResumeStyles = createStyles((theme) => ({
     backgroundColor: "#F2F2F2"
   },
 
-  imageBottom: {
-    position: "relative",
-    width: "100vw",
-    height: "504px",
-    backgroundImage: "url(/image/home/superCurriculumImage2.png)",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundBlendMode: "normal, multiply, normal"
-  },
-
   titleArea: {
     width: "536.78px",
     paddingTop: "67px",
