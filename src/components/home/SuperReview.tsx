@@ -4,19 +4,19 @@ const SuperReivew = () => {
   const {classes} = useSuperReivewStyles();
   const cardContents = [
     [
-      "/image/home/superReviewImage1.png",
+      require("../../static/image/home/superReviewImage1.png"),
       "슈코만나서 6수만에 드디어 삼성전자 합격했습니다.", 
       "제레미",
       "슈코1기 삼성전자합격"
     ],
     [
-      "/image/home/superReviewImage2.png",
+      require("../../static/image/home/superReviewImage2.png"),
       "슈코만나서 6수만에 드디어 삼성전자 합격했습니다.", 
       "제레미",
       "슈코1기 배달의민족 합격"
     ],
     [
-      "/image/home/superReviewImage3.png",
+      require("../../static/image/home/superReviewImage3.png"),
       "슈코만나서 6수만에 드디어 삼성전자 합격했습니다.", 
       "제레미",
       "슈코1기 삼성전자합격"

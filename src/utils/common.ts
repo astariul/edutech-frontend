@@ -1,7 +1,7 @@
 import { IEpisode, IVideo, IProgress } from '../typings/db';
 
 
-export type CourseEpisode = IEpisode & { courseId: string, courseTitle: string };
+export type TCourseEpisode = IEpisode & { courseId: string, courseTitle: string };
 
 export const findUniqueSeasonNumber = (videos: IVideo[] | { message: string }) => {
   if (videos.hasOwnProperty("message")) {
@@ -15,8 +15,8 @@ export const findUniqueSeasonNumber = (videos: IVideo[] | { message: string }) =
 
 export const findNextEpisode = (
   videos: IVideo[],
-  currentEpisode: CourseEpisode
-): CourseEpisode | null => {
+  currentEpisode: TCourseEpisode
+): TCourseEpisode | null => {
   const currentVideoIndex = videos.findIndex(
     (each) =>
     (

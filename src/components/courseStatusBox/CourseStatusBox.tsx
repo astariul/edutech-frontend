@@ -6,7 +6,7 @@ import { IUserProfile } from '../../typings/db';
 import { ICourse, IVideo } from '../../typings/db';
 import CourseRepository from '../../repositories/Course';
 import LearningCurve from '../learningCurve/LearningCurve';
-import { CourseEpisode, findNextEpisode, calculateProgressStatByDate } from '../../utils/common';
+import { TCourseEpisode, findNextEpisode, calculateProgressStatByDate } from '../../utils/common';
 import useStyles from './style';
 
 
@@ -19,7 +19,7 @@ interface CourseStatusBoxProps {
 const CourseStatusBox = ({course, videos, generateButtonGroup}: CourseStatusBoxProps) => {
 
   const [login] = useLocalStorage<IUserProfile | null>({ key: 'login', defaultValue: null });
-  const [nextEpisode, setNextEpisode] = useState<CourseEpisode | null>(null);
+  const [nextEpisode, setNextEpisode] = useState<TCourseEpisode | null>(null);
   const { classes } = useStyles();
   const navigate = useNavigate();
   const [progress, setProgress] = useState<number[]>([]);

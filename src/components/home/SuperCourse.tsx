@@ -12,7 +12,7 @@ const SuperCourse = () => {
           <div className={classes.ticketTitle}>{title}</div>
           <div className={classes.ticketFooter}>
             <div className={classes.ticketFooterLeft}>무료강의 신청청하기</div>
-            <img className={classes.ticketFooterRight} src="/image/home/CaretRightSmall.png" alt="CaretRight" />
+            <img className={classes.ticketFooterRight} src={require("../../static/image/home/CaretRightSmall.png")} alt="CaretRight" />
           </div>
         </div>
       </div>
@@ -47,7 +47,7 @@ const SuperCourse = () => {
               <div className={classes.boxLeft}>11/1 1기 마감!</div>
               <div className={classes.boxRightContainer}>
                 <div className={classes.boxRightLeft}>지금 구매하러 가기</div>
-                <img className={classes.boxRightRight} src="/image/home/CaretRight.png" alt="CaretRight" />
+                <img className={classes.boxRightRight} src={require("../../static/image/home/CaretRight.png")} alt="CaretRight" />
               </div>
             </div>
           </div>
