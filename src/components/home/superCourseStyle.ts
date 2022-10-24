@@ -353,7 +353,6 @@ const useSuperCourseStyles = createStyles((theme) => ({
     fontFamily: "NotoSansKR",
     fontStyle: "normal",
     backgroundImage: "url(/image/home/superCourseTicketBackground.png)",
-    background: "linear-gradient(180deg, #2D69CA 40.63%, #0C4AAD 100%)",
     borderRadius: "9.91px"
   },
 
