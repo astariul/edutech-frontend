@@ -83,21 +83,28 @@ const useStyles = createStyles((theme) => ({
   },
 
   tabSection: {
-    paddingTop: "57px",
-    width: "402px",
-    height: "26px",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
     fontWeight: 700,
     fontSize: "18px",
     lineHeight: "26px",
     letterSpacing: "-0.03em",
     color: "#BDBDBD",
+    display: "flex",
+    justifyContent: "space-between",
+    flexDirection: "row",      
+    paddingTop: "57px",
+    width: "402px",
+    height: "26px",
 
-    "& > div:last-child": {
+    "& > div": {
+      columnGap: "43px",
+      display: "flex",
+      flexDirection: "row",
+    },
+
+    "& > div:last-child > div:last-child": {
       display: "none"
     }
+    
   },
   
   tabTitle: {

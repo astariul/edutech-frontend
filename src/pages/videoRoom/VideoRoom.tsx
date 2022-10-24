@@ -2,7 +2,7 @@
 import { useLocalStorage } from '@mantine/hooks';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { ICourse, ICourseVideo, IUserProfile, IVideo } from '../../typings/db';
+import { ICourseVideo, IUserProfile, IVideo } from '../../typings/db';
 import { secondsToMinutesString } from '../../utils/common';
 import useStyles from './style';
 import { useCallback } from 'react';
@@ -124,29 +124,33 @@ const CourseReview = ({courseTitle}: {courseTitle: string}) => {
 }
 
 
-const VideoListSection = ({course, videos}: {course: ICourse; videos: IVideo[]}) => {
+const VideoListSection = (
+  {courseAndVideos, paginatedVideos}
+  :{courseAndVideos: ICourseVideo; paginatedVideos: IVideo[]}
+) => {
   const {classes} = useStyles();
   const navigate = useNavigate();
 
   const onClickPlayEpisode = useCallback(
-    (courseVideo: ICourseVideo, video: IVideo) => {
+    (courseVideo: ICourseVideo, videoList: IVideo[], clickedVideo: IVideo) => {
       const title = courseVideo.course.title.split(" ").join("");
       navigate(
-        `/class/${title}/${video?.seasonNumber}/${video?.number}`,
+        `/class/${title}/${clickedVideo?.seasonNumber}/${clickedVideo?.number}`,
         {
           state: {
             courseVideo: courseVideo,
-            video: video,
+            videoList: videoList,
+            video: clickedVideo,
           }
         }
       )
     }, [navigate]
   )
-
+  
   return (
     <section className={classes.videoList}>
     {
-      videos.map(
+      paginatedVideos.map(
         video => {
           return (
             <div key={video.number} className={classes.courseEpisode}>
@@ -158,7 +162,13 @@ const VideoListSection = ({course, videos}: {course: ICourse; videos: IVideo[]})
                 tag=""
                 progress={0}
                 time={`0:00/${secondsToMinutesString(video.duration)}`}
-                onClickPlay={() => onClickPlayEpisode({course: course, videos: videos}, video)}
+                onClickPlay={
+                  () => onClickPlayEpisode(
+                    {course: courseAndVideos.course, videos: courseAndVideos.videos},
+                    paginatedVideos,
+                    video
+                  )
+                }
               />
             </div>
           )
@@ -172,7 +182,7 @@ const VideoListSection = ({course, videos}: {course: ICourse; videos: IVideo[]})
 const VideoRoom = () => {
   const {classes} = useStyles();
   const location = useLocation();
-  const state = location.state as {courseVideo: ICourseVideo; video: IVideo};
+  const state = location.state as {courseVideo: ICourseVideo; videoList: IVideo[]; video: IVideo};
   const [courseId] = useState(state.courseVideo.course.id);
   const [courseTitle] = useState(state.courseVideo.course.title);
   const [videoUrl, setVideoUrl] = useState("")
@@ -192,16 +202,7 @@ const VideoRoom = () => {
       setVideoUrl(
         `${process.env.REACT_APP_API_URL}courses/play/${courseId}/${state.video.number}`
       );
-      setVideoList(state.courseVideo.videos as IVideo[]);
-
-      // new CourseRepository()
-      // .getCourseById(login?.token as string, courseId)
-      // .then(
-      //   (course) => {
-      //     const videos = course.videos as IVideo[];
-      //     setCourseVideos(videos);
-      //   }
-      // )
+      setVideoList(state.videoList as IVideo[]);
     }, [login, state, courseId, navigate]
   )
 
@@ -218,7 +219,7 @@ const VideoRoom = () => {
       setVideoList(
         (state.courseVideo.videos as IVideo[]).slice(startIndex, lastIndex)
       )
-    }, [state, setVideoList]
+    }, [state, setVideoList, numPaginatedVideo]
   )
 
   return (
@@ -237,8 +238,8 @@ const VideoRoom = () => {
               instructorDescription={state.courseVideo.course.instructor.description}
             />
             <VideoListSection
-              course={state.courseVideo.course}
-              videos={videoList}
+              courseAndVideos={state.courseVideo}
+              paginatedVideos={videoList}
             />
           </section>
           <section className={classes.bottomRight}>

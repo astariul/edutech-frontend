@@ -21,7 +21,7 @@ const VideoPlayer = ({
   const {classes} = useStyles();
   const [playing, setPlaying] = useState(false);
   const onClickPlay = useCallback(
-    () => setPlaying(!playing), [setPlaying]
+    () => setPlaying(!playing), [playing, setPlaying]
   );
   return (
     <ReactPlayer

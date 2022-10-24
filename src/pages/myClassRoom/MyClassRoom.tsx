@@ -96,16 +96,15 @@ const TabSection = (
         tabNames.map(
           (name) => {
             return (
-              <>
+              <div key={name}>
                 <div
-                  key={name}
                   className={cx(classes.tabTitle, {[classes.activeTabTitle]: activeTab === name})}
                   onClick={onClickTab}
-                  >
+                >
                   {name}
                 </div>
-                <div key={name}>I</div>
-              </>
+                <div>I</div>
+              </div>
             )
           }
         )
@@ -150,19 +149,23 @@ const TableHeaderSection = (
   )
 }
 
-const VideoListSection = ({course ,videos}: {course: ICourse, videos: IVideo[]}) => {
+const VideoListSection = (
+  {courseAndVideos, paginatedVideos}
+  :{courseAndVideos: ICourseVideo, paginatedVideos: IVideo[]}
+) => {
   const {classes} = useStyles();
   const navigate = useNavigate();
   
   const onClickPlayEpisode = useCallback(
-    (courseVideo: ICourseVideo, video: IVideo) => {
+    (courseVideo: ICourseVideo, videoList: IVideo[], clickedVideo: IVideo) => {
       const title = courseVideo.course.title.split(" ").join("");
       navigate(
-        `/class/${title}/${video?.seasonNumber}/${video?.number}`,
+        `/class/${title}/${clickedVideo?.seasonNumber}/${clickedVideo?.number}`,
         {
           state: {
             courseVideo: courseVideo,
-            video: video,
+            videoList: videoList,
+            video: clickedVideo,
           }
         }
       )
@@ -180,7 +183,7 @@ const VideoListSection = ({course ,videos}: {course: ICourse, videos: IVideo[]})
   return (
     <div className={classes.videoList}>
       {
-        videos.map(
+        paginatedVideos.map(
           video => {
             return (
               <div key={video.number} className={classes.video}>
@@ -192,13 +195,19 @@ const VideoListSection = ({course ,videos}: {course: ICourse, videos: IVideo[]})
                   tag=""
                   progress={0}
                   time={`0:00/${secondsToMinutesString(video.duration)}`}
-                  onClickPlay={() => onClickPlayEpisode({course: course, videos: videos}, video)}
+                  onClickPlay={
+                    () => onClickPlayEpisode(
+                      {course: courseAndVideos.course, videos: courseAndVideos.videos},
+                      paginatedVideos,
+                      video
+                    )
+                  }
                 />
                 <div className={classes.latestDateAndBookmark}>
                   <KeyValueTable keyName="최근수강일" value="2022.11.4"/>
                   <span
                     className={classes.bookMark}
-                    onClick={() => onClickBookMark(course, video)}
+                    onClick={() => onClickBookMark(courseAndVideos.course, video)}
                   />
                 </div>
               </div>
@@ -235,7 +244,7 @@ const MyClassRoom = () => {
             }
             setMyCourses(courses);
             setVideoList(
-              (courses[2].videos as IVideo[]).slice(0, numPaginatedVideo)
+              (courses[0].videos as IVideo[]).slice(0, numPaginatedVideo)
             )
           }
         )
@@ -253,9 +262,9 @@ const MyClassRoom = () => {
       const lastIndex = page * numPaginatedVideo
       const startIndex = lastIndex - numPaginatedVideo
       setVideoList(
-        (myCourses[2].videos as IVideo[]).slice(startIndex, lastIndex)
+        (myCourses[0].videos as IVideo[]).slice(startIndex, lastIndex)
       )
-    }, [myCourses, setVideoList]
+    }, [myCourses, setVideoList, numPaginatedVideo]
   )
   
   return (
@@ -289,15 +298,15 @@ const MyClassRoom = () => {
             defaultActiveTabName={"수강목록"}
           />
           <TableHeaderSection
-            courseTitle={myCourses[2].course.title}
-            instructorName={myCourses[2].course.instructor.name}
-            instructorDescription={myCourses[2].course.instructor.description}
-            numTotalVideos={(myCourses[2].videos as IVideo[]).length}
+            courseTitle={myCourses[0].course.title}
+            instructorName={myCourses[0].course.instructor.name}
+            instructorDescription={myCourses[0].course.instructor.description}
+            numTotalVideos={(myCourses[0].videos as IVideo[]).length}
           />
-          <VideoListSection course={myCourses[2].course} videos={videoList}/>
+          <VideoListSection courseAndVideos={myCourses[0]} paginatedVideos={videoList}/>
           <div className={classes.pagination}>
             <Pagination
-              total={findTotalPagination((myCourses[2].videos as IVideo[]).length, numPaginatedVideo)}
+              total={findTotalPagination((myCourses[0].videos as IVideo[]).length, numPaginatedVideo)}
               size={34}
               radius={0}
               onChange={onClickPageNumber}
