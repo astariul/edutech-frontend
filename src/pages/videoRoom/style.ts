@@ -12,13 +12,20 @@ const useStyles = createStyles((theme) => ({
 
   contents: {
     display: "flex",
-    flexDirection: "column",
-  },
-
-  top: {
-    display: "flex",
     flexDirection: "row",
     columnGap: "32px",
+  },
+
+  leftSection: {
+    display: "flex",
+    flexDirection: "column",
+    width: "868px",
+  },
+
+  rightSection: {
+    display: "flex",
+    flexDirection: "column",
+    width: "267px",
   },
 
   videoSection: {
@@ -46,7 +53,7 @@ const useStyles = createStyles((theme) => ({
       color: "#111111",
     },
     
-    "& > div:nth-child(2)": {
+    "& > div:nth-of-type(2)": {
       display: "flex",
       alignItems: "center",
       columnGap: "14px",
@@ -73,14 +80,14 @@ const useStyles = createStyles((theme) => ({
       }
     },
     
-    "& > div:nth-child(3)": {
+    "& > div:nth-of-type(3)": {
       borderTop: "1px solid #E4E4E4",
       height: "61px",
   
       "& > div > input": {
         padding: 0,
         border: 0,
-        fontFamily: "Noto Sans KR",
+        fontFamily: "NotoSansKR",
         fontStyle: "normal",
         fontWeight: 500,
         fontSize: "16px",
@@ -92,14 +99,18 @@ const useStyles = createStyles((theme) => ({
       }
     },
 
-    "& > div:nth-child(4)": {
+    "& > div:nth-of-type(4)": {
       borderTop: "1px solid #E4E4E4",
       height: "203px",
       
       "& > div > textarea": {
-        padding: 0,
+        paddingTop: "14px",
+        paddingLeft: "0px",
+        paddingRight: "0px",
+        width: "227px",
+        height: "204px",
         border: 0,
-        fontFamily: "Noto Sans KR",
+        fontFamily: "NotoSansKR",
         fontStyle: "normal",
         fontWeight: 500,
         fontSize: "13px",
@@ -116,26 +127,8 @@ const useStyles = createStyles((theme) => ({
     }
   },
 
-  bottom: {
-    paddingTop: "19.68px",
-    display: "flex",
-    flexDirection: "row",
-    columnGap: "32px",
-    
-  },
-
-  bottomLeft: {
-    width: "868px",
-    display: "flex",
-    flexDirection: "column",
-  },
-
-  bottomRight: {
-    display: "flex",
-    flexDirection: "column",
-  },
-
   videoTitle: {
+    paddingTop: "19.68px",
     display: "flex",
     flexDirection: "column",
     rowGap: "21px",
@@ -242,21 +235,22 @@ const useStyles = createStyles((theme) => ({
       height: "57px"
     },
 
-    "& > div > div:nth-child(2)": {
+    "& > div > div:nth-of-type(2)": {
       paddingLeft: "37px",
     },
 
-    "& > div > div > div:nth-child(3)": {
+    "& > div > div > div:nth-of-type(3)": {
       maxWidth: "628px",
       width: "43.611vw"
     },
 
-    "& > div > div:nth-child(3)": {
+    "& > div > div:nth-of-type(3)": {
       paddingLeft: "44px",
     }
   },
 
   banner: {
+    paddingTop: "21px",
     width: "268px",
     height: "296px"
   },
@@ -266,7 +260,7 @@ const useStyles = createStyles((theme) => ({
     display: "felx",
     flexDirection: "column",
     
-    "& > div:nth-child(1)": {
+    "& > div:nth-of-type(1)": {
       paddingLeft: "20px",
       display: "flex",
       alignItems: "center",
@@ -294,17 +288,17 @@ const useStyles = createStyles((theme) => ({
     paddingLeft: "20px",
     height: "83px",
 
-    "& > div > div:nth-child(2)": {
+    "& > div > div:nth-of-type(2)": {
       rowGap: "7px",
       
-      "& > div:nth-child(1)": {
+      "& > div:nth-of-type(1)": {
         fontWeight: 500,
         color: "#111111",
         lineHeight: "150%",
         fontSize: "16px",
       },
 
-      "& > div:nth-child(2)": {
+      "& > div:nth-of-type(2)": {
         fontWeight: 500,
         color: "#111111",
         lineHeight: "150%",

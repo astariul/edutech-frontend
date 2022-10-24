@@ -120,9 +120,7 @@ const CourseReview = ({courseTitle}: {courseTitle: string}) => {
       </div>
     </div>
   )
-
 }
-
 
 const VideoListSection = (
   {courseAndVideos, paginatedVideos}
@@ -225,36 +223,32 @@ const VideoRoom = () => {
   return (
     <div className={classes.main}>
       <section className={classes.contents}>
-        <section className={classes.top}>
+        <section className={classes.leftSection}>
           <VideoSection videoUrl={videoUrl}/>
-          <QuestionSection instructorName={state.courseVideo.course.instructor.name}/>
-        </section>
-        <section className={classes.bottom}>
-          <section className={classes.bottomLeft}>
-            <VideoTitleSection video={state.video} />
-            <TableHeaderSection
-              courseTitle={courseTitle}
-              instructorName={state.courseVideo.course.instructor.name}
-              instructorDescription={state.courseVideo.course.instructor.description}
-            />
-            <VideoListSection
-              courseAndVideos={state.courseVideo}
-              paginatedVideos={videoList}
-            />
-          </section>
-          <section className={classes.bottomRight}>
-            <img src={require("../../static/image/videoRoom/banner.png")} alt="banner" />
-            <CourseReview courseTitle={state.courseVideo.course.title}/>
-          </section>
-        </section>
-        <div className={classes.pagination}>
-          <Pagination
-            total={findTotalPagination((state.courseVideo.videos as IVideo[]).length, numPaginatedVideo)}
-            size={34}
-            radius={0}
-            onChange={onClickPageNumber}
+          <VideoTitleSection video={state.video} />
+          <TableHeaderSection
+            courseTitle={courseTitle}
+            instructorName={state.courseVideo.course.instructor.name}
+            instructorDescription={state.courseVideo.course.instructor.description}
           />
-        </div>
+          <VideoListSection
+            courseAndVideos={state.courseVideo}
+            paginatedVideos={videoList}
+          />
+          <div className={classes.pagination}>
+            <Pagination
+              total={findTotalPagination((state.courseVideo.videos as IVideo[]).length, numPaginatedVideo)}
+              size={34}
+              radius={0}
+              onChange={onClickPageNumber}
+            />
+          </div>
+        </section>
+        <section className={classes.rightSection}>
+          <QuestionSection instructorName={state.courseVideo.course.instructor.name}/>
+          <img className={classes.banner} src={require("../../static/image/videoRoom/banner.png")} alt="banner" />
+          <CourseReview courseTitle={state.courseVideo.course.title}/>
+        </section>
       </section>
     </div>
   )
