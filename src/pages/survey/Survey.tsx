@@ -6,7 +6,7 @@ import { useLocalStorage } from "@mantine/hooks";
 import CourseRepository from '../../repositories/Course';
 import { IUserProfile } from "../../typings/db";
 import {
-  CourseEpisode,
+  TCourseEpisode,
 } from "../../utils/common";
 import useStyles from './style';
 
@@ -18,7 +18,7 @@ const Survey = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  const episode = location.state as CourseEpisode;
+  const episode = location.state as TCourseEpisode;
   const {courseId, episodeNumber} = useParams(); 
   const {classes} = useStyles();
   const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });

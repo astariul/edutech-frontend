@@ -8,7 +8,7 @@ import { IUserProfile, IVideo } from '../../typings/db';
 import CourseRepository from "../../repositories/Course";
 import Toggle from '../../components/Toggle';
 import {
-  CourseEpisode,
+  TCourseEpisode,
   findNextEpisode,
   findUniqueSeasonNumber,
   secondsToMinutesString
@@ -19,14 +19,14 @@ import useStyles from "./style";
 const ClassRoom = () => {
 
   const location = useLocation();
-  const episode = location.state as CourseEpisode;
+  const episode = location.state as TCourseEpisode;
   const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
   const [courseId] = useState(episode?.courseId)
   const [courseTitle] = useState(episode?.courseTitle)
   const [seasons, setSeasons] = useState<number[]>([]);
-  const [currentEpisode, setCurrentEpisode] = useState<CourseEpisode | null>(null);
+  const [currentEpisode, setCurrentEpisode] = useState<TCourseEpisode | null>(null);
   const [courseVideos, setCourseVideos] = useState<IVideo[] | null>(null);
-  const [nextEpisode, setNextEpisode] = useState<CourseEpisode | null>(null);
+  const [nextEpisode, setNextEpisode] = useState<TCourseEpisode | null>(null);
   const [videoUrl, setVideoUrl] = useState("")
   const {classes} = useStyles();
   const navigate = useNavigate();
@@ -67,7 +67,7 @@ const ClassRoom = () => {
       setVideoUrl(
         `${process.env.REACT_APP_API_URL}courses/play/${courseId}/${nextEpisode?.number}`
       )
-      setNextEpisode(findNextEpisode(courseVideos as IVideo[], nextEpisode as CourseEpisode));
+      setNextEpisode(findNextEpisode(courseVideos as IVideo[], nextEpisode as TCourseEpisode));
       navigate(
         `/class/${courseTitle.split(" ").join("")}/${nextEpisode?.seasonNumber}/${nextEpisode?.number}`,
         {
@@ -192,7 +192,7 @@ const ClassRoom = () => {
                 onPlay={() => onSaveCurrentEpisode(
                     login?.token,
                     courseId,
-                    (currentEpisode as CourseEpisode).number,
+                    (currentEpisode as TCourseEpisode).number,
                   )
                 }
               />
