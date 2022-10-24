@@ -21,12 +21,12 @@ const SuperResume = () => {
         </div>
       </div>
       <div className={classes.cardArea}>
-        <img className={classes.cardLeft} src={"/image/home/superResumeCardLeft.png"} alt={""}/>
-        <img className={classes.cardLeftMobile} src={"/image/home/superResumeCardLeftMobile.png"} alt={""}/>
-        <img className={classes.cardMiddle} src={"/image/home/superResumeCardMiddle.png"} alt={""}/>
-        <img className={classes.cardMiddleMobile} src={"/image/home/superResumeCardMiddleMobile.png"} alt={""}/>
-        <img className={classes.cardRight} src={"/image/home/superResumeCardRight.png"} alt={""}/>
-        <img className={classes.cardRightMobile} src={"/image/home/superResumeCardRightMobile.png"} alt={""}/>
+        <img className={classes.cardLeft} src={require("../../static/image/home/superResumeCardLeft.png")} alt={""}/>
+        <img className={classes.cardLeftMobile} src={require("../../static/image/home/superResumeCardLeftMobile.png")} alt={""}/>
+        <img className={classes.cardMiddle} src={require("../../static/image/home/superResumeCardMiddle.png")} alt={""}/>
+        <img className={classes.cardMiddleMobile} src={require("../../static/image/home/superResumeCardMiddleMobile.png")} alt={""}/>
+        <img className={classes.cardRight} src={require("../../static/image/home/superResumeCardRight.png")} alt={""}/>
+        <img className={classes.cardRightMobile} src={require("../../static/image/home/superResumeCardRightMobile.png")} alt={""}/>
       </div>
     </div>
   )

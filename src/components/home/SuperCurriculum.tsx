@@ -5,25 +5,25 @@ const SuperCurriculum = () => {
   const {classes} = useSuperCurriculumStyles();
   const cardContents = [
     [
-      "/image/home/superCurriculumImageCard1.png",
+      require("../../static/image/home/superCurriculumImageCard1.png"),
       "단기간 학습해서 입사하신 분들 얼마 못 버티고 다시 공부합니다.", 
       "이경엽",
       "스페이스워크CTO"
     ],
     [
-      "/image/home/superCurriculumImageCard2.png",
+      require("../../static/image/home/superCurriculumImageCard2.png"),
       "프로젝트 중심으로 학습하지 않아서 문제 해결 능력이 많이 부족합니다.", 
       "이경엽",
       "스페이스워크CTO"
     ],
     [
-      "/image/home/superCurriculumImageCard3.png",
+      require("../../static/image/home/superCurriculumImageCard3.png"),
       "슈코 커리큘럼은 수료후 저희가 보증하고 취업시켜드릴수 있을만큼 완벽합니다.", 
       "이경엽",
       "스페이스워크CTO"
     ],
     [
-      "/image/home/superCurriculumImageCard4.png",
+      require("../../static/image/home/superCurriculumImageCard4.png"),
       "업계 최고의 분들이 함께 만든 슈코 커리큐럼! 실전형 미니프로젝트까지!!!", 
       "이경엽",
       "스페이스워크CTO"
@@ -38,7 +38,7 @@ const SuperCurriculum = () => {
           <div className={classes.footerName}>{footerName}</div>
           <img
             className={classes.checkCircleSmall}
-            src={"/image/home/superCurriculumImageCheckSmall.png"}
+            src={require("../../static/image/home/superCurriculumImageCheckSmall.png")}
             alt="CheckMarker"
           />
           <div className={classes.footerDescription}>{footerDescription}</div>
@@ -70,7 +70,7 @@ const SuperCurriculum = () => {
       <div className={classes.imageTopContainer}>
         <img
           className={classes.imageTop}
-          src={"/image/home/superCurriculumImage1.png"}
+          src={require("../../static/image/home/superCurriculumImage1.png")}
           alt=""
         />
       </div>
