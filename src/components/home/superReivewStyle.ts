@@ -14,7 +14,7 @@ const useSuperReivewStyles = createStyles((theme) => ({
   },
 
   category: {
-    paddingTop: "36px",
+    paddingTop: "137px",
     fontFamily: "AlongSanss2",
     fontStyle: "normal",
     fontWeight: 700,
