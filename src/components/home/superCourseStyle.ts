@@ -5,6 +5,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     position: "relative",
     backgroundImage: "url(/image/home/superCourseBackground.png)",
     backgroundSize: "100% 200%",
+
     [`@media (max-width: 900px)`]: {
       marginTop: "0px",
     }
@@ -18,7 +19,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     fontSize: "14px",
     fontWeight: 700,
     width: "auto",
-    left: "137px",
+    left: "max(137px, 9.514vw)",
     top: "63px",
     color: "#5ABAFF",
     alignItems: "center",
@@ -81,7 +82,6 @@ const useSuperCourseStyles = createStyles((theme) => ({
     fontStyle: "normal",
     fontWeight: 900,
     letterSpacing: "-0.06em",
-    textTransform: "uppercase",
     textAlign: "center",
     fontSize: "78.22px",
     color: "#FFFFFF",
@@ -207,10 +207,15 @@ const useSuperCourseStyles = createStyles((theme) => ({
       paddingTop: "21px",
     },
 
+    [`@media (max-width: 375px)`]: {
+      fontSize: "18px",
+      lineHeight: "23px",
+    }
+
   },
 
   hookLeft: {
-    marginLeft: "-29px",
+    marginLeft: "0px",
     [`@media (max-width: 850px)`]: {
       marginLeft: "-90px"
     }
@@ -221,7 +226,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
   },
 
   hookRight: {
-    marginRight: "-29px",
+    marginRight: "0px",
     [`@media (max-width: 850px)`]: {
       marginRight: "-90px"
     }
