@@ -48,7 +48,7 @@ const SuperCurriculum = () => {
     </div>
   )
   return (
-    <div className={classes.main}>
+    <section className={classes.main}>
       <div className={classes.textArea}>
         <div className={classes.category}>SUPER CURRICULUM</div>
         <div className={classes.title}>
@@ -114,7 +114,7 @@ const SuperCurriculum = () => {
           }
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

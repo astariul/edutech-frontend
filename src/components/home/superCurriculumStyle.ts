@@ -272,7 +272,7 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
   playButton: {
     display: "flex",
     paddingTop: "191px",
-    paddingLeft: "50px",
+    paddingLeft: "13.667vw",
     alignItems: "center",
     justifyContent: "center",
     width: "123px",
@@ -312,52 +312,6 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
     textShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)",
   },
 
-  modelInfo: {
-    display: "flex",
-    flexDirection: "row",
-    paddingTop:"26px",
-    paddingLeft:"10vw",
-  },
-
-  logo: {
-    width: "49px",
-    height: "49px"
-  },
-
-  modelInfoTextArea: {
-    display: "flex",
-    flexDirection: "column",
-    paddingLeft: "15px",
-    fontFamily: "NotoSansKR",
-    fontStyle: "normal",
-    fontSize: "14px",
-    fontWeight: 500,
-    color: "#FFFFFF",
-  },
-
-  nameAndCheckCircle: {
-    display:"flex",
-  },
-
-  name: {
-    width: "37px",
-    height: "26px",
-    lineHeight: "25px"
-  },  
-
-  checkCircleLarge: {
-    paddingLeft: "4.24px",
-    width: "22.61px",
-    height: "22.61px",
-  },
-
-  postition: {
-    lineHeight: "22px",
-    width: "95px",
-    height: "22px",
-
-  },
-
   cardArea: {
     backgroundColor: "#F2F2F2",
     width: "100vw",
@@ -367,17 +321,18 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
   cards: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     paddingTop: "29px",
     paddingLeft: "9.444vw",
     paddingRight: "9.514vw",
     paddingBottom: "37.95px",
-    gap: "20px",
+    columnGap: "20px",
 
     [`@media (max-width: 850px)`]: {
       paddingTop: "32px",
       paddingBottom: "30.95px",
       paddingLeft: "5.067vw",
+      justifyContent: "space-between",
     }
   },
 

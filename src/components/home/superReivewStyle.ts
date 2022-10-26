@@ -81,13 +81,14 @@ const useSuperReivewStyles = createStyles((theme) => ({
   cards: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     paddingTop: "53px",
     paddingBottom: "67px",
-    gap: "19.95px",
+    columnGap: "19.95px",
 
     [`@media (max-width: 850px)`]: {
       paddingTop: "36.98px",
+      justifyContent: "space-between",
     }
   },
 

@@ -6,11 +6,16 @@ const useSuperCourseStyles = createStyles((theme) => ({
     backgroundImage: "url(/image/home/superCourseBackground.png)",
     backgroundSize: "100% 200%",
 
+  },
+  
+  TopInner: {
+    maxWidth: "1441px",
+    margin: "0 auto",
     [`@media (max-width: 900px)`]: {
       marginTop: "0px",
     }
   },
-  
+
   category: {
     paddingTop: "75px",
     position: "absolute",
@@ -319,14 +324,14 @@ const useSuperCourseStyles = createStyles((theme) => ({
   },
 
   ticketArea: {
+    width: "1441px",
+    margin: "0 auto",
     paddingTop: "30px",
-    paddingLeft: "9.375vw",
-    paddingRight: "9.463vw",
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
-    gap: "31.27px",
+    justifyContent: "center",
+    columnGap: "31.27px",
     height: "120.24px",
 
     [`@media (max-width: 1024px)`]: {
