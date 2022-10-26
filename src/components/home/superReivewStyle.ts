@@ -14,7 +14,7 @@ const useSuperReivewStyles = createStyles((theme) => ({
   },
 
   category: {
-    paddingTop: "36px",
+    paddingTop: "137px",
     fontFamily: "AlongSanss2",
     fontStyle: "normal",
     fontWeight: 700,
@@ -81,13 +81,14 @@ const useSuperReivewStyles = createStyles((theme) => ({
   cards: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     paddingTop: "53px",
     paddingBottom: "67px",
-    gap: "19.95px",
+    columnGap: "19.95px",
 
     [`@media (max-width: 850px)`]: {
       paddingTop: "36.98px",
+      justifyContent: "space-between",
     }
   },
 

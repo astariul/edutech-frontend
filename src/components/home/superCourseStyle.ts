@@ -4,24 +4,27 @@ const useSuperCourseStyles = createStyles((theme) => ({
   mainTop: {
     position: "relative",
     backgroundImage: "url(/image/home/superCourseBackground.png)",
-    backgroundSize: "cover, cover",
-    backgroundPosition: "center, center",
-    width: "100%",
-    marginTop: "80px",
+    backgroundSize: "100% 200%",
 
+  },
+  
+  TopInner: {
+    maxWidth: "1441px",
+    margin: "0 auto",
     [`@media (max-width: 900px)`]: {
       marginTop: "0px",
     }
   },
-  
+
   category: {
+    paddingTop: "75px",
     position: "absolute",
     fontFamily: "AlongSanss2",
     lineHeight: "41px",
     fontSize: "14px",
     fontWeight: 700,
     width: "auto",
-    left: "137px",
+    left: "max(137px, 9.514vw)",
     top: "63px",
     color: "#5ABAFF",
     alignItems: "center",
@@ -36,7 +39,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     fontFamily: "NotoSansKR",
     display: "flex",
     flexDirection: "column",
-    paddingTop: "58px",
+    paddingTop: "80px",
     paddingBottom: "58px",
 
     [`@media (max-width: 900px)`]: {
@@ -46,6 +49,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
   },
 
   messageArea : {
+    paddingTop: "58px",
     marginLeft: "auto",
     marginRight: "auto",
     display: "flex",
@@ -83,7 +87,6 @@ const useSuperCourseStyles = createStyles((theme) => ({
     fontStyle: "normal",
     fontWeight: 900,
     letterSpacing: "-0.06em",
-    textTransform: "uppercase",
     textAlign: "center",
     fontSize: "78.22px",
     color: "#FFFFFF",
@@ -209,10 +212,15 @@ const useSuperCourseStyles = createStyles((theme) => ({
       paddingTop: "21px",
     },
 
+    [`@media (max-width: 375px)`]: {
+      fontSize: "18px",
+      lineHeight: "23px",
+    }
+
   },
 
   hookLeft: {
-    marginLeft: "-29px",
+    marginLeft: "0px",
     [`@media (max-width: 850px)`]: {
       marginLeft: "-90px"
     }
@@ -223,7 +231,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
   },
 
   hookRight: {
-    marginRight: "-29px",
+    marginRight: "0px",
     [`@media (max-width: 850px)`]: {
       marginRight: "-90px"
     }
@@ -316,14 +324,14 @@ const useSuperCourseStyles = createStyles((theme) => ({
   },
 
   ticketArea: {
+    width: "1441px",
+    margin: "0 auto",
     paddingTop: "30px",
-    paddingLeft: "9.375vw",
-    paddingRight: "9.463vw",
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
-    gap: "31.27px",
+    justifyContent: "center",
+    columnGap: "31.27px",
     height: "120.24px",
 
     [`@media (max-width: 1024px)`]: {
@@ -353,7 +361,6 @@ const useSuperCourseStyles = createStyles((theme) => ({
     fontFamily: "NotoSansKR",
     fontStyle: "normal",
     backgroundImage: "url(/image/home/superCourseTicketBackground.png)",
-    background: "linear-gradient(180deg, #2D69CA 40.63%, #0C4AAD 100%)",
     borderRadius: "9.91px"
   },
 

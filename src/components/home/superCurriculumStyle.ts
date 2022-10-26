@@ -9,7 +9,7 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
 
   textArea: {
     paddingTop: "83px",
-    paddingLeft: "9.653vw",
+    paddingLeft: "max(134px, 9.653vw)",
     paddingBottom: "31px",
     height: "auto",
 
@@ -88,7 +88,6 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
   },
 
   imageTopContainer: {
-    width: "100vw",
     height: "90px",
     backgroundColor: "#F2F2F2",
   },
@@ -106,17 +105,17 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
   },
 
   imageBottom: {
-    position: "relative",
-    width: "100vw",
+    marginTop: 0,
+    padding: 0,
+    width: "100%",
     height: "504px",
     backgroundImage: "url(/image/home/superCurriculumImage2.png)",
     backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
-    paddingLeft: "9.926vw",
       
     [`@media (max-width: 400px)`]: {
       height: "227px",
-      paddingLeft: "200px",
     },
   
     [`@media (min-width: 400px) and (max-width: 635px)`]: {
@@ -133,6 +132,154 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
   
     [`@media (min-width: 900px) and (max-width: 1150px)`]: {
       height: "444px",
+    }
+  },
+
+  imageBottomInner:{
+    display:"flex",
+  },
+
+  imageMessage: {
+    paddingTop: "67px",
+    paddingLeft: "9.861vw",
+    display: "column",
+    color: "#FFFFFF",
+    fontFamily: "NotoSansKR",
+    fontStyle: "normal",
+    letterSpacing: "-0.06em",
+    textShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)",
+  
+    [`@media (max-width: 400px)`]: {
+      paddingTop: "32px",
+    },
+  
+    [`@media (min-width: 400px) and (max-width: 635px)`]: {
+      paddingTop: "32px",
+    },
+    
+    [`@media (min-width: 635px) and (max-width: 840px)`]: {
+      paddingTop: "42px",
+    },
+
+    [`@media (min-width: 840px) and (max-width: 900px)`]: {
+      paddingTop: "52px",
+    },
+  
+    [`@media (min-width: 900px) and (max-width: 1150px)`]: {
+      paddingTop: "62px",
+    },
+    
+    "& > h3": {
+      margin: 0,
+      fontWeight: 500,
+      fontSize: "24px",
+      lineHeight: "33px",
+
+      [`@media (max-width: 400px)`]: {
+        fontWeight: 400,
+        fontSize: "12px",
+        lineHeight: "17px",
+      },
+    
+      [`@media (min-width: 400px) and (max-width: 635px)`]: {
+        fontWeight: 400,
+        fontSize: "13px",
+        lineHeight: "17px",
+      },
+      
+      [`@media (min-width: 635px) and (max-width: 840px)`]: {
+        fontWeight: 400,
+        fontSize: "20px",
+        lineHeight: "24px",
+      },
+
+      [`@media (min-width: 840px) and (max-width: 900px)`]: {
+        fontWeight: 500,
+        fontSize: "22px",
+        lineHeight: "28px",
+      },
+    
+      [`@media (min-width: 900px) and (max-width: 1150px)`]: {
+        fontWeight: 500,
+        fontSize: "24px",
+        lineHeight: "33px",
+      }
+    },
+
+    "& > h2": {
+      marginTop: "4.65px",
+      marginBottom: 0,
+      fontWeight: 900,
+      fontSize: "65px",
+      lineHeight: "74px",
+
+      [`@media (max-width: 400px)`]: {
+        fontSize: "26px",
+        lineHeight: "30px",
+      },
+    
+      [`@media (min-width: 400px) and (max-width: 635px)`]: {
+        fontSize: "26px",
+        lineHeight: "30px",
+      },
+      
+      [`@media (min-width: 635px) and (max-width: 840px)`]: {
+        fontSize: "30px",
+        lineHeight: "34px",
+      },
+
+      [`@media (min-width: 840px) and (max-width: 900px)`]: {
+        fontSize: "40px",
+        lineHeight: "45px",
+      },
+    
+      [`@media (min-width: 900px) and (max-width: 1150px)`]: {
+        fontSize: "55px",
+        lineHeight: "62px",
+      }
+    }
+  },
+
+  whois: {
+    display: "flex",
+    marginTop: "27px",
+
+    [`@media (max-width: 900px)`]: {
+      marginTop: "20px",
+      "& > div > img": {
+        width:"22px",
+        height: "22px",
+      },
+      "& > div > div": {
+        fontSize: "10px",
+
+        "& > div > img": {
+          width:"10.2px",
+          height: "10.2px",
+        },
+
+        "& > div: nth-of-type(1) > div": {
+          lineHeight: "11px",
+        },
+  
+        "& > div: nth-of-type(2)": {
+          lineHeight: "10px",
+        },
+      }
+    },
+  },
+
+  playButton: {
+    display: "flex",
+    paddingTop: "191px",
+    paddingLeft: "13.667vw",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "123px",
+    height: "123px",
+
+    [`@media (max-width: 1200px)`]: {
+      display: "none"
     }
   },
 
@@ -165,52 +312,6 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
     textShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)",
   },
 
-  modelInfo: {
-    display: "flex",
-    flexDirection: "row",
-    paddingTop:"26px",
-    paddingLeft:"10vw",
-  },
-
-  logo: {
-    width: "49px",
-    height: "49px"
-  },
-
-  modelInfoTextArea: {
-    display: "flex",
-    flexDirection: "column",
-    paddingLeft: "15px",
-    fontFamily: "NotoSansKR",
-    fontStyle: "normal",
-    fontSize: "14px",
-    fontWeight: 500,
-    color: "#FFFFFF",
-  },
-
-  nameAndCheckCircle: {
-    display:"flex",
-  },
-
-  name: {
-    width: "37px",
-    height: "26px",
-    lineHeight: "25px"
-  },  
-
-  checkCircleLarge: {
-    paddingLeft: "4.24px",
-    width: "22.61px",
-    height: "22.61px",
-  },
-
-  postition: {
-    lineHeight: "22px",
-    width: "95px",
-    height: "22px",
-
-  },
-
   cardArea: {
     backgroundColor: "#F2F2F2",
     width: "100vw",
@@ -220,17 +321,18 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
   cards: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     paddingTop: "29px",
     paddingLeft: "9.444vw",
     paddingRight: "9.514vw",
     paddingBottom: "37.95px",
-    gap: "20px",
+    columnGap: "20px",
 
     [`@media (max-width: 850px)`]: {
       paddingTop: "32px",
       paddingBottom: "30.95px",
       paddingLeft: "5.067vw",
+      justifyContent: "space-between",
     }
   },
 

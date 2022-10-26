@@ -81,9 +81,6 @@ const useSuperCommunityStyles = createStyles((theme) => ({
       justifyContent: "space-around",
       alignContent: "space-around",
     },
-    [`@media (max-width: 375px)`]: {
-      flexWrap: "nowrap",
-    }
   },
 
   wordBalloon: {
@@ -120,6 +117,11 @@ const useSuperCommunityStyles = createStyles((theme) => ({
       backgroundColor: "#FFFFFF",
       border: "0.34943px solid #BFBFBF",
       borderRadius: "0",
+    },
+
+    [`@media (max-width: 375px)`]: {
+      width: "130px",
+      height: "110px",
     }
   },
 
@@ -141,6 +143,11 @@ const useSuperCommunityStyles = createStyles((theme) => ({
       paddingRight: 0,
       fontSize: "16px",
       lineHeight: "22px",
+    },
+  
+    [`@media (max-width: 375px)`]: {
+      fontSize: "14px",
+      lineHeight: "18px",
     }
   },
 
@@ -151,6 +158,11 @@ const useSuperCommunityStyles = createStyles((theme) => ({
     [`@media (max-width: 1200px)`]: {
       paddingLeft: "20px",
       paddingBottom: "11.03px",
+    },
+
+    [`@media (max-width: 375px)`]: {
+      width: "28px",
+      height: "28px",
     }
   }
 }));

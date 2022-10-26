@@ -20,40 +20,42 @@ const SuperCourse = () => {
   }
   return (
     <>
-    <div className={classes.mainTop}>
-      <div className={classes.category}>SUPER COURSE</div>
-      <div className={classes.mainInner}>
-        <div className={classes.messageArea}>        
-          <div className={classes.message}>취업을 위한 코딩 교육은 달라야 합니다.</div>
-        </div>
-        <div className={classes.titleArea}>
-          <div className={classes.titleTop}>취업관리형</div>
-          <div className={classes.titleBottomContainer}>
-            <div className={classes.titleBottomLeft}>웹개발 종합반</div>
-            <div className={classes.titleBottomRightContainer}>
-              <div className={classes.titleBottomRightTop}>PLUS</div>
-              <div className={classes.titleBottomRightBottom} />
+    <section className={classes.mainTop}>
+      <div className={classes.TopInner}>
+        <div className={classes.category}>SUPER COURSE</div>
+        <div className={classes.mainInner}>
+          <div className={classes.messageArea}>        
+            <div className={classes.message}>취업을 위한 코딩 교육은 달라야 합니다.</div>
+          </div>
+          <div className={classes.titleArea}>
+            <div className={classes.titleTop}>취업관리형</div>
+            <div className={classes.titleBottomContainer}>
+              <div className={classes.titleBottomLeft}>웹개발 종합반</div>
+              <div className={classes.titleBottomRightContainer}>
+                <div className={classes.titleBottomRightTop}>PLUS</div>
+                <div className={classes.titleBottomRightBottom} />
+              </div>
             </div>
           </div>
-        </div>
-        <div className={classes.hookArea}>
-          <div className={classes.hookLeft}>개발자로취업하지못하면100%환불보장!</div>
-          <div className={classes.hookMiddle}>개발자로취업하지못하면100%환불보장!</div>
-          <div className={classes.hookRight}>개발자로취업하지못하면100%환불보장!</div>
-        </div>
-        <div className={classes.goPaymentArea}>
-          <div className={classes.box}>
-            <div className={classes.boxInner}>
-              <div className={classes.boxLeft}>11/1 1기 마감!</div>
-              <div className={classes.boxRightContainer}>
-                <div className={classes.boxRightLeft}>지금 구매하러 가기</div>
-                <img className={classes.boxRightRight} src={require("../../static/image/home/CaretRight.png")} alt="CaretRight" />
+          <div className={classes.hookArea}>
+            <div className={classes.hookLeft}>개발자로취업하지못하면100%환불보장!</div>
+            <div className={classes.hookMiddle}>개발자로취업하지못하면100%환불보장!</div>
+            <div className={classes.hookRight}>개발자로취업하지못하면100%환불보장!</div>
+          </div>
+          <div className={classes.goPaymentArea}>
+            <div className={classes.box}>
+              <div className={classes.boxInner}>
+                <div className={classes.boxLeft}>11/1 1기 마감!</div>
+                <div className={classes.boxRightContainer}>
+                  <div className={classes.boxRightLeft}>지금 구매하러 가기</div>
+                  <img className={classes.boxRightRight} src={require("../../static/image/home/CaretRight.png")} alt="CaretRight" />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
     <div className={classes.mainBottom}>
       <div className={classes.ticketArea}>
         {
