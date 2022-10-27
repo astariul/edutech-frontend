@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
 
 const middleLinks = [
   {
-    "link": "/roadmap",
+    "link": "/course",
     "label": "슈퍼코스"
   },
   {
