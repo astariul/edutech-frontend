@@ -4,15 +4,26 @@ const useSuperResumeStyles = createStyles((theme) => ({
   main: {
     display: "flex",
     flexDirection: "column",
-    width: "100%",
+    width: "1440px",
+    margin: "0 auto",
+
     [`@media (max-width: 850px)`]: {
+      width: "100%",
       height: "auto"
     },
+
   },
 
   textArea: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
     paddingTop: "71px",
-    paddingLeft: "9.444vw",
+
+    "& > div": {
+      width: "1168px",
+      alignItems: "flex-start",
+    },
 
     [`@media (max-width: 1224px)`]: {
       paddingTop: "46px",

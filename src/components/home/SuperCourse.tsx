@@ -40,6 +40,7 @@ const SuperCourse = () => {
           <div className={classes.hookArea}>
             <div className={classes.hookLeft}>개발자로취업하지못하면100%환불보장!</div>
             <div className={classes.hookMiddle}>개발자로취업하지못하면100%환불보장!</div>
+            <div className={classes.hookMiddleMobile}>개발자로취업하지못하면<br/>100%환불보장!</div>
             <div className={classes.hookRight}>개발자로취업하지못하면100%환불보장!</div>
           </div>
           <div className={classes.goPaymentArea}>
@@ -47,7 +48,7 @@ const SuperCourse = () => {
               <div className={classes.boxInner}>
                 <div className={classes.boxLeft}>11/1 1기 마감!</div>
                 <div className={classes.boxRightContainer}>
-                  <div className={classes.boxRightLeft}>지금 구매하러 가기</div>
+                  <div className={classes.boxRightLeft}>지금 구매하기</div>
                   <img className={classes.boxRightRight} src={require("../../static/image/home/CaretRight.png")} alt="CaretRight" />
                 </div>
               </div>

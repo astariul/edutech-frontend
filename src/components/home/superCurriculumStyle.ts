@@ -9,10 +9,18 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
 
   textArea: {
     paddingTop: "83px",
-    paddingLeft: "max(134px, 9.653vw)",
     paddingBottom: "31px",
     height: "auto",
 
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    
+    "& > div": {
+      width: "1168px",
+      alignItems: "flex-start",
+    },
+    
     [`@media (max-width: 1024px)`]: {
       paddingTop: "46px",
       alignItems: "center",
@@ -84,6 +92,10 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
       fontSize: "23px",
       lineHeight: "32px",
       letterSpacing: "-2px",
+    },
+
+    [`@media (max-width: 375px)`]: {
+      whiteSpace: "nowrap",
     }
   },
 

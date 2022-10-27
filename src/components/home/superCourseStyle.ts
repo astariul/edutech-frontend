@@ -228,6 +228,22 @@ const useSuperCourseStyles = createStyles((theme) => ({
   
   hookMiddle: {
     color: "#43FF4A",
+    [`@media (max-width: 500px)`]: {
+      display: "none"
+    }
+  },
+
+  hookMiddleMobile: {
+    display: "none",
+    color: "#43FF4A",
+
+    [`@media (max-width: 500px)`]: {
+      display: "block",
+      letterSpacing: "-1px",
+      textAlign: "center",
+      wordBreak: "break-word",
+      lineHeight: "23px",
+    }
   },
 
   hookRight: {
@@ -288,12 +304,12 @@ const useSuperCourseStyles = createStyles((theme) => ({
   },
   
   boxRightContainer: {
-    width: "191px",
+    width: "128px",
     height: "45px",
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "center",
     color: "#0065FD",
 
     [`@media (max-width: 850px)`]: {
