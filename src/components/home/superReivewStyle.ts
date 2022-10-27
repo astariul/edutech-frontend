@@ -3,14 +3,29 @@ import { createStyles } from '@mantine/core';
 const useSuperReivewStyles = createStyles((theme) => ({
 
   main: {
-    paddingLeft: "9.306vw",
-    paddingRight: "9.514vw",
+    // paddingLeft: "9.306vw",
+    // paddingRight: "9.514vw",
+    width: "1440px",
+    margin: "0 auto",
     display: "flex",
     flexDirection: "column",
 
     [`@media (max-width: 850px)`]: {
-      paddingLeft: "4.800vw"
+      paddingLeft: "4.800vw",
+      width: "100%",
     }
+  },
+
+  contents: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+
+    "& > div": {
+      width: "1168px",
+      alignItems: "flex-start",
+    },
+
   },
 
   category: {
@@ -78,6 +93,18 @@ const useSuperReivewStyles = createStyles((theme) => ({
     }
   },
 
+  cardArea: {
+
+    [`@media (max-width: 750px)`]: {
+      maxWidth: "500px",
+    },
+
+    [`@media (max-width: 400px)`]: {
+      maxWidth: "300px",
+    }
+
+  },
+
   cards: {
     display: "flex",
     flexDirection: "row",
@@ -88,6 +115,8 @@ const useSuperReivewStyles = createStyles((theme) => ({
 
     [`@media (max-width: 850px)`]: {
       paddingTop: "36.98px",
+      paddingLeft: "5.607vw",
+      alignItems: "flex-start",
       justifyContent: "space-between",
     }
   },
@@ -102,6 +131,7 @@ const useSuperReivewStyles = createStyles((theme) => ({
     border: "1px solid #E8E8E8",
 
     [`@media (max-width: 850px)`]: {
+      width: "270px",
       minWidth: "268.05px",
       height: "241.83px",
     }

@@ -36,33 +36,37 @@ const SuperReivew = () => {
     </div>
   )
   return (
-    <div className={classes.main}>
-      <div className={classes.category}>
-        SUPER REIVEW
+    <section className={classes.main}>
+      <div className={classes.contents}>
+        <div className={classes.category}>
+          SUPER REIVEW
+        </div>
+        <div className={classes.title}>
+          슈퍼코딩 취업 사례와 수강 후기.
+          <br />
+          여러분도 할 수 있습니다.
+        </div>
+        <div className={classes.titleMobile}>
+          슈퍼코딩의
+          <br />
+          취업사례와 수강후기,
+          <br />
+          여러분도 할 수 있습니다.
+        </div>
+        <div className={classes.cardArea}>
+          <div className={classes.cards}>
+            {
+              cardContents.map(
+                (each) => {
+                  const  [image, title, name, description] = each;
+                  return Card(image, title, name, description)
+                }
+                )
+              }
+          </div>
+        </div>
       </div>
-      <div className={classes.title}>
-        슈퍼코딩 취업 사례와 수강 후기.
-        <br />
-        여러분도 할 수 있습니다.
-      </div>
-      <div className={classes.titleMobile}>
-        슈퍼코딩의
-        <br />
-        취업사례와 수강후기,
-        <br />
-        여러분도 할 수 있습니다.
-      </div>
-      <div className={classes.cards}>
-        {
-          cardContents.map(
-            (each) => {
-              const  [image, title, name, description] = each;
-              return Card(image, title, name, description)
-            }
-          )
-        }
-      </div>
-    </div>
+    </section>
   )
 }
 

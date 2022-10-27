@@ -1,41 +1,18 @@
 import { createStyles } from '@mantine/core';
 
 const useSuperCourseStyles = createStyles((theme) => ({
-  mainTop: {
+  topSection: {
     position: "relative",
-    backgroundImage: "url(/image/home/superCourseBackground.png)",
-    backgroundSize: "100% 200%",
+    backgroundImage: "url(/image/product/mainBackground.png)",
+    backgroundSize: "cover",
+    height: "599px",
 
-  },
-  
-  TopInner: {
-    maxWidth: "1441px",
-    margin: "0 auto",
     [`@media (max-width: 900px)`]: {
       marginTop: "0px",
     }
   },
-
-  category: {
-    paddingTop: "75px",
-    position: "absolute",
-    fontFamily: "AlongSanss2",
-    lineHeight: "41px",
-    fontSize: "14px",
-    fontWeight: 700,
-    width: "auto",
-    left: "max(137px, 9.514vw)",
-    top: "63px",
-    color: "#5ABAFF",
-    alignItems: "center",
-    textAlign: "center",
-
-    [`@media (max-width: 900px)`]: {
-      display: "none",
-    }
-  },
-
-  mainInner: {
+  
+  topInner: {
     fontFamily: "NotoSansKR",
     display: "flex",
     flexDirection: "column",
@@ -82,13 +59,14 @@ const useSuperCourseStyles = createStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     paddingTop: "20px",
-    paddingLeft: "29.306vw",
-    paddingRight: "29.306vw",
+    paddingLeft: "31.458vw",
+    paddingRight: "31.458vw",
     fontStyle: "normal",
     fontWeight: 900,
     letterSpacing: "-0.06em",
+    textTransform: "uppercase",
     textAlign: "center",
-    fontSize: "78.22px",
+    fontSize: "77px",
     color: "#FFFFFF",
 
     [`@media (max-width: 850px)`]: {
@@ -100,8 +78,8 @@ const useSuperCourseStyles = createStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    width: "360.74px",
-    lineHeight: "83px",
+    width: "535px",
+    lineHeight: "81.53px",
 
     [`@media (max-width: 850px)`]: {
       fontSize: "51.84px",
@@ -190,7 +168,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     color: "#85B6FF",
     paddingTop: "19px",
     height: "35px",
-    gap: "10px",
+    columnGap: "19px",
 
     [`@media (min-width: 850px) and (max-width: 1350px)`]: {
       gap: "20px",
@@ -212,15 +190,21 @@ const useSuperCourseStyles = createStyles((theme) => ({
       paddingTop: "21px",
     },
 
-    [`@media (max-width: 375px)`]: {
-      fontSize: "18px",
-      lineHeight: "23px",
+    "& > div:nth-of-type(1)": {
+      marginLeft: "-190px",
+    },
+
+    "& > div:nth-of-type(5)": {
+      marginRight: "-190px",
     }
 
   },
 
   hookLeft: {
-    marginLeft: "0px",
+    fontSize: "20px",
+    color: "#85B6FF",
+    opacity: 0.5,
+
     [`@media (max-width: 850px)`]: {
       marginLeft: "-90px"
     }
@@ -228,36 +212,45 @@ const useSuperCourseStyles = createStyles((theme) => ({
   
   hookMiddle: {
     color: "#43FF4A",
-    [`@media (max-width: 500px)`]: {
-      display: "none"
-    }
-  },
-
-  hookMiddleMobile: {
-    display: "none",
-    color: "#43FF4A",
-
-    [`@media (max-width: 500px)`]: {
-      display: "block",
-      letterSpacing: "-1px",
-      textAlign: "center",
-      wordBreak: "break-word",
-      lineHeight: "23px",
-    }
   },
 
   hookRight: {
-    marginRight: "0px",
+    fontSize: "20px",
+    color: "#85B6FF",
+    opacity: 0.5,
+
     [`@media (max-width: 850px)`]: {
       marginRight: "-90px"
     }
   },
 
-  goPaymentArea: {
+  bottomMessageArea: {
+    paddingTop: "44.22px",
     display: "flex",
-    justifyContent: "center",
     alignItems: "center",
-    paddingTop: "56px",
+    justifyContent: "center",
+  },
+  
+  bottomMessage: {
+    width: "454.71px",
+    height: "60px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+
+    "& > img": {
+      width:"32.75px",
+    },
+
+    "& > div": {
+      fontFamily: "NotoSansKR",
+      fontStyle: "normal",
+      fontWeight: 900,
+      fontSize: "28px",
+      lineHeight: "37px",
+      letterSpacing: "-2px",
+      color: "#FFFFFF"
+    },
   },
 
   box: {
@@ -304,12 +297,12 @@ const useSuperCourseStyles = createStyles((theme) => ({
   },
   
   boxRightContainer: {
-    width: "128px",
+    width: "191px",
     height: "45px",
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-between",
     color: "#0065FD",
 
     [`@media (max-width: 850px)`]: {
@@ -340,14 +333,14 @@ const useSuperCourseStyles = createStyles((theme) => ({
   },
 
   ticketArea: {
-    width: "1441px",
-    margin: "0 auto",
     paddingTop: "30px",
+    paddingLeft: "9.375vw",
+    paddingRight: "9.463vw",
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
-    columnGap: "31.27px",
+    justifyContent: "space-between",
+    gap: "31.27px",
     height: "120.24px",
 
     [`@media (max-width: 1024px)`]: {

@@ -5,14 +5,12 @@ import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import HeaderResponsive from './components/header/Header';
 import Footer from './components/Footer/Footer';
-import NavbarMinimal from './components/VerticalNavBar';
 import LearningCourse from './pages/LearningCourse';
 import MyClassRoom from './pages/myClassRoom/MyClassRoom';
 import Feed from './pages/Feed';
 import AuthRepository from './repositories/Auth';
 import { IUserProfile } from './typings/db';
 import Survey from './pages/survey/Survey';
-import Course from './pages/course/Course';
 import Payment from './pages/payment/Payment';
 import Resume from './pages/resume/Resume';
 import AuthenticationForm from './components/AuthentificationForm';
@@ -20,9 +18,11 @@ import AuthMethodModal from './components/authMethod/AuthMethodModal';
 import AuthFormModal from './components/authForm/AuthFormModal';
 import CourseIntro from './pages/courseIntro/CourseIntro';
 import VideoRoom from './pages/videoRoom/VideoRoom';
+import Product from './pages/product/Product';
+import TimeBanner from './components/timeBanner/TimeBanner';
 
 function App() {
-  const [navOpened, toggleNavOpened] = useBooleanToggle(false);
+  const [timeBannerOpened, toggleTimeBannerOpened] = useBooleanToggle(false);
   const [login, setLogin] = useLocalStorage<IUserProfile | null>({ key: 'login', defaultValue: null });
   const [authorized, setAuthorized] = useLocalStorage<string | null>({ key: 'authorization', defaultValue: null });
   const [, setFormType] = useState<"register" | "login">("login");
@@ -43,26 +43,20 @@ function App() {
   }
 
   useEffect(() => {
-    if (location.pathname.startsWith("/class") || location.pathname.startsWith("/roadmap")) {
-      toggleNavOpened(false);
-    } else {
-      toggleNavOpened(false);
-    }
-  }, [location.pathname, toggleNavOpened]);
-
-  let navbar;
-  if (navOpened && login) {
-    navbar = <NavbarMinimal />;
-  } else {
-    navbar = undefined;
-  };
+    location.pathname.startsWith("/course") ?
+      toggleTimeBannerOpened(true) : toggleTimeBannerOpened(false);
+  }, [location.pathname, toggleTimeBannerOpened]);
 
   return (
     <MantineProvider>
       <AppShell
-        navbar={navbar}
         header={<HeaderResponsive />}
-        footer={<Footer />}
+        footer={
+        <>
+          <Footer />
+          {timeBannerOpened ? <TimeBanner dDay="2022-11-1" message="1기 판매 마감! 이 가격 마지막"/> : <></>}
+        </>
+        }
         styles={(theme) => ({
           main: { padding: '0px' },
         })}
@@ -98,7 +92,7 @@ function App() {
           </Route>
           <Route path='/login/form' element={<AuthFormModal modalOpen={true} authType={"로그인"}/>}></Route>
           <Route path='/roadmap' element={<CourseIntro />}></Route>
-          <Route path='/course/*' element={<Course />}></Route>
+          <Route path='/course' element={<Product />}></Route>
           <Route path='/myclass' element={<MyClassRoom />}></Route>
           <Route path='/class/*' element={<VideoRoom/>}></Route>
           <Route path='/feed' element={<Feed />}></Route>
