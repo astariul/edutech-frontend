@@ -7,8 +7,9 @@ const useSuperCourseStyles = createStyles((theme) => ({
     backgroundSize: "cover",
     height: "599px",
 
-    [`@media (max-width: 900px)`]: {
+    [`@media (max-width: 376px)`]: {
       marginTop: "0px",
+      height: "564px",
     }
   },
   
@@ -19,7 +20,9 @@ const useSuperCourseStyles = createStyles((theme) => ({
     paddingTop: "80px",
     paddingBottom: "58px",
 
-    [`@media (max-width: 900px)`]: {
+    [`@media (max-width: 376px)`]: {
+      width: "375px",
+      margin: "0 auto",
       paddingTop: "181px"
     }
 
@@ -36,6 +39,10 @@ const useSuperCourseStyles = createStyles((theme) => ({
     fontWeight: 700,
     letterSpacing: "-0.886023px",
     textTransform: "uppercase",
+
+    [`@media (max-width: 376px)`]: {
+      paddingTop: 0
+    }
   },
   
   message: {
@@ -47,7 +54,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     alignItems: "center",
     textAlign: "center",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 376px)`]: {
       fontSize: "12.07px",
       lineHeight: "31px",
       letterSpacing: "-0.07em",
@@ -80,78 +87,43 @@ const useSuperCourseStyles = createStyles((theme) => ({
     justifyContent: "center",
     width: "535px",
     lineHeight: "81.53px",
-
-    [`@media (max-width: 850px)`]: {
-      fontSize: "51.84px",
-      fontWeight: 700,
-      lineHeight: "64.8px",
-      letterSpacing: "-0.07em",
-    }
+    
+    [`@media (max-width: 376px)`]: {
+      display: "none",
+    },
   },
 
-  titleBottomContainer: {
-    display: "flex",
-    flexDirection: "row",
-    lineHeight: "82.82px",
+  titleTopMobile: {
+    display: "none",
+    
+    [`@media (max-width: 376px)`]: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      width: "535px",
+      lineHeight: "81.53px",
+      flexDirection: "column"
+    },
 
-    [`@media (max-width: 850px)`]: {
-      flexDirection: "column",
-    }
-  },
-  
-  titleBottomLeft: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "422px",
-    lineHeight: "82.82px",
+    "& > span: nth-of-type(1)": {
+      [`@media (max-width: 376px)`]: {
+        display: "block",
+        width: "180px",
+        fontSize: "51.84px",
+        fontWeight: 700,
+        lineHeight: "65px",
+        letterSpacing: "-0.07em",
+      }
+    },
 
-    [`@media (max-width: 850px)`]: {
-      fontSize: "51.84px",
-      fontWeight: 700,
-      lineHeight: "64.8px",
-      letterSpacing: "-0.07em",
-    }
-  },
-
-  titleBottomRightContainer: {
-    display: "flex",
-    flexDirection: "column",
-    marginLeft: "11px",
-    width: "auto",
-
-    [`@media (max-width: 850px)`]: {
-      marginLeft: 0
-    }
-  },
-  
-  titleBottomRightTop: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
-    fontSize: "66.7641px",
-    lineHeight: "71px",
-
-    [`@media (max-width: 850px)`]: {
-      fontSize: "45.13px",
-      fontWeight: 900,
-      lineHeight: "48px",
-      letterSpacing: "-0.06em",
-    }
-  },
-
-  titleBottomRightBottom: {
-    height: "0px",
-    border: "4px solid #FFFFFF",
-    backgroundColor: "#FFFFFF",
-    margin: 0,
-
-    [`@media (max-width: 850px)`]: {
-      border: "1.77px solid #FFFFFF",
-      width: "106.15px",
-      marginLeft: "auto",
-      marginRight: "auto",
+    "& > span: nth-of-type(2)": {
+      [`@media (max-width: 376px)`]: {
+        display: "block",
+        fontSize: "48px",
+        fontWeight: 700,
+        lineHeight: "65px",
+        letterSpacing: "-0.07em",
+      }
     }
   },
 
@@ -179,15 +151,8 @@ const useSuperCourseStyles = createStyles((theme) => ({
       paddingTop: "21px",
     },
 
-    [`@media (max-width: 850px)`]: {
-      gap: "20px",
-      fontSize: "21px",
-      lineHeight: "26px",
-      letterSpacing: "-1px",
-      textAlign: "center",
-      wordBreak: "break-word",
-      height: "auto",
-      paddingTop: "21px",
+    [`@media (max-width: 376px)`]: {
+      display: "none"
     },
 
     "& > div:nth-of-type(1)": {
@@ -197,7 +162,27 @@ const useSuperCourseStyles = createStyles((theme) => ({
     "& > div:nth-of-type(5)": {
       marginRight: "-190px",
     }
+  },
 
+  hookAreaMobile: {
+    display: "none",
+
+    [`@media (max-width: 376px)`]: {
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+      fontStyle: "normal",
+      fontWeight: 700,
+      fontSize: "21px",
+      lineHeight: "21px",
+      letterSpacing: "-1px",
+      color: "#85B6FF",
+      paddingTop: "26px",
+      height: "35px",
+      columnGap: "20px",
+      textAlign: "center",
+   },
   },
 
   hookLeft: {
@@ -205,13 +190,42 @@ const useSuperCourseStyles = createStyles((theme) => ({
     color: "#85B6FF",
     opacity: 0.5,
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 376px)`]: {
+      display: "none",
+      visibility: "hidden",
       marginLeft: "-90px"
     }
   },
   
+  hookLeftMobile: {
+    fontSize: "20px",
+    color: "#85B6FF",
+    opacity: 0.5,
+    display: "none",
+
+    [`@media (max-width: 376px)`]: {
+      display: "block",      
+      marginLeft: "-120px",
+      wordBreak: "keep-all",
+    }
+  },
+
   hookMiddle: {
     color: "#43FF4A",
+
+    [`@media (max-width: 376px)`]: {
+      display: "none"
+    }
+  },
+
+  hookMiddleMobile: {
+    color: "#43FF4A",
+    display: "none",
+
+    [`@media (max-width: 376px)`]: {
+      display: "hidden",
+      wordBreak: "keep-all",
+    }
   },
 
   hookRight: {
@@ -219,7 +233,20 @@ const useSuperCourseStyles = createStyles((theme) => ({
     color: "#85B6FF",
     opacity: 0.5,
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 376px)`]: {
+      display: "none",
+    }
+  },
+
+  hookRightMobile: {
+    display: "none",
+
+    [`@media (max-width: 376px)`]: {
+      display: "block",
+      fontSize: "20px",
+      color: "#85B6FF",
+      opacity: 0.5,
+      wordBreak: "keep-all",
       marginRight: "-90px"
     }
   },
@@ -229,6 +256,10 @@ const useSuperCourseStyles = createStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+
+    [`@media (max-width: 376px)`]: {
+      paddingTop: "54px",
+    },
   },
   
   bottomMessage: {
@@ -238,8 +269,17 @@ const useSuperCourseStyles = createStyles((theme) => ({
     alignItems: "center",
     justifyContent: "space-between",
 
+    [`@media (max-width: 376px)`]: {
+      width: "270px",
+    },
+    
     "& > img": {
       width:"32.75px",
+
+      [`@media (max-width: 376px)`]: {
+        width: "20.75px",
+        height: "28.75px",
+      },
     },
 
     "& > div": {
@@ -249,7 +289,11 @@ const useSuperCourseStyles = createStyles((theme) => ({
       fontSize: "28px",
       lineHeight: "37px",
       letterSpacing: "-2px",
-      color: "#FFFFFF"
+      color: "#FFFFFF",
+
+      [`@media (max-width: 376px)`]: {
+        fontSize: "20px",
+      },
     },
   },
 
