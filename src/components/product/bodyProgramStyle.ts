@@ -35,6 +35,14 @@ const useBodyProgramStyles = createStyles((theme) => ({
     },
 
     "& > div: nth-of-type(3)":{
+      marginTop: "45px",
+
+      "& > div: nth-of-type(1)": {
+        marginBottom: "68px"
+      }
+    },
+
+    "& > div: nth-of-type(4)":{
       paddingTop: "88px",
     },
 
@@ -65,6 +73,11 @@ const useBodyProgramStyles = createStyles((theme) => ({
         marginTop: "45px",
       },
 
+      "& > div > div.withoutSideBlank":{
+        width: "375.5px",
+        marginBottom: "45px",
+      },
+
       "& > section": {
         marginTop: "37.97px",
       }
@@ -72,6 +85,10 @@ const useBodyProgramStyles = createStyles((theme) => ({
   },
 
   message: {
+    [`@media (max-width: 376px)`]: {
+      display: "none"
+    },
+
     backgroundImage: "url(/image/product/why.png)",
     backgroundSize: "cover",
     marginTop: "106px",
@@ -82,29 +99,12 @@ const useBodyProgramStyles = createStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
 
-    [`@media (max-width: 376px)`]: {
-      backgroundImage: "url(/image/product/whyMobile.png)",
-      marginTop: "45px",
-      width: "375px",
-      height: "166px",
-    },
 
     "& > div: nth-of-type(1)": { 
       width: "1168px",
       margin: "0 auto",
+    },
 
-      [`@media (max-width: 376px)`]: {
-        display: "none",
-        width: "336px",
-      }
-    },
-    
-    "& > div.mobile": { 
-      [`@media (max-width: 376px)`]: {
-        width: "336px",
-      }
-    },
-  
     "& > div > h2" : {
       color: "#FFFFFF",
       letterSpacing: "-2px",
@@ -116,17 +116,41 @@ const useBodyProgramStyles = createStyles((theme) => ({
       fontSize: "30px",
       margin: 0,
     },
+  },
 
-    "& > div.mobile > h2" : {
-      color: "#FFFFFF",
-      letterSpacing: "-2px",
-      fontFamily: "NotoSansKR",
-      textAlign: "center",
-      lineHeight: "32px",
-      fontWeight: 700,
-      fontSize: "23px",
-      margin: 0,
-    }
+  messageMobile: {
+    display: "none",
+    
+    [`@media (max-width: 376px)`]: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flexDirection: "column",
+      backgroundImage: "url(/image/product/whyMobile.png)",
+      marginTop: "45px",
+      width: "375px",
+      height: "166px",
+
+      "& > div: nth-of-type(1)": { 
+        margin: "0 auto",
+        width: "336px",
+      },
+  
+      "& > div": { 
+        width: "336px",
+      },
+
+      "& > div > h2" : {
+        color: "#FFFFFF",
+        letterSpacing: "-2px",
+        fontFamily: "NotoSansKR",
+        textAlign: "center",
+        lineHeight: "32px",
+        fontWeight: 700,
+        fontSize: "23px",
+        margin: 0,
+      }
+    },
   },
 
   answer: {
@@ -171,10 +195,10 @@ const useBodyProgramStyles = createStyles((theme) => ({
   },
 
   super: {
-    // paddingTop: "66.78px",
     display: "flex",
     flexDirection: "row",
     columnGap: "34px",
+    marginBottom: "40px",
 
     [`@media (max-width: 376px)`]: {
       display: "none",
@@ -212,6 +236,7 @@ const useBodyProgramStyles = createStyles((theme) => ({
       justifyContent: "center",
       textAlign: "center",
       rowGap: "10.5px",
+      marginBottom: "20px",
 
       "& > div": {
         display: "block",

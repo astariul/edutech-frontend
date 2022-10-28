@@ -3,19 +3,23 @@ import { Button, Paper, Transition } from '@mantine/core';
 import { useState } from 'react';
 import useBodyProgramStyles from './bodyProgramStyle';
 
-const TransitionProgram = () => {
-  const [opened, setOpened] = useState(false);
+interface TransitionProgramProps {
+  open: boolean
+  setOpened: (arg: boolean) => void
+};
+
+const TransitionProgram = ({open, setOpened}: TransitionProgramProps) => {
   const {classes} = useBodyProgramStyles();
   return (
     <>
-      <Button radius={10} onClick={() => setOpened(!opened)}>
+      <Button radius={10} onClick={() => setOpened(!open)}>
         <div>프로그램자세히보기</div>
         <img
-          src={opened ? require("../../static/image/product/arrowUp.png") : require("../../static/image/product/arrowDown.png")}
+          src={open ? require("../../static/image/product/arrowUp.png") : require("../../static/image/product/arrowDown.png")}
           alt="arrowDown"
         />
       </Button>
-      <Transition mounted={opened} transition="slide-down" duration={200}>
+      <Transition mounted={open} transition="slide-down" duration={300}>
         {(styles) => (
           <Paper
             shadow="md"
@@ -35,13 +39,17 @@ const TransitionProgram = () => {
 
 const BodyProgram = () => {
   const {classes} = useBodyProgramStyles();
+  const [opened, setOpened] = useState(false);
+
   return (
     <>
       <section className={classes.message}>
         <div>
           <h2>why? <br/>슈퍼코딩 웹개발 종합반을 선택해야 할까요?</h2>
         </div>
-        <div className="mobile">
+      </section>
+      <section className={classes.messageMobile}>
+        <div>
           <h2>why?
             <br/>슈퍼코딩 웹개발 종합반을
             <br />선택해야 할까요?
@@ -63,8 +71,20 @@ const BodyProgram = () => {
             <h2>30인+팀장급 리더개발자님들이 원하는 프로그램으로 구성되어 있습니다.</h2>
           </div>
           <section className={classes.program}>
-            <TransitionProgram />
+            <TransitionProgram open={opened} setOpened={setOpened}/>
           </section>
+          <div style={{display: opened ? "none": "block"}}>
+            <div>
+              <img src={require("../../static/image/product/ot.png")} alt="ot" />
+            </div>
+            <div className={classes.super}>
+              <div>SUPER</div>
+              <h2>VS 업계 비교 차트로 퀄리티의 다름을 확신합니다.</h2>
+            </div>
+            <div>
+              <img src={require("../../static/image/product/review.png")} alt="ot" />
+            </div>
+          </div>
           <div className={classes.answer}>
             <h2>
               업계 최고의 CTO추천서를 부여받는 곳은 <br/>
@@ -89,8 +109,23 @@ const BodyProgram = () => {
             </h2>
           </div>
           <section className={classes.programMobile}>
-            <TransitionProgram />
+            <TransitionProgram open={opened} setOpened={setOpened}/>
           </section>
+          <div style={{display: opened ? "none": "block"}}>
+            <div className="withoutSideBlank">
+              <img src={require("../../static/image/product/otMobile.png")} alt="ot" />
+            </div>
+            <div className={classes.superMobile}>
+              <div>SUPER</div>
+              <h2>
+                  VS 업계 비교 차트로
+                  <br />퀄리티의 다름을 확신합니다.
+              </h2>
+            </div>
+            <div>
+              <img src={require("../../static/image/product/reviewMobile.png")} alt="ot" />
+            </div>
+          </div>
           <div className={classes.answerMobile}>
             <h2>
               기업이업계 최고의
