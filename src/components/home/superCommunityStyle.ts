@@ -4,21 +4,23 @@ const useSuperCommunityStyles = createStyles((theme) => ({
   main: {
     backgroundColor: "#0094FF",
     height: "330px",
+    
     [`@media (max-width: 1200px)`]: {
       height: "500px",
     }
   },
-
+  
   content: {
+    width: "1168px",
+    margin: "0 auto",
     display: "flex",
     flexDirection: "row",
     boxSizing: "border-box",
     paddingTop: "83px",
-    paddingLeft: "9.306vw",
-    paddingRight: "140px",
     gap: "50px",
 
     [`@media (max-width: 1200px)`]: {
+      width: "auto",
       flexDirection: "column",
       paddingTop: "33px",
       gap: "43px",
@@ -119,7 +121,7 @@ const useSuperCommunityStyles = createStyles((theme) => ({
       borderRadius: "0",
     },
 
-    [`@media (max-width: 375px)`]: {
+    [`@media (max-width: 376px)`]: {
       width: "130px",
       height: "110px",
     }
@@ -145,7 +147,7 @@ const useSuperCommunityStyles = createStyles((theme) => ({
       lineHeight: "22px",
     },
   
-    [`@media (max-width: 375px)`]: {
+    [`@media (max-width: 376px)`]: {
       fontSize: "14px",
       lineHeight: "18px",
     }
@@ -160,7 +162,7 @@ const useSuperCommunityStyles = createStyles((theme) => ({
       paddingBottom: "11.03px",
     },
 
-    [`@media (max-width: 375px)`]: {
+    [`@media (max-width: 376px)`]: {
       width: "28px",
       height: "28px",
     }

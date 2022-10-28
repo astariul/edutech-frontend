@@ -12,7 +12,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
     height: "808px",
     backgroundImage: "url(/image/home/logoTile.png)",
 
-    [`@media (max-width: 375px)`]: {
+    [`@media (max-width: 376px)`]: {
       display: "none"
     }
   },
@@ -122,7 +122,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
       paddingTop: "250px",
     },
 
-    [`@media (max-width: 375px)`]: {
+    [`@media (max-width: 376px)`]: {
       fontSize: "18px",
       lineHeight: "25px",
       paddingTop: "370px",
@@ -138,7 +138,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
     height: "auto",
     display: "none",
 
-    [`@media (max-width: 375px)`]: {
+    [`@media (max-width: 376px)`]: {
       display: "block",
     }
   }

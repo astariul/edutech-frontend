@@ -94,7 +94,7 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
       letterSpacing: "-2px",
     },
 
-    [`@media (max-width: 375px)`]: {
+    [`@media (max-width: 376px)`]: {
       whiteSpace: "nowrap",
     }
   },
