@@ -119,12 +119,12 @@ const BodyTop = () => {
           <div className={classes.message}>
             이런 고민을 하고 있나요?
             <br />
-            슈퍼코딩<span className={classes.emphasizer}>취업관리형 웹개발 종합반 Plus가</span> 반드시 필요합니다.
+            슈퍼코딩<span className={classes.emphasizer}> 취업관리형 웹개발 종합반 Plus가</span> 반드시 필요합니다.
           </div>
           <div className={classes.messageMobile}>
             이런 고민을 하고 있나요?
             <br />
-            슈퍼코딩<span className={classes.emphasizer}>취업관리형 웹개발 종합반
+            슈퍼코딩<span className={classes.emphasizer}> 취업관리형 웹개발 종합반
             <br />
             Plus가</span> 반드시 필요합니다.
           </div>
@@ -156,7 +156,7 @@ const BodyTop = () => {
                 <span className={classes.hashTag}>#000대기업코딩기출</span>
               </p>
               <p>
-                개발자 취업을 위한<span className={classes.emphasizer}>기업 소개, 지인 지원</span>을 받고 싶다면?
+                개발자 취업을 위한<span className={classes.emphasizer}>기업 소개</span>, <span className={classes.emphasizer}>지인 지원</span>을 받고 싶다면?
                 <br/>
                 <span className={classes.hashTag}>#CTO추천서 #면접코칭 #멘토링</span>
               </p>
