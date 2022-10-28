@@ -1,13 +1,13 @@
 import { createStyles } from '@mantine/core';
 
-const useSuperCourseStyles = createStyles((theme) => ({
+const useTopStyles = createStyles((theme) => ({
   topSection: {
     position: "relative",
     backgroundImage: "url(/image/product/mainBackground.png)",
     backgroundSize: "cover",
     height: "599px",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 850px)`]: {
       marginTop: "0px",
       height: "564px",
     }
@@ -20,7 +20,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     paddingTop: "80px",
     paddingBottom: "58px",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 850px)`]: {
       width: "375px",
       margin: "0 auto",
       paddingTop: "181px"
@@ -40,7 +40,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     letterSpacing: "-0.886023px",
     textTransform: "uppercase",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 850px)`]: {
       paddingTop: 0
     }
   },
@@ -54,7 +54,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     alignItems: "center",
     textAlign: "center",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 850px)`]: {
       fontSize: "12.07px",
       lineHeight: "31px",
       letterSpacing: "-0.07em",
@@ -88,7 +88,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     width: "535px",
     lineHeight: "81.53px",
     
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 850px)`]: {
       display: "none",
     },
   },
@@ -96,7 +96,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
   titleTopMobile: {
     display: "none",
     
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 850px)`]: {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
@@ -106,7 +106,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     },
 
     "& > span: nth-of-type(1)": {
-      [`@media (max-width: 376px)`]: {
+      [`@media (max-width: 850px)`]: {
         display: "block",
         width: "180px",
         fontSize: "51.84px",
@@ -117,7 +117,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     },
 
     "& > span: nth-of-type(2)": {
-      [`@media (max-width: 376px)`]: {
+      [`@media (max-width: 850px)`]: {
         display: "block",
         fontSize: "48px",
         fontWeight: 700,
@@ -151,7 +151,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
       paddingTop: "21px",
     },
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 850px)`]: {
       display: "none"
     },
 
@@ -167,7 +167,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
   hookAreaMobile: {
     display: "none",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 850px)`]: {
       display: "flex",
       flexDirection: "row",
       alignItems: "center",
@@ -190,7 +190,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     color: "#85B6FF",
     opacity: 0.5,
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 850px)`]: {
       display: "none",
       visibility: "hidden",
       marginLeft: "-90px"
@@ -203,7 +203,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     opacity: 0.5,
     display: "none",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 850px)`]: {
       display: "block",      
       marginLeft: "-120px",
       wordBreak: "keep-all",
@@ -213,7 +213,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
   hookMiddle: {
     color: "#43FF4A",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 850px)`]: {
       display: "none"
     }
   },
@@ -222,7 +222,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     color: "#43FF4A",
     display: "none",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 850px)`]: {
       display: "hidden",
       wordBreak: "keep-all",
     }
@@ -233,7 +233,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     color: "#85B6FF",
     opacity: 0.5,
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 850px)`]: {
       display: "none",
     }
   },
@@ -241,7 +241,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
   hookRightMobile: {
     display: "none",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 850px)`]: {
       display: "block",
       fontSize: "20px",
       color: "#85B6FF",
@@ -257,7 +257,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 850px)`]: {
       paddingTop: "54px",
     },
   },
@@ -269,14 +269,14 @@ const useSuperCourseStyles = createStyles((theme) => ({
     alignItems: "center",
     justifyContent: "space-between",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 850px)`]: {
       width: "270px",
     },
     
     "& > img": {
       width:"32.75px",
 
-      [`@media (max-width: 376px)`]: {
+      [`@media (max-width: 850px)`]: {
         width: "20.75px",
         height: "28.75px",
       },
@@ -291,7 +291,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
       letterSpacing: "-2px",
       color: "#FFFFFF",
 
-      [`@media (max-width: 376px)`]: {
+      [`@media (max-width: 850px)`]: {
         fontSize: "20px",
       },
     },
@@ -531,4 +531,4 @@ const useSuperCourseStyles = createStyles((theme) => ({
   }
 }));
 
-export default useSuperCourseStyles;
+export default useTopStyles;

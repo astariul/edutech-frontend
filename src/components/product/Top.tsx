@@ -1,8 +1,8 @@
 
-import useSuperCourseStyles from "./topStyle";
+import useTopStyles from "./topStyle";
 
 const Top = () => {
-  const { classes } = useSuperCourseStyles();
+  const { classes } = useTopStyles();
 
   return (
     <>
