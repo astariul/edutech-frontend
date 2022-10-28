@@ -17,7 +17,7 @@ import { useEffect, useState } from "react";
 const middleLinks = [
   {
     link: "/live",
-    label: "무료강의 / 라이브",
+    label: "무료강의",
   },
   {
     link: "/course",
