@@ -4,40 +4,46 @@ import { createStyles } from "@mantine/core";
 const useStyles = createStyles((theme) => ({
 
   main: {
-    marginTop: "65px",
-    marginLeft: "135px",
-    marginRight: "138.58px",
-    marginBottom: "85px",
+    width: "1440px",
+    margin: "0 auto",
+    paddingTop: "40px",
+    borderTop: "1px solid #E4E4E4",
+    marginBottom: "58.36px",
 
     [`@media (max-width: 850px)`]: {
-      marginTop: "26px",
-      marginLeft: "20px",
-      marginRight: "20px",
+      width: "375px",
     }
   },
-
+  
   content: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
     padding: 0,
 
     [`@media (max-width: 850px)`]: {
       flexDirection: "column",
+    },
+
+    "& > div":{      
+      [`@media (max-width: 850px)`]: {
+        width: "336px",
+        flexDirection: "column",
+      }
     }
   },
 
   contentLeft: {
-
+    width: "953px",
   },
 
   logo: {
     width: "224.75px",
     height: "32px",
 
-    [`@media (max-width: 380px)`]: {
-      width: "124px",
+    [`@media (max-width: 376px)`]: {
+      width: "144.34px",
       height: "21px",
     }
   },
@@ -51,17 +57,27 @@ const useStyles = createStyles((theme) => ({
   },
 
   contentRight: {
+    width: "215px",
+    display: "flex",
+    justifyContent: "flex-end",
     marginBottom: "auto",
 
+    [`@media (max-width: 770px)`]: {
+      alignItems: "center",
+      marginTop: "32px",
+    }
   },
 
   iconBox: {
     display: "flex",
     flexDirection: "row",
-    gap: "37px",
+    width: "215px",
+    justifyContent: "space-between",
 
     [`@media (max-width: 770px)`]: {
-      marginTop: "35.29px",
+      width: "177px",
+      alignItems: "center",
+      justifyContent: "space-between",
     }
   },
 
@@ -69,7 +85,7 @@ const useStyles = createStyles((theme) => ({
     width: "32px",
     height: "32px",
 
-    [`@media (max-width: 380px)`]: {
+    [`@media (max-width: 376px)`]: {
       width: "26.34px",
       height: "26.34px"
     }
