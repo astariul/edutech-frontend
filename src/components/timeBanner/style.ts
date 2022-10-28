@@ -8,11 +8,14 @@ const useStyles = createStyles((theme) => ({
     background: "linear-gradient(180deg, #1F1F1F 0%, #000000 100%)",
     boxShadow: "0px -8px 20px rgba(0, 0, 0, 0.3)",
     borderRadius: "0px",
-    height: "100px"
+    height: "100px",
+
+    [`@media (max-width:376px)`]: {
+      display: "none"
+    }
   },
 
   contents: {
-    // paddingTop: "12px",
     width: "1440px",
     height: "100px",
     margin: "0 auto",
