@@ -6,6 +6,11 @@ const useBottomStyles = createStyles((theme) => ({
     fontStyle: "normal",
     whiteSpace: "nowrap",
     background: "#F2F2F2",
+
+    [`@media (max-width: 376px)`]: {
+      display: "none",
+      background: "#FFFFFF"
+    }
   },
   
   contents: {
@@ -24,6 +29,10 @@ const useBottomStyles = createStyles((theme) => ({
   },
 
   message: {
+    [`@media (max-width: 376px)`]: {
+      display: "none",
+    },
+
     backgroundImage: "url(/image/product/supercodingband.png)",
     backgroundSize: "cover",
     marginTop: "100px",
@@ -52,6 +61,40 @@ const useBottomStyles = createStyles((theme) => ({
     }
   },
 
+  messageMobile: {
+
+    display: "none",
+
+    [`@media (max-width: 376px)`]: {      
+      backgroundImage: "url(/image/product/supercodingbandMobile.png)",
+      backgroundSize: "cover",
+      marginTop: "43px",
+      width: "100%",
+      height: "250px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flexDirection: "column",
+  
+      "& > div": { 
+        width: "335px",
+        margin: "0 auto",
+      },
+      
+      "& > div > h2" : {
+        fontFamily: "NotoSansKR",
+        letterSpacing: "-2px",
+        color: "#FFFFFF",
+        whiteSpace: "nowrap",
+        textAlign: "center",
+        fontSize: "23px",
+        lineHeight: "32px",
+        fontWeight: 700,
+        margin: 0,
+      }
+    }
+  },
+
   emphasizer: {
     fontWeight: 700,
     color: "#0094FF"
@@ -75,6 +118,11 @@ const useBottomStyles = createStyles((theme) => ({
   },
 
   table: {
+
+    [`@media (max-width: 376px)`]:{
+      display: "none"
+    },
+  
     width: "1168px",
     borderCollapse:"collapse",
     borderSpacing:0,

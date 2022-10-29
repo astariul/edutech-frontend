@@ -1,8 +1,8 @@
 
-import useSuperCourseStyles from "./topStyle";
+import useTopStyles from "./topStyle";
 
 const Top = () => {
-  const { classes } = useSuperCourseStyles();
+  const { classes } = useTopStyles();
 
   return (
     <>
@@ -17,6 +17,10 @@ const Top = () => {
             <br />
             웹개발 종합반 1기
           </div>
+          <div className={classes.titleTopMobile}>
+            <span>슈퍼코딩</span>
+            <span>웹개발 종합반 1기</span>
+          </div>
         </div>
         <div className={classes.hookArea}>
           <div className={classes.hookLeft}>개발자로취업하지못하면100%환불보장!</div>
@@ -24,6 +28,11 @@ const Top = () => {
           <div className={classes.hookMiddle}>개발자로취업하지못하면100%환불보장!</div>
           <div className={classes.hookRight}>개발자로취업하지못하면100%환불보장!</div>
           <div className={classes.hookRight}>개발자로취업하지못하면100%환불보장!</div>
+        </div>
+        <div className={classes.hookAreaMobile}>
+          <div className={classes.hookLeftMobile}>개발자로취업하지못하면<br/>100%환불보장!</div>
+          <div className={classes.hookMiddleMobile}>개발자로취업하지못하면<br/>100%환불보장!</div>
+          <div className={classes.hookRightMobile}>개발자로취업하지못하면<br/>100%환불보장!</div>
         </div>
         <div className={classes.bottomMessageArea}>
           <div className={classes.bottomMessage}>

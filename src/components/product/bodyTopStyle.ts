@@ -7,8 +7,9 @@ const useBodyTopStyles = createStyles((theme) => ({
     margin: "0 auto",
     whiteSpace: "nowrap",
 
-    [`@media (max-width: 900px)`]: {
-      marginTop: "0px",
+    [`@media (max-width: 376px)`]: {
+      paddingTop: "45px",
+      width: "375px",
     }
   },
 
@@ -26,6 +27,34 @@ const useBodyTopStyles = createStyles((theme) => ({
     "& > div": {
       width: "1168px",
       alignItems: "flex-start",
+
+      [`@media (max-width: 376px)`]: {
+        width: "336px"
+      }
+    },
+
+  },
+
+  message: {
+    color: "#363636",
+    fontWeight: 700,
+    fontSize: "32px",
+    lineHeight: "44px",
+    letterSpacing: "-2px",
+
+    [`@media (max-width: 376px)`]: {
+      display: "none"
+    }
+  },
+
+  messageMobile: {
+    display: "none",
+
+    [`@media (max-width: 376px)`]: {
+      display: "block",
+      textAlign: "center",
+      fontSize: "23px",
+      lineHeight: "32px",
     }
   },
 
@@ -40,12 +69,35 @@ const useBodyTopStyles = createStyles((theme) => ({
     fontSize: "24px",
     lineHeight: "28px",
     letterSpacing: "-1px",
+
+    [`@media (max-width: 376px)`]: {
+      letterSpacing: "-1.5px",
+      fontSize: "14px",
+      lineHeight: "25px",
+    }
   },
-  
+
   featureMessageArea: {
     width: "1168px",
     background: "#F2F2F2",
     marginTop: "39px",
+
+    [`@media (max-width: 376px)`]: {
+      display: "none"
+    }
+  },
+
+  featureMessageAreaMobile: {
+    display: "none",
+
+    [`@media (max-width: 376px)`]: {
+      display: "flex",
+      marginTop: "25px",
+      background: "#F2F2F2",
+      width: "336px",
+      margin: "25px auto",
+      justifyContent: "center",
+    }
   },
   
   featureMessage: {
@@ -70,23 +122,56 @@ const useBodyTopStyles = createStyles((theme) => ({
       }
     },
 
+    [`@media (max-width: 376px)`]: {
+      textAlign: "center",
+      paddingLeft: "0",
+      paddingTop: "18px",
+      paddingBottom: "22px",
+      width: "auto",
+      rowGap: "0",
+
+      "& > p": {
+        color: "#626262",
+        fontWeight: 700,
+        fontSize: "14px",
+        lineHeight: "25px",
+      }
+    }
   },
 
   tableSection: {
     marginTop: "78px",
+    
+    [`@media (max-width: 376px)`]: {
+      marginTop: "45px",
+      width: "336px"
+    },
 
-    "& > div": {
-      color: "#363636",
-      fontWeight: 700,
-      fontSize: "32px",
-      lineHeight: "44px",
-      letterSpacing: "-2px"
-    }
+    // "& > div": {
+    //   color: "#363636",
+    //   fontWeight: 700,
+    //   fontSize: "32px",
+    //   lineHeight: "44px",
+    //   letterSpacing: "-2px"
+    // }
   },
 
   tableArea: {
     marginTop: "37px",
     marginRight: 0,
+
+    [`@media (max-width: 376px)`]: {
+      display: "none"
+    }
+  },
+
+  tableAreaMobile: {
+    display: "none",
+
+    [`@media (max-width: 376px)`]: {
+      marginTop: "35px",
+      display: "block"
+    }
   },
 
   table: {
@@ -442,6 +527,11 @@ const useBodyTopStyles = createStyles((theme) => ({
   checkbox: {
     paddingTop: "28px",
     justifyContent: "center",
+    
+    [`@media (max-width: 376px)`]: {
+      paddingTop: "0",
+
+    },
 
     "& > label": {
       color: "#626262",
@@ -449,8 +539,13 @@ const useBodyTopStyles = createStyles((theme) => ({
       fontWeight: 700,
       fontSize: "20px",
       lineHeight: "32px",
-      letterSpacing: "-1px"
-    }
+      letterSpacing: "-1px",
+
+      [`@media (max-width: 376px)`]: {
+        fontSize: "12px",
+        lineHeight: "24px",
+      },
+    },
   },
 
   button: {
@@ -463,6 +558,14 @@ const useBodyTopStyles = createStyles((theme) => ({
     background: "#000000",
     borderRadius: "10px",
     
+    [`@media (max-width: 376px)`]: {
+      lineHeight: "24px",
+      width: "335px",
+      height: "60px",
+      borderRadius: "12px",
+
+    },
+
     "& > div": {
       fontFamily: "NotoSansKR",
       fontWeight: 900,
@@ -470,10 +573,13 @@ const useBodyTopStyles = createStyles((theme) => ({
       lineHeight: "37px",
       letterSpacing: "-2px",
       marginLeft: "auto",
-      marginRight: "auto"
+      marginRight: "auto",
+
+      [`@media (max-width: 376px)`]: {
+        fontSize: "19px",
+      },
     }
   },
-
 }));
 
 export default useBodyTopStyles;

@@ -8,9 +8,15 @@ const useBodyFeatureStyles = createStyles((theme) => ({
     color: "#363636",
     whiteSpace: "nowrap",
     backgroundColor: "#F2F2F2",
+    
+    [`@media (max-width: 376px)`]: {
+      paddingTop: "0px",
+      width: "375px",
+    },
   },
 
   contents: {
+    
     width: "1441px",
     margin: "0 auto",
     display: "flex",
@@ -20,6 +26,10 @@ const useBodyFeatureStyles = createStyles((theme) => ({
     fontFamily: "NotoSansKR",
     fontStyle: "normal",
     color: "#363636",
+    
+    [`@media (max-width: 376px)`]: {
+      display: "none",
+    },
 
     "& > div": {      
       width: "1168px",
@@ -27,7 +37,32 @@ const useBodyFeatureStyles = createStyles((theme) => ({
       "& > div": {
         alignItems: "flex-start",
       }
-    }
+    },
+    
+  },
+
+  contentsMobile: {
+    display: "none",
+
+    [`@media (max-width: 376px)`]: {
+      width: "335px",
+      margin: "0 auto",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flexDirection: "column",
+      fontFamily: "NotoSansKR",
+      fontStyle: "normal",
+      color: "#363636",
+    
+      "& > div": {      
+        width: "335px",
+      },
+
+      "& > div.withoutSideBlank": {
+        width: "375.5px",
+      }
+    },
   },
 
   message: {
@@ -47,7 +82,6 @@ const useBodyFeatureStyles = createStyles((theme) => ({
       }
     }
   },
-  
 
   super: {
     paddingTop: "45.11px",
@@ -96,10 +130,88 @@ const useBodyFeatureStyles = createStyles((theme) => ({
     }
   },
 
-  image: {
-    paddingTop: "57px",
+  superMobile: {
+    display: "none",
+    
+    [`@media (max-width: 376px)`]: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      rowGap: "14.88px",
 
+      "& > div.superTagMobile": {
+        display: "block",
+        width: "46px",
+        fontFamily: "NotoSansKR",
+        fontWeight: 800,
+        fontSize: "14.27px",
+        lineHeight: "16px",
+        letterSpacing: "-0.51px",
+        color: "#363636",
+        borderBottom: "2.79px solid #363636",
+
+      },
+      "& > div > h2 > span": {
+        color: "#0094FF",
+      },
+      
+      
+      "& > div.messageMobile": {
+        display: "flex",
+        flexDirection: "column",
+        
+        "& > div": {
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "center",
+        },
+        
+        "& > div > h2 > span": {
+          color: "#0094FF",
+        },
+
+        "& > div > img": {
+          height: "16.97px",
+        },
+
+        "& > div > h2": { 
+          display: "block",
+          margin: 0,
+          fontFamily: "NotoSansKR",
+          fontWeight: 700,
+          fontSize: "18px",
+          lineHeight: "27px",
+          letterSpacing: "-1px",
+          color: "#363636",
+        }
+      },
+      
+      "& > div > h2": { 
+          textAlign: "center", 
+          display: "block",
+          margin: 0,
+          fontFamily: "NotoSansKR",
+          fontWeight: 700,
+          fontSize: "18px",
+          lineHeight: "27px",
+          letterSpacing: "-1px",
+          color: "#363636",
+        }
+    },
   },
+
+  image: {
+    marginTop: "20px",
+    marginBottom: "20px",
+  },
+
+  whiteBackground: {
+    [`@media (max-width: 376px)`]: {
+      background: "#FFFFFF"
+    }
+  }
 
 }));
 

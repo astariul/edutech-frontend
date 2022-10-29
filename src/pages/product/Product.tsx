@@ -5,6 +5,7 @@ import BodyManagement from '../../components/product/BodyManagement';
 import BodyFeatures from "../../components/product/BodyFeatures";
 import useStyles from './style';
 import Bottom from '../../components/product/Bottom';
+import FAQ from "../../components/product/FAQ";
 
 const Product = () => {
   const {classes} = useStyles();
@@ -16,7 +17,7 @@ const Product = () => {
       <BodyFeatures />
       <BodyManagement />
       <Bottom />
-      {/* <TimeBanner dDay="2022-11-21" message="1기 판매 마감! 이 가격 마지막"/> */}
+      <FAQ />
     </section>
   );
 }

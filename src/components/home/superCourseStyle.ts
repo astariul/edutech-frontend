@@ -5,15 +5,19 @@ const useSuperCourseStyles = createStyles((theme) => ({
     position: "relative",
     backgroundImage: "url(/image/home/superCourseBackground.png)",
     backgroundSize: "100% 200%",
-
   },
   
   TopInner: {
-    maxWidth: "1441px",
+    maxWidth: "1168px",
     margin: "0 auto",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+
     [`@media (max-width: 900px)`]: {
       marginTop: "0px",
-    }
+    },
   },
 
   category: {
@@ -212,7 +216,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
       paddingTop: "21px",
     },
 
-    [`@media (max-width: 375px)`]: {
+    [`@media (max-width: 376px)`]: {
       fontSize: "18px",
       lineHeight: "23px",
     }

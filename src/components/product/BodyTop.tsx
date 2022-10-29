@@ -116,10 +116,17 @@ const BodyTop = () => {
     <>
       <section className={classes.main}>
         <section className={classes.content}>
-          <div>
+          <div className={classes.message}>
             이런 고민을 하고 있나요?
             <br />
-            슈퍼코딩<span className={classes.emphasizer}>취업관리형 웹개발 종합반 Plus가</span> 반드시 필요합니다.
+            슈퍼코딩<span className={classes.emphasizer}> 취업관리형 웹개발 종합반 Plus가</span> 반드시 필요합니다.
+          </div>
+          <div className={classes.messageMobile}>
+            이런 고민을 하고 있나요?
+            <br />
+            슈퍼코딩<span className={classes.emphasizer}> 취업관리형 웹개발 종합반
+            <br />
+            Plus가</span> 반드시 필요합니다.
           </div>
           <section className={classes.featureMessageArea}>
             <div className={classes.featureMessage}>
@@ -131,25 +138,58 @@ const BodyTop = () => {
               <li>개발자 취업을 위한<span className={classes.emphasizer}>기업 소개, 지인 지원</span>을 받고 싶다면? <span className={classes.hashTag}>#CTO추천서 #면접코칭 #멘토링</span></li>
             </div>
           </section>
+          <section className={classes.featureMessageAreaMobile}>
+            <div className={classes.featureMessage}>
+              <p>
+                <span className={classes.emphasizer}>비전공자</span>인데 나도 개발자가 되고 싶다면?
+                <br/>
+                <span className={classes.hashTag}>#취업코딩 #취업프로젝트</span>
+              </p>
+              <p>
+                <span className={classes.emphasizer}>취업</span>이 잘되는 포트폴리오를 만들고 싶다면?
+                <br/>
+                <span className={classes.hashTag}>#슈퍼팀프로젝트 #슈퍼해커톤</span>
+              </p>
+              <p>
+                개발자 많이 뽑는다는데,<span className={classes.emphasizer}>원하는 기업에 취업</span>하기를 원한다면?
+                <br/>
+                <span className={classes.hashTag}>#000대기업코딩기출</span>
+              </p>
+              <p>
+                개발자 취업을 위한<span className={classes.emphasizer}>기업 소개</span>, <span className={classes.emphasizer}>지인 지원</span>을 받고 싶다면?
+                <br/>
+                <span className={classes.hashTag}>#CTO추천서 #면접코칭 #멘토링</span>
+              </p>
+            </div>
+          </section>
           <section className={classes.tableSection}>
-            <div>
+            <div className={classes.message}>
+              취업하지 못하면 <span className={classes.emphasizer}>100%환불</span>합니다.
+              <br />
+              취업관리형 웹개발 종합반 Plus
+            </div>
+            <div className={classes.messageMobile}>
               취업하지 못하면 <span className={classes.emphasizer}>100%환불</span>합니다.
               <br />
               취업관리형 웹개발 종합반 Plus
             </div>
             <div className={classes.tableArea}>
               <ProductTable />
-              <Checkbox
-                className={classes.checkbox}
-                radius={0}
-                label={
+            </div>
+            <div className={classes.tableAreaMobile}>
+              <img src={require("../../static/image/product/tableMobile.png")} alt="" />
+            </div>
+            <Checkbox
+              className={classes.checkbox}
+              radius={0}
+              label={
                 <div>
                   <span style={{color: "#000000", textDecoration: "underline"}}>상품 이용관련 유의사항을 모두 확인</span>
                   하였고, 이에 동의합니다.
                 </div>
-              }/>
-            </div>
-            <Button className={classes.button}>지금바로구매</Button>
+              }
+            />
+            <Button className={classes.button}>지금 바로 구매</Button>
           </section>
         </section>
       </section>

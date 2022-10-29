@@ -3,15 +3,12 @@ import { createStyles } from '@mantine/core';
 const useSuperReivewStyles = createStyles((theme) => ({
 
   main: {
-    // paddingLeft: "9.306vw",
-    // paddingRight: "9.514vw",
     width: "1440px",
     margin: "0 auto",
     display: "flex",
     flexDirection: "column",
 
     [`@media (max-width: 850px)`]: {
-      paddingLeft: "4.800vw",
       width: "100%",
     }
   },
