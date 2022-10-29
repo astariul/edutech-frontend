@@ -188,7 +188,7 @@ const VideoListSection = (
             return (
               <div key={video.number} className={classes.video}>
                 <CourseEpisode
-                  episodeThumbnail={{width: 168, height: 105.8, image: require("../../static/image/myClassRoom/episodeThumbnail.png")}}
+                  episodeThumbnail={{width: 168, height: 95, image: require("../../static/image/myClassRoom/episodeThumbnail.png")}}
                   playImage={{width: 45, height: 45, image: require("../../static/image/myClassRoom/play.png")}}
                   title={"SEASON" + video.seasonNumber}
                   subTitle={video.title}

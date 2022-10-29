@@ -2,12 +2,8 @@ import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   main: {
-    // marginTop: "106px",
-    // marginBottom: "106px",
     width: "1440px",
     margin: "106px auto",
-    // paddingLeft: "9.375vw",
-    // paddingRight: "9.375vw",
     fontFamily: "NotoSansKR",
     fontStyle: "normal",
 
@@ -240,6 +236,7 @@ const useStyles = createStyles((theme) => ({
     flexDirection: "column",
     paddingTop: "18px",
     rowGap: "14px",
+    height: "428px",
   },
 
   video: {
