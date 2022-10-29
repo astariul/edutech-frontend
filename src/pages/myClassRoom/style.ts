@@ -2,10 +2,12 @@ import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   main: {
-    marginTop: "106px",
-    marginBottom: "106px",
-    paddingLeft: "9.375vw",
-    paddingRight: "9.375vw",
+    // marginTop: "106px",
+    // marginBottom: "106px",
+    width: "1440px",
+    margin: "106px auto",
+    // paddingLeft: "9.375vw",
+    // paddingRight: "9.375vw",
     fontFamily: "NotoSansKR",
     fontStyle: "normal",
 
@@ -17,6 +19,10 @@ const useStyles = createStyles((theme) => ({
   contents: {
     display: "flex",
     flexDirection: "column",
+    // alignItems: "center",
+    justifyContent: "center",
+    width: "1168px",
+    margin: "0 auto",
   },
 
   title: {
@@ -121,7 +127,7 @@ const useStyles = createStyles((theme) => ({
     paddingTop: "33px",
     display: "flex",
     flexDirection: "column",
-    width: "81.111vw",
+    width: "auto",
   },
 
   tableHeader: {
@@ -147,10 +153,10 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    width: "32.222vw",
+    width: "464px",
 
     paddingTop: "15px",
-    paddingLeft: "2.5vw",
+    paddingLeft: "36px",
     paddingBottom: "21.17px"
   },
 
@@ -173,7 +179,8 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     columnGap: "51px",
-    paddingBottom: "34px"
+    paddingBottom: "34px",
+    width: "264px",
   },
 
   keyValueTable: {
