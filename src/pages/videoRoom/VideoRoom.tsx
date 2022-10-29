@@ -107,6 +107,7 @@ const TableHeaderSection = (
             size={37.78}/>
         </div>
         <div className={classes.progressBar}>
+          {/* TODO: 백엔드에서 내려준 값으로 프로그래스 value 값을 설정한다. */}
           <Progress value={1} size={4} radius={22}/>
         </div>
       </div>
@@ -210,7 +211,7 @@ const VideoRoom = () => {
   const navigate = useNavigate();
   const [login] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
   const [videoList, setVideoList] = useState<IVideo[]>([]);
-  const numPaginatedVideo = 4;
+  const numPaginatedVideo = 5;
 
   useEffect(
     () => {

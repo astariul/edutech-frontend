@@ -43,7 +43,7 @@ const useStyles = createStyles((theme, {backgroundImage}: props) => ({
   },
   
   progressBar: {
-    width: "46.111vw",
+    width: "664px",
   },
 
   duration: {

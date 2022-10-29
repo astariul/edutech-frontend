@@ -4,8 +4,9 @@ const useStyles = createStyles((theme) => ({
   main: {
     marginTop: "115px",
     marginBottom: "188px",
-    paddingLeft: "9.375vw",
-    paddingRight: "12.500vw",
+    marginLeft: "auto",
+    marginRight: "auto",
+    width: "1440px",
     fontFamily: "NotoSansKR",
     fontStyle: "normal",
   },
@@ -14,6 +15,8 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     columnGap: "32px",
+    width: "1168px",
+    margin: "0 auto"
   },
 
   leftSection: {
@@ -204,8 +207,7 @@ const useStyles = createStyles((theme) => ({
   },
   
   progressBar: {
-    maxWidth: "628px",
-    width: "43.611vw",
+    width: "629.6px",
   },
   
   progressText: {
@@ -225,6 +227,7 @@ const useStyles = createStyles((theme) => ({
     flexDirection: "column",
     paddingTop: "0",
     rowGap: "10px",
+    height: "400px",
   },
   
   courseEpisode: {
@@ -244,8 +247,7 @@ const useStyles = createStyles((theme) => ({
     },
 
     "& > div > div > div:nth-of-type(3)": {
-      maxWidth: "628px",
-      width: "43.611vw"
+      width: "629.6px"
     },
 
     "& > div > div:nth-of-type(3)": {
