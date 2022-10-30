@@ -292,7 +292,7 @@ const useTopStyles = createStyles((theme) => ({
       color: "#FFFFFF",
 
       [`@media (max-width: 900px)`]: {
-        fontSize: "20px",
+        fontSize: "18px",
       },
     },
   },
