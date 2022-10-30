@@ -7,7 +7,7 @@ const useTopStyles = createStyles((theme) => ({
     backgroundSize: "cover",
     height: "599px",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       marginTop: "0px",
       height: "564px",
     }
@@ -20,7 +20,7 @@ const useTopStyles = createStyles((theme) => ({
     paddingTop: "80px",
     paddingBottom: "58px",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       width: "375px",
       margin: "0 auto",
       paddingTop: "181px"
@@ -40,7 +40,7 @@ const useTopStyles = createStyles((theme) => ({
     letterSpacing: "-0.886023px",
     textTransform: "uppercase",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       paddingTop: 0
     }
   },
@@ -54,7 +54,7 @@ const useTopStyles = createStyles((theme) => ({
     alignItems: "center",
     textAlign: "center",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       fontSize: "12.07px",
       lineHeight: "31px",
       letterSpacing: "-0.07em",
@@ -76,7 +76,7 @@ const useTopStyles = createStyles((theme) => ({
     fontSize: "77px",
     color: "#FFFFFF",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       paddingTop: "11.55px",
     }
   },
@@ -88,7 +88,7 @@ const useTopStyles = createStyles((theme) => ({
     width: "535px",
     lineHeight: "81.53px",
     
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       display: "none",
     },
   },
@@ -96,7 +96,7 @@ const useTopStyles = createStyles((theme) => ({
   titleTopMobile: {
     display: "none",
     
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
@@ -106,7 +106,7 @@ const useTopStyles = createStyles((theme) => ({
     },
 
     "& > span: nth-of-type(1)": {
-      [`@media (max-width: 850px)`]: {
+      [`@media (max-width: 900px)`]: {
         display: "block",
         width: "180px",
         fontSize: "51.84px",
@@ -117,7 +117,7 @@ const useTopStyles = createStyles((theme) => ({
     },
 
     "& > span: nth-of-type(2)": {
-      [`@media (max-width: 850px)`]: {
+      [`@media (max-width: 900px)`]: {
         display: "block",
         fontSize: "48px",
         fontWeight: 700,
@@ -142,7 +142,7 @@ const useTopStyles = createStyles((theme) => ({
     height: "35px",
     columnGap: "19px",
 
-    [`@media (min-width: 850px) and (max-width: 1350px)`]: {
+    [`@media (min-width: 900px) and (max-width: 1350px)`]: {
       gap: "20px",
       fontSize: "21px",
       lineHeight: "26px",
@@ -151,7 +151,7 @@ const useTopStyles = createStyles((theme) => ({
       paddingTop: "21px",
     },
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       display: "none"
     },
 
@@ -167,7 +167,7 @@ const useTopStyles = createStyles((theme) => ({
   hookAreaMobile: {
     display: "none",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       display: "flex",
       flexDirection: "row",
       alignItems: "center",
@@ -190,7 +190,7 @@ const useTopStyles = createStyles((theme) => ({
     color: "#85B6FF",
     opacity: 0.5,
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       display: "none",
       visibility: "hidden",
       marginLeft: "-90px"
@@ -203,7 +203,7 @@ const useTopStyles = createStyles((theme) => ({
     opacity: 0.5,
     display: "none",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       display: "block",      
       marginLeft: "-120px",
       wordBreak: "keep-all",
@@ -213,7 +213,7 @@ const useTopStyles = createStyles((theme) => ({
   hookMiddle: {
     color: "#43FF4A",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       display: "none"
     }
   },
@@ -222,7 +222,7 @@ const useTopStyles = createStyles((theme) => ({
     color: "#43FF4A",
     display: "none",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       display: "hidden",
       wordBreak: "keep-all",
     }
@@ -233,7 +233,7 @@ const useTopStyles = createStyles((theme) => ({
     color: "#85B6FF",
     opacity: 0.5,
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       display: "none",
     }
   },
@@ -241,7 +241,7 @@ const useTopStyles = createStyles((theme) => ({
   hookRightMobile: {
     display: "none",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       display: "block",
       fontSize: "20px",
       color: "#85B6FF",
@@ -257,7 +257,7 @@ const useTopStyles = createStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       paddingTop: "54px",
     },
   },
@@ -269,14 +269,14 @@ const useTopStyles = createStyles((theme) => ({
     alignItems: "center",
     justifyContent: "space-between",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       width: "270px",
     },
     
     "& > img": {
       width:"32.75px",
 
-      [`@media (max-width: 850px)`]: {
+      [`@media (max-width: 900px)`]: {
         width: "20.75px",
         height: "28.75px",
       },
@@ -291,8 +291,8 @@ const useTopStyles = createStyles((theme) => ({
       letterSpacing: "-2px",
       color: "#FFFFFF",
 
-      [`@media (max-width: 850px)`]: {
-        fontSize: "20px",
+      [`@media (max-width: 900px)`]: {
+        fontSize: "18px",
       },
     },
   },
@@ -303,7 +303,7 @@ const useTopStyles = createStyles((theme) => ({
     background: "#FFFFFF",
     borderRadius: "13px",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       width: "336px"
     }
   },
@@ -317,7 +317,7 @@ const useTopStyles = createStyles((theme) => ({
     fontFamily: "NotoSansKR",
     fontStyle: "normal",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       paddingLeft: "29px",
       paddingRight: "6px",
     }
@@ -335,7 +335,7 @@ const useTopStyles = createStyles((theme) => ({
     fontWeight: 900,
     letterSpacing: "-2px",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       fontSize: "20px",
     }
   },
@@ -349,7 +349,7 @@ const useTopStyles = createStyles((theme) => ({
     justifyContent: "space-between",
     color: "#0065FD",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       width: "169px",
     }
   },
@@ -361,7 +361,7 @@ const useTopStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       fontSize: "17px",
     }
   },
@@ -404,7 +404,7 @@ const useTopStyles = createStyles((theme) => ({
         height: "120.24px",
     },
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
     },
   },
 
@@ -425,13 +425,13 @@ const useTopStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
 
-    [`@media (min-width: 850px) and (max-width: 1350px)`]: {
+    [`@media (min-width: 900px) and (max-width: 1350px)`]: {
       paddingTop: "18.21px",
       paddingLeft: "29.13px",
 
     },
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       paddingTop: "18.21px",
       paddingLeft: "29.13",
     },
@@ -444,13 +444,13 @@ const useTopStyles = createStyles((theme) => ({
     letterSpacing: "-1.00199px",
     color: "rgba(255, 255, 255, 0.6)",
 
-    [`@media (min-width: 850px) and (max-width: 1350px)`]: {
+    [`@media (min-width: 900px) and (max-width: 1350px)`]: {
       fontSize: "10.92px",
       lineHeight: "18px",
       letterSpacing: "-0.91px",
     },
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       fontSize: "10.92px",
       lineHeight: "18px",
       letterSpacing: "-0.91px",
@@ -464,13 +464,13 @@ const useTopStyles = createStyles((theme) => ({
     letterSpacing: "-0.05em",
     color: "#FFFFFF",
 
-    [`@media (min-width: 850px) and (max-width: 1350px)`]: {
+    [`@media (min-width: 900px) and (max-width: 1350px)`]: {
       fontSize: "21.85px",
       lineHeight: "32.77px",
       letterSpacing: "-0.05em",
     },
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       fontSize: "21.85px",
       lineHeight: "32.77px",
       letterSpacing: "-0.05em",
@@ -499,14 +499,14 @@ const useTopStyles = createStyles((theme) => ({
     color: "rgba(255, 255, 255, 0.6)",
     paddingRight: "5.1px",
 
-    [`@media (min-width: 850px) and (max-width: 1350px)`]: {
+    [`@media (min-width: 900px) and (max-width: 1350px)`]: {
       fontSize: "12.74px",
       lineHeight: "18px",
       letterSpacing: "-0.05em",
       paddingRight: "4.58px"
     },
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       fontSize: "12.74px",
       lineHeight: "18px",
       letterSpacing: "-0.05em",
@@ -518,12 +518,12 @@ const useTopStyles = createStyles((theme) => ({
     width: "16px",
     height: "16px",
 
-    [`@media (min-width: 850px) and (max-width: 1350px)`]: {
+    [`@media (min-width: 900px) and (max-width: 1350px)`]: {
       width: "14.57px",
       height: "14.57px",
     },
   
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 900px)`]: {
       width: "14.57px",
       height: "14.57px",
 

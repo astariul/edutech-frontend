@@ -16,10 +16,10 @@ import Resume from './pages/resume/Resume';
 import AuthenticationForm from './components/AuthentificationForm';
 import AuthMethodModal from './components/authMethod/AuthMethodModal';
 import AuthFormModal from './components/authForm/AuthFormModal';
-import CourseIntro from './pages/courseIntro/CourseIntro';
 import VideoRoom from './pages/videoRoom/VideoRoom';
 import Product from './pages/product/Product';
 import TimeBanner from './components/timeBanner/TimeBanner';
+import FreeCourse from './pages/freeCourse/FreeCourse';
 
 function App() {
   const [timeBannerOpened, toggleTimeBannerOpened] = useBooleanToggle(false);
@@ -91,7 +91,7 @@ function App() {
             }>
           </Route>
           <Route path='/login/form' element={<AuthFormModal modalOpen={true} authType={"로그인"}/>}></Route>
-          <Route path='/roadmap' element={<CourseIntro />}></Route>
+          <Route path='/free' element={<FreeCourse />}></Route>
           <Route path='/course' element={<Product />}></Route>
           <Route path='/myclass' element={<MyClassRoom />}></Route>
           <Route path='/class/*' element={<VideoRoom/>}></Route>

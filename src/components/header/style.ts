@@ -23,10 +23,9 @@ const useStyles = createStyles((theme) => ({
       width: "100%",
       left: "0px",
       top: "0px",
-      backgroundColor: "hsla(234, 100%, 30%, 1)",
+      backgroundColor: "rgba(0, 0, 0, 0.3)",
       borderStyle: "none",
     },
-
   },
 
   line: {
@@ -93,9 +92,13 @@ const useStyles = createStyles((theme) => ({
       alignItems: "center",
       justifyContent: "space-between",
       border: "1px solid rgba(255, 255, 255, 0.1)",
-      backgroundColor: "hsla(234, 100%, 45%, 0.2)",
     },
 
+    "@media (max-width: 400px)": {
+      paddingLeft: "15px",
+      columnGap: "2px",
+      border: "1px solid rgba(255, 255, 255, 0.1)",
+    },
   },
 
   rightLinkGroup: {
@@ -114,7 +117,7 @@ const useStyles = createStyles((theme) => ({
 
   dropdown: {
     position: 'absolute',
-    top: "80px",
+    top: "100px",
     left: 0,
     right: 0,
     zIndex: 0,
@@ -122,7 +125,7 @@ const useStyles = createStyles((theme) => ({
     borderTopLeftRadius: 0,
     borderTopWidth: 0,
     overflow: 'hidden',
-    backgroundColor: "#0018ED",
+    backgroundColor: "#002B7C",
     borderStyle: "none",
 
     "@media screen and (min-width: 900px)": {
@@ -184,6 +187,10 @@ const useStyles = createStyles((theme) => ({
       marginBottom: "17px",
       wordBreak: "keep-all",
     },
+
+    "@media screen and (max-width: 400px)": {
+      fontSize: "12px",
+    },
   },
 
   rightLink: {
@@ -195,7 +202,7 @@ const useStyles = createStyles((theme) => ({
     
     margin: "0px",
     textDecoration: "none",
-    fontFamily: "AlongSanss2",
+    fontFamily: "NotoSansKR",
     fontStyle: "normal",
     fontWeight: 600,
     fontSize: "12px",

@@ -1,10 +1,10 @@
 import { createStyles } from '@mantine/core';
 
-const useSuperCommunityStyles = createStyles((theme) => ({
+const useStyles = createStyles((theme) => ({
   main: {
-    backgroundColor: "#0094FF",
+    backgroundColor: "#F2F2F2",
     height: "330px",
-    
+    marginTop: "65.74px",
     [`@media (max-width: 1200px)`]: {
       height: "500px",
     }
@@ -32,7 +32,6 @@ const useSuperCommunityStyles = createStyles((theme) => ({
   contentLeft: {
     display: "flex",
     flexDirection: "column",
-
     [`@media (max-width: 1200px)`]: {
       alignItems: "center",
     }
@@ -46,7 +45,7 @@ const useSuperCommunityStyles = createStyles((theme) => ({
     lineHeight: "41px",
     letterSpacing: "-0.886023px",
     textTransform: "uppercase",
-    color: "#FFFFFF",
+    color: "#363636",
   },
 
   title: {
@@ -56,7 +55,7 @@ const useSuperCommunityStyles = createStyles((theme) => ({
     fontSize: "32px",
     lineHeight: "43px",
     letterSpacing: "-2px",
-    color: "#FFFFFF",
+    color: "#363636",
 
     [`@media (max-width: 1200px)`]: {
       textAlign: "center",
@@ -67,7 +66,6 @@ const useSuperCommunityStyles = createStyles((theme) => ({
 
   contentRight: {
     marginLeft: "auto",
-
     [`@media (max-width: 1200px)`]: {
       marginLeft: 0,
     }
@@ -170,4 +168,4 @@ const useSuperCommunityStyles = createStyles((theme) => ({
   }
 }));
 
-export default useSuperCommunityStyles;
+export default useStyles;
