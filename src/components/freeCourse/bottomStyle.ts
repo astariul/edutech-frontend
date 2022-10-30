@@ -79,7 +79,6 @@ const useStyles = createStyles((theme) => ({
     [`@media (max-width: 1200px)`]: {
       height: "280px",
       flexWrap: "wrap",
-      gap: "13.14px",
       justifyContent: "space-around",
       alignContent: "space-around",
     },

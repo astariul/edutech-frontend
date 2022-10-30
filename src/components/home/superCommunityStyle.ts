@@ -32,6 +32,7 @@ const useSuperCommunityStyles = createStyles((theme) => ({
   contentLeft: {
     display: "flex",
     flexDirection: "column",
+
     [`@media (max-width: 1200px)`]: {
       alignItems: "center",
     }
@@ -66,6 +67,7 @@ const useSuperCommunityStyles = createStyles((theme) => ({
 
   contentRight: {
     marginLeft: "auto",
+
     [`@media (max-width: 1200px)`]: {
       marginLeft: 0,
     }
@@ -79,7 +81,6 @@ const useSuperCommunityStyles = createStyles((theme) => ({
     [`@media (max-width: 1200px)`]: {
       height: "280px",
       flexWrap: "wrap",
-      gap: "13.14px",
       justifyContent: "space-around",
       alignContent: "space-around",
     },
