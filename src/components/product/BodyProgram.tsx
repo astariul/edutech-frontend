@@ -19,7 +19,7 @@ const TransitionProgram = ({open, setOpened}: TransitionProgramProps) => {
           alt="arrowDown"
         />
       </Button>
-      <Transition mounted={open} transition="slide-down" duration={300}>
+      <Transition mounted={open} transition="slide-down" duration={0}>
         {(styles) => (
           <Paper
             shadow="md"
