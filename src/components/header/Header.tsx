@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
 
 const middleLinks = [
   {
-    link: "/live",
+    link: "/free",
     label: "무료강의",
   },
   {
@@ -70,7 +70,7 @@ const HeaderResponsive = () => {
   }, [location.pathname, setActive, toggleOpened]);
 
   const middleLinkItems = middleLinks.map((link) => {
-    if (["/live"].includes(link.link)) {
+    if (["/resume"].includes(link.link)) {
       return (
         <Anchor
           underline={false}
