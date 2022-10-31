@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Home from './pages/home/Home';
 import { MantineProvider, AppShell, Center } from '@mantine/core';
-import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';
+import { useLocalStorage } from '@mantine/hooks';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import HeaderResponsive from './components/header/Header';
 import Footer from './components/Footer/Footer';
@@ -22,11 +22,12 @@ import TimeBanner from './components/timeBanner/TimeBanner';
 import FreeCourse from './pages/freeCourse/FreeCourse';
 
 function App() {
-  const [timeBannerOpened, toggleTimeBannerOpened] = useBooleanToggle(false);
   const [login, setLogin] = useLocalStorage<IUserProfile | null>({ key: 'login', defaultValue: null });
   const [authorized, setAuthorized] = useLocalStorage<string | null>({ key: 'authorization', defaultValue: null });
   const [, setFormType] = useState<"register" | "login">("login");
   const location = useLocation();
+  const [bannerMessage, setBannerMessage] = useState("");
+  const [bannerMessageColor, setBannerMessageColor] = useState("#0094FF");
 
   if (authorized) {
     new AuthRepository()
@@ -42,10 +43,18 @@ function App() {
       })
   }
 
-  useEffect(() => {
-    location.pathname.startsWith("/course") ?
-      toggleTimeBannerOpened(true) : toggleTimeBannerOpened(false);
-  }, [location.pathname, toggleTimeBannerOpened]);
+  useEffect(
+    () => {
+      if (location.pathname.startsWith("/course")) {
+        setBannerMessage("1기 판매 마감! 이 가격 마지막");
+
+      }
+      else if (location.pathname.startsWith("/free")) {
+        setBannerMessage("완강 후기 작성하면 1개월 무료!");
+        setBannerMessageColor("#DBFF00")
+      }
+    }, [location.pathname, bannerMessage, setBannerMessage, setBannerMessageColor]
+  );
 
   return (
     <MantineProvider>
@@ -54,7 +63,12 @@ function App() {
         footer={
         <>
           <Footer />
-          {timeBannerOpened ? <TimeBanner dDay="2022-11-1" message="1기 판매 마감! 이 가격 마지막"/> : <></>}
+          {
+            bannerMessage !== "" ?
+            <TimeBanner dDay="2022-11-20" message={bannerMessage} messageColor={bannerMessageColor}/>
+            :
+            <></>
+          }
         </>
         }
         styles={(theme) => ({
