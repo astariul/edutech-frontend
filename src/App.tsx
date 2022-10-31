@@ -111,11 +111,8 @@ function App() {
                 authType={"로그인"}
                 easyMethods={
                   [
-                    {image: require("../src/static/image/naver.png"), title: "네이버로 시작하기"},
                     {image: require("../src/static/image/kakaotalk.png"), title: "카카오톡으로 시작하기"},
                     {image: require("../src/static/image/google.png"), title: "구글로 시작하기"},
-                    {image: require("../src/static/image/apple.png"), title: "Apple로 시작하기"},
-                    {image: require("../src/static/image/facebook.png"), title: "페이스북으로 시작하기"},
                   ]
                 }
               />
