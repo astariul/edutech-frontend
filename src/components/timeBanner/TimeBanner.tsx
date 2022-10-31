@@ -5,11 +5,12 @@ import useStyles from './style';
 
 interface TimeBannerProps {
   dDay: string,
+  messageColor: string,
   message?: string,
 }
 
-const TimeBanner = ({dDay, message}: TimeBannerProps) => {
-  const {classes} = useStyles();
+const TimeBanner = ({dDay, message, messageColor}: TimeBannerProps) => {
+  const {classes} = useStyles({messageColor});
   return (
     <section className={classes.main}>
       <div className={classes.contents}>
