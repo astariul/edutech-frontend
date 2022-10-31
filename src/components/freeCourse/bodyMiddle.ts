@@ -8,6 +8,10 @@ export const useCardStyle = createStyles(() =>  ({
     fontStyle: "normal",
     letterSpacing: "-1px",
     boxShadow: "0px 10px 24px rgba(0, 0, 0, 0.1)",
+
+    [`@media (max-width: 376px)`]: {
+      width: "318px",
+    }
   },
 
   columnFlex: {
@@ -24,6 +28,16 @@ export const useCardStyle = createStyles(() =>  ({
   cardImage: {
     width: "368px",
     height: "208.12px",
+
+    [`@media (max-width: 376px)`]: {
+      width: "318px",
+      height: "179.88px",
+
+      "& > img": {
+        width: "318px",
+        height: "179.88px"
+      }
+    }
   },
 
   cardBody: {
@@ -157,6 +171,89 @@ export const useCardStyle = createStyles(() =>  ({
         }
       },
     },
+
+    [`@media (max-width: 376px)`]: {
+      "& > div.titleArea": {
+        margin: "13.12px 16.22px 0px 25.08px",
+        height: "117.12px",
+        rowGap: "2.15px",
+
+        "& > div.bodyTitle": {
+          fontWeight: 700,
+          fontSize: "16px",
+          lineHeight: "22px",
+          letterSpacing: "-0.94px",
+          color: "#000000"
+        },
+    
+        "& > div.bodyTag": {
+          fontWeight: 500,
+          fontSize: "13px",
+          lineHeight: "19px",
+          letterSpacing: "-0.05em",
+          color: "#000000"
+        },
+      },
+
+      "& > div.courseMeta": {
+        fontSize: "12px",
+        lineHeight: "17px",
+
+        "div.durationAndStudent": {
+          paddingLeft: "26.44px",
+          width: "301px",
+          height: "39px",     
+          columnGap: "43.67px",
+
+          "img": {
+            width: "14.41px",
+            height: "14.41px",
+          },
+    
+          "div.duration": {
+            columnGap: "5.76px",
+            width: "103.72px",
+          },
+
+          "div.student": {
+            columnGap: "5.71px",
+            width: "125.6px",
+          }
+        }
+      },
+
+      "& > div.recommendation": {
+        height: "128px",
+      },
+
+      "& > div.priceArea": {
+        margin: "8px 20.75px 0px 20.75px",
+        height: "122.22px",
+        rowGap: "18.26px",
+
+      "& > div.price":{
+
+        "& > div: nth-of-type(1)": {
+          color: "#000000",
+          paddingRight: "17.38px",
+        },
+  
+        "& > div.origin": {
+          paddingRight: "3px"
+        },
+      },
+
+      "& > button": {
+        width: "276.58px",
+        height: "51.86px",
+
+        "& > div >span": {
+          lineHeight: "35px",
+        }
+      },
+      }
+    },
+
   },
 }));
 
@@ -165,10 +262,11 @@ export const useStyles = createStyles((theme) => ({
     width: "1441px",
     margin: "124px auto 154px auto",
 
-    // [`@media (max-width: 376px)`]: {
-    //   marginTop: "37px",
-    //   height: "564px",
-    // }
+    [`@media (max-width: 376px)`]: {
+      width: "375px",
+      marginTop: "53px",
+      marginBottom: 0,
+    }
   },
 
   columnFlex: {
@@ -188,8 +286,13 @@ export const useStyles = createStyles((theme) => ({
     margin: "0 auto",
 
     [`@media (max-width: 376px)`]: {
+
       width: "375px",
-      margin: "0 auto",
+      alignItems: "center",
+
+      "& > div": {
+        width: "335px",
+      }
     }
   },
 
@@ -216,6 +319,12 @@ export const useStyles = createStyles((theme) => ({
 
     "& > span": {
       color: "#0094FF",
+    },
+
+    [`@media (max-width: 376px)`]: {
+      fontSize: "23px",
+      lineHeight: "32px",
+      letterSpacing: "-2px",
     }
   },
 
@@ -225,11 +334,25 @@ export const useStyles = createStyles((theme) => ({
     columnGap: "31px",
     rowGap: "90px",
     flexFlow: "column wrap",
+
+    [`@media (max-width: 376px)`]: {
+      marginTop: "47px",
+      width: "318px",
+      columnGap: "9px",
+      rowGap: 0,
+      flexFlow: "nowrap",
+    }
   },
 
   card: {
     width: "368px",
     rowGap: "27px",
+
+    [`@media (max-width: 376px)`]: {
+      width: "318px",
+      alignItems: "center",
+      justifyContent: "center",
+    }
   },
 
   title: {
@@ -238,7 +361,26 @@ export const useStyles = createStyles((theme) => ({
     fontSize: "26px",
     color: "#363636",
     wordBreak: "break-word",
+
+    [`@media (max-width: 376px)`]: {      
+      textAlign: "center",
+      fontSize: "18px",
+      lineHeight: "27px",
+    }
   },
 
-  
+  mobile: {
+    display: "none",
+
+    [`@media (max-width: 376px)`]: {
+      display: "block",
+    }
+  },
+
+  desktop: {
+
+    [`@media (max-width: 376px)`]: {
+      display: "none",
+    }
+  }
 }));
