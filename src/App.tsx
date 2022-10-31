@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Home from './pages/home/Home';
 import { MantineProvider, AppShell, Center } from '@mantine/core';
-import { useBooleanToggle, useLocalStorage } from '@mantine/hooks';
+import { useLocalStorage } from '@mantine/hooks';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import HeaderResponsive from './components/header/Header';
 import Footer from './components/Footer/Footer';
@@ -22,11 +22,14 @@ import TimeBanner from './components/timeBanner/TimeBanner';
 import FreeCourse from './pages/freeCourse/FreeCourse';
 
 function App() {
-  const [timeBannerOpened, toggleTimeBannerOpened] = useBooleanToggle(false);
   const [login, setLogin] = useLocalStorage<IUserProfile | null>({ key: 'login', defaultValue: null });
   const [authorized, setAuthorized] = useLocalStorage<string | null>({ key: 'authorization', defaultValue: null });
   const [, setFormType] = useState<"register" | "login">("login");
   const location = useLocation();
+  const [bannerMessage, setBannerMessage] = useState("");
+  const [bannerMessageColor, setBannerMessageColor] = useState("#0094FF");
+  const [bannerButtonMesg, setbannerButtonMesg] = useState("");
+  const [bannerOn, setBannerOn] = useState(false);
 
   if (authorized) {
     new AuthRepository()
@@ -42,10 +45,28 @@ function App() {
       })
   }
 
-  useEffect(() => {
-    location.pathname.startsWith("/course") ?
-      toggleTimeBannerOpened(true) : toggleTimeBannerOpened(false);
-  }, [location.pathname, toggleTimeBannerOpened]);
+  useEffect(
+    () => {
+      if (location.pathname.startsWith("/course")) {
+        setBannerMessage("1기 판매 마감! 이 가격 마지막");
+        setbannerButtonMesg("지금 바로 구매");
+        setBannerMessageColor("#0094FF");
+        setBannerOn(true);
+      }
+      else if (location.pathname.startsWith("/free")) {
+        setBannerMessage("완강 후기 작성하면 1개월 무료!");
+        setbannerButtonMesg("이벤트 바로가기");
+        setBannerMessageColor("#DBFF00");
+        setBannerOn(true);
+      }
+      else {
+        setBannerOn(false);
+      }
+    }, [
+      location.pathname, bannerMessage, setBannerMessage,
+      setBannerMessageColor, setBannerOn, setbannerButtonMesg
+    ]
+  );
 
   return (
     <MantineProvider>
@@ -54,7 +75,17 @@ function App() {
         footer={
         <>
           <Footer />
-          {timeBannerOpened ? <TimeBanner dDay="2022-11-1" message="1기 판매 마감! 이 가격 마지막"/> : <></>}
+          {
+            bannerOn && bannerMessage !== "" ?
+            <TimeBanner
+              dDay="2022-11-20"
+              message={bannerMessage}
+              messageColor={bannerMessageColor}
+              buttonString={bannerButtonMesg}
+            />
+            :
+            <></>
+          }
         </>
         }
         styles={(theme) => ({
@@ -80,11 +111,8 @@ function App() {
                 authType={"로그인"}
                 easyMethods={
                   [
-                    {image: require("../src/static/image/naver.png"), title: "네이버로 시작하기"},
                     {image: require("../src/static/image/kakaotalk.png"), title: "카카오톡으로 시작하기"},
                     {image: require("../src/static/image/google.png"), title: "구글로 시작하기"},
-                    {image: require("../src/static/image/apple.png"), title: "Apple로 시작하기"},
-                    {image: require("../src/static/image/facebook.png"), title: "페이스북으로 시작하기"},
                   ]
                 }
               />

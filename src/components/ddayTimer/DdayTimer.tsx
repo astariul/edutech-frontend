@@ -11,17 +11,16 @@ type TimeLeft = {
   days: number;
   hours: number;
   minutes: number;
-  // seconds: number;
+  seconds: number;
 };
 
 const calculateTimeLeft = (dDay: string): TimeLeft=> {
-  let year = new Date().getFullYear();
   const difference = +new Date(dDay) - +new Date();
   const timeLeft = {
     days: Math.floor(difference / (1000 * 60 * 60 * 24)),
     hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
     minutes: Math.floor((difference / 1000 / 60) % 60),
-    // seconds: Math.floor((difference / 1000) % 60),
+    seconds: Math.floor((difference / 1000) % 60),
   };
 
   return timeLeft;
@@ -29,9 +28,8 @@ const calculateTimeLeft = (dDay: string): TimeLeft=> {
 
 const DDayTimer = ({dDay, interval}: DDayTimerProps) => {
   
-  const {classes, cx} = useStyles();
+  const {classes} = useStyles();
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft(dDay) as TimeLeft);
-  const [year] = useState(new Date().getFullYear());
 
   useEffect(
     () => {
@@ -40,21 +38,12 @@ const DDayTimer = ({dDay, interval}: DDayTimerProps) => {
       }, interval);
     }
   )
-  
-  // const timerComponents = [];
-  const timerComponents = Object.entries(timeLeft).map(
-    ([key, value]) => {
-      return (
-        <span>
-          {value} {key}{" "}
-        </span>
-      )
-    }
-  );
+
   return (
     <div className={classes.main}>
       <div className={classes.contents}>
-        <div className={classes.day}>
+        <div>D-{timeLeft.days}일 {timeLeft.hours}시간 {timeLeft.minutes}분 {timeLeft.seconds}초</div>
+        {/* <div className={classes.day}>
           <div className={cx(classes.boxStyle, classes.D)}>
             <div>D</div>
             <div>-</div>
@@ -80,7 +69,7 @@ const DDayTimer = ({dDay, interval}: DDayTimerProps) => {
             <div className="timeLeftNumber">{`${100 + timeLeft.minutes}`.slice(2,3)}</div>
             <div className="timeLeftNumberTag">minutes</div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )

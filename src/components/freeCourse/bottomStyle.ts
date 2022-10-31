@@ -38,6 +38,10 @@ const useStyles = createStyles((theme) => ({
   },
 
   category: {
+    [`@media (max-width: 376px)`]: {
+      display: "none"
+    },
+
     fontFamily: "AlongSanss2",
     fontStyle: "normal",
     fontWeight: 700,
@@ -46,6 +50,7 @@ const useStyles = createStyles((theme) => ({
     letterSpacing: "-0.886023px",
     textTransform: "uppercase",
     color: "#363636",
+  
   },
 
   title: {
@@ -164,6 +169,21 @@ const useStyles = createStyles((theme) => ({
     [`@media (max-width: 376px)`]: {
       width: "28px",
       height: "28px",
+    }
+  },
+
+  mobile: {
+    display: "none",
+
+    [`@media (max-width: 376px)`]: {
+      display: "block",
+    }
+  },
+
+  desktop: {
+
+    [`@media (max-width: 376px)`]: {
+      display: "none",
     }
   }
 }));

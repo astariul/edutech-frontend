@@ -104,10 +104,17 @@ const AuthFormModal = ({modalOpen, authType}: AuthFormModalProps) => {
     }, [authType, login, form]
   )
 
+  const handleClose = useCallback(
+    () => {
+      setOpened(false);
+      navigate("/")
+    }, [navigate, setOpened]
+  );
+
   return (
     <Modal
       show={opened}
-      onCloseModal={() => setOpened(false)}
+      onCloseModal={handleClose}
       >
       <form onSubmit={form.onSubmit(handleSubmit)}>
         <div className={classes.inner}>

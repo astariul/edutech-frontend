@@ -46,7 +46,7 @@ const SuperCourse = () => {
           <div className={classes.goPaymentArea}>
             <div className={classes.box}>
               <div className={classes.boxInner}>
-                <div className={classes.boxLeft}>11/1 1기 마감!</div>
+                <div className={classes.boxLeft}>11/20 1기 마감!</div>
                 <div className={classes.boxRightContainer}>
                   <div className={classes.boxRightLeft}>지금 구매하기</div>
                   <img className={classes.boxRightRight} src={require("../../static/image/home/CaretRight.png")} alt="CaretRight" />

@@ -12,7 +12,7 @@ const useStyles = createStyles((theme) => ({
     letterSpacing: "0.02em",
     color: "#FFFFFF",
     fontSize: "40px",
-    width :"465px",
+    width :"auto",
     height: "83px",
   },
 
@@ -53,7 +53,19 @@ const useStyles = createStyles((theme) => ({
 
   contents: {
     display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+
+    "& > div": {
+      margin: "25px 0 auto 0",
+      display: "flex",
+      color: "#FF0000",
+      width: "auto",
+      height: "30px",
+      fontWeight: 900,
+      fontSize: "41px",
+      lineHeight: "30px",
+      letterSpacing: "-1px"
+    }
   },
   
   D: {

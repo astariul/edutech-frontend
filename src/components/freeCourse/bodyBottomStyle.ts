@@ -6,20 +6,20 @@ export const useStyles = createStyles((theme) => ({
     width: "1441px",
     margin: "154px auto 39px auto",
 
-    // [`@media (max-width: 376px)`]: {
-    //   marginTop: "37px",
-    //   height: "564px",
-    // }
+    [`@media (max-width: 376px)`]: {
+      width: "375px",
+      marginTop: "87.78px",
+    }
   },
 
   mentorMessage: {
     width: "1441px",
     margin: "124px auto 65.74px auto",
 
-    // [`@media (max-width: 376px)`]: {
-    //   marginTop: "37px",
-    //   height: "564px",
-    // }
+    [`@media (max-width: 376px)`]: {
+      width: "375px",
+      marginTop: "88px",
+    }
   },
 
   columnFlex: {
@@ -40,7 +40,11 @@ export const useStyles = createStyles((theme) => ({
 
     [`@media (max-width: 376px)`]: {
       width: "375px",
-      margin: "0 auto",
+      alignItems: "center",
+  
+      "& > div": {
+        width: "335px",
+      }
     }
   },
 
@@ -67,18 +71,37 @@ export const useStyles = createStyles((theme) => ({
 
     "& > span": {
       color: "#0094FF",
+    },
+
+    [`@media (max-width: 376px)`]: {
+      fontSize: "23px",
+      lineHeight: "32px",
+      letterSpacing: "-2px",
     }
   },
 
   reviewSection: {
     backgroundColor: "#F2F2F2",
     height: "681px",
+
+    [`@media (max-width: 376px)`]: {
+      height: "226px",
+    }
   },
 
   review: {
     width: "1440px",
     marginLeft: "auto",
     marginRight: "auto",
+
+    [`@media (max-width: 376px)`]: {
+      width: "375px",
+      alignItems: "center",
+  
+      "& > div": {
+        width: "335px",
+      }
+    }
   },
 
   cards: {
@@ -89,12 +112,22 @@ export const useStyles = createStyles((theme) => ({
     flexFlow: "column wrap",
     columnGap: "32px",
     rowGap: "20px",
+
+    [`@media (max-width: 376px)`]: {
+      flexFlow: "nowrap",
+    }
   },
 
   card: {
     width: "368px",
     height: "280px",
     backgroundImage: "url(/image/freeCourse/reviewCard.png)",
+
+    [`@media (max-width: 376px)`]: {
+      width: "318px",
+      height: "180px",
+      backgroundImage: "url(/image/freeCourse/reviewCardMobile.png)",
+    }
   },
 
   cardInner: {
@@ -110,8 +143,10 @@ export const useStyles = createStyles((theme) => ({
     justifyContent: "space-between",
 
     ".fiveStar": {
-      width: "142px",
-      height: "30px",
+      "& > img" : {
+        width: "142px",
+        height: "30px",
+      }
     },
 
     ".content": {
@@ -122,12 +157,53 @@ export const useStyles = createStyles((theme) => ({
       fontSize: "14px",
       height: "33px"
     },
+
+    [`@media (max-width: 376px)`]: {
+      margin: "20px 17px 9.96px 21px",
+      width: "280px",
+      height: "150.04px",
+      fontSize: "14px",
+      lineHeight: "24px",
+      letterSpacing: "-0.90px",
+
+      ".fiveStar": {
+        "& > img": {
+          width: "90px",
+          height: "19.01px",
+        }
+      },
+
+      ".who": {
+        fontSize: "12px",
+        height: "27px"
+      },
+    }
   },
 
   mentor: {
     backgroundImage: "url(/image/freeCourse/mentorBackground.png)",
     width: "100%",
     height: "384.88px",
+
+    [`@media (max-width: 376px)`]: {
+      backgroundImage: "url(/image/freeCourse/mentorBackgroundMobile.png)",
+      height: "325px",
+    }
   },
+
+  mobile: {
+    display: "none",
+
+    [`@media (max-width: 376px)`]: {
+      display: "block",
+    }
+  },
+
+  desktop: {
+
+    [`@media (max-width: 376px)`]: {
+      display: "none",
+    }
+  }
 }));
 

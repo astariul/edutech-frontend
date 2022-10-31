@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Anchor } from "@mantine/core";
 import Modal from "../modal/Modal";
 import useStyles from "./style";
@@ -48,11 +48,17 @@ const AuthMethodModal = ({
   const {classes} = useStyles();
   const [opened, setOpened] = useState(modalOpen);
   const navigate = useNavigate();
+  const handleClose = useCallback(
+    () => {
+      setOpened(false);
+      navigate("/")
+    }, [navigate, setOpened]
+  );
 
   return (
     <Modal
       show={opened}
-      onCloseModal={() => setOpened(false)}
+      onCloseModal={handleClose}
     >
       <div className={classes.inner}>
         <div className={classes.title}>

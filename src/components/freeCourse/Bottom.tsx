@@ -3,7 +3,7 @@ import { Title } from '@mantine/core';
 import useStyles from './bottomStyle';
 
 const Bottom = () => {
-  const {classes} = useStyles();
+  const {classes, cx} = useStyles();
 
   const contentInWordBalloon = [
     ["개발자 취업 고민", "멘토에게 물어보기", require("../../static/image/logo/SlackC.png")],
@@ -27,10 +27,15 @@ const Bottom = () => {
       <div className={classes.content}>
         <div className={classes.contentLeft}>
           <Title className={classes.category}>SUPER COMMUNITY</Title>
-          <Title className={classes.title}>
+          <Title className={cx(classes.title, classes.desktop)}>
             24시간
             <br />
             슈코와 얘기하세요.
+          </Title>
+          <Title className={cx(classes.title, classes.mobile)}>
+            24시간 슈코와
+            <br />
+            얘기하세요.
           </Title>
         </div>
         <div className={classes.contentRight}>

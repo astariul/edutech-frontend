@@ -1,7 +1,10 @@
 import { createStyles } from '@mantine/core';
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles((theme, {messageColor}: {messageColor: string}) => ({
   main: {
+    position: "fixed",
+    bottom : 0,
+    width: "100%",
     fontFamily: "NotoSansKR",
     fontStyle: "normal",
     whiteSpace: "nowrap",
@@ -22,7 +25,7 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    columnGap: "36px",
+    columnGap: "30px",
   },
 
   message: {
@@ -34,14 +37,14 @@ const useStyles = createStyles((theme) => ({
     "& > h2": {
       fontSize: "30px",
       margin: 0,
-      color: "#0094FF",
+      color: messageColor,
     }
   },
 
   paymentButton: {
     background: "linear-gradient(180deg, #FFFFFF 51.04%, #E2E2E2 87.64%)",
     width: "268px",
-    height: "88px",
+    height: "80px",
 
     "& > div > span": {
       fontFamily: "NotoSansKR",
