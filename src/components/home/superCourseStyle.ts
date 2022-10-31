@@ -291,7 +291,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
   },
 
   boxLeft: {
-    width: "162px",
+    width: "auto",
     height: "45px",
     lineHeight: "37px",
     color: "#0065FD",
