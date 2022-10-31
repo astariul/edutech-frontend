@@ -8,7 +8,7 @@ export const useStyles = createStyles((theme) => ({
 
     [`@media (max-width: 376px)`]: {
       width: "375px",
-      marginTop: "53px",
+      marginTop: "87.78px",
     }
   },
 
