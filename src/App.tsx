@@ -28,6 +28,7 @@ function App() {
   const location = useLocation();
   const [bannerMessage, setBannerMessage] = useState("");
   const [bannerMessageColor, setBannerMessageColor] = useState("#0094FF");
+  const [bannerOn, setBannerOn] = useState(false);
 
   if (authorized) {
     new AuthRepository()
@@ -47,13 +48,18 @@ function App() {
     () => {
       if (location.pathname.startsWith("/course")) {
         setBannerMessage("1기 판매 마감! 이 가격 마지막");
-
+        setBannerMessageColor("#0094FF");
+        setBannerOn(true);
       }
       else if (location.pathname.startsWith("/free")) {
         setBannerMessage("완강 후기 작성하면 1개월 무료!");
-        setBannerMessageColor("#DBFF00")
+        setBannerMessageColor("#DBFF00");
+        setBannerOn(true);
       }
-    }, [location.pathname, bannerMessage, setBannerMessage, setBannerMessageColor]
+      else {
+        setBannerOn(false);
+      }
+    }, [location.pathname, bannerMessage, setBannerMessage, setBannerMessageColor, setBannerOn]
   );
 
   return (
@@ -64,7 +70,7 @@ function App() {
         <>
           <Footer />
           {
-            bannerMessage !== "" ?
+            bannerOn && bannerMessage !== "" ?
             <TimeBanner dDay="2022-11-20" message={bannerMessage} messageColor={bannerMessageColor}/>
             :
             <></>
