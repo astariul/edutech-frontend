@@ -8,7 +8,7 @@ const useStyles = createStyles((theme) => ({
     margin: "0 auto",
     paddingTop: "40px",
     borderTop: "1px solid #E4E4E4",
-    marginBottom: "58.36px",
+    marginBottom: "145px",
 
     [`@media (max-width: 850px)`]: {
       width: "375px",
