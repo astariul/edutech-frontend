@@ -5,10 +5,10 @@ export const useStyles = createStyles((theme) => ({
   main: {
     backgroundColor: "#0094FF",
     height: "786px",
-    // [`@media (max-width: 376px)`]: {
-      //   marginTop: "37px",
-      //   height: "564px",
-      // }
+
+    [`@media (max-width: 376px)`]: {
+      height: "881px",
+    }
   },
 
   columnFlex: {
@@ -26,6 +26,11 @@ export const useStyles = createStyles((theme) => ({
     width: "1441px",
     margin: "0 auto",
     paddingTop: "67px",
+
+    [`@media (max-width: 376px)`]: {
+      width: "375px",
+      paddingTop: "49px",
+    }
   },
 
   contents: {
@@ -33,6 +38,15 @@ export const useStyles = createStyles((theme) => ({
     fontStyle: "normal",
     color: "#FFFFFF",
     alignItems: "center",
+
+    [`@media (max-width: 376px)`]: {
+      width: "335px",
+      margin: "0 auto",
+
+      "& > div": {
+        width: "335px",
+      }
+    }
   },
   
   title: {
@@ -43,6 +57,12 @@ export const useStyles = createStyles((theme) => ({
 
     "span": {
       color: "#DBFF00",
+    },
+
+    [`@media (max-width: 376px)`]: {
+      letterSpacing: "-2px",
+      fontSize: "23px",
+      lineHeight: "32px",
     }
   },
 
@@ -50,28 +70,51 @@ export const useStyles = createStyles((theme) => ({
     paddingTop: "37px",
     paddingBottom: "67px",
     columnGap: "68px",
+
+    [`@media (max-width: 376px)`]: {
+      paddingTop: "17px",
+      paddingBottom: "27px",
+      flexDirection: "column",
+      rowGap: "35.24px",
+    }
   },
 
   ticket: {
     boxShadow: "0px 0px 70px #007DD8",
     width: "599px",
-    height: "255px"
+    height: "255px",
+
+    [`@media (max-width: 376px)`]: {
+      width: "333px",
+      height: "141.76px",
+    
+      "& > img": {
+        width: "333px",
+        height: "141.76px",
+      }
+    }
   },
 
   description: {
     rowGap: "27px",
     justifyContent: "flex-start",
+
+    [`@media (max-width: 376px)`]: {
+      rowGap: "27px",
+      width: "335px",
+    }
   },
 
   bullet: {
     fontSize: "17px",
     letterSpacing: "-0.99px",
-    
+
     "div": {
       fontWeight: 700,
       lineHeight: "25px",
       color: "#DBFF00"
     },
+
     "li": {
       fontWeight: 500,
       lineHeight: "33px",
@@ -80,6 +123,25 @@ export const useStyles = createStyles((theme) => ({
       "&::marker": {
         fontSize: "10px",
       }
+    },
+  
+    [`@media (max-width: 376px)`]: {
+      fontSize: "14px",
+      lineHeight: "25px",
+      
+      "div": {
+        paddingBottom: "10px"
+      },
+
+      "li": {
+        fontWeight: 500,
+        lineHeight: "23px",
+        color: "#FFFFFF",
+
+        "&::marker": {
+          fontSize: "10px",
+        }
+      },
     }
   },
 
@@ -98,6 +160,32 @@ export const useStyles = createStyles((theme) => ({
 
     "&: hover": {
       background: "#000000"
+    },
+
+    [`@media (max-width: 376px)`]: {
+      width: "337px",
+      height: "70px",
+  
+      "& > div > span": {
+        fontSize: "18px",
+        lineHeight: "37px",
+        letterSpacing: "-2px",
+      },
+    }
+  },
+
+  mobile: {
+    display: "none",
+
+    [`@media (max-width: 376px)`]: {
+      display: "block",
+    }
+  },
+
+  desktop: {
+
+    [`@media (max-width: 376px)`]: {
+      display: "none",
     }
   }
 }));
