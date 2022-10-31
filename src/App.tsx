@@ -28,6 +28,7 @@ function App() {
   const location = useLocation();
   const [bannerMessage, setBannerMessage] = useState("");
   const [bannerMessageColor, setBannerMessageColor] = useState("#0094FF");
+  const [bannerButtonMesg, setbannerButtonMesg] = useState("");
   const [bannerOn, setBannerOn] = useState(false);
 
   if (authorized) {
@@ -48,18 +49,23 @@ function App() {
     () => {
       if (location.pathname.startsWith("/course")) {
         setBannerMessage("1기 판매 마감! 이 가격 마지막");
+        setbannerButtonMesg("지금 바로 구매");
         setBannerMessageColor("#0094FF");
         setBannerOn(true);
       }
       else if (location.pathname.startsWith("/free")) {
         setBannerMessage("완강 후기 작성하면 1개월 무료!");
+        setbannerButtonMesg("이벤트 바로가기");
         setBannerMessageColor("#DBFF00");
         setBannerOn(true);
       }
       else {
         setBannerOn(false);
       }
-    }, [location.pathname, bannerMessage, setBannerMessage, setBannerMessageColor, setBannerOn]
+    }, [
+      location.pathname, bannerMessage, setBannerMessage,
+      setBannerMessageColor, setBannerOn, setbannerButtonMesg
+    ]
   );
 
   return (
@@ -71,7 +77,12 @@ function App() {
           <Footer />
           {
             bannerOn && bannerMessage !== "" ?
-            <TimeBanner dDay="2022-11-20" message={bannerMessage} messageColor={bannerMessageColor}/>
+            <TimeBanner
+              dDay="2022-11-20"
+              message={bannerMessage}
+              messageColor={bannerMessageColor}
+              buttonString={bannerButtonMesg}
+            />
             :
             <></>
           }

@@ -6,10 +6,11 @@ import useStyles from './style';
 interface TimeBannerProps {
   dDay: string,
   messageColor: string,
+  buttonString: string,
   message?: string,
 }
 
-const TimeBanner = ({dDay, message, messageColor}: TimeBannerProps) => {
+const TimeBanner = ({dDay, buttonString, messageColor, message}: TimeBannerProps) => {
   const {classes} = useStyles({messageColor});
   return (
     <section className={classes.main}>
@@ -22,7 +23,7 @@ const TimeBanner = ({dDay, message, messageColor}: TimeBannerProps) => {
           className={classes.paymentButton}
           radius={6.47}
         >
-          지금바로구매
+          {buttonString}
         </Button>
       </div>
     </section>
