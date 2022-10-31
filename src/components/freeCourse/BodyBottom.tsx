@@ -54,9 +54,14 @@ const BodyBottom = () => {
     <>
     <section className={classes.reviewMessage}>
       <div className={cx(classes.contents, classes.columnFlex)}>
-        <div className={classes.messageLarge}> 
+        <div className={cx(classes.messageLarge, classes.desktop)}> 
           지금 <span>100,000명*</span>의 수강생이
           <br />슈퍼코딩 무료 강의로 취업을 준비하고 있습니다.
+        </div>
+        <div className={cx(classes.messageLarge, classes.mobile)}> 
+          지금 <span>100,000명*</span>의 수강생이
+          <br />슈퍼코딩 무료 강의로 취업을
+          <br />준비하고 있습니다.
         </div>
       </div>
     </section>
@@ -79,9 +84,14 @@ const BodyBottom = () => {
     </section>
     <section className={classes.mentorMessage}>
       <div className={cx(classes.contents, classes.columnFlex)}>
-        <div className={classes.messageLarge}> 
+        <div className={cx(classes.messageLarge, classes.desktop)}> 
           무료강의에 함께하는 <span>100인의 멘토진!</span>
           <br />결과물 피드백&취업 멘토링, 궁금한건 언젠든지 물어보세요.
+        </div>
+        <div className={cx(classes.messageLarge, classes.mobile)}> 
+          무료강의에 함께하는 <span>100인의 멘토진!</span>
+          <br />결과물 피드백&취업 멘토링, 궁금한건
+          <br />언젠든지 물어보세요.
         </div>
       </div>
     </section>
