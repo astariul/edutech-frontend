@@ -72,7 +72,7 @@ export const useStyles = createStyles((theme) => ({
     columnGap: "68px",
 
     [`@media (max-width: 376px)`]: {
-      paddingTop: "17px",
+      paddingTop: "27px",
       paddingBottom: "27px",
       flexDirection: "column",
       rowGap: "35.24px",
