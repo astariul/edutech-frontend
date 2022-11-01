@@ -128,8 +128,8 @@ const BodyProgram = () => {
           </div>
           <div className={classes.answerMobile}>
             <h2>
-              기업이업계 최고의
-              <br />CTO추천서를 부여받는 곳은
+              기업이 업계 최고의
+              <br />CTO 추천서를 부여받는 곳은
               <br/>
               <span>'슈퍼코딩'</span>유일하기 때문입니다.
             </h2>

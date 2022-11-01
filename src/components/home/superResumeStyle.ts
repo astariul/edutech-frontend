@@ -87,26 +87,89 @@ const useSuperResumeStyles = createStyles((theme) => ({
   
   cardArea: {
     display: "flex",
+    width: "1168px",
+    margin: "0 auto",
     flexDirection: "row",
     paddingTop: "59px",
-    paddingLeft: "9.375vw",
-    paddingRight: "9.514vw",
-    justifyContent: "center",
+    // alignItems: "center",
+    // justifyContent: "space-between",
     columnGap: "32px",
+    fontFamily: "NotoSansKR",
+    color: "#FFFFFF",
+    letterSpacing: "-1px",
 
     [`@media (max-width: 1224px)`]: {
+      width: "375px",
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
       paddingTop: "28px",
-      paddingLeft: "4.8vw",
-      paddingRight: "4.8vw"
     },
+  },
+
+  cardInner: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    padding: "28px 28px 22px 28px",
+    height: "218px",
+
+    "& > h2": {
+      marginTop: 0,
+      fontWeight: 900,
+      fontSize: "27px",
+      lineHeight: "31px",
+    },
+
+    "& > p": {
+      marginBottom: 0,
+      fontWeight: 700,
+      fontSize: "18px",
+      lineHeight: "25px",
+    },
+
+    "& > div": {
+      display: "flex",
+      columnGap: "15.37px"
+    }
+  },
+
+  numAndText: {
+    display: "flex",
+    fontFamily: "AlongSansS2",
+    fontSize: "12px",
+    fontStyle: "normal",
+    fontWeight: 500,
+    lineHeight: "15px",
+    letterSpacing: "-0.69px",
+    textTransform: "uppercase",
+    alignItems: "center",
+    columnGap: "5px",
+
+    "& > div: nth-of-type(1)": {
+      color: "#0081DF",
+      letterSpacing: "-0.69px",
+      fontSize: "83.11px",
+      lineHeight: "21px",
+      fontWeight: 900,
+
+      [`@media (max-width: 1224px)`]: {
+        fontSize: "74px",
+      }
+    },
+    
+    "& > div: nth-of-type(2)": {
+      height: "65px",
+      display: "flex",
+      alignItems: "flex-end"
+    }
   },
 
   cardLeft: {
     width: "268px",
     height: "268px",
+    backgroundImage: "url(/image/home/superResumeLeft.png)",
+
     [`@media (max-width: 1224px)`]: {
       display: "none"
     }
@@ -117,14 +180,16 @@ const useSuperResumeStyles = createStyles((theme) => ({
 
     [`@media (max-width: 1224px)`]: {
       display: "block",
-      width: "339px",
-      height: "274px"
+      width: "336px",
+      height: "268px",
+      backgroundImage: "url(/image/home/superResumeLeftMobile.png)",
     }
   },
 
   cardMiddle: {
     width: "268px",
     height: "268px",
+    backgroundImage: "url(/image/home/superResumeMiddle.png)",
 
     [`@media (max-width: 1224px)`]: {
       display: "none"
@@ -136,14 +201,17 @@ const useSuperResumeStyles = createStyles((theme) => ({
 
     [`@media (max-width: 1224px)`]: {
       display: "block",
-      width: "339px",
-      height: "275.8px"
+      width: "336px",
+      height: "268px",
+      backgroundImage: "url(/image/home/superResumeMiddleMobile.png)",
+
     }
   },
 
   cardRight: {
     width: "568px",
     height: "268px",
+    backgroundImage: "url(/image/home/superResumeRight.png)",
 
     [`@media (max-width: 1224px)`]: {
       display: "none"
@@ -155,8 +223,10 @@ const useSuperResumeStyles = createStyles((theme) => ({
 
     [`@media (max-width: 1224px)`]: {
       display: "block",
-      width: "339px",
-      height: "327px"
+      width: "336px",
+      height: "327px",
+      backgroundImage: "url(/image/home/superResumeRightMobile.png)",
+
     }
   },
 
