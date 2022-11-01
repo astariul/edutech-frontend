@@ -21,8 +21,8 @@ const SuperCourse = () => {
   return (
     <>
     <section className={classes.mainTop}>
-      <div className={classes.category}>SUPER COURSE</div>
       <div className={classes.TopInner}>
+        <div className={classes.category}>SUPER COURSE</div>
         <div className={classes.mainInner}>
           <div className={classes.messageArea}>        
             <div className={classes.message}>취업을 위한 코딩 교육은 달라야 합니다.</div>

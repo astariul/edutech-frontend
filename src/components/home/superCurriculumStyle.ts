@@ -149,11 +149,28 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
 
   imageBottomInner:{
     display:"flex",
-  },
+    width: "1440px",
+    margin: "0 auto",
 
+    "& > div": {
+      display: "flex",
+      width: "1168px",
+      margin: "0 auto",
+    },
+
+    [`@media (max-width: 650px)`]: {
+      width: "375px",
+
+      "& > div": {
+        width: "335px",
+      }
+    },
+  },
+  
   imageMessage: {
+    alignItems: "center",
+    justifyContent: "center",
     paddingTop: "67px",
-    paddingLeft: "9.861vw",
     display: "column",
     color: "#FFFFFF",
     fontFamily: "NotoSansKR",
@@ -284,7 +301,7 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
   playButton: {
     display: "flex",
     paddingTop: "191px",
-    paddingLeft: "13.667vw",
+    paddingLeft: "6.667vw",
     alignItems: "center",
     justifyContent: "center",
     width: "123px",

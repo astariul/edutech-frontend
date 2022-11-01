@@ -77,28 +77,30 @@ const SuperCurriculum = () => {
       </div>
       <div className={classes.imageBottom}>
         <div className={classes.imageBottomInner}>
-          <div className={classes.imageMessage}>
-            <h3>단기간 학습으로 취업할 수 있다고
-                <br/>
-                과장광고하는 업체는 제발 선택하지 말아주세요.
-            </h3>
-            <h2>
-              20시간 정도는
-              <br />
-              투자해야 취업까지
-              <br />
-              가능합니다.
-            </h2>
-            <div className={classes.whois}>
-              <BusinessCard
-                image={require("../../static/image/logo/Kakaopay.png")}
-                name="HOYA"
-                position="카카오페이 CTO"
-              />
+          <div>
+            <div className={classes.imageMessage}>
+              <h3>단기간 학습으로 취업할 수 있다고
+                  <br/>
+                  과장광고하는 업체는 제발 선택하지 말아주세요.
+              </h3>
+              <h2>
+                20시간 정도는
+                <br />
+                투자해야 취업까지
+                <br />
+                가능합니다.
+              </h2>
+              <div className={classes.whois}>
+                <BusinessCard
+                  image={require("../../static/image/logo/Kakaopay.png")}
+                  name="HOYA"
+                  position="카카오페이 CTO"
+                  />
+              </div>
             </div>
-          </div>
-          <div className={classes.playButton} >
-            <img src={require("../../static/image/home/superCurriculumImagePlayCircle.png")} alt="PlayCircle" />
+            <div className={classes.playButton} >
+              <img src={require("../../static/image/home/superCurriculumImagePlayCircle.png")} alt="PlayCircle" />
+            </div>
           </div>
         </div>
       </div>

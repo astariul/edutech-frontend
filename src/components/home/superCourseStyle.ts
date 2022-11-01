@@ -8,6 +8,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
   },
   
   TopInner: {
+    position: "relative",
     maxWidth: "1168px",
     margin: "0 auto",
     display: "flex",
@@ -28,7 +29,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     fontSize: "14px",
     fontWeight: 700,
     width: "auto",
-    left: "max(137px, 9.514vw)",
+    left: "106.31px",
     top: "63px",
     color: "#5ABAFF",
     alignItems: "center",

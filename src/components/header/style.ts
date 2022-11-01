@@ -64,10 +64,8 @@ const useStyles = createStyles((theme) => ({
   },
 
   middleLinkGroup: {
-    left: "33.889vw",
-    right: "33.889vw",
     height: "24px",
-    gap: "2.778vw",
+    columnGap: "40px",
     alignItems: "center",
     justifyContent: "space-between",
 
@@ -107,7 +105,7 @@ const useStyles = createStyles((theme) => ({
     top: "28px",
     alignItems: "flex-start",
     alignContent: "center",
-    gap: "1.181vw",
+    columnGap: "32px",
 
     "@media screen and (max-width: 900px)": {
       display: "none",
@@ -134,7 +132,8 @@ const useStyles = createStyles((theme) => ({
   },
 
   header: {
-    margin: "0 0",
+    width: "1168px",
+    margin: "0 auto",
     paddingTop: "24px",
     paddingLeft: "2.153vw",
     paddingRight: "2.569vw",
