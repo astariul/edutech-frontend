@@ -30,7 +30,7 @@ const middleLinks = [
   },
   {
     link: "/feed",
-    label: "커뮤니티",
+    label: "네트워킹",
   },
   {
     link: "/myclass",
