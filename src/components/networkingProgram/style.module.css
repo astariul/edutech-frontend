@@ -316,7 +316,7 @@
 }
 
 .sub3SectionContainer {
-  padding-top: 72px;
+  padding: 72px 0 63px;
   display: flex;
   flex-direction: column;
   justify-content: center;

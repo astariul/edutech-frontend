@@ -86,6 +86,13 @@ const Sub3Section: FC = () => {
           </div>
         ))}
       </div>
+
+      <div className={styles.sub3SectionTitle}>슈퍼코딩 LIVE</div>
+      <div className={styles.sub3SectionSubTitle}>
+        슈퍼코딩 수강생을 위한 다양한 라이브 방송을 준비하고 있습니다.
+        <br />
+        취업에 필수적인 정보로 찾아 뵐 예정입니다.
+      </div>
     </div>
   );
 };
