@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 
-import useStyles from "./paginationSlide";
+import useStyles from "./style";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -10,12 +10,14 @@ interface PaginationSlideProps {
   perView: number;
   columnGap: number;
   items: ReactNode[];
-};
+}
 
-const PaginationSlide = (
-  {perView, columnGap, items}: PaginationSlideProps
-) => {
-  const {classes} = useStyles();
+const PaginationSlide = ({
+  perView,
+  columnGap,
+  items,
+}: PaginationSlideProps) => {
+  const { classes } = useStyles();
   return (
     <div className={classes.swiper}>
       <Swiper
@@ -26,16 +28,12 @@ const PaginationSlide = (
         }}
         modules={[Pagination]}
       >
-        {
-          items.map(
-            (item, index) => (
-              <SwiperSlide key={index}>{item}</SwiperSlide>
-            )
-          )
-        }
+        {items.map((item, index) => (
+          <SwiperSlide key={index}>{item}</SwiperSlide>
+        ))}
       </Swiper>
     </div>
-  )
-}
+  );
+};
 
 export default PaginationSlide;
