@@ -2,6 +2,7 @@
 import DDayTimer from '../ddayTimer/DdayTimer';
 import { Button } from '@mantine/core';
 import useStyles from './style';
+import { useNavigate } from 'react-router-dom';
 
 interface TimeBannerProps {
   dDay: string,
@@ -12,6 +13,7 @@ interface TimeBannerProps {
 
 const TimeBanner = ({dDay, buttonString, messageColor, message}: TimeBannerProps) => {
   const {classes} = useStyles({messageColor});
+  const navigate = useNavigate();
   return (
     <section className={classes.main}>
       <div className={classes.contents}>
@@ -22,6 +24,7 @@ const TimeBanner = ({dDay, buttonString, messageColor, message}: TimeBannerProps
         <Button
           className={classes.paymentButton}
           radius={6.47}
+          onClick={() => navigate("/payment")}
         >
           {buttonString}
         </Button>
