@@ -1,20 +1,6 @@
-.flexRowCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.flexRowSpaceBetween {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.flexColumn {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.widthContainer {
+  margin: 0 auto;
+  width: 1168px;
 }
 
 .mainSectionContainer {
@@ -246,4 +232,86 @@
   color: #919191;
   background: #ececec;
   border-radius: 0px 0px 8px 8px;
+}
+
+.sub2SectionContainer {
+  width: 100%;
+  height: 774px;
+  background-image: url("/public/image/networkingProgram/sub2Background.png");
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+}
+
+.sub2SectionDescriptionContainer {
+  padding: 42px 0 71px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+}
+.sub2SectionDescriptionContainer > div:nth-child(1) {
+  font-weight: 800;
+  font-size: 20.4836px;
+  line-height: 23px;
+  letter-spacing: -0.731557px;
+}
+.sub2SectionDescriptionContainer > div:nth-child(2) {
+  margin-top: 17px;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 32px;
+  letter-spacing: -1px;
+}
+.sub2SectionDescriptionContainer > div:nth-child(3) {
+  margin-top: 28px;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 32px;
+  letter-spacing: -1px;
+}
+
+.sub2SectionCardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+.sub2SectionCard {
+  width: 368px;
+  display: flex;
+  flex-direction: column;
+}
+.sub2SectionCard > div:nth-child(1) {
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 24px;
+  letter-spacing: -0.994145px;
+  color: #00f0ff;
+}
+.sub2SectionCard > ul {
+  margin: 13px 0;
+  padding: 0 0 0 20px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.994145px;
+  color: #ffffff;
+}
+.sub2SectionCard > ul p {
+  margin: 0;
+  padding: 0;
+}
+.sub2SectionCard > a {
+  padding: 12px;
+  box-sizing: border-box;
+  width: 100%;
+  background: #00f0ff;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: -0.780928px;
+  color: #000000;
+  text-decoration: none;
+  text-align: center;
 }
