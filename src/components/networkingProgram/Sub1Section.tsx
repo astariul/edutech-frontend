@@ -12,7 +12,7 @@ const PROFILE_DATAS = [
 
 const Sub1Section: FC = () => {
   return (
-    <div className={styles.sub1SectionContainer}>
+    <div className={`${styles.sub1SectionContainer} ${styles.widthContainer}`}>
       <div className={styles.sub1SectionTitle}>기수별 관리시스템</div>
       <div className={styles.sub1SectionSubTitle}>
         기수별 자동으로 온라인 스터디 그룹이 형성됩니다.
@@ -30,7 +30,7 @@ const Sub1Section: FC = () => {
 
       <div className={styles.sub1SectionCardContainer}>
         {PROFILE_DATAS.map((data, index) => (
-          <div className={styles.sub1SectionCard}>
+          <div key={index} className={styles.sub1SectionCard}>
             <div className={styles.profile}>
               <div>
                 <img
@@ -63,7 +63,7 @@ const Sub1Section: FC = () => {
 
 export default Sub1Section;
 
-const BadgeIcon: FC = () => {
+export const BadgeIcon: FC = () => {
   return (
     <svg
       width="28px"

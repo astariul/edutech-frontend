@@ -73,14 +73,14 @@ const Sub2Section: FC = () => {
         </div>
 
         <div className={styles.sub2SectionCardContainer}>
-          {CARD_DATAS.map((data) => (
-            <div className={styles.sub2SectionCard}>
+          {CARD_DATAS.map((data, index) => (
+            <div key={index} className={styles.sub2SectionCard}>
               <div>{data.title}</div>
               <ul>
-                {data.contents.map((content) => (
-                  <li>
+                {data.contents.map((content, index) => (
+                  <li key={index}>
                     {content.split("\n").map((line, index) => (
-                      <p>{line}</p>
+                      <p key={index}>{line}</p>
                     ))}
                   </li>
                 ))}

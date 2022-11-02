@@ -93,8 +93,7 @@
 }
 
 .sub1SectionContainer {
-  margin: 0 auto;
-  width: 1168px;
+  padding-top: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -102,7 +101,7 @@
 }
 
 .sub1SectionTitle {
-  margin: 40px 0 10px;
+  margin-bottom: 10px;
   font-weight: 700;
   font-size: 32px;
   line-height: 78px;
@@ -314,4 +313,115 @@
   color: #000000;
   text-decoration: none;
   text-align: center;
+}
+
+.sub3SectionContainer {
+  padding-top: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub3SectionTitle {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 78px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -2px;
+  color: #000000;
+}
+
+.sub3SectionSubTitle {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 36px;
+  text-align: center;
+  letter-spacing: -1px;
+  color: #626262;
+}
+
+.sub3SectionCardContainer {
+  margin: 50px 0 72px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.sub3SectionCard {
+  width: 267px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 9px;
+  box-sizing: border-box;
+}
+.sub3SectionCard > .profile {
+  padding: 0 0 8px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sub3SectionCard > .profile > div:nth-child(1) {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.sub3SectionCard > .profile > div:nth-child(1) > img {
+  width: 88px;
+  height: 41px;
+}
+.sub3SectionCard > .profile > div:nth-child(2) {
+  position: relative;
+  width: 90px;
+  height: 90px;
+}
+.sub3SectionCard > .profile > div:nth-child(2) > img {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+}
+.sub3SectionCard > .profile > div:nth-child(2) > svg {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+}
+.sub3SectionCard > .profile > div:nth-child(3) {
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: -0.994145px;
+  color: #000000;
+}
+.sub3SectionCard > .profile > div:nth-child(3) p {
+  margin: 0;
+  padding: 0;
+}
+
+.sub3SectionCard > .button {
+  margin: 0 auto 18px;
+  width: 239px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 37px;
+  letter-spacing: -1px;
+  color: #ffffff;
+  text-decoration: none;
 }
