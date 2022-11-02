@@ -49,7 +49,7 @@ const SuperCurriculum = () => {
   )
   return (
     <section className={classes.main}>
-      <div className={classes.textArea}>
+      <div className={classes.messageArea}>
         <div className={classes.category}>SUPER CURRICULUM</div>
         <div className={classes.title}>
           "우리는 이런 개발자를 원합니다"

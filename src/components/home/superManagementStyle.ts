@@ -22,7 +22,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
     paddingLeft: "max(166px, 11.528vw)",
     height: "auto",
 
-    [`@media (max-width: 1024px)`]: {
+    [`@media (max-width: 767px)`]: {
       paddingTop: "46px",
       alignItems: "center",
       textAlign: "center",
@@ -41,12 +41,12 @@ const useSuperManagementStyles = createStyles((theme) => ({
     textTransform: "uppercase",
     lineHeight: "41.35px",
 
-    [`@media (max-width: 1024px)`]: {
-      alignItems: "center",
-      textAlign: "center",
-    },
+    // [`@media (max-width: 1024px)`]: {
+    //   alignItems: "center",
+    //   textAlign: "center",
+    // },
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       alignItems: "center",
       textAlign: "center",
       fontSize: "12px",
@@ -65,16 +65,16 @@ const useSuperManagementStyles = createStyles((theme) => ({
     letterSpacing: "-2px",
     height: "auto",
 
-    [`@media (max-width: 1024px)`]: {
-      paddingTop: "26px",
-      paddingLeft: "0px",
-      alignItems: "center",
-      textAlign: "center",
-      wordBreak: "break-word",
-      height: "auto"
-    },
+    // [`@media (max-width: 1024px)`]: {
+    //   paddingTop: "26px",
+    //   paddingLeft: "0px",
+      // alignItems: "center",
+      // textAlign: "center",
+      // wordBreak: "break-word",
+      // height: "auto"
+    // },
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "none",
     }
   },
@@ -91,7 +91,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
     lineHeight: "32px",
     letterSpacing: "-2px",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "block",
     },
   },
@@ -109,16 +109,16 @@ const useSuperManagementStyles = createStyles((theme) => ({
       lineHeight: "38px",
       letterSpacing: "-2px",
 
-      [`@media (max-width: 850px)`]: {
+      [`@media (max-width: 767px)`]: {
         fontSize: "24px"
       }
     },
 
-    [`@media (max-width: 1024px)`]: {
-      paddingTop: "230px",
-    },
+    // [`@media (max-width: 1024px)`]: {
+    //   paddingTop: "230px",
+    // },
   
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       paddingTop: "250px",
     },
 

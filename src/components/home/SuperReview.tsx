@@ -53,17 +53,17 @@ const SuperReivew = () => {
           <br />
           여러분도 할 수 있습니다.
         </div>
-        <div className={classes.cardArea}>
-          <div className={classes.cards}>
-            {
-              cardContents.map(
-                (each) => {
-                  const  [image, title, name, description] = each;
-                  return Card(image, title, name, description)
-                }
-                )
+      </div>
+      <div className={classes.cardArea}>
+        <div className={classes.cards}>
+          {
+            cardContents.map(
+              (each) => {
+                const  [image, title, name, description] = each;
+                return Card(image, title, name, description)
               }
-          </div>
+              )
+            }
         </div>
       </div>
     </section>

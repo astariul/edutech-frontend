@@ -5,6 +5,12 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+html, body {
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+
 @font-face {
   /* 사용할 폰트의 이름 */
   font-family: "AlongSanss2";
