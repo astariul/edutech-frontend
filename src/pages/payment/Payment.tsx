@@ -1,296 +1,275 @@
-import { useCallback, useEffect, useRef, useState } from "react"
-import { Space } from '@mantine/core';
-import { useLocalStorage } from "@mantine/hooks";
-import { useLocation, useNavigate } from "react-router-dom";
-import { Buyer, ICourse, IUserProfile, MyOrder } from "../../typings/db";
-import PaymentSection from "../../components/paymentSection/PaymentSection";
-import PaymentMethodModal from "../../components/paymentMethodModal/PaymentMethodModal";
-import BuyerInfo from "../../components/buyerInfo/buyerInfo";
-import useStyles from "./style";
-import BuyerInfoModifiable from "../../components/buyerInfoModifiable/buyerInfoModifiable";
-import PaymentCart from "../../components/paymentCart/paymentCart";
-import OrderRepository from "../../repositories/Order";
-import AuthRepository from "../../repositories/Auth";
-import PaymentPGModal from "../../components/paymentPGModal/PaymentPGModal";
-import PaymentConfig from "../../config";
-import { AxiosResponse } from "axios";
-import MessageModal from '../../components/messageModal/MessageModal';
 
-const { IMP } = window;
-IMP.init(process.env.REACT_APP_IAMPORT_ID);
+import useStyles from './style';
+import Person from '../../components/person/Person';
+import { ICourse } from '../../typings/db';
+import { Button, Checkbox, Modal, ScrollArea } from '@mantine/core';
+import { useState, useCallback, MouseEvent} from 'react';
 
-const Payment = () => {
+interface PaymentTopSectionProps {
+  course?: ICourse
+}
 
-  const [login,] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
-  const [coursesInCart] = useLocalStorage<ICourse[] | []>({ key: "coursesInCart", defaultValue: [] });
-  const [pgModalOpened, setPGModalOpened] = useState(false);
-  const [payMethodModalOpened, setPayMethodModalOpened] = useState(false);
-  const [modification, setModification] = useState(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [tel, setTel] = useState("");
+interface PaymentBottomLeftSectionProps {
+  selectMethodHandler: () => void
+}
+
+const Tag = ({name, color, key}: {name: string, color: string, key: any}) => {
   const {classes} = useStyles();
-  const location = useLocation();
-  const course = location.state as ICourse;
-  const merchantUID = useRef("");
-  const [registered, setRegistered] = useState(false);
-  const naviagate = useNavigate();
-  const config = new PaymentConfig()
-  const [pgCode, setPGCode] = useState("");
-  const [messageModalOpened, setMessageModalOpened] = useState<boolean>(false);
-  const [message, setMessage] = useState("");
+  return (
+    <div key={key} className={classes.tag} style={{backgroundColor: color}}>
+      {name}
+    </div>
+  )
+}
 
-  useEffect(
-    () => {
-      if (!login) {
-        window.alert("결제를 진행하기 위해서는 로그인해야 합니다.");
-        naviagate("/login/method");
-        return
-      }
-      new AuthRepository()
-      .me(login?.token as string)
-      .then(
-        ({data}) => {
-          data.myCourses.forEach(
-            (each) => {
-              if (each.courseId === course?.id) {
-                setRegistered(true);
-                return;
-              }
-              else{
-                setRegistered(false);
-              }
+const PaymentTopSection = ({course}: PaymentTopSectionProps) => {
+  const {classes, cx} = useStyles();
+  const tags = [
+    {
+      color: "#00A607",
+      name: "Live"},
+    {
+      color: "#515151",
+      name: "인강",
+    },
+    {
+      color:  "#2895E3",
+      name: "환급"
+    }
+  ]
+
+  return (
+    <section className={cx(classes.topSection, classes.columnFlex)}>
+      <div className={classes.pageTitle}>
+        <h2>결제하기</h2>
+      </div>
+      <div className={cx(classes.product, classes.rowFlex)}>
+        <div className={cx(classes.checkerArea, classes.checker)}>
+          <Checkbox radius={0}/>
+        </div>
+        <div className={classes.image}>
+          <img src={require("../../static/image/payment/courseImage.png")} alt="courseImage" />
+        </div>
+        <div className={cx(classes.information, classes.columnFlex)}>
+          <div className={cx(classes.tags, classes.rowFlex)}>
+            {
+              tags.map((tag, index) => <Tag key={index} name={tag.name} color={tag.color}/>)
             }
-            )
-          }
-          )
-      setName(login?.name as string);
-      setEmail(login?.email as string);
-      setTel("010-0000-0000");
-      return () => { setRegistered(false); setPGCode(""); };
-    }, [login, course, setRegistered, naviagate]
+          </div>
+          <div className={classes.courseTitle}>
+            <h2>취업보장, 불합격시 100%환불 취업관리형 웹개발 종합반 PLUS</h2>
+          </div>
+          <div className={classes.instructor}>
+            <Person
+              image={require("../../static/image/payment/avatar.png")}
+              name={"이경엽"}
+              description={"Spacwalk CTO/SuperCoding Coach"}
+              size={50.83}
+            />
+          </div>
+        </div>
+      </div>
+    </section>
   )
+}
 
-  useEffect(
-    () => {
-      if (!login) {
-        window.alert("결제를 진행하기 위해서는 로그인해야 합니다.");
-        naviagate("/login/method");
-        return
-      }
-      new OrderRepository()
-      .start(login?.token as string, course.id)
-      .then((id) => {
-        merchantUID.current = id;
-      })
-    }, [login, course, merchantUID, naviagate]
+const PaymentBottomLeftSection = () => {
+  const {classes, cx} = useStyles();
+  const [selectedMethod, setSelectedMethod] = useState("");
+  const onClickMethod = useCallback(
+    (e: MouseEvent<HTMLElement>) => {
+      let target = e.target as HTMLElement;
+      setSelectedMethod(target.id)
+    }, [setSelectedMethod]
+  );
+
+  return (
+    <section className={cx(classes.bottomLeftSection, classes.columnFlex)}>
+      <div className={cx(classes.columnFlex, "top")}>
+        <div className={cx(classes.sectionTitle, classes.rowFlex)}>
+          <h2>결제 방식</h2>
+          <div>무이자할부안내</div>
+        </div>
+        <div className={cx(classes.methodArea, classes.rowFlex)}>
+          <div
+            onClick={onClickMethod}
+            className={cx(classes.method, {[classes.activeMethod]: selectedMethod === "신용카드"})}
+            id="신용카드"
+          >
+            신용카드
+          </div>
+          <div
+            onClick={onClickMethod}
+            className={cx(classes.method, {[classes.activeMethod]: selectedMethod === "무통장입금"})}
+            id="무통장입금"
+            >
+            무통장입금
+          </div>
+          <div
+            onClick={onClickMethod}
+            className={cx(classes.method, {[classes.activeMethod]: selectedMethod === "토스페이먼트"})}
+            id="토스페이먼트"
+          >
+            <img src={require("../../static/image/payment/tosspayment.png")} alt="tosspayment" />
+          </div>
+        </div>
+      </div>
+      <div className={cx(classes.columnFlex, "bottom")}>
+        <div className={classes.sectionTitle}>
+          <h2>유의사항</h2>
+        </div>
+        <ScrollArea className={classes.notice} type="always" scrollbarSize={16}>
+          <div id="content">
+            <span>1. 온라인강좌안내</span>
+            <br />온라인 강좌는 구매 후 내강의실에서 ....
+            <span><br />2. 할인권(쿠폰) 이용안내</span>
+            <br />쿠폰별적용조건에맞게쿠폰적용이가능합니다.
+            <br />쿠폰을적용한상품을환불및취소시쿠폰은반환되지않습니다.
+            <br />쿠폰은유효기간내에만이용이가능합니다.
+            <span><br />3. 환불정책안내</span>
+            <br />슈퍼코딩유료서비스이용약관제12조제2항및13조에맞게환불금액이책정됩니다.
+            <br />슈퍼코딩유료서비스이용약관제12조제2항및13조에맞게환불금액이책정됩니다.
+            <br />슈퍼코딩유료서비스이용약관제12조제2항및13조에맞게환불금액이책정됩니다.
+            <br />슈퍼코딩유료서비스이용약관제12조제2항및13조에맞게환불금액이책정됩니다.
+            <br />슈퍼코딩유료서비스이용약관제12조제2항및13조에맞게환불금액이책정됩니다.
+          </div>
+        </ScrollArea>
+      </div>
+    </section>
   )
+}
 
-  const showPGModal = useCallback(
-    () => {
-      if (!registered) {
-        setPGModalOpened(true);
-      } else {
-        setMessage("결제완료된 건입니다. 내강의실 페이지에서 수강현황을 확인해보세요");
-        setMessageModalOpened(true);
-      }
-    }, [registered, setMessage, setPGModalOpened, setMessageModalOpened]
-  )
-
-  const showPayMethodModal = useCallback(
-    () => setPayMethodModalOpened(true), []
-  )
-
-  const saveModifiedValues = useCallback(
-    (name: string, email: string, tel: string) => {
-      setName(name);
-      setEmail(email);
-      setTel(tel);
-      setModification(false);
-    }, []
-  )
-
-  const registerCourse = useCallback(
-    () => {
-      if (registered) {
-        window.alert("수강중인 강의입니다. 강의실 페이지에서 수강현황을 확인해보세요")
-      }
-      else {
-        new OrderRepository()
-        .completeOrderById(login?.token as string, merchantUID.current, 0)
-        .then(
-          () => window.alert("수강신청 완료되었습니다. 내강의실 페이지에서 수강현황을 확인해보세요")
-        )
-        .catch(
-          (err) => {  
-            new OrderRepository()
-            .deleteOrderById(login?.token as string, merchantUID.current)
-            .then(
-              () => window.alert(`수강신청에 실패했습니다. 다시 시도해주세요. 에러코드: ${err.response.status}` )
-            )
-          }
-        )
-      }
-    }, [login, registered]
-  )
-  
-  const successPayment = useCallback(
-    (result: AxiosResponse<any, any>) => {
-      switch(result.status) {
-        case 200:
-          setMessage("가상계좌가 성공적으로 발급되었습니다.");
-          break;
-        case 201:
-          setMessage("결제 완료되었습니다. 내 강의실 페이지에서 수강현황을 확인해보세요");
-          setRegistered(true);
-          break;
-        case 400:
-          setMessage("비정상적인 결제 요청으로 결제 프로세스가 종료되었습니다.");
-          setRegistered(false);
-          break;
-      }
-      setMessageModalOpened(true);
-    }, [setMessage, setMessageModalOpened]
-  )
-
-  const failPayment = useCallback(
-    (response: any) => {
-      setMessage(
-        `결제 실패하였습니다. |
-         세부 내용: ${response.error_msg}`
-      );
-      setMessageModalOpened(true);
-    }, [setMessage, setMessageModalOpened]
-  )
-
-  const payCallback = (response: any) => {
-    if (response.success) {
-      new OrderRepository()
-      .completeOrderById(login?.token as string, merchantUID.current, response.imp_uid)
-      .then(
-        (result) => {
-          successPayment(result);
-        })
-    } else {
-      failPayment(response);
-    }
-  };
-
-  const requestPayment = (
-    order: MyOrder,
-    buyer: Buyer,
-    pgCode: string, //pg사 이름
-    pgMID: string, //상점ID
-    payMethodCode: string, //결제방식
-  ) => {
-    const digital = true;
-    if (login) {
-      IMP.request_pay({
-        pg: `${pgCode}.${pgMID}`,
-        pay_method: payMethodCode,
-        merchant_uid: order.orderId,
-        name: order.productName,
-        amount: order.dcPrice,
-        buyer_email: buyer.email,
-        buyer_name: buyer.name,
-        buyer_tel: buyer.tel,
-        currency: "KRW",
-        digital: digital
-      }, payCallback)
-    } else {
-      // TODO: 디자인된 Modal 적용
-      alert("결제를 진행하려면 로그인해야 합니다.")
-    }
-  }
-
+const PaymentBottomRightSection = () => {
+  const {classes, cx} = useStyles();
+  const [openAgreementModal, setOpenAgreementModal] = useState(false);
+  const [openPaymentResultModal, setPaymentResultModal] = useState(false);
   return (
     <>
     {
-      (login) && (   
-        <MessageModal
-          open={messageModalOpened}
-          mainMessage={message.split("|")[0]}
-          detailMessage={message.split("|")[1]}
-          onCloseModal={(open) => setMessageModalOpened(!open)}
-        />
-      )
+      <Modal className={classes.modal} opened={openAgreementModal} centered onClose={() => setOpenAgreementModal(false)}>
+          <div>
+            <h2>개인정보 수집 및 이용 및 처리 동의</h2>
+            <ScrollArea type="always">
+              <p>
+                개인정보취급 위탁
+                <br />당사는 전문적인 고객지원 및 서비스 제공을 위해 아래와 같이 개인정보 취급 업무를 외부 업체에 위탁하여 운영하고 있습니다. 위탁계약 시 개인정보보호의 안전을 기하기 위하여 개인정보보호 관련 지시 엄수, 개인정보에 관한 유출금지 및 사고시의 책임부담 등을 명확히 규정하고 위탁계약 내용에 포함되어 있습니다.
+                <br />[서비스 제공 위탁업체]
+                <br />  -  위탁 업체명 : 씨제이대한통운㈜ , 우정사업본부(우체국)
+                <br />  -  위탁 업무 : 물품 배송
+                <br />개인정보취급 위탁
+                <br />당사는 전문적인 고객지원 및 서비스 제공을 위해 아래와 같이 개인정보 취급 업무를 외부 업체에 위탁하여 운영하고 있습니다. 
+                <br />위탁계약 시 개인정보보호의 안전을 기하기 위하여 개인정보보호 관련 지시 엄수, 개인정보에 관한 유출금지 및 사고시의 책임부담 등을 명확히 규정하고 위탁계약 내용에 포함되어 있습니다.
+                <br />[서비스 제공 위탁업체]
+                <br />-  위탁 업체명 : 씨제이대한통운㈜ , 우정사업본부(우체국)
+                <br />-  위탁 업무 : 물품 배송
+                <br />당사는 전문적인 고객지원 및 서비스 제공을 위해 아래와 같이 개인정보 취급 업무를 외부 업체에 위탁하여 운영하고 있습니다. 
+                <br />위탁계약 시 개인정보보호의 안전을 기하기 위하여 개인정보보호 관련 지시 엄수, 개인정보에 관한 유출금지 및 사고시의 책임부담 등을 명확히 규정하고 위탁계약 내용에 포함되어 있습니다.
+                <br />[서비스 제공 위탁업체]
+                <br />-  위탁 업체명 : 씨제이대한통운㈜ , 우정사업본부(우체국)
+                <br />-  위탁 업무 : 물품 배송
+              </p>
+            </ScrollArea>
+          </div>
+      </Modal>
     }
     {
-      // 결제하기 클릭시 PG사 선택모달이 먼저 열림
-      (login) && (
-        <PaymentPGModal
-          pgNameCodeMap={config.getPGCodeMap()}
-          opened={pgModalOpened}
-          modalCloser={(close: boolean) => setPGModalOpened(!close)}
-          onSelectItem={(code: string) => {setPGCode(code); showPayMethodModal();}}
-        />
-      )
-    }
-    {
-      // PG사를 선택하면 결제방식을 선택하는 모달창 열림
-      (login && pgCode !== "") && (
-        <PaymentMethodModal
-          paymentMethods={config.getPayMethodsByPG(pgCode)}
-          paymentMethodCodeMap={config.getPaymentMethodCodeMap()}
-          opened={payMethodModalOpened}
-          modalCloser={(close: boolean) => setPayMethodModalOpened(!close)}
-          onSelectItem={(payMethodCode: string) => { 
-            requestPayment(
-              {
-                orderId: merchantUID.current,
-                orgPrice: course.orgPrice,
-                dcPrice: course.dcPrice,
-                productName: course.title
-              },
-              {
-                name: login.name,
-                email: login.email,
-                tel: tel
-              },
-              pgCode,
-              config.getPGCodeMIDMap(config.MODE).get(pgCode) as string,
-              payMethodCode
-            )
-          }}
-        />
-      )
-    }
-    {
-      (login) && (
-        <div className={classes.main}>
-          <div className={classes.layout}>
-            <section className={classes.cart}>
-              <PaymentCart courses={coursesInCart}/>
-            </section>
-            <aside className={classes.cartAside}>
-              <section className={classes.sectionPayment}>
-                <PaymentSection onClickHandler={course.dcPrice === 0 ? registerCourse : showPGModal}/>
-              </section>
-              <section className={classes.sectionBuyerInfo}>
-                <Space h={10}/>
-                {
-                  modification ?
-                  <BuyerInfoModifiable
-                    buyer={{name:name, email: email, tel: tel}}
-                    saveValues={saveModifiedValues}
-                  />
-                  :
-                  <BuyerInfo
-                    buyer={{
-                      name: name,
-                      email: email,
-                      tel: tel
-                    }}
-                    onclickModificaion={() => setModification(true)}
-                  />
-                }
-              </section>
-            </aside>
+      <Modal className={classes.modal} opened={openPaymentResultModal} centered onClose={() => setPaymentResultModal(false)}>
+        <div className={classes.paymentResultTable}>
+          <div id="key" className={classes.columnFlex}>
+            <div>주문상품</div>
+            <div>주문번호</div>
+            <div>결제정보</div>
+            <div>결제금액</div>
+          </div>
+          <div id="value" className={classes.columnFlex}>
+            <div>취업관리형 웹개발 종합반</div>
+            <div>226968671</div>
+            <div>신용카드 <br />승인일시: 2022.09.24. 23:49:29</div>
+            <div>427,000원</div>
           </div>
         </div>
-      )
+        <Button>내 강의실 바로가기</Button>
+      </Modal>
     }
-    </>
+    {
+      <section className={cx(classes.columnFlex, classes.bottomRightSection)}>-
+      <div className={classes.sectionTitle}>
+        <h2>결제 금액</h2>
+      </div>
+      <div className={cx(classes.columnFlex, classes.priceTable)}>
+        <div className={cx(classes.columnFlex, classes.tableInner)}>
+          <div className={cx(classes.rowFlex, classes.row, classes.bold)}>
+            <div>상품금액</div>
+            <div>450,000원</div>
+          </div>
+          <div className={cx(classes.rowFlex, classes.row, classes.bold)}>
+            <div>할인금액</div>
+            <div>-23,000원</div>
+          </div>
+          <div className={cx(classes.rowFlex, classes.row, classes.thin)}>
+            <div>상품할인</div>
+            <div>-20,000</div>
+          </div>
+          <div className={cx(classes.rowFlex, classes.row, classes.thin)}>
+            <div>쿠폰적용</div>
+            <div>450,000원</div>
+          </div>
+        </div>
+        <div className={cx(classes.rowFlex, classes.row, classes.total)}>
+          <div>총 결제 금액</div>
+          <div>427,000원</div>
+        </div>
+      </div>
+      <div className={cx(classes.columnFlex, classes.buttonArea)}>
+        <div className={cx(classes.columnFlex, classes.agreementArea)}>
+          <div className={cx(classes.rowFlex, classes.thin, classes.agreement)}>
+            <div className={classes.checker}>
+              <Checkbox radius={0}/>
+            </div>
+            <div>아래 내용을 확인하였으며 결제에 동의합니다.</div>
+          </div>
+          <div className={cx(classes.rowFlex, classes.thin, classes.agreement)}>
+            <div className={classes.checker}>
+              <Checkbox radius={0}/>
+            </div>
+            <div>개인정보 수집이용 및 제공 동의(필수)</div>
+            <div className={cx(classes.thin, classes.show)} onClick={() => setOpenAgreementModal(true)}>보기</div>
+          </div>
+        </div>
+        <Button
+          className={classes.paymentButton}
+          radius={0}
+          onClick={() => {}}
+          >
+          결제하기
+        </Button>
+      </div>
+    </section>
+    }
+  </>
+  )
+}
+
+const Payment = () => {
+  const {classes, cx} = useStyles();
+  const [selectedMethod, setSelectedMethod] = useState("");
+  const selectMethodHandler = useCallback(
+    (e: MouseEvent<HTMLElement>) => {
+      let target = e.target as HTMLElement;
+      setSelectedMethod(target.id)
+    }, [setSelectedMethod]
+  );
+
+  return (
+    <section className={classes.main}>
+      <div className={cx(classes.contents, classes.columnFlex)}>
+        <PaymentTopSection />
+        <section className={cx(classes.rowFlex, classes.bottomSection)}>
+          <PaymentBottomLeftSection />
+          <PaymentBottomRightSection />
+        </section>
+      </div>
+    </section>
   )
 }
 
