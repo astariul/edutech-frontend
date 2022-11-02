@@ -425,3 +425,50 @@
   color: #ffffff;
   text-decoration: none;
 }
+
+.sub4SectionContainer {
+  width: 100%;
+  height: 503px;
+  background-image: url("/public/image/networkingProgram/sub4Background.png");
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+}
+
+.sub4SectionRowContainer {
+  display: flex;
+  justify-content: center;
+  gap: 132px;
+}
+
+.sub4SectionDescriptionContainer {
+  padding: 78px 0 71px;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+}
+.sub4SectionDescriptionContainer > div:nth-child(1) {
+  font-weight: 800;
+  font-size: 20.4836px;
+  line-height: 23px;
+  letter-spacing: -0.731557px;
+}
+.sub4SectionDescriptionContainer > div:nth-child(2) {
+  margin-top: 17px;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 32px;
+  letter-spacing: -1px;
+}
+.sub4SectionDescriptionContainer > ul {
+  margin-top: 25px;
+  padding: 0 0 0 20px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.994145px;
+  color: #ffffff;
+}
+.sub4SectionDescriptionContainer > ul > li {
+  padding: 0;
+}
