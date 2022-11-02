@@ -1,0 +1,107 @@
+.flexRowCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexRowSpaceBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainSectionContainer {
+  width: 100%;
+  height: 599px;
+  background-image: url("/public/image/networkingProgram/mainBackground.png");
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainDescriptionContainer {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.mainDescription {
+  padding: 48px 0 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+}
+.mainDescription strong {
+  color: #00f0ff;
+}
+
+.mainTitle {
+  font-weight: 900;
+  font-size: 77.0008px;
+  line-height: 92px;
+  letter-spacing: -0.05em;
+  color: #ffffff;
+}
+.mainTitle strong {
+  color: #00f0ff;
+}
+
+.mainSubTitle {
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+}
+
+.mainButtonContainer {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+.mainButtonContainer a {
+  width: 368px;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 4px solid #ffffff;
+  border-radius: 10px;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 37px;
+  letter-spacing: -1px;
+  color: #ffffff;
+  cursor: pointer;
+}
+.mainButtonContainer a img {
+  width: 30px;
+  height: 30px;
+}
