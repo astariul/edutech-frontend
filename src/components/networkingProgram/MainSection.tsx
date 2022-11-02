@@ -42,11 +42,11 @@ const MainSection: FC = () => {
         100인의 업계 현직선배들과 동료들이 당신의 취업을 적극적으로 지원합니다.
       </div>
       <div className={styles.mainButtonContainer}>
-        <a>
+        <a href="/">
           <img src={SlackIcon} alt="" />
           네트워크 프로그램 입장하기
         </a>
-        <a>웹개발 종합반 구매하기</a>
+        <a href="/">웹개발 종합반 구매하기</a>
       </div>
     </div>
   );
