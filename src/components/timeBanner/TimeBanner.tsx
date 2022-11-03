@@ -5,13 +5,14 @@ import useStyles from './style';
 import { useNavigate } from 'react-router-dom';
 
 interface TimeBannerProps {
-  dDay: string,
-  messageColor: string,
-  buttonString: string,
-  message?: string,
+  dDay: string;
+  messageColor: string;
+  buttonString: string;
+  onClickButton: () => void;
+  message?: string;
 }
 
-const TimeBanner = ({dDay, buttonString, messageColor, message}: TimeBannerProps) => {
+const TimeBanner = ({dDay, buttonString, messageColor, onClickButton, message}: TimeBannerProps) => {
   const {classes} = useStyles({messageColor});
   const navigate = useNavigate();
   return (
@@ -24,7 +25,7 @@ const TimeBanner = ({dDay, buttonString, messageColor, message}: TimeBannerProps
         <Button
           className={classes.paymentButton}
           radius={6.47}
-          onClick={() => navigate("/payment")}
+          onClick={onClickButton}
         >
           {buttonString}
         </Button>
