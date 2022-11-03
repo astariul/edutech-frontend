@@ -91,7 +91,7 @@ const PaymentSubjectSection = ({course}: PaymentSubjectSectionProps) => {
           </div>
           <div className={cx(classes.instructor)}>
             <Person
-              image={require("../../static/image/payment/avatar.png")}
+              image={require("../../static/image/payment/tutor.png")}
               name={course?.instructor.name as string}
               description={course?.instructor.description as string}
               size={50.83}
@@ -147,7 +147,7 @@ const PaymentSubjectSectionMobile = ({course}: PaymentSubjectSectionProps) => {
           </div>
           <div className={cx(classes.instructor)}>
             <Person
-              image={require("../../static/image/payment/avatar.png")}
+              image={require("../../static/image/payment/tutor.png")}
               name={course?.instructor.name as string}
               description={course?.instructor.description as string}
               size={36.64}
