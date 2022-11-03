@@ -1,6 +1,6 @@
 import { createStyles } from "@mantine/core";
 
-const useStyles = createStyles(() => ({
+const useStyles = createStyles((theme, _, getRef) => ({
 
   mobile: {
     display: "none",
@@ -52,9 +52,7 @@ const useStyles = createStyles(() => ({
     },
 
     [`@media (max-width: 767px)`]: {
-      width: "766px",
-      // width: "calc(100% - (100%-766px))",
-      // margin: 0,
+      width: "100vw",
       alignItems: "center",
       marginLeft: "calc(100% - (100%-766px))",
 
@@ -91,7 +89,7 @@ const useStyles = createStyles(() => ({
     }
   },
 
-  bottomLeftSection: {
+  paymentMethodSection: {
     width: "765.01px",
     rowGap: "43px",
 
@@ -99,6 +97,23 @@ const useStyles = createStyles(() => ({
       rowGap: "23px",
     },
 
+    ".bottom": {
+      rowGap: "29px",
+    },
+
+    [`@media (max-width: 767px)`]: {
+      width: "339px",
+      paddingTop: "27px",
+
+      ".bottom": {
+        backgroundColor: "#F5F5F5",
+        width: "339px",
+        height: "200px"
+      },
+    }
+  },
+
+  paymentPaySectionMobile: {
     ".bottom": {
       rowGap: "29px",
     },
@@ -146,6 +161,7 @@ const useStyles = createStyles(() => ({
     [`@media (max-width: 767px)`]: {
       width: "63px",
       height: "25px",
+      marginBottom: "28px",
 
       "h2": {
         fontSize: "17px",
@@ -198,7 +214,7 @@ const useStyles = createStyles(() => ({
       width: "339px",
       height: "287px",
       flexDirection: "column",
-      alignItems: "center"
+      alignItems: "center",
     }
 
   },
@@ -518,9 +534,67 @@ const useStyles = createStyles(() => ({
     }
   },
 
+  paymentResult: {
+    margin: "25px 0px 39px 0px",
+    rowGap: "32px",
+
+    "div.title > h2": {
+      margin: 0,
+      fontWeight: 500,
+      fontSize: "24px",
+      lineHeight: "38px",
+      letterSpacing: "-2px",
+      color: "#373737",
+    },
+
+    "button": {
+      marginLeft: "auto",
+      marginRight: "auto",
+      background: "#0094FF",
+      width: "250px",
+      height: "50px",
+      
+      "span": {
+        fontFamily: "NotoSansKR",
+        fontStyle: "normal",
+        fontWeight: 700,
+        fontSize: "14px",
+        lineHeight: "20px",
+        letterSpacing: "-0.05em",
+        color: "#FFFFFF",
+      },
+    }
+  },
+
   paymentResultTable: {
+    width: "337px",
+    fontFamily: "NotoSansKR",
+    fontWeight: 500,
+    fontSize: "12px",
+    lineHeight: "160%",
+    borderTop: "1px solid #E8E8E8",
+    borderLeft: "1px solid #E8E8E8",
+    borderRight: "1px solid #E8E8E8",
     
-  }
+    "div.row": {
+      paddingTop: "13px",
+      paddingBottom: "13px",
+      paddingLeft: "24px",
+      borderBottom: "1px solid #E8E8E8",
+      columnGap: "46px",
+    },
+    
+    "div.name": {
+      letterSpacing: "-0.03em",
+      color: "#888888",
+    },
+    
+    "div.value": {
+      color: "#111111",
+    }
+  },
+
+
 
 }));
 
