@@ -35,7 +35,7 @@ function App() {
   const [bannerMessageColor, setBannerMessageColor] = useState("#0094FF");
   const [bannerButtonMesg, setbannerButtonMesg] = useState("");
   const [bannerOn, setBannerOn] = useState(false);
-  const mobileScreen = useMediaQuery('(max-width: 767px)');
+  const mobileScreen = useMediaQuery('(max-width: 900px)');
 
   if (authorized) {
     new AuthRepository()
