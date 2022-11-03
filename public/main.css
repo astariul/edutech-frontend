@@ -6,3 +6,25 @@ html {
   min-width: 300px;
   min-height: 100%;
 }
+
+html, body {
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: none;
+  overscroll-behavior: none;
+	max-width: 100%;
+	overflow-x: hidden;
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box;
+  -webkit-text-size-adjust: none; /*Chrome, Safari, newer versions of Opera*/
+  -moz-text-size-adjust: none; /*Firefox*/
+  -ms-text-size-adjust: none; /*Ie*/
+  -o-text-size-adjust: none; /*old versions of Opera*/
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
