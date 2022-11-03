@@ -195,7 +195,7 @@ const PaymentMethodSection = ({paymentMethod, selectMethodHandler}: PaymentMetho
             className={cx(classes.methodBox, {[classes.activeMethod]: paymentMethod === "tosspay"})}
             id="tosspay"
           >
-            <img id="tosspay" onClick={selectMethodHandler} src={require("../../static/image/payment/tosspayment.png")} alt="tosspayment" />
+            <img id="tosspay" onClick={selectMethodHandler} src={require("../../static/image/payment/tosspay.png")} alt="tosspayment" />
           </div>
         </div>
       </div>
