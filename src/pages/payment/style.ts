@@ -1,12 +1,33 @@
 import { createStyles } from "@mantine/core";
 
 const useStyles = createStyles(() => ({
+
+  mobile: {
+    display: "none",
+
+    [`@media (max-width: 767px)`]: {
+      display: "inline-block"
+    }
+  },
+
+  desktop: {
+    [`@media (max-width: 767px)`]: {
+      display: "none"
+    }
+  },
+
   main: {
     margin: "106px auto",
     width: "1440px",
     fontFamily: "NotoSansKR",
     fontStyle: "normal",
-
+    
+    [`@media (max-width: 767px)`]: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      marginTop: "16px" 
+    }
   },
   
   rowFlex: {
@@ -29,18 +50,45 @@ const useStyles = createStyles(() => ({
     "hr": {
       color: "#E4E4E4",
     },
+
+    [`@media (max-width: 767px)`]: {
+      width: "766px",
+      // width: "calc(100% - (100%-766px))",
+      // margin: 0,
+      alignItems: "center",
+      marginLeft: "calc(100% - (100%-766px))",
+
+      "section": {
+        width: "339px"
+      }
+    }
   },
 
   topSection: {
     rowGap: "40px",
     paddingBottom: "49px",
-    borderBottom: "1px solid #E4E4E4"
+    borderBottom: "1px solid #E4E4E4",
+
+    [`@media (max-width: 767px)`]: {
+      height: "220px",
+      paddingBottom: 0,
+      borderBottom: 0,
+      alignItems: "center",
+    }
   },
 
   bottomSection: {
     paddingTop: "49px",
     alignItems: "flex-start",
-    columnGap: "34.93px"
+    columnGap: "34.93px",
+  
+    [`@media (max-width: 767px)`]: {
+      paddingTop: "28px",
+      paddingBottom: 0,
+      borderBottom: 0,
+      alignItems: "center",
+      justifyContent: "center",
+    }
   },
 
   bottomLeftSection: {
@@ -53,12 +101,33 @@ const useStyles = createStyles(() => ({
 
     ".bottom": {
       rowGap: "29px",
+    },
+
+    [`@media (max-width: 767px)`]: {
+      width: "339px",
+      paddingTop: "27px",
+
+      ".bottom": {
+        backgroundColor: "#F5F5F5",
+        width: "339px",
+        height: "200px"
+      },
     }
   },
 
   bottomRightSection: {
     width: "368px",
-    height: "460px"
+    height: "460px",
+
+    [`@media (max-width: 767px)`]: {
+      width: "339px",
+      height: "auto",
+      paddingBottom: 0,
+      paddingTop: "28px",
+      borderBottom: 0,
+      alignItems: "center",
+      borderTop: "6px solid #F5F5F5",
+    }
   },
 
   pageTitle: {
@@ -72,6 +141,27 @@ const useStyles = createStyles(() => ({
       lineHeight: "43px",
       letterSpacing: "-1.5px",
       color: "#373737",
+    },
+
+    [`@media (max-width: 767px)`]: {
+      width: "63px",
+      height: "25px",
+
+      "h2": {
+        fontSize: "17px",
+        lineHeight: "25px",
+        fontWeight: 700
+      }
+    }
+  },
+
+  mobileTitle: {
+    display: "none",
+    
+    [`@media (max-width: 767px)`]: {
+      width: "100%",
+      justifyContent: "flex-end",
+      display: "flex"
     }
   },
 
@@ -92,12 +182,25 @@ const useStyles = createStyles(() => ({
       fontSize: "13px",
       lineHeight: "21px",
       color: "#111111",
+    },
+
+    [`@media (max-width: 767px)`]: {
+      justifyContent: "flex-start",
+      marginRight: "auto",
     }
   },
 
   product: {
     width: "936px",
-    height: "185px"
+    height: "185px",
+
+    [`@media (max-width: 767px)`]: {
+      width: "339px",
+      height: "287px",
+      flexDirection: "column",
+      alignItems: "center"
+    }
+
   },
 
   checkerArea: {
@@ -105,7 +208,6 @@ const useStyles = createStyles(() => ({
   },
 
   checker: {
-
     ".mantine-Checkbox-inner": {
       width: "18px",
       height: "18px",
@@ -124,7 +226,12 @@ const useStyles = createStyles(() => ({
 
   information: {
     rowGap: "12px",
-    paddingLeft: "32px"
+    paddingLeft: "32px",
+
+    [`@media (max-width: 767px)`]: {
+      paddingLeft: 0,
+      width: "339px"
+    }
   },
 
   tags: {
@@ -144,7 +251,11 @@ const useStyles = createStyles(() => ({
     lineHeight: "18px",
     color: "#FFFFFF",
     width: "72px",
-    height: "24px"
+    height: "24px",
+
+    [`@media (max-width: 767px)`]: {
+      width: "40px",
+    }
   },
 
   courseTitle: {
@@ -158,6 +269,18 @@ const useStyles = createStyles(() => ({
       lineHeight: "38px",
       letterSpacing: "-1px",
       color: "#11142D",
+    },
+
+    [`@media (max-width: 767px)`]: {
+      width: "339px",
+      height: "auto",
+
+      "h2": {
+        fontSize: "15px",
+        lineHeight: "22.5px",
+        letterSpacing: "-0.03em",
+        color: "#000000",
+      },
     }
   },
 
@@ -170,12 +293,18 @@ const useStyles = createStyles(() => ({
     }
   },
 
-  methodArea: {
+  methodBoxArea: {
     columnGap: "17px",
     rowGap: "9px",
+
+    [`@media (max-width: 767px)`]: {
+      justifyContent: "flex-start",
+      // columnGap: "11px",
+      flexFlow: "row wrap",
+    }
   },
 
-  method: {
+  methodBox: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -183,11 +312,23 @@ const useStyles = createStyles(() => ({
     height: "50px",
     border: "1px solid #E4E4E4",
     fontSize: "13px",
-    lineHeight: "160%"
+    lineHeight: "160%",
+
+    [`@media (max-width: 767px)`]: {
+      width: "156px",
+      padding: 0
+    }
   },
 
   activeMethod: {
     border: "3px solid #0094FF"
+  },
+
+  aggrements: {
+    [`@media (max-width: 767px)`]: {
+      width: "335px",
+      margin: "15px auto 35px 20px",
+    }
   },
 
   notice: {
@@ -220,6 +361,27 @@ const useStyles = createStyles(() => ({
         fontWeight: 700,
   
       }
+    },
+
+    [`@media (max-width: 767px)`]: {
+      border: 0,
+      width: "315px",
+      height: "46px",
+      // margin: "15px 0px 14px 0px",
+      justifyContent: "space-between",
+      borderBottom: "1px solid #DBDBDB",
+
+      "div": {
+        // marginLeft: "20px",
+        fontWeight: 700,
+        fontSize: "12px",
+        lineHeight: "17px",
+        color: "#999999",
+      },
+
+      "img": {
+        marginRight: "35px",
+      }
     }
   },
 
@@ -228,6 +390,11 @@ const useStyles = createStyles(() => ({
     width: "368px",
     height: "228px",
     border: "1px solid #E8E8E8",
+
+    [`@media (max-width: 767px)`]: {
+      width: "339px",
+      borderBottom: "6px solid #F5F5F5"
+    }
   },
 
   tableInner: {
@@ -253,6 +420,12 @@ const useStyles = createStyles(() => ({
     lineHeight: "160%",
     letterSpacing: "-0.03em",
     color: "#888888",
+
+    [`@media (max-width: 767px)`]: {
+      fontSize: "14px",
+      lineHeight: "160%",
+      color: "#999999",
+    }
   },
 
   total: {
@@ -280,6 +453,11 @@ const useStyles = createStyles(() => ({
     color: "#111111",
     justifyContent: "flex-start",
     columnGap: "8px",
+
+    [`@media (max-width: 767px)`]: {
+      paddingTop: "23px",
+      columnGap: "10px"
+    }
   },
 
   show: {
@@ -300,7 +478,16 @@ const useStyles = createStyles(() => ({
       lineHeight: "20px",
       letterSpacing: "-0.05em",
       color: "#FFFFFF",
+    },
+
+    [`@media (max-width: 767px)`]: {
+      width: "339px",
+      height: "84px",
     }
+  },
+
+  closeButton: {
+    marginLeft: "124px" 
   },
 
   modal: {

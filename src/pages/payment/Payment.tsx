@@ -2,8 +2,9 @@
 import useStyles from './style';
 import Person from '../../components/person/Person';
 import { ICourse } from '../../typings/db';
-import { Button, Checkbox, Modal, ScrollArea } from '@mantine/core';
+import { Button, Checkbox, Modal, ScrollArea, Divider } from '@mantine/core';
 import { useState, useCallback, MouseEvent} from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface PaymentTopSectionProps {
   course?: ICourse
@@ -24,6 +25,7 @@ const Tag = ({name, color, key}: {name: string, color: string, key: any}) => {
 
 const PaymentTopSection = ({course}: PaymentTopSectionProps) => {
   const {classes, cx} = useStyles();
+  const navigate = useNavigate();
   const tags = [
     {
       color: "#00A607",
@@ -39,15 +41,27 @@ const PaymentTopSection = ({course}: PaymentTopSectionProps) => {
   ]
 
   return (
-    <section className={cx(classes.topSection, classes.columnFlex)}>
-      <div className={classes.pageTitle}>
+    <section className={cx( classes.columnFlex, classes.topSection)}>
+      <div className={cx(classes.pageTitle, classes.desktop)}>
         <h2>결제하기</h2>
       </div>
-      <div className={cx(classes.product, classes.rowFlex)}>
-        <div className={cx(classes.checkerArea, classes.checker)}>
+      <div className={cx(classes.mobileTitle)}>
+        <div className={classes.pageTitle}>
+          <h2>결제하기</h2>
+        </div>
+        <div className={classes.closeButton} onClick={() => navigate("/")}>
+          <img
+            onClick={() => navigate("/")}
+            src={require("../../static/image/payment/X.png")}
+            alt="close"
+          />
+        </div>
+      </div>
+      <div className={cx(classes.rowFlex, classes.product)}>
+        <div className={cx(classes.checkerArea, classes.checker, classes.desktop)}>
           <Checkbox radius={0}/>
         </div>
-        <div className={classes.image}>
+        <div className={cx(classes.image, classes.desktop)}>
           <img src={require("../../static/image/payment/courseImage.png")} alt="courseImage" />
         </div>
         <div className={cx(classes.information, classes.columnFlex)}>
@@ -59,12 +73,20 @@ const PaymentTopSection = ({course}: PaymentTopSectionProps) => {
           <div className={classes.courseTitle}>
             <h2>취업보장, 불합격시 100%환불 취업관리형 웹개발 종합반 PLUS</h2>
           </div>
-          <div className={classes.instructor}>
+          <div className={cx(classes.instructor, classes.desktop)}>
             <Person
               image={require("../../static/image/payment/avatar.png")}
               name={"이경엽"}
-              description={"Spacwalk CTO/SuperCoding Coach"}
+              description={"Spacewalk CTO / SuperCoding Coach"}
               size={50.83}
+            />
+          </div>
+          <div className={cx(classes.instructor, classes.mobile)}>
+            <Person
+              image={require("../../static/image/payment/avatar.png")}
+              name={"이경엽"}
+              description={"Spacewalk CTO / SuperCoding Coach"}
+              size={36.64}
             />
           </div>
         </div>
@@ -78,6 +100,7 @@ const PaymentBottomLeftSection = () => {
   const [selectedMethod, setSelectedMethod] = useState("");
   const onClickMethod = useCallback(
     (e: MouseEvent<HTMLElement>) => {
+      // e.stopPropagation();
       let target = e.target as HTMLElement;
       setSelectedMethod(target.id)
     }, [setSelectedMethod]
@@ -88,33 +111,33 @@ const PaymentBottomLeftSection = () => {
       <div className={cx(classes.columnFlex, "top")}>
         <div className={cx(classes.sectionTitle, classes.rowFlex)}>
           <h2>결제 방식</h2>
-          <div>무이자할부안내</div>
+          <div className={classes.desktop}>무이자할부안내</div>
         </div>
-        <div className={cx(classes.methodArea, classes.rowFlex)}>
+        <div className={cx(classes.methodBoxArea, classes.rowFlex)}>
           <div
             onClick={onClickMethod}
-            className={cx(classes.method, {[classes.activeMethod]: selectedMethod === "신용카드"})}
+            className={cx(classes.methodBox, {[classes.activeMethod]: selectedMethod === "신용카드"})}
             id="신용카드"
           >
             신용카드
           </div>
           <div
             onClick={onClickMethod}
-            className={cx(classes.method, {[classes.activeMethod]: selectedMethod === "무통장입금"})}
+            className={cx(classes.methodBox, {[classes.activeMethod]: selectedMethod === "무통장입금"})}
             id="무통장입금"
             >
             무통장입금
           </div>
           <div
             onClick={onClickMethod}
-            className={cx(classes.method, {[classes.activeMethod]: selectedMethod === "토스페이먼트"})}
+            className={cx(classes.methodBox, {[classes.activeMethod]: selectedMethod === "토스페이먼트"})}
             id="토스페이먼트"
           >
-            <img src={require("../../static/image/payment/tosspayment.png")} alt="tosspayment" />
+            <img id="토스페이먼트" onClick={onClickMethod} src={require("../../static/image/payment/tosspayment.png")} alt="tosspayment" />
           </div>
         </div>
       </div>
-      <div className={cx(classes.columnFlex, "bottom")}>
+      <div className={cx(classes.columnFlex, "bottom", classes.desktop)}>
         <div className={classes.sectionTitle}>
           <h2>유의사항</h2>
         </div>
@@ -135,6 +158,41 @@ const PaymentBottomLeftSection = () => {
           </div>
         </ScrollArea>
       </div>
+      <div className={cx(classes.columnFlex, "bottom", classes.mobile)}>
+        <div className={cx(classes.columnFlex, classes.aggrements)}>
+          <div className={cx(classes.rowFlex, classes.notice)}>
+            <div>유의사항</div>
+            <img src={require("../../static/image/payment/arrowDown.png")} alt="arrowDown" />
+          </div>
+          <div className={cx(classes.rowFlex, classes.notice)}>
+            <div>개인정보 수집이용 및 제공 동의(필수)</div>
+            <img src={require("../../static/image/payment/arrowDown.png")} alt="arrowDown" />
+          </div>
+          <div className={cx(classes.rowFlex, classes.thin, classes.agreement)}>
+            <div className={classes.checker}>
+              <Checkbox radius={0}/>
+            </div>
+            <div>위 내용을 확인하였으며 결제에 동의합니다.</div>
+          </div>
+        </div>
+        <Button className={classes.paymentButton} radius={0}>결제하기</Button>
+        {/* <ScrollArea className={classes.notice} type="always" scrollbarSize={16}>
+          <div id="content">
+            <span>1. 온라인강좌안내</span>
+            <br />온라인 강좌는 구매 후 내강의실에서 ....
+            <span><br />2. 할인권(쿠폰) 이용안내</span>
+            <br />쿠폰별적용조건에맞게쿠폰적용이가능합니다.
+            <br />쿠폰을적용한상품을환불및취소시쿠폰은반환되지않습니다.
+            <br />쿠폰은유효기간내에만이용이가능합니다.
+            <span><br />3. 환불정책안내</span>
+            <br />슈퍼코딩유료서비스이용약관제12조제2항및13조에맞게환불금액이책정됩니다.
+            <br />슈퍼코딩유료서비스이용약관제12조제2항및13조에맞게환불금액이책정됩니다.
+            <br />슈퍼코딩유료서비스이용약관제12조제2항및13조에맞게환불금액이책정됩니다.
+            <br />슈퍼코딩유료서비스이용약관제12조제2항및13조에맞게환불금액이책정됩니다.
+            <br />슈퍼코딩유료서비스이용약관제12조제2항및13조에맞게환불금액이책정됩니다.
+          </div>
+        </ScrollArea> */}
+      </div>
     </section>
   )
 }
@@ -146,7 +204,7 @@ const PaymentBottomRightSection = () => {
   return (
     <>
     {
-      <Modal className={classes.modal} opened={openAgreementModal} centered onClose={() => setOpenAgreementModal(false)}>
+      <Modal className={cx(classes.modal, classes.desktop)} opened={openAgreementModal} centered onClose={() => setOpenAgreementModal(false)}>
           <div>
             <h2>개인정보 수집 및 이용 및 처리 동의</h2>
             <ScrollArea type="always">
@@ -173,7 +231,7 @@ const PaymentBottomRightSection = () => {
       </Modal>
     }
     {
-      <Modal className={classes.modal} opened={openPaymentResultModal} centered onClose={() => setPaymentResultModal(false)}>
+      <Modal className={cx(classes.modal, classes.desktop)} opened={openPaymentResultModal} centered onClose={() => setPaymentResultModal(false)}>
         <div className={classes.paymentResultTable}>
           <div id="key" className={classes.columnFlex}>
             <div>주문상품</div>
@@ -192,59 +250,62 @@ const PaymentBottomRightSection = () => {
       </Modal>
     }
     {
-      <section className={cx(classes.columnFlex, classes.bottomRightSection)}>-
-      <div className={classes.sectionTitle}>
-        <h2>결제 금액</h2>
-      </div>
-      <div className={cx(classes.columnFlex, classes.priceTable)}>
-        <div className={cx(classes.columnFlex, classes.tableInner)}>
-          <div className={cx(classes.rowFlex, classes.row, classes.bold)}>
-            <div>상품금액</div>
-            <div>450,000원</div>
-          </div>
-          <div className={cx(classes.rowFlex, classes.row, classes.bold)}>
-            <div>할인금액</div>
-            <div>-23,000원</div>
-          </div>
-          <div className={cx(classes.rowFlex, classes.row, classes.thin)}>
-            <div>상품할인</div>
-            <div>-20,000</div>
-          </div>
-          <div className={cx(classes.rowFlex, classes.row, classes.thin)}>
-            <div>쿠폰적용</div>
-            <div>450,000원</div>
-          </div>
+      <section className={cx(classes.columnFlex, classes.bottomRightSection)}>
+        <div className={cx(classes.sectionTitle, classes.desktop)}>
+          <h2>결제 금액</h2>
         </div>
-        <div className={cx(classes.rowFlex, classes.row, classes.total)}>
-          <div>총 결제 금액</div>
-          <div>427,000원</div>
+        <div className={cx(classes.sectionTitle, classes.mobile)}>
+          <h2>최종 결제 금액</h2>
         </div>
-      </div>
-      <div className={cx(classes.columnFlex, classes.buttonArea)}>
-        <div className={cx(classes.columnFlex, classes.agreementArea)}>
-          <div className={cx(classes.rowFlex, classes.thin, classes.agreement)}>
-            <div className={classes.checker}>
-              <Checkbox radius={0}/>
+        <div className={cx(classes.columnFlex, classes.priceTable)}>
+          <div className={cx(classes.columnFlex, classes.tableInner)}>
+            <div className={cx(classes.rowFlex, classes.row, classes.bold)}>
+              <div>상품금액</div>
+              <div>450,000원</div>
             </div>
-            <div>아래 내용을 확인하였으며 결제에 동의합니다.</div>
-          </div>
-          <div className={cx(classes.rowFlex, classes.thin, classes.agreement)}>
-            <div className={classes.checker}>
-              <Checkbox radius={0}/>
+            <div className={cx(classes.rowFlex, classes.row, classes.bold)}>
+              <div>할인금액</div>
+              <div>-23,000원</div>
             </div>
-            <div>개인정보 수집이용 및 제공 동의(필수)</div>
-            <div className={cx(classes.thin, classes.show)} onClick={() => setOpenAgreementModal(true)}>보기</div>
+            <div className={cx(classes.rowFlex, classes.row, classes.thin)}>
+              <div>상품할인</div>
+              <div>-20,000</div>
+            </div>
+            {/* <div className={cx(classes.rowFlex, classes.row, classes.thin)}>
+              <div>쿠폰적용</div>
+              <div>450,000원</div>
+            </div> */}
+          </div>
+          <div className={cx(classes.rowFlex, classes.row, classes.total)}>
+            <div>총 결제 금액</div>
+            <div>427,000원</div>
           </div>
         </div>
-        <Button
-          className={classes.paymentButton}
-          radius={0}
-          onClick={() => {}}
-          >
-          결제하기
-        </Button>
-      </div>
-    </section>
+        <div className={cx(classes.columnFlex, classes.buttonArea, classes.desktop)}>
+          <div className={cx(classes.columnFlex, classes.agreementArea)}>
+            <div className={cx(classes.rowFlex, classes.thin, classes.agreement)}>
+              <div className={classes.checker}>
+                <Checkbox radius={0}/>
+              </div>
+              <div>아래 내용을 확인하였으며 결제에 동의합니다.</div>
+            </div>
+            <div className={cx(classes.rowFlex, classes.thin, classes.agreement)}>
+              <div className={classes.checker}>
+                <Checkbox radius={0}/>
+              </div>
+              <div>개인정보 수집이용 및 제공 동의(필수)</div>
+              <div className={cx(classes.thin, classes.show)} onClick={() => setOpenAgreementModal(true)}>보기</div>
+            </div>
+          </div>
+          <Button
+            className={classes.paymentButton}
+            radius={0}
+            onClick={() => {}}
+            >
+            결제하기
+          </Button>
+        </div>
+      </section>
     }
   </>
   )
@@ -264,9 +325,13 @@ const Payment = () => {
     <section className={classes.main}>
       <div className={cx(classes.contents, classes.columnFlex)}>
         <PaymentTopSection />
-        <section className={cx(classes.rowFlex, classes.bottomSection)}>
+        <section className={cx(classes.rowFlex, classes.bottomSection, classes.desktop)}>
           <PaymentBottomLeftSection />
           <PaymentBottomRightSection />
+        </section>
+        <section className={cx(classes.rowFlex, classes.bottomSection, classes.mobile)}>
+          <PaymentBottomRightSection />
+          <PaymentBottomLeftSection />
         </section>
       </div>
     </section>
