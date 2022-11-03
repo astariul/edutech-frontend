@@ -63,9 +63,7 @@ const Sub2Section: FC = () => {
     <div className={styles.sub2SectionContainer}>
       <div className={styles.widthContainer}>
         <div className={styles.sub2SectionDescriptionContainer}>
-          <div>
-            <u>SUPER</u>
-          </div>
+          <div>SUPER</div>
           <div>밀착관리</div>
           <div>
             슈퍼 멘토/코치와의 쳇팅, 화상 미팅을 통해 밀착관리가 이루어집니다.

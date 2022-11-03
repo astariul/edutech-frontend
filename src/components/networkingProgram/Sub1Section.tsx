@@ -21,9 +21,7 @@ const Sub1Section: FC = () => {
         됩니다.
       </div>
       <div className={styles.sub1SectionDescriptionContainer}>
-        <div>
-          <u>SUPER</u>
-        </div>
+        <div>SUPER</div>
         <div>담임제도</div>
         <div>수강생 10명이 스터디 그룹으로 묶여지고 담임코치가 지정됩니다.</div>
       </div>
