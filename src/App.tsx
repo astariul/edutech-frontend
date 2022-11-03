@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Home from './pages/home/Home';
 import { MantineProvider, AppShell, Center } from '@mantine/core';
-import { useLocalStorage } from '@mantine/hooks';
+import { useLocalStorage, useMediaQuery } from '@mantine/hooks';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import HeaderResponsive from './components/header/Header';
 import Footer from './components/Footer/Footer';
@@ -20,6 +20,7 @@ import VideoRoom from './pages/videoRoom/VideoRoom';
 import Product from './pages/product/Product';
 import TimeBanner from './components/timeBanner/TimeBanner';
 import FreeCourse from './pages/freeCourse/FreeCourse';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
   const [headerHidden, setHeaderHidden] = useState(false)
@@ -28,10 +29,12 @@ function App() {
   const [authorized, setAuthorized] = useLocalStorage<string | null>({ key: 'authorization', defaultValue: null });
   const [, setFormType] = useState<"register" | "login">("login");
   const location = useLocation();
+  const navigate = useNavigate();
   const [bannerMessage, setBannerMessage] = useState("");
   const [bannerMessageColor, setBannerMessageColor] = useState("#0094FF");
   const [bannerButtonMesg, setbannerButtonMesg] = useState("");
   const [bannerOn, setBannerOn] = useState(false);
+  const mobileScreen = useMediaQuery('(max-width: 767px)');
 
   if (authorized) {
     new AuthRepository()
@@ -61,7 +64,7 @@ function App() {
         setBannerMessageColor("#DBFF00");
         setBannerOn(true);
       }
-      else if (location.pathname.startsWith("/payment")) {
+      else if (location.pathname.startsWith("/payment") && mobileScreen) {
         setHeaderHidden(true);
         setFooterHidden(true);
       }
@@ -76,7 +79,7 @@ function App() {
     }, [
       location.pathname, bannerMessage, setBannerMessage,
       setBannerMessageColor, setBannerOn, setbannerButtonMesg,
-      setHeaderHidden, setFooterHidden
+      setHeaderHidden, setFooterHidden, mobileScreen
     ]
   );
 
@@ -96,6 +99,11 @@ function App() {
               message={bannerMessage}
               messageColor={bannerMessageColor}
               buttonString={bannerButtonMesg}
+              onClickButton={
+                bannerButtonMesg === "지금 바로 구매"
+                ? () => navigate("/payment", { state: process.env.REACT_APP_COURSE_ID })
+                : () => {alert("이벤트 오픈전입니다.")}
+              }
             />
             :
             <></>
