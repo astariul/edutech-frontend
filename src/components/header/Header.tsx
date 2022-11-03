@@ -29,7 +29,7 @@ const middleLinks = [
     label: "이력서 업그레이드",
   },
   {
-    link: "/feed",
+    link: "/networking",
     label: "네트워킹",
   },
   {
