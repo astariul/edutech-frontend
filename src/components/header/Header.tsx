@@ -190,7 +190,6 @@ const HeaderResponsive = () => {
       <Header
         className={classes.mainMobile}
         height={100}
-        hidden={location.pathname.startsWith("/class")}
       >
         <div className={classes.header}>
           <UnstyledButton component={Link} to={"/"}>

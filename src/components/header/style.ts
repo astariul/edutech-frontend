@@ -11,7 +11,6 @@ const useStyles = createStyles((theme) => ({
     "@media screen and (max-width: 900px)": {
       display: "none",
     },
-
   },
 
   mainMobile: {

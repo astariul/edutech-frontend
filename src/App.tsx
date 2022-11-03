@@ -22,6 +22,8 @@ import TimeBanner from './components/timeBanner/TimeBanner';
 import FreeCourse from './pages/freeCourse/FreeCourse';
 
 function App() {
+  const [headerHidden, setHeaderHidden] = useState(false)
+  const [footerHidden, setFooterHidden] = useState(false)
   const [login, setLogin] = useLocalStorage<IUserProfile | null>({ key: 'login', defaultValue: null });
   const [authorized, setAuthorized] = useLocalStorage<string | null>({ key: 'authorization', defaultValue: null });
   const [, setFormType] = useState<"register" | "login">("login");
@@ -59,22 +61,34 @@ function App() {
         setBannerMessageColor("#DBFF00");
         setBannerOn(true);
       }
+      else if (location.pathname.startsWith("/payment")) {
+        setHeaderHidden(true);
+        setFooterHidden(true);
+      }
+      else if (location.pathname.startsWith("/class")) {
+        setFooterHidden(true);
+      }
       else {
         setBannerOn(false);
       }
+
+      return (() => {setHeaderHidden(false); setFooterHidden(false); setBannerOn(false);})
     }, [
       location.pathname, bannerMessage, setBannerMessage,
-      setBannerMessageColor, setBannerOn, setbannerButtonMesg
+      setBannerMessageColor, setBannerOn, setbannerButtonMesg,
+      setHeaderHidden, setFooterHidden
     ]
   );
 
   return (
     <MantineProvider>
       <AppShell
-        header={<HeaderResponsive />}
+        header={headerHidden ? <></> : <HeaderResponsive />}
         footer={
         <>
-          <Footer />
+          {
+            footerHidden ? <></> : <Footer />
+          }
           {
             bannerOn && bannerMessage !== "" ?
             <TimeBanner
