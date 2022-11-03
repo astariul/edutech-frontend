@@ -9,7 +9,9 @@ html {
 
 
 html, body {
-  position: relative;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: none;
+  overscroll-behavior: none;
 	max-width: 100%;
 	overflow-x: hidden;
   -webkit-box-sizing: border-box; 
