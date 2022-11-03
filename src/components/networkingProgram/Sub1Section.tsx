@@ -17,7 +17,7 @@ const Sub1Section: FC = () => {
       <div className={styles.sub1SectionSubTitle}>
         기수별 자동으로 온라인 스터디 그룹이 형성됩니다.
         <br />
-        온라인 스터디 그룹별 담임코치가 지정되며, 담임코치과 온라인으로 만나게
+        온라인 스터디 그룹별 담임코치가 지정되며, 담임코치와 온라인으로 만나게
         됩니다.
       </div>
       <div className={styles.sub1SectionDescriptionContainer}>
