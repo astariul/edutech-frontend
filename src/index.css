@@ -3,6 +3,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  font-family: "NotoSansKR";
 }
 
 html, body {
@@ -25,11 +26,12 @@ html, body {
      Modern Browsers => woff
      IE6-IE8 => eot
   */
-  src: local("AlongSanss2"), url("./static/fonts/AlongSanss2-Regular.eot"), 
-        url("./static/fonts/AlongSanss2-Regular.woff2") format("woff2"),
-        url("./static/fonts/AlongSanss2-Regular.woff") format("woff"),
-        url("./static/fonts/AlongSanss2-Regular.otf") format("opentype"),
-        url("./static/fonts/AlongSanss2-Regular.eot?iefix") format("embedded-opentype");
+  src: local("AlongSanss2"), url("./static/fonts/AlongSanss2-Regular.eot"),
+    url("./static/fonts/AlongSanss2-Regular.woff2") format("woff2"),
+    url("./static/fonts/AlongSanss2-Regular.woff") format("woff"),
+    url("./static/fonts/AlongSanss2-Regular.otf") format("opentype"),
+    url("./static/fonts/AlongSanss2-Regular.eot?iefix")
+      format("embedded-opentype");
 
   /* 사용할 폰트의 기본 스타일 */
   font-weight: 400;
@@ -47,11 +49,12 @@ html, body {
      Modern Browsers => woff
      IE6-IE8 => eot
   */
-  src: local("NotoSansKR"), url("./static/fonts/NotoSansKR-Regular.eot"), 
-        url("./static/fonts/NotoSansKR-Regular.woff2") format("woff2"),
-        url("./static/fonts/NotoSansKR-Regular.woff") format("woff"),
-        url("./static/fonts/NotoSansKR-Regular.otf") format("opentype"),
-        url("./static/fonts/NotoSansKR-Regular.eot?iefix") format("embedded-opentype");
+  src: local("NotoSansKR"), url("./static/fonts/NotoSansKR-Regular.eot"),
+    url("./static/fonts/NotoSansKR-Regular.woff2") format("woff2"),
+    url("./static/fonts/NotoSansKR-Regular.woff") format("woff"),
+    url("./static/fonts/NotoSansKR-Regular.otf") format("opentype"),
+    url("./static/fonts/NotoSansKR-Regular.eot?iefix")
+      format("embedded-opentype");
 
   /* 사용할 폰트의 기본 스타일 */
   font-weight: 400;
