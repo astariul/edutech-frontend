@@ -1,6 +1,7 @@
 
+
 class PaymentConfig {
-  readonly MODE: string = "test"; //결제 테스트모드
+  readonly MODE: string = "production"; //결제 테스트모드
 
   getPGCodeMIDMap(mode: string) {
     //가맹점 ID(mode='test')
@@ -20,15 +21,15 @@ class PaymentConfig {
         break;
       case "production":
         //TODO: 테스트 MID(상점ID) 변경 필요
-        map.set("KG이니시스", "INIpayTest");
-        map.set("다날","9810030929");
-        map.set("토스페이먼츠", "tlgdacomxpay");
-        map.set("토스페이", "tosstest");
-        map.set("카카오페이", "TC0ONETIME");
-        map.set("페이코", "PARTNERTEST");
-        map.set("엑심베이", "1849705C64");
+        map.set("html5_inicis", "MOI3851918");
+        map.set("danal_tpay","9810030929");
+        map.set("uplus", "tlgdacomxpay");
+        map.set("tosspay", "IMPTjobssu01");
+        map.set("kakaopay", "TC0ONETIME");
+        map.set("payco", "PARTNERTEST");
+        map.set("eximbay", "1849705C64");
         map.set("스마트로", "iamport01m");
-        map.set("NHN KCP", "T0000");
+        map.set("kcp", "T0000");
         // map.set("스마일페이", "cnstest25m");
         break;
     }
@@ -76,6 +77,15 @@ class PaymentConfig {
     map.set("토스간편결제", "tosspay");
     map.set("페이코", "payco");
     return map
+  }
+
+  getAvailablePGCodeByMethod(paymentMethod: string) {
+    const map = new Map<string, string>();
+    map.set("card", "html5_inicis");
+    map.set("vbank","html5_inicis");
+    map.set("tosspay", "tosspay");
+
+    return map.get(paymentMethod)
   }
 }
 
