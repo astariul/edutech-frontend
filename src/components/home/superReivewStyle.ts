@@ -3,25 +3,25 @@ import { createStyles } from '@mantine/core';
 const useSuperReivewStyles = createStyles((theme) => ({
 
   main: {
+    display: "flex",
+    flexDirection: "column",
+  },
+    
+  contents: {
     width: "1440px",
     margin: "0 auto",
     display: "flex",
     flexDirection: "column",
-
-    [`@media (max-width: 850px)`]: {
-      width: "100%",
-    }
-  },
-
-  contents: {
-    display: "flex",
-    flexDirection: "column",
     alignItems: "center",
-
+    
     "& > div": {
       width: "1168px",
-      alignItems: "flex-start",
     },
+
+    [`@media (max-width: 767px)`]: {
+      width: "100%",
+      margin: "0 auto"
+    }
 
   },
 
@@ -36,12 +36,7 @@ const useSuperReivewStyles = createStyles((theme) => ({
     textTransform: "uppercase",
     color: "#0094FF",
 
-    [`@media (max-width: 1024px)`]: {
-      alignItems: "center",
-      textAlign: "center",
-    },
-
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       alignItems: "center",
       textAlign: "center",
       paddingTop: "31.6px",
@@ -59,16 +54,7 @@ const useSuperReivewStyles = createStyles((theme) => ({
     letterSpacing: "-2px",
     color: "#363636",
 
-    [`@media (max-width: 1024px)`]: {
-      paddingTop: "26px",
-      paddingLeft: "0px",
-      alignItems: "center",
-      textAlign: "center",
-      wordBreak: "break-word",
-      height: "auto"
-    },
-
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "none",
     }
   },
@@ -76,7 +62,7 @@ const useSuperReivewStyles = createStyles((theme) => ({
   titleMobile: {
     display: "none",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "block",
       fontFamily: "NotoSansKR",
       fontStyle: "normal",
@@ -91,18 +77,13 @@ const useSuperReivewStyles = createStyles((theme) => ({
   },
 
   cardArea: {
-
-    [`@media (max-width: 750px)`]: {
-      maxWidth: "500px",
-    },
-
-    [`@media (max-width: 400px)`]: {
-      maxWidth: "300px",
-    }
-
+    width: "1440px",
+    margin: "0 auto",
   },
 
   cards: {
+    width: "1168px",
+    margin: "0 auto",
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
@@ -110,11 +91,16 @@ const useSuperReivewStyles = createStyles((theme) => ({
     paddingBottom: "67px",
     columnGap: "19.95px",
 
-    [`@media (max-width: 850px)`]: {
+    "& > div": {
+      width: "1168px",
+    },
+
+    [`@media (max-width: 767px)`]: {
+      width: "100%",
+      margin: "0 auto",
       paddingTop: "36.98px",
       paddingLeft: "5.607vw",
-      alignItems: "flex-start",
-      justifyContent: "space-between",
+      justifyContent: "flex-start",
     }
   },
 
@@ -127,7 +113,7 @@ const useSuperReivewStyles = createStyles((theme) => ({
     backgroundColor: "#FFFFFF",
     border: "1px solid #E8E8E8",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       width: "270px",
       minWidth: "268.05px",
       height: "241.83px",
@@ -145,11 +131,9 @@ const useSuperReivewStyles = createStyles((theme) => ({
     paddingLeft: "25px",
     paddingRight: "23px",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       paddingTop: "10.93px",
       paddingBottom: "17.83px",
-      paddingLeft: "4.800vw",
-      paddingRight: "4.467vw",
     }
   },
 
@@ -163,7 +147,7 @@ const useSuperReivewStyles = createStyles((theme) => ({
     color: "#363636",
     paddingBottom: "19px",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       fontSize: "13px",
       lineHeight: "17px",
       letterSpacing: "-0.728389px",
@@ -181,7 +165,7 @@ const useSuperReivewStyles = createStyles((theme) => ({
     color: "#363636",
     gap: "10px",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       gap: "9px",
     }
   },
@@ -190,7 +174,7 @@ const useSuperReivewStyles = createStyles((theme) => ({
     width: "auto",
     height: "20.92px",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       fontSize: "12px",
       lineHeight: "13px",
     }
@@ -200,7 +184,7 @@ const useSuperReivewStyles = createStyles((theme) => ({
     width: "auto",
     height: "18.83px",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 7670px)`]: {
       fontSize: "10px",
       lineHeight: "11px",
       letterSpacing: "-1px",

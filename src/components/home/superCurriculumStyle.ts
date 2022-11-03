@@ -4,10 +4,11 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
   main: {
     display: "flex",
     flexDirection: "column",
-    width: "100%",
   },
 
-  textArea: {
+  messageArea: {
+    width: "1440px",
+    margin: "0 auto",
     paddingTop: "83px",
     paddingBottom: "31px",
     height: "auto",
@@ -15,18 +16,16 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    
+
     "& > div": {
       width: "1168px",
-      alignItems: "flex-start",
+      justifyContent: "center"
     },
     
-    [`@media (max-width: 1024px)`]: {
+    [`@media (max-width: 767px)`]: {
       paddingTop: "46px",
-      alignItems: "center",
-      textAlign: "center",
-      paddingLeft: "5.067vw",
-      paddingRight: "5.067vw",
+      width: "100%",
+      margin: "0 auto",
     },
   },
 
@@ -40,16 +39,11 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
     textTransform: "uppercase",
     lineHeight: "41.35px",
 
-    [`@media (max-width: 1024px)`]: {
-      alignItems: "center",
-      textAlign: "center",
-    },
-
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       alignItems: "center",
       textAlign: "center",
       fontSize: "12px",
-    }
+    },
   },
 
   title: {
@@ -64,16 +58,7 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
     letterSpacing: "-2px",
     height: "auto",
 
-    [`@media (max-width: 1024px)`]: {
-      paddingTop: "26px",
-      paddingLeft: "0px",
-      alignItems: "center",
-      textAlign: "center",
-      wordBreak: "break-word",
-      height: "auto"
-    },
-
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "none",
     }
   },
@@ -81,7 +66,7 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
   titleMobile: {
     display: "none",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "block",
       fontFamily: "NotoSansKR",
       fontStyle: "normal",
@@ -343,25 +328,25 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
 
   cardArea: {
     backgroundColor: "#F2F2F2",
-    width: "100vw",
+    width: "100%",
     height: "324px",
   },
-
+  
   cards: {
+    width: "1440px",
+    margin: "0 auto",
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
     paddingTop: "29px",
-    paddingLeft: "9.444vw",
-    paddingRight: "9.514vw",
     paddingBottom: "37.95px",
     columnGap: "20px",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
+      width: "1168px",
+      margin: 0,
       paddingTop: "32px",
       paddingBottom: "30.95px",
-      paddingLeft: "5.067vw",
-      justifyContent: "space-between",
     }
   },
 
@@ -374,7 +359,7 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
     backgroundColor: "#FFFFFF",
     border: "0.728261px solid #E8E8E8",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       minWidth: "268px",
     }
 
@@ -391,7 +376,7 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
     paddingLeft: "20px",
     paddingRight: "14.96px",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       paddingTop: "11px",
       paddingBottom: "18.05px",
       paddingLeft: "5.333vw",
@@ -409,7 +394,7 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
     color: "#363636",
     paddingBottom: "19px",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       letterSpacing: "-0.73px",
     }
   },
@@ -441,7 +426,7 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
     width: "auto",
     height: "18.83px",
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       fontSize: "10px",
       lineHeight: "11px",
       letterSpacing: "-1px",

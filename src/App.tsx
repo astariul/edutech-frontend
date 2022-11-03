@@ -21,6 +21,7 @@ import Product from './pages/product/Product';
 import TimeBanner from './components/timeBanner/TimeBanner';
 import FreeCourse from './pages/freeCourse/FreeCourse';
 import { useNavigate } from 'react-router-dom';
+import NetworkingProgram from "./pages/networkingProgram/NetworkingProgram";
 
 function App() {
   const [headerHidden, setHeaderHidden] = useState(false)
@@ -43,11 +44,11 @@ function App() {
         setAuthorized("authorized");
       })
       .catch((err) => {
-        if(err.response.status === 401) {
+        if (err.response.status === 401) {
           setAuthorized(null);
           setLogin(null);
         }
-      })
+      });
   }
 
   useEffect(
@@ -111,45 +112,60 @@ function App() {
         </>
         }
         styles={(theme) => ({
-          main: { padding: '0px' },
+          main: { padding: "0px" },
         })}
       >
         <Routes>
-          <Route path='/' element={<Home />}></Route>
+          <Route path="/" element={<Home />}></Route>
           <Route
-            path='/signup'
+            path="/signup"
             element={
-              <Center sx={{marginTop: 100}}>
-                <AuthenticationForm formType={"register"} setFormType={setFormType} modalSetOpened={() => void(0)} />
+              <Center sx={{ marginTop: 100 }}>
+                <AuthenticationForm
+                  formType={"register"}
+                  setFormType={setFormType}
+                  modalSetOpened={() => void 0}
+                />
               </Center>
-            }>
-          </Route>
+            }
+          ></Route>
           <Route
-            path='/login/method'
+            path="/login/method"
             element={
               <AuthMethodModal
                 key={Date.now()}
                 modalOpen={true}
                 authType={"로그인"}
-                easyMethods={
-                  [
-                    {image: require("../src/static/image/kakaotalk.png"), title: "카카오톡으로 시작하기"},
-                    {image: require("../src/static/image/google.png"), title: "구글로 시작하기"},
-                  ]
-                }
+                easyMethods={[
+                  {
+                    image: require("../src/static/image/kakaotalk.png"),
+                    title: "카카오톡으로 시작하기",
+                  },
+                  {
+                    image: require("../src/static/image/google.png"),
+                    title: "구글로 시작하기",
+                  },
+                ]}
               />
-            }>
-          </Route>
-          <Route path='/login/form' element={<AuthFormModal modalOpen={true} authType={"로그인"}/>}></Route>
-          <Route path='/free' element={<FreeCourse />}></Route>
-          <Route path='/course' element={<Product />}></Route>
-          <Route path='/myclass' element={<MyClassRoom />}></Route>
-          <Route path='/class/*' element={<VideoRoom/>}></Route>
-          <Route path='/feed' element={<Feed />}></Route>
-          <Route path='/mypage/course/*' element={<LearningCourse />}></Route>
-          <Route path='/survey/:courseId/:episodeNumber' element={<Survey />}></Route>
-          <Route path='/payment' element={<Payment/>}></Route>
-          <Route path='/resume' element={<Resume/>}></Route>
+            }
+          ></Route>
+          <Route
+            path="/login/form"
+            element={<AuthFormModal modalOpen={true} authType={"로그인"} />}
+          ></Route>
+          <Route path="/free" element={<FreeCourse />}></Route>
+          <Route path="/course" element={<Product />}></Route>
+          <Route path="/myclass" element={<MyClassRoom />}></Route>
+          <Route path="/class/*" element={<VideoRoom />}></Route>
+          <Route path="/feed" element={<Feed />}></Route>
+          <Route path="/mypage/course/*" element={<LearningCourse />}></Route>
+          <Route
+            path="/survey/:courseId/:episodeNumber"
+            element={<Survey />}
+          ></Route>
+          <Route path="/payment" element={<Payment />}></Route>
+          <Route path="/resume" element={<Resume />}></Route>
+          <Route path="/networking" element={<NetworkingProgram />}></Route>
         </Routes>
       </AppShell>
     </MantineProvider>

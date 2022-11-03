@@ -4,32 +4,29 @@ const useSuperResumeStyles = createStyles((theme) => ({
   main: {
     display: "flex",
     flexDirection: "column",
+  },
+    
+  contents: {
+    paddingTop: "71px",
     width: "1440px",
     margin: "0 auto",
-
-    [`@media (max-width: 850px)`]: {
-      width: "100%",
-      height: "auto"
-    },
-
-  },
-
-  textArea: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    paddingTop: "71px",
 
     "& > div": {
       width: "1168px",
-      alignItems: "flex-start",
     },
 
-    [`@media (max-width: 1224px)`]: {
+    [`@media (max-width: 767px)`]: {
       paddingTop: "46px",
-      paddingLeft: "5.067vw",
-      paddingRight: "5.067vw",
-      height: "auto"
+      margin: "0 auto",
+      width: "100%",
+      height: "auto",
+    },
+
+    [`@media (max-width: 376px)`]: {
+      whiteSpace: "nowrap",
     }
   },
 
@@ -43,7 +40,7 @@ const useSuperResumeStyles = createStyles((theme) => ({
     textTransform: "uppercase",
     lineHeight: "41.35px",
 
-    [`@media (max-width: 1224px)`]: {
+    [`@media (max-width: 767px)`]: {
       alignItems: "center",
       textAlign: "center",
       fontSize: "12px",
@@ -63,7 +60,7 @@ const useSuperResumeStyles = createStyles((theme) => ({
     letterSpacing: "-2px",
     height: "92px",
 
-    [`@media (max-width: 1224px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "none",
     }
   },
@@ -71,7 +68,7 @@ const useSuperResumeStyles = createStyles((theme) => ({
   titleMobile: {
     display: "none",
 
-    [`@media (max-width: 1224px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "block",
       fontFamily: "NotoSansKR",
       fontStyle: "normal",
@@ -82,24 +79,23 @@ const useSuperResumeStyles = createStyles((theme) => ({
       fontSize: "23px",
       lineHeight: "32px",
       letterSpacing: "-0.8px",
+    },
+
+    [`@media (max-width: 376px)`]: {
+      whiteSpace: "nowrap",
     }
   },
   
   cardArea: {
     display: "flex",
-    width: "1168px",
-    margin: "0 auto",
     flexDirection: "row",
     paddingTop: "59px",
-    // alignItems: "center",
-    // justifyContent: "space-between",
     columnGap: "32px",
     fontFamily: "NotoSansKR",
     color: "#FFFFFF",
     letterSpacing: "-1px",
 
-    [`@media (max-width: 1224px)`]: {
-      width: "375px",
+    [`@media (max-width: 767px)`]: {
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
@@ -153,7 +149,7 @@ const useSuperResumeStyles = createStyles((theme) => ({
       lineHeight: "21px",
       fontWeight: 900,
 
-      [`@media (max-width: 1224px)`]: {
+      [`@media (max-width: 767px)`]: {
         fontSize: "74px",
       }
     },
@@ -170,7 +166,7 @@ const useSuperResumeStyles = createStyles((theme) => ({
     height: "268px",
     backgroundImage: "url(/image/home/superResumeLeft.png)",
 
-    [`@media (max-width: 1224px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "none"
     }
   },
@@ -178,7 +174,7 @@ const useSuperResumeStyles = createStyles((theme) => ({
   cardLeftMobile: {
     display: "none",
 
-    [`@media (max-width: 1224px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "block",
       width: "336px",
       height: "268px",
@@ -191,7 +187,7 @@ const useSuperResumeStyles = createStyles((theme) => ({
     height: "268px",
     backgroundImage: "url(/image/home/superResumeMiddle.png)",
 
-    [`@media (max-width: 1224px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "none"
     }
   },
@@ -199,7 +195,7 @@ const useSuperResumeStyles = createStyles((theme) => ({
   cardMiddleMobile: {
     display: "none",
 
-    [`@media (max-width: 1224px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "block",
       width: "336px",
       height: "268px",
@@ -213,7 +209,7 @@ const useSuperResumeStyles = createStyles((theme) => ({
     height: "268px",
     backgroundImage: "url(/image/home/superResumeRight.png)",
 
-    [`@media (max-width: 1224px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "none"
     }
   },
@@ -221,7 +217,7 @@ const useSuperResumeStyles = createStyles((theme) => ({
   cardRightMobile: {
     display: "none",
 
-    [`@media (max-width: 1224px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "block",
       width: "336px",
       height: "327px",
