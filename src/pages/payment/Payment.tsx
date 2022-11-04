@@ -14,7 +14,6 @@ import PaymentConfig from '../../config';
 import MessageModal from '../../components/messageModal/MessageModal';
 
 const { IMP } = window;
-// IMP.init(process.env.REACT_APP_IAMPORT_ID);
 
 interface PaymentSubjectSectionProps {
   course: ICourse;
@@ -423,7 +422,6 @@ const PaymentSuccessMessage = ({title, orderId, paymentMethod, orderPrice}: Paym
 }
 
 const Payment = () => {
-  IMP.init(process.env.REACT_APP_IAMPORT_ID)
 
   const {classes, cx} = useStyles();
   const [login,] = useLocalStorage<IUserProfile | null>({ key: "login", defaultValue: null });
@@ -575,6 +573,7 @@ const Payment = () => {
       payMethodCode: string, //결제방식
     ) => {
       const digital = true;
+      IMP.init(process.env.REACT_APP_IAMPORT_ID);
       IMP.request_pay({
         pg: `${pgCode}.${pgMID}`,
         pay_method: payMethodCode,
@@ -588,7 +587,7 @@ const Payment = () => {
         digital: digital
       }, payCallback)
       
-    }, [payCallback]
+    }, [payCallback, IMP]
   );
 
   const paymentHandler = useCallback(
