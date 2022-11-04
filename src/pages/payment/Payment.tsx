@@ -629,7 +629,7 @@ const Payment = () => {
           size={375}
           open={messageModalOpened}
           message={message}
-          onCloseModal={(open) => setMessageModalOpened(!open)}
+          onCloseModal={(open) => {setMessageModalOpened(!open); navigate("/")}}
         />
       ): <></>
     }
