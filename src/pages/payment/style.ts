@@ -18,7 +18,8 @@ const useStyles = createStyles((theme, _, getRef) => ({
 
   main: {
     margin: "106px auto",
-    width: "1440px",
+    maxWidth: "1440px",
+    width: "90%",
     fontFamily: "NotoSansKR",
     fontStyle: "normal",
     
@@ -44,7 +45,7 @@ const useStyles = createStyles((theme, _, getRef) => ({
   contents: {
     margin: "0 auto",
     flexDirection: "column",
-    width: "1168px",
+    maxWidth: "1168px",
     display: "flex",
 
     "hr": {
@@ -52,9 +53,9 @@ const useStyles = createStyles((theme, _, getRef) => ({
     },
 
     [`@media (max-width: 767px)`]: {
-      width: "100vw",
+      maxWidth: "766px",
+      width: "90%",
       alignItems: "center",
-      marginLeft: "-webkit-calc(100% - (100%-766px))",
 
       "section": {
         width: "339px"
