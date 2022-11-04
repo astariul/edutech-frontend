@@ -1,9 +1,11 @@
 
 import { Button } from '@mantine/core';
 import { useStyles } from './eventSectionStyle';
+import { useNavigate } from 'react-router-dom';
 
 const EventSection = () => {
   const {classes, cx} = useStyles();
+  const navigate = useNavigate();
   return (
     <section className={classes.main}>
       <div className={classes.contentsWrapper}>
@@ -47,7 +49,11 @@ const EventSection = () => {
               </div>
             </div>
           </div>
-        <Button className={classes.button} radius={10}>
+        <Button
+          className={classes.button}
+          radius={10}
+          onClick={() => navigate("/payment", { state: process.env.REACT_APP_COURSE_ID })}
+        >
           웹개발 종합반 PLUS 바로가기
         </Button>
         </div>

@@ -3,6 +3,7 @@ import useBottomStyles from './bottomStyle';
 
 import { Checkbox } from '@mantine/core';
 import { Button } from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
 
 const ProductTable = () => {
   const {classes} = useBottomStyles();
@@ -116,7 +117,8 @@ const ProductTable = () => {
 }
 
 const Bottom = () => {
-  const {classes} = useBottomStyles()
+  const {classes} = useBottomStyles();
+  const navigate = useNavigate();
   return (
     <>
       <section className={classes.message}>
@@ -158,7 +160,11 @@ const Bottom = () => {
                 </div>
               }/>
             </div>
-            <Button className={classes.button}>지금바로구매</Button>
+            <Button
+              className={classes.button}
+              onClick={() => navigate("/payment", { state: process.env.REACT_APP_COURSE_ID })}
+            >지금바로구매
+            </Button>
           </section>
         </section>
       </section>

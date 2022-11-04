@@ -1,9 +1,11 @@
 
 import useSuperCourseStyles from "./superCourseStyle";
+import { useNavigate } from 'react-router-dom';
+
 
 const SuperCourse = () => {
   const { classes } = useSuperCourseStyles();
-
+  const navigate = useNavigate();
   const Ticket = (subTitle: string, title: string, index: number) => {
     return (
       <div key={index} className={classes.ticket}>
@@ -44,7 +46,7 @@ const SuperCourse = () => {
             <div className={classes.hookRight}>개발자로취업하지못하면100%환불보장!</div>
           </div>
           <div className={classes.goPaymentArea}>
-            <div className={classes.box}>
+            <div className={classes.box} onClick={() => navigate("/payment", { state: process.env.REACT_APP_COURSE_ID })}>
               <div className={classes.boxInner}>
                 <div className={classes.boxLeft}>11/20 1기 마감!</div>
                 <div className={classes.boxRightContainer}>

@@ -29,7 +29,7 @@ const middleLinks = [
     label: "이력서 업그레이드",
   },
   {
-    link: "/feed",
+    link: "/networking",
     label: "네트워킹",
   },
   {
@@ -190,7 +190,6 @@ const HeaderResponsive = () => {
       <Header
         className={classes.mainMobile}
         height={100}
-        hidden={location.pathname.startsWith("/class")}
       >
         <div className={classes.header}>
           <UnstyledButton component={Link} to={"/"}>

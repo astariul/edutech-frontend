@@ -4,13 +4,14 @@ import { Button } from '@mantine/core';
 import useStyles from './style';
 
 interface TimeBannerProps {
-  dDay: string,
-  messageColor: string,
-  buttonString: string,
-  message?: string,
+  dDay: string;
+  messageColor: string;
+  buttonString: string;
+  onClickButton: () => void;
+  message?: string;
 }
 
-const TimeBanner = ({dDay, buttonString, messageColor, message}: TimeBannerProps) => {
+const TimeBanner = ({dDay, buttonString, messageColor, onClickButton, message}: TimeBannerProps) => {
   const {classes} = useStyles({messageColor});
   return (
     <section className={classes.main}>
@@ -22,6 +23,7 @@ const TimeBanner = ({dDay, buttonString, messageColor, message}: TimeBannerProps
         <Button
           className={classes.paymentButton}
           radius={6.47}
+          onClick={onClickButton}
         >
           {buttonString}
         </Button>

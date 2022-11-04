@@ -2,6 +2,7 @@
 import useBodyTopStyles from './bodyTopStyle';
 import { Checkbox } from '@mantine/core';
 import { Button } from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
 
 const ProductTable = () => {
   const {classes} = useBodyTopStyles();
@@ -112,6 +113,7 @@ const ProductTable = () => {
 
 const BodyTop = () => {
   const {classes} = useBodyTopStyles();
+  const navigate = useNavigate();
   return (
     <>
       <section className={classes.main}>
@@ -189,7 +191,12 @@ const BodyTop = () => {
                 </div>
               }
             />
-            <Button className={classes.button}>지금 바로 구매</Button>
+            <Button
+              className={classes.button}
+              onClick={() => navigate("/payment", { state: process.env.REACT_APP_COURSE_ID })}
+            >
+              지금 바로 구매
+            </Button>
           </section>
         </section>
       </section>
