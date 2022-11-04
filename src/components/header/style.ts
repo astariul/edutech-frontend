@@ -131,7 +131,8 @@ const useStyles = createStyles((theme) => ({
   },
 
   header: {
-    width: "1168px",
+    maxWidth: "1168px",
+    width: "90%",
     margin: "0 auto",
     paddingTop: "24px",
     paddingLeft: "2.153vw",
