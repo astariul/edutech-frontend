@@ -54,7 +54,7 @@ const useStyles = createStyles((theme, _, getRef) => ({
     [`@media (max-width: 767px)`]: {
       width: "100vw",
       alignItems: "center",
-      marginLeft: "calc(100% - (100%-766px))",
+      marginLeft: "-webkit-calc(100% - (100%-766px))",
 
       "section": {
         width: "339px"
