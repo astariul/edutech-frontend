@@ -8,7 +8,6 @@ export interface IAccount {
   email: string;
   password: string;
   name: string;
-  termsOfService: boolean,
 }
 
 export interface IUserProfile {

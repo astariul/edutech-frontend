@@ -34,7 +34,7 @@ interface SignUpMobileProps {
     authNumber: string;
     termsOfService: boolean;
   }>;
-  signupHandler: (user: IAccount) => void;
+  signupHandler: (user: IAccount, termsOfService: boolean) => void;
   verificationHandler: (verifiMethod: string) => void;
 }
 
@@ -81,8 +81,8 @@ const SignUpMobile = ({form, signupHandler, verificationHandler}: SignUpMobilePr
               email: form.values.email,
               password: form.values.password,
               name: form.values.name,
-              termsOfService: form.values.termsOfService,
-            }
+            },
+            form.values.termsOfService,
           )
         )
     )}>
@@ -133,20 +133,7 @@ const SignUpMobile = ({form, signupHandler, verificationHandler}: SignUpMobilePr
               )
             }
         </div>
-        <Button
-          className={classes.signupButton}
-          type="submit"
-          onClick={
-            () => signupHandler(
-              {
-                email: form.values.email,
-                password: form.values.password,
-                name: form.values.name,
-                termsOfService: form.values.termsOfService,
-              }
-              )
-            }
-          >
+        <Button className={classes.signupButton} type="submit">
           가입하기
         </Button>
       </div>
@@ -239,8 +226,8 @@ export const AuthForm = ({modalOpen, authType}: AuthFormModalProps) => {
   )
 
   const signup = useCallback(
-    async (user: IAccount) => {
-    if (!user.termsOfService) {
+    async (user: IAccount, termsOfService: boolean) => {
+    if (!termsOfService) {
       alert("이용약관에 동의해주세요")
       return;
     }
