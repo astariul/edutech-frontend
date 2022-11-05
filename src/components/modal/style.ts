@@ -6,8 +6,8 @@ const useStyles = createStyles(() => ({
     borderRadius: "40px",
     backgroundColor: "#FFFFFF",
     boxShadow: " 0px 24px 64px rgba(0, 0, 0, 0.25)",
-    width: "464px",
-    height: "670px",
+    width: "375px",
+    height: "470px",
     margin: "201px auto",
   },
   inner: {
