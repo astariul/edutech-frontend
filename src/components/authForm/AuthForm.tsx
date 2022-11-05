@@ -1,6 +1,6 @@
 
 import { Button, Checkbox, PasswordInput, TextInput } from "@mantine/core";
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 // import Modal from "../modal/Modal";
 import useStyles from './style';
 import AuthRepository from '../../repositories/Auth';
