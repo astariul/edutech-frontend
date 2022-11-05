@@ -278,7 +278,7 @@ const MyClassRoom = () => {
         {
           <Modal
             opened={opened}
-            onClose={() => setOpened(false)}
+            onClose={() => {setOpened(false); navigate("/");}}
           >
             수강중인 강의가 없습니다.
           </Modal>
