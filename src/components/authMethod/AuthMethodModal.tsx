@@ -1,5 +1,4 @@
 import { useCallback, useState } from "react";
-import { Anchor } from "@mantine/core";
 import Modal from "../modal/Modal";
 import useStyles from "./style";
 import { useNavigate } from "react-router-dom";
@@ -60,7 +59,7 @@ const AuthMethodModal = ({
       show={opened}
       onCloseModal={handleClose}
     >
-      <div className={classes.inner}>
+      <div className={classes.contents}>
         <div className={classes.title}>
           <img className={classes.logo} src={require("../../../src/static/image/supercodinglogo.png")} alt="supercodiong logo" />
           <div className={classes.titleText}>{authType}</div>
@@ -82,17 +81,11 @@ const AuthMethodModal = ({
           <AuthMethodButton
             image={require("../../../src/static/image/email.png")}
             title={"이메일로 시작하기"}
-            onClick={() => navigate("/login/form")}
+            onClick={() => navigate(authType === "로그인" ? "/login/form": "/signup/form")}
           />
         </div>
-        <div className={classes.idpwFinder}>
-          <Anchor
-            component="button"
-            type="button"
-            size="xs"
-          >
-            아이디 비밀번호찾기
-          </Anchor>
+        <div className={classes.link} onClick={() => {authType==="로그인" ? alert("준비중입니다.") : navigate("/login/method")}}>
+          {authType === "로그인" ? "아이디 비밀번호찾기" : "이미 회원이라면 로그인하기"}
         </div>
       </div>
     </Modal>

@@ -433,7 +433,7 @@ const Payment = () => {
   const [message, setMessage] = useState<ReactNode | string>();
   const [course, setCourse] = useState<ICourse>();
   const location = useLocation();
-  const courseId = location.state as string;
+  const [courseId, setCourseId] = useState(location.state as string);
   const navigate = useNavigate();
 
   useEffect(
@@ -476,10 +476,12 @@ const Payment = () => {
               </div>
             </div>
           )
-          : 
+          :
           setMessage(`
             결제를 진행할 수 없습니다.
-            세부내용: ${response.status} / ${response.data.message}
+            처음부터 다시 결제를 진행해주세요.
+
+            (에러코드 / 메세지: ${response.status} / ${response.data.message})
           `);
           setMessageModalOpened(true);
         }

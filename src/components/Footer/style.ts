@@ -1,33 +1,36 @@
 import { createStyles } from "@mantine/core";
 
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles((theme, {hidden}: {hidden: boolean}) => ({
 
   main: {
-    width: "1440px",
-    margin: "0 auto",
+    width: "100%",
     paddingTop: "40px",
     borderTop: "1px solid #E4E4E4",
     marginBottom: "145px",
-
-    [`@media (max-width: 850px)`]: {
-      width: "375px",
+    display: hidden ? "none" : "block",
+    
+    [`@media (max-width: 767px)`]: {
+      width: "100%",
     }
   },
   
   content: {
+    maxWidth: "1440px",
+    width: "90%",
+    margin: "0 auto",
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     padding: 0,
 
-    [`@media (max-width: 850px)`]: {
+    [`@media (max-width: 767px)`]: {
       flexDirection: "column",
     },
 
     "& > div":{      
-      [`@media (max-width: 850px)`]: {
+      [`@media (max-width: 767px)`]: {
         width: "336px",
         flexDirection: "column",
       }
@@ -51,7 +54,7 @@ const useStyles = createStyles((theme) => ({
   bizInfo: {
     marginTop: "24px",
 
-    [`@media (max-width: 770px)`]: {
+    [`@media (max-width: 767px)`]: {
       marginTop: "9px",
     }
   },
@@ -62,7 +65,7 @@ const useStyles = createStyles((theme) => ({
     justifyContent: "flex-end",
     marginBottom: "auto",
 
-    [`@media (max-width: 770px)`]: {
+    [`@media (max-width: 767px)`]: {
       alignItems: "center",
       marginTop: "32px",
     }
@@ -74,7 +77,7 @@ const useStyles = createStyles((theme) => ({
     width: "215px",
     justifyContent: "space-between",
 
-    [`@media (max-width: 770px)`]: {
+    [`@media (max-width: 767px)`]: {
       width: "177px",
       alignItems: "center",
       justifyContent: "space-between",

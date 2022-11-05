@@ -63,10 +63,11 @@ const HeaderSection = (
                   <img src={require("../../static/image/myClassRoom/coolicon.png")}
                   alt="coolicon"/>
                 }
+                onClick={() => alert("준비중입니다.")}
               >
-                출석현황
+                {name}
               </Button>
-            )
+          )
           )
         }
       </div>
@@ -86,7 +87,10 @@ const TabSection = (
   const onClickTab = useCallback(
     (e: MouseEvent<HTMLElement>) => {
       const input = e.target as HTMLElement;
+      const notReady = ["북마크", "학습질문/답변"];
+      notReady.includes(input.innerText) && alert("준비중입니다.");
       setActiveTab(input.innerText);
+      
     }, [setActiveTab]
   )
 
@@ -129,20 +133,20 @@ const TableHeaderSection = (
           </div>
           <div className={classes.instructor}>
             <Person
-              image={require("../../static/image/myClassRoom/avatar.png")}
+              image={require("../../static/image/payment/tutor.png")}
               name={instructorName}
               description={instructorDescription}
               size={50.83}/>
           </div>
         </div>
         <div className={classes.courseDurationAndPeriod}>
-          <KeyValueTable keyName="강의" value={`${numTotalVideos}강(60시간)`}/>
-          <KeyValueTable keyName="수강기간" value="2022.11.01 ~ 2023.01.31"/>
+          <KeyValueTable keyName="강의" value={`${numTotalVideos}강(0시간)`}/>
+          <KeyValueTable keyName="수강기간" value="2022.11.20 ~ 2023.05.20"/>
         </div>
         <div className={classes.buttonGroupColumns}>
-          <Button className={classes.button}>유의사항</Button>
-          <Button className={classes.button}>환급/연장조건</Button>
-          <Button className={classes.button}>출석/미션</Button>
+          <Button className={classes.button} onClick={() => {alert("준비중입니다.")}}>유의사항</Button>
+          <Button className={classes.button} onClick={() => {alert("준비중입니다.")}}>환급/연장조건</Button>
+          <Button className={classes.button} onClick={() => {alert("준비중입니다.")}}>출석/미션</Button>
         </div>
       </div>
     </div>
@@ -175,8 +179,7 @@ const VideoListSection = (
   const onClickBookMark = useCallback(
     (course: ICourse, video: IVideo) => {
       // TODO: 백엔드 API 연동
-      console.log(course.title);
-      console.log(video.number)
+      alert("준비중입니다.")
     }, []
   )
 
@@ -204,7 +207,7 @@ const VideoListSection = (
                   }
                 />
                 <div className={classes.latestDateAndBookmark}>
-                  <KeyValueTable keyName="최근수강일" value="2022.11.4"/>
+                  <KeyValueTable keyName="최근수강일" value="2022.00.00"/>
                   <span
                     className={classes.bookMark}
                     onClick={() => onClickBookMark(courseAndVideos.course, video)}
@@ -275,7 +278,7 @@ const MyClassRoom = () => {
         {
           <Modal
             opened={opened}
-            onClose={() => setOpened(false)}
+            onClose={() => {setOpened(false); navigate("/");}}
           >
             수강중인 강의가 없습니다.
           </Modal>
@@ -291,7 +294,7 @@ const MyClassRoom = () => {
           <HeaderSection
             name={login?.name}
             buttonNames={["출석현황", "기기등록", "환급신청"]}
-            howManyDays={10}
+            howManyDays={0}
           />
           <TabSection
             tabNames={["수강목록", "북마크", "학습질문/답변"]}

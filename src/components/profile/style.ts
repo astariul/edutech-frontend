@@ -21,7 +21,7 @@ const useStyles = createStyles((theme) => ({
     borderRadius: "50%",
     display: "inline-block",
 
-    "@media screen and (max-width: 900px)": {
+    "@media screen and (max-width: 960px)": {
       backgroundColor: "#FFFFFF",
     },
 
@@ -30,25 +30,25 @@ const useStyles = createStyles((theme) => ({
   circleText: {
     color: "#FFFFFF",
     textAlign: "center",
-    fontFamily: "AlongSanss2",
+    fontFamily: "NotoSansKR",
     fontStyle: "normal",
     fontWeight: 600,
     fontSize: "20px",
     textTransform: "uppercase",
     lineHeight: 1.6,
 
-    "@media screen and (max-width: 900px)": {
+    "@media screen and (max-width: 960px)": {
       color: "#000000"
     },
   },
 
   profileText: {
     fontSize: "12px",
-    fontFamily: "AlongSanss2",
+    fontFamily: "NotoSansKR",
     fontWeight: 600,
     cursor: "pointer",
 
-    "@media screen and (max-width: 900px)": {
+    "@media screen and (max-width: 960px)": {
       fontSize: "14px",
       color: "#FFFFFF",
     },

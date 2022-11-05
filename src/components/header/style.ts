@@ -1,6 +1,6 @@
 import { createStyles } from "@mantine/core";
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles((theme, {hidden, backgroundColor}: {hidden :boolean; backgroundColor: string}) => ({
   main: {
     position: "absolute",
     width: "100%",
@@ -8,22 +8,23 @@ const useStyles = createStyles((theme) => ({
     left: "0px",
     top: "0px",
 
-    "@media screen and (max-width: 900px)": {
-      display: "none",
+    "@media screen and (max-width: 960px)": {
+      display: "none"
     },
   },
 
   mainMobile: {
     display: "none",
 
-    "@media screen and (max-width: 900px)": {
-      display: "block",
+    "@media screen and (max-width: 960px)": {
+      display: hidden ? "none": "block",
       position: "absolute",
       width: "100%",
       left: "0px",
       top: "0px",
-      backgroundColor: "rgba(0, 0, 0, 0.3)",
-      borderStyle: "none",
+      // backgroundColor: "rgba(0, 0, 0, 0.3)",
+      backgroundColor: backgroundColor,
+      borderStyle: backgroundColor === "#FFFFFF"? "1px solid #E4E4E4" : "none",
     },
   },
 
@@ -44,7 +45,7 @@ const useStyles = createStyles((theme) => ({
     width: "225px",
     height: "32px",
 
-    "@media screen and (max-width: 900px)": {
+    "@media screen and (max-width: 960px)": {
       display: "none",
     },
   },
@@ -52,7 +53,7 @@ const useStyles = createStyles((theme) => ({
   biMobile: {
     display: "none",
 
-    "@media screen and (max-width: 900px)": {
+    "@media screen and (max-width: 960px)": {
       position: "absolute",
       display: "block",
       width: "175.72px",
@@ -68,7 +69,7 @@ const useStyles = createStyles((theme) => ({
     alignItems: "center",
     justifyContent: "space-between",
 
-    "@media (max-width: 900px)": {
+    "@media (max-width: 960px)": {
       display: "none",
     },
   },
@@ -76,7 +77,7 @@ const useStyles = createStyles((theme) => ({
   middleLinkGroupMobile: {
     display: "none",
 
-    "@media (max-width: 900px)": {
+    "@media (max-width: 960px)": {
       position: "absolute",
       display: "flex",
       flexWrap: "nowrap",
@@ -106,7 +107,7 @@ const useStyles = createStyles((theme) => ({
     alignContent: "center",
     columnGap: "32px",
 
-    "@media screen and (max-width: 900px)": {
+    "@media screen and (max-width: 960px)": {
       display: "none",
     },
 
@@ -125,13 +126,14 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: "#002B7C",
     borderStyle: "none",
 
-    "@media screen and (min-width: 900px)": {
+    "@media screen and (min-width: 960px)": {
       display: 'none',
     },
   },
 
   header: {
-    width: "1168px",
+    maxWidth: "1168px",
+    width: "90%",
     margin: "0 auto",
     paddingTop: "24px",
     paddingLeft: "2.153vw",
@@ -145,7 +147,7 @@ const useStyles = createStyles((theme) => ({
   burger: {
     display: "none",
 
-    "@media screen and (max-width: 900px)": {
+    "@media screen and (max-width: 960px)": {
       position: "absolute",
       display: "block",
       width: "18px",
@@ -175,8 +177,7 @@ const useStyles = createStyles((theme) => ({
     boxSizing: "border-box",
     letterSpacing: "-1px",
 
-    "@media screen and (max-width: 900px)": {
-      fontFamily: "AlongSanss2",
+    "@media screen and (max-width: 960px)": {
       fontWeight: 700,
       fontSize: "14px",
       color: "rgba(255, 255, 255, 0.5)",
@@ -211,7 +212,7 @@ const useStyles = createStyles((theme) => ({
     boxSizing: "border-box",
     letterSpacing: "-0.699px",
 
-    "@media screen and (max-width: 900px)": {
+    "@media screen and (max-width: 960px)": {
       borderRadius: 0,
       fontWeight: 700,
       fontSize: "14px",
@@ -230,7 +231,7 @@ const useStyles = createStyles((theme) => ({
     "&": {
       color: "#0094FF",
     },
-    "@media screen and (max-width: 900px)": {
+    "@media screen and (max-width: 960px)": {
        "&": {
         color: "#FFFFFF",
       },

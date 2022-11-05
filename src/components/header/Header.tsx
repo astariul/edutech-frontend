@@ -23,7 +23,6 @@ const middleLinks = [
     link: "/course",
     label: "코스 소개",
   },
-
   {
     link: "/resume",
     label: "이력서 업그레이드",
@@ -40,7 +39,7 @@ const middleLinks = [
 
 const rightLinks = [
   {
-    link: "/signup",
+    link: "/signup/method",
     label: "회원가입",
   },
   {
@@ -51,7 +50,9 @@ const rightLinks = [
 
 const HeaderResponsive = () => {
   const [opened, toggleOpened] = useBooleanToggle(false);
-  const { classes, cx } = useStyles();
+  const [hidden, setHidden] = useBooleanToggle(false);
+  const [backgroundColor, setBackgroundColor] = useState("rgba(0, 0, 0, 0.3)")
+  const { classes, cx } = useStyles({hidden, backgroundColor});
   const [login] = useLocalStorage<IUserProfile | null>({
     key: "login",
     defaultValue: null,
@@ -59,15 +60,27 @@ const HeaderResponsive = () => {
   const location = useLocation();
   const [active, setActive] = useState("");
 
-  useEffect(() => {
-    for (let link of middleLinks) {
-      if (location.pathname.startsWith(link.link)) {
-        setActive(link.link);
-      } else if (location.pathname === "/") {
-        setActive("");
+  useEffect(
+    () => {
+      for (let link of middleLinks) {
+        if (location.pathname.startsWith(link.link)) {
+          setActive(link.link);
+        } else if (location.pathname === "/") {
+          setActive("");
+        } else if (
+          location.pathname.startsWith("/signup")
+          || location.pathname.startsWith("/login")
+        ){
+          setHidden(true);
+        } else if (
+          location.pathname.startsWith("/myclass")
+        ){
+          setBackgroundColor("#FFFFFF");
+        }
       }
-    }
-  }, [location.pathname, setActive, toggleOpened]);
+      return () => {setHidden(false); setBackgroundColor("rgba(0, 0, 0, 0.3)");}
+    }, [location, setActive, toggleOpened, setHidden, setBackgroundColor]
+  );
 
   const middleLinkItems = middleLinks.map((link) => {
     if (["/resume"].includes(link.link)) {
@@ -196,7 +209,9 @@ const HeaderResponsive = () => {
             <Group className={classes.biContainer}>
               <img
                 className={classes.biMobile}
-                src={require("../../../src/static/image/supercodingBIWhite.png")}
+                src={ backgroundColor === "#FFFFFF"
+                  ? require("../../../src/static/image/supercodingbi.png")
+                  : require("../../../src/static/image/supercodingBIWhite.png")}
                 alt=""
               ></img>
             </Group>
@@ -213,9 +228,9 @@ const HeaderResponsive = () => {
           </Group>
           <Burger
             opened={opened}
-            onClick={() => toggleOpened()}
+            onClick={() => {toggleOpened();}}
             className={classes.burger}
-            color="#FFFFFF"
+            color={backgroundColor === "#FFFFFF"? "#111111" : "#FFFFFF"}
           />
           <Transition transition="slide-down" duration={200} mounted={opened}>
             {(styles) => (

@@ -7,9 +7,9 @@ const useStyles = createStyles((theme) => ({
     fontFamily: "NotoSansKR",
     fontStyle: "normal",
 
-    // "@media screen and (max-width: 900px)": {
-    //   marginTop: "200px",
-    // }
+    "@media screen and (max-width: 960px)": {
+      marginTop: "186px",
+    }
   },
 
   contents: {

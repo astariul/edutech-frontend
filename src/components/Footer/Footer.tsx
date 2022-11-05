@@ -1,8 +1,27 @@
+import { useBooleanToggle } from "@mantine/hooks";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import BizInfo from "../bizInfo/BizInfo";
 import useStyles from "./style";
 
 const Footer = () => {
-  const {classes} = useStyles();
+  const [hidden, setHidden] = useBooleanToggle(false);
+  const { classes } = useStyles({hidden});
+  const location = useLocation();
+
+  useEffect(
+    () => {
+      if (
+        location.pathname.startsWith("/signup")
+        || location.pathname.startsWith("/login")
+        || location.pathname.startsWith("/myclass")
+      ) {
+        setHidden(true);
+      }
+      return () => setHidden(false);
+    }, [location, setHidden]
+  );
+
   return (
     <div className={classes.main}>
       <div className={classes.content}>
