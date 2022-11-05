@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Home from './pages/home/Home';
-import { MantineProvider, AppShell, Center } from '@mantine/core';
+import { MantineProvider, AppShell } from '@mantine/core';
 import { useLocalStorage, useMediaQuery } from '@mantine/hooks';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import HeaderResponsive from './components/header/Header';
@@ -13,9 +13,8 @@ import { IUserProfile } from './typings/db';
 import Survey from './pages/survey/Survey';
 import Payment from './pages/payment/Payment';
 import Resume from './pages/resume/Resume';
-import AuthenticationForm from './components/AuthentificationForm';
 import AuthMethodModal from './components/authMethod/AuthMethodModal';
-import AuthFormModal from './components/authForm/AuthFormModal';
+import { AuthForm } from './components/authForm/AuthForm';
 import VideoRoom from './pages/videoRoom/VideoRoom';
 import Product from './pages/product/Product';
 import TimeBanner from './components/timeBanner/TimeBanner';
@@ -28,7 +27,6 @@ function App() {
   const [footerHidden, setFooterHidden] = useState(false)
   const [login, setLogin] = useLocalStorage<IUserProfile | null>({ key: 'login', defaultValue: null });
   const [authorized, setAuthorized] = useLocalStorage<string | null>({ key: 'authorization', defaultValue: null });
-  const [, setFormType] = useState<"register" | "login">("login");
   const location = useLocation();
   const navigate = useNavigate();
   const [bannerMessage, setBannerMessage] = useState("");
@@ -118,15 +116,29 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route
-            path="/signup"
+            path="/signup/method"
             element={
-              <Center sx={{ marginTop: 100 }}>
-                <AuthenticationForm
-                  formType={"register"}
-                  setFormType={setFormType}
-                  modalSetOpened={() => void 0}
-                />
-              </Center>
+              <AuthMethodModal
+                key={Date.now()}
+                modalOpen={true}
+                authType={"회원가입"}
+                easyMethods={[
+                  {
+                    image: require("../src/static/image/kakaotalk.png"),
+                    title: "카카오톡으로 시작하기",
+                  },
+                  {
+                    image: require("../src/static/image/google.png"),
+                    title: "구글로 시작하기",
+                  },
+                ]}
+              />
+            }
+          ></Route>
+          <Route
+            path="/signup/form"
+            element={
+              <AuthForm modalOpen={true} authType={"회원가입"} />
             }
           ></Route>
           <Route
@@ -151,7 +163,7 @@ function App() {
           ></Route>
           <Route
             path="/login/form"
-            element={<AuthFormModal modalOpen={true} authType={"로그인"} />}
+            element={<AuthForm modalOpen={true} authType={"로그인"} />}
           ></Route>
           <Route path="/free" element={<FreeCourse />}></Route>
           <Route path="/course" element={<Product />}></Route>
