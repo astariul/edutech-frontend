@@ -4,6 +4,13 @@ export interface IUser {
   userId: string;
 }
 
+export interface IAccount {
+  email: string;
+  password: string;
+  name: string;
+  termsOfService: boolean,
+}
+
 export interface IUserProfile {
   name: string;
   email: string;

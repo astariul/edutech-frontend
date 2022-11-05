@@ -2,8 +2,8 @@ import { createStyles } from "@mantine/core";
 
 
 const useStyles = createStyles(() => ({
-  inner: {
-    padding: "12px 24px 24px 24px"
+  contents: {
+    maxWidh: "337px",
   },
   title: {
     display: "flex",
@@ -41,7 +41,7 @@ const useStyles = createStyles(() => ({
     display: "flex",
     border: "1px solid #DDDDDD",
     borderRadius: "6px",
-    width: "364px",
+    width: "337px",
     height: "53px",
     alignItems: "center",
     backgroundColor: "#FFFFFF"
@@ -68,14 +68,9 @@ const useStyles = createStyles(() => ({
     lineHeight: "0.1em",
     margin: "23px 0 20px",
   },
-  idpwFinder: {
-    position: "absolute",
-    width: "112px",
-    height: "19px",
-    Top: "611px",
-    bottom: "37px",
-    right: "178px",
-    left: "178px",
+  link: {
+    width: "337px",
+    paddingTop: "40px",
     display: "flex",
     justifyContent: "center",
     color: "#0094FF",
