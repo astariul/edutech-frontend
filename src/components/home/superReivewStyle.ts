@@ -108,12 +108,12 @@ const useSuperReivewStyles = createStyles((theme) => ({
     marginTop: "64px",
     marginLeft: "auto",
     marginRight: "auto",
-    width: "1168px",
     columnGap: "32px",
 
     [`@media (max-width: 767px)`]: {
       marginTop: "32px",
-      flexFlow: "nowrap",
+      flexDirection: "column",
+      rowGap: "24px",
     }
   },
 

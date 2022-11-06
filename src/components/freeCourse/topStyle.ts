@@ -46,7 +46,6 @@ const useStyles = createStyles((theme) => ({
     color: "#FFFFFF",
     
     span: {
-      color: "#DBFF00",
     },
 
     [`@media (max-width: 900px)`]: {
@@ -61,7 +60,7 @@ const useStyles = createStyles((theme) => ({
       display: "block",
       textAlign: "center",
       fontWeight: 700,
-      color: "#DBFF00",
+      color: "#FFFFFF",
       fontSize: "16px",
       lineHeight: "25px",
       letterSpacing: "-0.07em",

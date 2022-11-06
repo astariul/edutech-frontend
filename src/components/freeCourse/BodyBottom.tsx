@@ -24,79 +24,35 @@ const ReviewCard = ({content, who, key}: reviewCardProps) => {
 const BodyBottom = () => {
 
   const {classes, cx} = useStyles();
-  const reviews = [
-    {
-      content:"너무 기초가 없었는데 친절하게 하나하나 설명해 주셨어요. 제 손으로 홈페이지를 하나 뚝딱 만들어 낸 게 신기하고 신이 납니다.",
-      who:"비전공자 수강생OOO"
-    },
-    {
-      content:"개발자가 될 수는 있는 지, 어디를 써볼 수 있는 지 준비기간은 어떻게 해야 하는지 몰랐는데 현실적으로 딱 정해줘서 좋았어요.",
-      who:"디자이너 수강생OOO"
-    },
-    {
-      content:"기업에서 요구하는 스펙이 뭔지도 1도 모르는 초보인데, 공고를 분석해주고 합격 vs 불합격 이력서를 보여줘서 앞으로 어떻게 준비할지 방향이 잡혔어요.",
-      who:"직장인 수강생OOO"
-    },
-    {
-      content:"너튜브나 인터넷엔 광고가 너무 많아요 ㅠㅠ 믿기가 어려웠는데, 인사담당자와 개발자 선배님들이 얘기해 주니 신뢰가 확 생기네요",
-      who:"취준생 수강생OOO"
-    },
-    {
-      content:"비전공자가 지원하기 좋은 기업을 알려주는 게 완전 꿀팁! 개발자로서 시작을 제대로 알려주시네요.",
-      who:"비전공자 수강생OOO"
-    },
-    {
-      content:"코테에서 떨어진 후 기출을 무작정 풀어보기만 했는데 빈출, 풀어봐야 하는 순서, 좋은 코드와 나쁜 코드를 알려줘서 다음엔 붙을 수 있을 거 같아요.",
-      who:"취준생 수강생OOO"
-    },
-  ]
   return (
-    <>
-    <section className={classes.reviewMessage}>
-      <div className={cx(classes.contents, classes.columnFlex)}>
-        <div className={cx(classes.messageLarge, classes.desktop)}> 
-          지금 <span>100,000명*</span>의 수강생이
-          <br />슈퍼코딩 무료 강의로 취업을 준비하고 있습니다.
+    <section className={classes.main}>
+      <div className={classes.contents}>
+        <div className={classes.title}>
+          슈퍼코딩 <span>수강후기</span>.
+          <br />
+          여러분도 할 수 있습니다.
         </div>
-        <div className={cx(classes.messageLarge, classes.mobile)}> 
-          지금 <span>100,000명*</span>의 수강생이
-          <br />슈퍼코딩 무료 강의로 취업을
-          <br />준비하고 있습니다.
+        <div className={classes.titleMobile}>
+          슈퍼코딩 <span>수강후기</span>.
+          <br />
+          여러분도 할 수 있습니다.
         </div>
-      </div>
-    </section>
-    <section className={cx(classes.reviewSection, classes.rowFlex)}>
-      <div className={classes.review}>
-        <div className={cx(classes.cards, classes.rowFlex)}>
-          {
-            reviews.map(
-              (review, index) => (
-                <ReviewCard
-                  key={index}
-                  content={review.content}
-                  who={review.who}
-                />
-              )
-            )
-          }
+        <div className={cx(classes.rowFlex, classes.cardArea)}>
+          <ReviewCard
+            content="
+            복잡하고 어려운 프론트엔드를 쉽게 정리해주셨어요. 꼼꼼하게 부족한 부분을 짚어주신 후 개선점을 제시해주십니다. 강의만 해주시는 게 아니라, 학생의 커리어 등 다각도로 케어해주세요. 보통 다른 강의는 가르쳐주고 나머지는 알아서 하라는 식인데, 이경엽 선생님은 학생을 끝까지 책임지신다는 느낌을 강하게 받았습니다. 프론트엔드를 배우고 싶은 분에게 강추합니다!
+            "
+            who="장대응 수강생"
+            />
+          <ReviewCard
+            content="
+              주먹구구식의 교육이 아닌 배우는 사람의 입장에서 이루어지는 교육이어서 정말 좋았습니다! 현재 부족한 부분이 어떤 것인지 파악해주시고 정말 필요한 내용을 이해하기 쉽게 강의해 주셨습니다. 또 진심을 다해서 같이 고민해주시고 열정적으로 대해주시는 모습을 보고 더 힘이 나기도 했습니다. 아주 좋은 강의와 멘토링이었습니다 :)
+            "
+            who="신상윤 수강생"
+            />
         </div>
       </div>
     </section>
-    <section className={classes.mentorMessage}>
-      <div className={cx(classes.contents, classes.columnFlex)}>
-        <div className={cx(classes.messageLarge, classes.desktop)}> 
-          무료강의에 함께하는 <span>100인의 멘토진!</span>
-          <br />결과물 피드백&취업 멘토링, 궁금한건 언젠든지 물어보세요.
-        </div>
-        <div className={cx(classes.messageLarge, classes.mobile)}> 
-          무료강의에 함께하는 <span>100인의 멘토진!</span>
-          <br />결과물 피드백&취업 멘토링, 궁금한건
-          <br />언젠든지 물어보세요.
-        </div>
-      </div>
-    </section>
-    <div className={classes.mentor}></div>
-    </>
   )
 }
 

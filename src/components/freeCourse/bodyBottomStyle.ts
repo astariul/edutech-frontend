@@ -2,128 +2,136 @@ import { createStyles } from '@mantine/core';
 
 
 export const useStyles = createStyles((theme) => ({
-  reviewMessage: {
-    width: "1441px",
-    margin: "154px auto 39px auto",
+ mobile: {
+    display: "none",
 
-    [`@media (max-width: 376px)`]: {
-      width: "375px",
-      marginTop: "87.78px",
+    [`@media (max-width: 767px)`]: {
+      display: "flex"
     }
   },
 
-  mentorMessage: {
-    width: "1441px",
-    margin: "124px auto 65.74px auto",
-
-    [`@media (max-width: 376px)`]: {
-      width: "375px",
-      marginTop: "88px",
+  desktop: {
+    [`@media (max-width: 767px)`]: {
+      display: "none"
     }
-  },
-
-  columnFlex: {
-    display: "flex",
-    flexDirection: "column",
   },
 
   rowFlex: {
     display: "flex",
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
+  },
+  
+  columnFlex: {
+    display: "flex",
+    flexDirection: "column",
   },
 
-  contents: {
-    fontFamily: "NotoSansKR",
-    width: "1168px",
+  main: {
+    display: "flex",
+    flexDirection: "column",
+    height: "599px",
+    margin: "88px auto",
+    marginBottom: 0,
+    backgroundColor: "#F2F2F2",
+    
+    [`@media (max-width: 767px)`]: {
+      marginTop: "50px",
+    }
+  },
+  
+  contents: {  
+    maxWidth: "1168px",
+    width: "90%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    // maxWidth: "1168px",
+    // width: "90%",
+    paddingTop: "59px",
     margin: "0 auto",
 
-    [`@media (max-width: 376px)`]: {
-      width: "375px",
+    [`@media (max-width: 767px)`]: {
+      maxWidth: "766px",
+      margin: "0 auto",
       alignItems: "center",
-  
-      "& > div": {
-        width: "335px",
-      }
+      width: "90%",
     }
+
   },
 
-  messageSmall: {
-    textAlign: "center",
-    fontWeight: 800,
-    fontSize: "22px",
-    lineHeight: "28px",
-    letterSpacing: "-1px",
-    color: "#626262",
-
-    "& > span": {
-      color: "#0094FF",
-    }
-  },
-
-  messageLarge: {
-    textAlign: "center",
+  category: {
+    fontFamily: "AlongSanss2",
+    fontStyle: "normal",
     fontWeight: 700,
-    fontSize: "32px",
-    lineHeight: "44px",
-    letterSpacing: "-0.04em",
-    color: "#363636",
+    fontSize: "14px",
+    lineHeight: "41px",
+    letterSpacing: "-0.886023px",
+    textTransform: "uppercase",
+    color: "#0094FF",
 
-    "& > span": {
+    [`@media (max-width: 767px)`]: {
+      paddingTop: "31.6px",
+      fontSize: "12px",
+    }
+  },
+
+  title: {
+    fontFamily: "NotoSansKR",
+    fontStyle: "normal",
+    fontSize: "32px",
+    fontWeight: 700,
+    lineHeight: "43px",
+    letterSpacing: "-2px",
+    color: "#363636",
+    textAlign: "center",
+  
+    "span": {
       color: "#0094FF",
     },
+  
+    [`@media (max-width: 767px)`]: {
+      display: "none",
+    }
+  },
 
-    [`@media (max-width: 376px)`]: {
+  titleMobile: {
+    display: "none",
+
+    [`@media (max-width: 767px)`]: {
+      display: "block",
+      fontFamily: "NotoSansKR",
+      fontStyle: "normal",
+      fontWeight: 700,
       fontSize: "23px",
       lineHeight: "32px",
       letterSpacing: "-2px",
-    }
+    },
+
+    "span": {
+      color: "#0094FF",
+    },
   },
 
-  reviewSection: {
-    backgroundColor: "#F2F2F2",
-    height: "681px",
-
-    [`@media (max-width: 376px)`]: {
-      height: "226px",
-    }
-  },
-
-  review: {
-    width: "1440px",
+  cardArea: {
+    marginTop: "64px",
     marginLeft: "auto",
     marginRight: "auto",
-
-    [`@media (max-width: 376px)`]: {
-      width: "375px",
-      alignItems: "center",
-  
-      "& > div": {
-        width: "335px",
-      }
-    }
-  },
-
-  cards: {
-    marginLeft: "auto",
-    marginRight: "auto",
-    width: "1168px",
-    height: "580px",
-    flexFlow: "column wrap",
     columnGap: "32px",
-    rowGap: "20px",
 
-    [`@media (max-width: 376px)`]: {
-      flexFlow: "nowrap",
+    [`@media (max-width: 767px)`]: {
+      marginTop: "32px",
+      flexDirection: "column",
+      rowGap: "24px",
     }
   },
 
   card: {
-    width: "368px",
-    height: "280px",
-    backgroundImage: "url(/image/freeCourse/reviewCard.png)",
+    width: "568px",
+    height: "315px",
+    backgroundImage: "url(/image/home/superReviewCard.png)",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       width: "318px",
       height: "180px",
       backgroundImage: "url(/image/freeCourse/reviewCardMobile.png)",
@@ -132,8 +140,8 @@ export const useStyles = createStyles((theme) => ({
 
   cardInner: {
     margin: "32.75px 28px 27px 32.5px",
-    width: "310px",
-    height: "224px",
+    width: "510px",
+    height: "258px",
     fontFamily: "NotoSansKR",
     fontWeight: 500,
     fontSize: "18px",
@@ -150,7 +158,7 @@ export const useStyles = createStyles((theme) => ({
     },
 
     ".content": {
-      height: "89px",
+      height: "145px",
     },
 
     ".who": {
@@ -158,12 +166,12 @@ export const useStyles = createStyles((theme) => ({
       height: "33px"
     },
 
-    [`@media (max-width: 376px)`]: {
-      margin: "20px 17px 9.96px 21px",
-      width: "280px",
+    [`@media (max-width: 767px)`]: {
+      margin: "10px 10px 0px 10px",
+      width: "290px",
       height: "150.04px",
-      fontSize: "14px",
-      lineHeight: "24px",
+      fontSize: "10px",
+      lineHeight: "22px",
       letterSpacing: "-0.90px",
 
       ".fiveStar": {
@@ -174,36 +182,83 @@ export const useStyles = createStyles((theme) => ({
       },
 
       ".who": {
-        fontSize: "12px",
+        fontSize: "10px",
         height: "27px"
       },
     }
   },
 
-  mentor: {
-    backgroundImage: "url(/image/freeCourse/mentorBackground.png)",
-    width: "100%",
-    height: "384.88px",
+  cardImage: {
+    width: "auto",
+    height: "208px",
+  },
 
-    [`@media (max-width: 376px)`]: {
-      backgroundImage: "url(/image/freeCourse/mentorBackgroundMobile.png)",
-      height: "325px",
+  cardTextArea: {
+    paddingTop: "15px",
+    paddingBottom: "22.17px",
+    paddingLeft: "25px",
+    paddingRight: "23px",
+
+    [`@media (max-width: 767px)`]: {
+      paddingTop: "10.93px",
+      paddingBottom: "17.83px",
     }
   },
 
-  mobile: {
-    display: "none",
+  cardTitle: {
+    fontFamily: "NotoSansKR",
+    fontStyle: "normal",
+    fontSize: "18px",
+    fontWeight: 500,
+    lineHeight: "24px",
+    letterSpacing: "-1px",
+    color: "#363636",
+    paddingBottom: "19px",
 
-    [`@media (max-width: 376px)`]: {
-      display: "block",
+    [`@media (max-width: 767px)`]: {
+      fontSize: "13px",
+      lineHeight: "17px",
+      letterSpacing: "-0.728389px",
     }
   },
 
-  desktop: {
+  cardFooter: {
+    display: "flex",
+    flexDirection: "row",
+    fontFamily: "Inter",
+    fontStyle: "normal",
+    fontSize: "14.3669px",
+    fontWeight: 500,
+    lineHeight: "20px",
+    color: "#363636",
+    gap: "10px",
 
-    [`@media (max-width: 376px)`]: {
-      display: "none",
+    [`@media (max-width: 767px)`]: {
+      gap: "9px",
+    }
+  },
+  
+  footerName: {
+    width: "auto",
+    height: "20.92px",
+
+    [`@media (max-width: 767px)`]: {
+      fontSize: "12px",
+      lineHeight: "13px",
+    }
+  },
+
+  footerDescription: {
+    width: "auto",
+    height: "18.83px",
+
+    [`@media (max-width: 7670px)`]: {
+      fontSize: "10px",
+      lineHeight: "11px",
+      letterSpacing: "-1px",
     }
   }
+
 }));
 
+export default useStyles;
