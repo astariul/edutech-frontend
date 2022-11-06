@@ -66,8 +66,6 @@ const useTopStyles = createStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     paddingTop: "20px",
-    paddingLeft: "31.458vw",
-    paddingRight: "31.458vw",
     fontStyle: "normal",
     fontWeight: 900,
     letterSpacing: "-0.06em",
