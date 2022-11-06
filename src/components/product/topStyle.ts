@@ -109,7 +109,7 @@ const useTopStyles = createStyles((theme) => ({
       [`@media (max-width: 900px)`]: {
         display: "block",
         width: "180px",
-        fontSize: "51.84px",
+        fontSize: "48px",
         fontWeight: 700,
         lineHeight: "65px",
         letterSpacing: "-0.07em",
@@ -174,7 +174,7 @@ const useTopStyles = createStyles((theme) => ({
       justifyContent: "space-between",
       fontStyle: "normal",
       fontWeight: 700,
-      fontSize: "21px",
+      fontSize: "19px",
       lineHeight: "21px",
       letterSpacing: "-1px",
       color: "#85B6FF",
@@ -292,7 +292,7 @@ const useTopStyles = createStyles((theme) => ({
       color: "#FFFFFF",
 
       [`@media (max-width: 900px)`]: {
-        fontSize: "18px",
+        fontSize: "16px",
       },
     },
   },

@@ -1,60 +1,89 @@
 import { createStyles } from '@mantine/core';
 
 const useBodyProgramStyles = createStyles((theme) => ({
+
+  mobile: {
+    display: "none",
+
+    [`@media (max-width: 767px)`]: {
+      display: "block"
+    }
+  },
+
+  desktop: {
+    [`@media (max-width: 767px)`]: {
+      display: "none"
+    }
+  },
+
+  rowFlex: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  
+  columnFlex: {
+    display: "flex",
+    flexDirection: "column",
+  },
+
   main: {
     paddingTop: "102px",
-    width: "1441px",
+    maxWidth: "1441px",
+    width: "90%",
     margin: "0 auto",
     fontFamily: "NotoSansKR",
     fontStyle: "normal",
     whiteSpace: "nowrap",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
+
       paddingTop: "0px",
-      width: "375px",
+      // width: "375px",
     },
   },
 
   contents: {
+    maxWidth: "1168px",
+    width: "90%",
+    margin: "0 auto",
     display: "flex",
-    alignItems: "center",
+    // alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-    
-    [`@media (max-width: 376px)`]: {
-      display: "none",
-    },
+    paddingBottom: "83px",
+    alignItems: "flex-start",
 
-    "& > div": {
-      width: "1168px",
-      alignItems: "flex-start",
-    },
+    [`@media (max-width: 767px)`]: {
+      alignItems: "center",
+      maxWidth: "766px",
+      margin: "0 auto",
+      paddingBottom: "5px",
 
-    "& > div: nth-of-type(2)":{
-      paddingTop: "66.78px",
-    },
+      "& > section": {
+        maxWidth: "766px",
+        width: "90%",
 
-    "& > div: nth-of-type(3)":{
-      marginTop: "45px",
-
-      "& > div: nth-of-type(1)": {
-        marginBottom: "68px"
+        "div": {
+          alignItems: "center",
+        }
       }
+      // display: "none",
     },
 
-    "& > div: nth-of-type(4)":{
-      paddingTop: "88px",
-    },
+    // "& > div": {
+    //   width: "1168px",
+    // },
 
-    "& > section": {
-      marginTop: "37.97px",
-    }
+    // "& > section": {
+    //   marginTop: "37.97px",
+    // }
   },
 
   contentsMobile: {
     display: "none",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
@@ -85,7 +114,7 @@ const useBodyProgramStyles = createStyles((theme) => ({
   },
 
   message: {
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "none"
     },
 
@@ -120,15 +149,18 @@ const useBodyProgramStyles = createStyles((theme) => ({
 
   messageMobile: {
     display: "none",
-    
-    [`@media (max-width: 376px)`]: {
+
+    [`@media (max-width: 767px)`]: {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
       flexDirection: "column",
-      backgroundImage: "url(/image/product/whyMobile.png)",
+      // backgroundImage: "url(/image/product/whyMobile.png)",
+      backgroundImage: "url(/image/product/why.png)",
+      backgroundRepeat: "no-repeat",
       marginTop: "45px",
-      width: "375px",
+      maxWidth: "766px",
+      width: "100%",
       height: "166px",
 
       "& > div: nth-of-type(1)": { 
@@ -167,15 +199,28 @@ const useBodyProgramStyles = createStyles((theme) => ({
       },
     },
 
-    [`@media (max-width: 376px)`]: {
-      display: "none"
+    [`@media (max-width: 767px)`]: {
+      textAlign: "center",
+
+      "& > h2": {
+        marginTop: "45px",
+        fontWeight: 700,
+        fontSize: "23px",
+        lineHeight: "32px",
+        letterSpacing: "-2px",
+        color: "#363636",
+  
+        "& > span": {
+          color: "#0094FF",
+        },
+      },
     }
   },
 
   answerMobile: {
     display: "none",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "block",
       textAlign: "center",
 
@@ -198,17 +243,12 @@ const useBodyProgramStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     columnGap: "34px",
-    marginBottom: "40px",
+    fontFamily: "NotoSansKR",
 
-    [`@media (max-width: 376px)`]: {
-      display: "none",
-
-    },
-
-    "& > div": {
+      "div#super": {
       width: "66px",
-      fontFamily: "AlongSanss2",
-      fontWeight: 800,
+      height: "28px",
+      fontWeight: 700,
       fontSize: "20.4836px",
       lineHeight: "23px",
       letterSpacing: "-0.731557px",
@@ -216,20 +256,76 @@ const useBodyProgramStyles = createStyles((theme) => ({
       borderBottom: "4px solid #363636",
     },
 
-    "& > h2": {  
+    "div#message": {
+      rowGap: "17px"
+    },
+
+    "& > div > h2: nth-of-type(1)": {  
       margin: 0,
       fontWeight: 700,
       fontSize: "26px",
       lineHeight: "32px",
       letterSpacing: "-1px",
       color: "#363636",
-    }
+    },
+
+    "& > div > h2: nth-of-type(2)": {  
+      margin: 0,
+      fontWeight: 500,
+      fontSize: "26px",
+      lineHeight: "32px",
+      letterSpacing: "-1px",
+      color: "#363636",
+    }, 
+
+    [`@media (max-width: 767px)`]: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      textAlign: "center",
+      rowGap: "10.5px",
+      marginBottom: "20px",
+
+      "div#super": {
+        width: "66px",
+        height: "28px",
+        fontWeight: 700,
+        fontSize: "20.4836px",
+        lineHeight: "23px",
+        letterSpacing: "-0.731557px",
+        color: "#363636",
+        borderBottom: "4px solid #363636",
+      },
+
+      "div#message": {
+        rowGap: "17px"
+      },
+
+      "& > div > h2: nth-of-type(1)": {  
+        margin: 0,
+        fontWeight: 700,
+        fontSize: "23px",
+        lineHeight: "32px",
+        letterSpacing: "-1px",
+        color: "#363636",
+      },
+
+      "& > div > h2: nth-of-type(2)": {  
+        margin: 0,
+        fontWeight: 500,
+        fontSize: "23px",
+        lineHeight: "32px",
+        letterSpacing: "-1px",
+        color: "#363636",
+      }
+    },
   },
 
   superMobile: {
     display: "none",
     
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -262,9 +358,30 @@ const useBodyProgramStyles = createStyles((theme) => ({
     },
   },
 
-  program: {
+  quotes: {
+    marginTop: "55.3px",
 
-    [`@media max-width(376px)`]: {
+    "h2": {
+      margin: 0,
+      fontFamily: "NotoSansKR",
+      fontStyle: "normal",
+      fontWeight: 400,
+      fontSize: "26px",
+      lineHeight: "32px",
+      letterSpacing: "-1px",
+      color: "#363636",
+      textAlign: "center",
+    },
+
+    [`@media (max-width: 767px)`]: {
+      "h2": {
+        fontSize: "23px"
+      }
+    },
+  },
+
+  program: {
+    [`@media (max-width: 767px)`]: {
       display: "none",
     },
 
@@ -285,7 +402,7 @@ const useBodyProgramStyles = createStyles((theme) => ({
     "& > div": {
       width: "1168px",
       background: "linear-gradient(0deg, #0094FF, #0094FF), #363636",
-      height: "1060px",
+      height: "1230px",
       marginTop: "-10px",
       border: 0,
       borderBottomLeftRadius: "10px",
@@ -296,7 +413,7 @@ const useBodyProgramStyles = createStyles((theme) => ({
   programMobile: {
     display: "none",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "block",
 
       "& > button": {
@@ -305,7 +422,8 @@ const useBodyProgramStyles = createStyles((theme) => ({
         fontSize: "13px",
         lineHeight: "37px",
         background: "linear-gradient(0deg, #0094FF, #0094FF), #363636",
-        width: "336px",
+        maxWidth: "375px",
+        width: "375px",
         height: "60px",
   
         "& > div > span": {
@@ -314,9 +432,9 @@ const useBodyProgramStyles = createStyles((theme) => ({
       },
   
       "& > div": {
-        width: "336px",
+        maxWidth: "766px",
+        width: "375px",
         background: "linear-gradient(0deg, #0094FF, #0094FF), #363636",
-        height: "560px",
         marginTop: "-10px",
         border: 0,
         borderBottomLeftRadius: "10px",
@@ -331,35 +449,135 @@ const useBodyProgramStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       paddingLeft: "15px",
       paddingRight: "0px",
       justifyContent: "center",
-      alignItems: "center"
+      alignItems: "center",
+
+      margin: "0 auto",
+      maxWidth: "766px",
+      width: "90%",
     },
 
-    "& > img: nth-of-type(1)": {
+    "& > img": {
       width: "968px",
-      height: "600px",
-
-      [`@media (max-width: 376px)`]: {
-        width: "300px",
-        height: "300px",
-      }
-    },
-  
-    "& > img: nth-of-type(2)": {
-      width: "968px",
-      height: "524px",
-      marginTop: "-71px",
+      height: "1178px",
       
-      [`@media (max-width: 376px)`]: {
-        width: "300px",
-        height: "300px",
-      marginTop: "-37px",
-      }
+      [`@media (max-width: 767px)`]: {
+        width: "375px",
+      },
+    },
+  },
+
+  cardArea: {
+    columnGap: "31px",
+  },
+
+  mentorCard: {
+    width: "569px",
+    height: "160px",
+    border: "0.994145px solid #E8E8E8",
+    background: "#FFFFFF",
+
+    [`@media (max-width: 767px)`]: {
+      maxWidth: "375px",
+      height: "300px"
     }
   },
+
+  mentorCardInner: {
+    margin: "20px 24px 0px 33px",
+    width: "512px",
+    height: "138px",
+    columnGap: "14px",
+    alignItems: "center",
+
+    "div.mentorCardMentorImage": {
+      width: "95px",
+      height: "138px",
+
+      "img": {
+        width: "95px",
+        height: "94px",
+      }
+    },
+
+    "div.mentorCardMentorInfo": {
+      height: "138px",
+      rowGap: "13px",
+      fontFamily: "NotoSansKR",
+      fontStyle: "normal",
+      fontWeight: 500,
+      fontSize: "12px",
+      lineHeight: "30px",
+      color: "#000000",
+  
+      ".mentorCardMentorNameAndPosition": {
+        width: "154px",
+        height: "34px",
+        lineHeight: "18px"
+      },
+
+      ".mentorCardMentorComment": {
+        letterSpacing: "-0.99px",
+        fontSize: "14px",
+        lineHeight: "26px",
+        fontWeight: 400,
+        
+        "p": {
+          margin: 0,
+          lineHeight: "22px"
+        }
+      }
+    },
+
+    [`@media (max-width: 767px)`]: {
+      maxWidth: "375px",
+      height: "300px",
+
+      "div.mentorCardMentorImage": {
+        width: "95px",
+        height: "258px",
+
+        "img": {
+          width: "95px",
+          height: "94px",
+        }
+      },
+
+      "div.mentorCardMentorInfo": {
+        height: "258px",
+        rowGap: "13px",
+        fontFamily: "NotoSansKR",
+        fontStyle: "normal",
+        fontWeight: 500,
+        fontSize: "12px",
+        lineHeight: "30px",
+        color: "#000000",
+    
+        ".mentorCardMentorNameAndPosition": {
+          width: "154px",
+          height: "34px",
+          lineHeight: "18px"
+        },
+  
+        ".mentorCardMentorComment": {
+          letterSpacing: "-0.99px",
+          fontSize: "14px",
+          lineHeight: "26px",
+          fontWeight: 400,
+          
+          "p": {
+            margin: 0,
+            lineHeight: "22px"
+          }
+        }
+      },
+    },
+
+
+  }
 
 }));
 

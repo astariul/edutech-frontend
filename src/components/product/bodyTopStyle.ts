@@ -3,7 +3,8 @@ import { createStyles } from '@mantine/core';
 const useBodyTopStyles = createStyles((theme) => ({
   main: {
     paddingTop: "64px",
-    width: "1441px",
+    maxWidth: "1441px",
+    width: "90%",
     margin: "0 auto",
     whiteSpace: "nowrap",
 
@@ -17,21 +18,31 @@ const useBodyTopStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center",
+    // alignItems: "center",
     fontWeight: 700,
     fontSize: "32px",
     lineHeight: "44px",
     letterSpacing: "-2px",
     fontFamily: "NotoSansKR",
-    
-    "& > div": {
-      width: "1168px",
-      alignItems: "flex-start",
+    maxWidth: "1168px",
+    width: "90%",
+    margin: "0 auto",
+    alignItems: "flex-start",
 
-      [`@media (max-width: 376px)`]: {
-        width: "336px"
-      }
+    [`@media (max-width: 767px)`]: {
+      alignItems: "center",
+      maxWidth: "766px",
+      margin: "0 auto",
     },
+
+    // "& > div": {
+    //   width: "1168px",
+    //   alignItems: "flex-start",
+
+    //   [`@media (max-width: 767px)`]: {
+    //     width: "336px"
+    //   }
+    // },
 
   },
 
@@ -42,7 +53,7 @@ const useBodyTopStyles = createStyles((theme) => ({
     lineHeight: "44px",
     letterSpacing: "-2px",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "none"
     }
   },
@@ -50,7 +61,7 @@ const useBodyTopStyles = createStyles((theme) => ({
   messageMobile: {
     display: "none",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "block",
       textAlign: "center",
       fontSize: "23px",
@@ -70,7 +81,7 @@ const useBodyTopStyles = createStyles((theme) => ({
     lineHeight: "28px",
     letterSpacing: "-1px",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       letterSpacing: "-1.5px",
       fontSize: "14px",
       lineHeight: "25px",
@@ -82,7 +93,7 @@ const useBodyTopStyles = createStyles((theme) => ({
     background: "#F2F2F2",
     marginTop: "39px",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "none"
     }
   },
@@ -90,7 +101,7 @@ const useBodyTopStyles = createStyles((theme) => ({
   featureMessageAreaMobile: {
     display: "none",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "flex",
       marginTop: "25px",
       background: "#F2F2F2",
@@ -122,7 +133,7 @@ const useBodyTopStyles = createStyles((theme) => ({
       }
     },
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       textAlign: "center",
       paddingLeft: "0",
       paddingTop: "18px",
@@ -142,7 +153,7 @@ const useBodyTopStyles = createStyles((theme) => ({
   tableSection: {
     marginTop: "78px",
     
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       marginTop: "45px",
       width: "336px"
     },
@@ -160,7 +171,7 @@ const useBodyTopStyles = createStyles((theme) => ({
     marginTop: "37px",
     marginRight: 0,
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "none"
     }
   },
@@ -168,7 +179,7 @@ const useBodyTopStyles = createStyles((theme) => ({
   tableAreaMobile: {
     display: "none",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       marginTop: "35px",
       display: "block"
     }
@@ -528,7 +539,7 @@ const useBodyTopStyles = createStyles((theme) => ({
     paddingTop: "28px",
     justifyContent: "center",
     
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       paddingTop: "0",
 
     },
@@ -541,7 +552,7 @@ const useBodyTopStyles = createStyles((theme) => ({
       lineHeight: "32px",
       letterSpacing: "-1px",
 
-      [`@media (max-width: 376px)`]: {
+      [`@media (max-width: 767px)`]: {
         fontSize: "12px",
         lineHeight: "24px",
       },
@@ -558,7 +569,7 @@ const useBodyTopStyles = createStyles((theme) => ({
     background: "#000000",
     borderRadius: "10px",
     
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       lineHeight: "24px",
       width: "335px",
       height: "60px",
@@ -575,7 +586,7 @@ const useBodyTopStyles = createStyles((theme) => ({
       marginLeft: "auto",
       marginRight: "auto",
 
-      [`@media (max-width: 376px)`]: {
+      [`@media (max-width: 767px)`]: {
         fontSize: "19px",
       },
     }

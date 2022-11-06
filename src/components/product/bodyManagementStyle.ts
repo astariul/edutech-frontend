@@ -1,144 +1,383 @@
 import { createStyles } from '@mantine/core';
 
 const useBodyManagementStyles = createStyles((theme) => ({
-  logoTile: {
-    marginTop: "233px",
+
+  mobile: {
+    display: "none",
+
+    [`@media (max-width: 767px)`]: {
+      display: "inline-block"
+    }
+  },
+
+  desktop: {
+    [`@media (max-width: 767px)`]: {
+      display: "none"
+    }
+  },
+
+  rowFlex: {
+    display: "flex",
+    alignItems: "center",
+  },
+
+  columnFlex: {
+    display: "flex",
+    flexDirection: "column"
+  },
+
+  main: {
+    marginTop: "59px",
     fontFamily: "NotoSansKR",
     fontStyle: "normal",
     color: "#363636",
     whiteSpace: "nowrap",
-    
-    height: "562px",
-    backgroundImage: "url(/image/product/logoTile.png)",
+    backgroundColor: "#F2F2F2",
+    height: "808px",
 
-    [`@media (max-width: 376px)`]: {
-      display: "none"
+    [`@media (max-width: 767px)`]: {
+      height: "900px",
     }
+  },
+    
+  contents: {
+    maxWidth: "1440px",
+    width: "90%",
+    height: "648px",
+    margin: "0 auto",
+    paddingTop: "59px",
   },
   
-  logoTileMobile: {
-    display: "none",
+  contentsInner: {
+    maxWidth: "1168px",
+    width: "90%",
+    margin: "0 auto",
+    columnGap: "125.91px",
 
-    [`@media (max-width: 376px)`]: {
-      height: "716.4px",
-      fontFamily: "NotoSansKR",
-      fontStyle: "normal",
-      display: "block",
-      backgroundImage: "url(/image/product/logoTileMobile.png)",
+    [`@media (max-width: 767px)`]: {
+      maxWidth: "766px",
+      margin: "0 auto",
+      alignItems: "center",
     }
   },
 
-  management: {
+  leftSection: {
+    rowGap: "421px",
+
+    [`@media (max-width: 767px)`]: {
+      rowGap: "50px",
+      justifyContent: "center",
+      alignItems: "center",
+    }
+  },
+
+  rightSection: {
+
+  },
+
+  messageTop: {
+    // height: "661.3px",
+
+    [`@media (max-width: 767px)`]: {
+      paddingTop: "7px",
+      alignItems: "center",
+      textAlign: "center",
+    },
+  },
+
+  messageBottom: {
+    fontWeight: 700,
+    letterSpacing: "-1px",
+    
+    "img": {
+      width: "67px",
+      height: "67px"
+    },
+        
+    "h2": {
+      margin: 0,
+      fontSize: "16px",
+      lineHeight: "27px",
+
+      "span": {
+        fontSize: "26px",
+        lineHeight: "31px",
+        color: "#0094FF",
+      },
+    },
+
+    [`@media (max-width: 767px)`]: {
+      alignItems: "center",
+
+      "img": {
+        width: "47px",
+        height: "47px"
+      },
+
+      "h2": {
+        fontSize: "12px",
+        lineHeight: "24px",
+
+        "span": {
+          fontSize: "22px",
+          lineHeight: "31px",
+        }
+      }
+    }
+  },
+
+  cardArea: {
+    rowGap: "9.11px",
+  },
+
+  card: {
+    width: "698.94px",
+    height: "72.9px",
+    backgroundColor: "#FFFFFF",
+    letterSpacing: "-0.911268px",
+    border: "0.911268px solid #E8E8E8",
+    borderRadius: "9.11268px",
+    alignItems: "center",
+
+    "#card_title": {
+      width: "245.13px",
+      marginLeft: "56.13px",
+
+      "h2": {
+        margin: 0,
+        fontWeight: 700,
+        fontSize: "16px",
+        lineHeight: "107px",
+      },
+    },
+
+    "#card_content": {
+      width: "282.49px",
+      height: "46.47px",
+      justifyContent: "center",
+
+      "li": {
+        fontWeight: 400,
+        fontSize: "14px",
+        lineHeight: "22px",
+      },
+      "li::marker": {
+        fontSize: "10px",
+      }
+    },
+
+    "span": {
+      fontFamily: "NotoSansKR",
+      fontStyle: "normal",
+      fontWeight: 100,
+      fontSize: "118.465px",
+      lineHeight: "79px",
+      color: "#F2F2F2",
+    },
+
+    [`@media (max-width: 767px)`]: {
+      width: "450px",
+      height: "52.9px",
+      alignItems: "center",
+
+      "#card_title": {
+        width: "100px",
+        marginLeft: "30px",
+
+        "h2": {
+          margin: 0,
+          fontSize: "12px",
+        },
+      },
+
+      "#card_content": {
+        width: "200px",
+        height: "46.47px",
+
+        "li": {
+          fontSize: "12px",
+        },
+        "li::marker": {
+          fontSize: "10px",
+        }
+      },
+
+      "span": {
+        fontSize: "80px",
+        lineHeight: "79px",
+      },
+    },
+
+    [`@media (max-width: 470px)`]: {
+      width: "380px",
+      height: "46px",
+
+      "#card_title": {
+        width: "65px",
+        marginLeft: "10px",
+
+        "h2": {
+          margin: 0,
+          fontSize: "10px",
+        },
+      },
+
+      "#card_content": {
+        width: "200px",
+
+        "li": {
+          fontSize: "10px",
+        },
+        "li::marker": {
+          fontSize: "10px",
+        }
+      },
+
+      "span": {
+        fontSize: "80px",
+      },
+    }
+  },
+
+  logoTile: {
+    marginTop: "99px",
+    fontFamily: "NotoSansKR",
+    fontStyle: "normal",
+    color: "#363636",
+    whiteSpace: "nowrap",
+    backgroundColor: "#F2F2F2",
+    height: "808px",
+    backgroundImage: "url(/image/home/logoTile.png)",
 
     [`@media (max-width: 376px)`]: {
       display: "none"
-    },
-
-    paddingTop: "190px",
-    paddingLeft: "max(235px, 9.514vw)",
-    color: "#FFFFFF",
-    
-    "& > h2": {
-      margin: 0
-    },
-
-    "& > h2: nth-of-type(2)" : {
-      fontWeight: 500,
-      fontSize: "20px",
-      lineHeight: "38px"
     }
   },
 
-  managementMobile: {
+  textArea: {
+    paddingTop: "128px",
+    paddingLeft: "max(166px, 11.528vw)",
+    height: "auto",
+
+    [`@media (max-width: 767px)`]: {
+      paddingTop: "46px",
+      alignItems: "center",
+      textAlign: "center",
+      paddingLeft: "5.067vw",
+      paddingRight: "5.067vw",
+    },
+  },
+
+  category: {
+    color: "#0094FF",
+    fontWeight: 700,
+    fontFamily: "AlongSanss2",
+    fontStyle: "normal",
+    fontSize: "14px",
+    letterSpacing: "-0.886023px",
+    textTransform: "uppercase",
+    lineHeight: "41.35px",
+
+    // [`@media (max-width: 1024px)`]: {
+    //   alignItems: "center",
+    //   textAlign: "center",
+    // },
+
+    [`@media (max-width: 767px)`]: {
+      alignItems: "center",
+      textAlign: "center",
+      fontSize: "12px",
+    }
+  },
+
+  title: {
+    color: "#363636",
+    fontSize: "32px",
+    fontFamily: "NotoSansKR",
+    fontStyle: "normal",
+    fontWeight: 700,
+    lineHeight: "44px",
+    letterSpacing: "-2px",
+    height: "auto",
+
+    // [`@media (max-width: 1024px)`]: {
+    //   paddingTop: "26px",
+    //   paddingLeft: "0px",
+      // alignItems: "center",
+      // textAlign: "center",
+      // wordBreak: "break-word",
+      // height: "auto"
+    // },
+
+    [`@media (max-width: 767px)`]: {
+      fontSize: "23px",
+      lineHeight: "32px",
+      letterSpacing: "-0.8px",
+    }
+  },
+
+  titleMobile: {
     display: "none",
+    fontFamily: "NotoSansKR",
+    fontStyle: "normal",
+    fontWeight: 700,
+    paddingTop: "26px",
+    alignItems: "center",
+    textAlign: "center",
+    fontSize: "23px",
+    lineHeight: "32px",
+    letterSpacing: "-2px",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "block",
-      paddingTop: "156px",
-      // position: "absolute",
-      // top: "6080px",
-      color: "#FFFFFF",
-      marginLeft: "66px",
-
-      "& > h2": {
-        margin: 0,
-        fontSize: "18px",
-        lineHeight: "25px",
-        letterSpacing: "-1.05px",
-      },
-
-      "& > h2: nth-of-type(2)" : {
-        marginTop: "58px",
-        fontWeight: 500,
-        fontSize: "12px",
-        lineHeight: "18px",
-        letterSpacing: "-1px",
-      }
     },
   },
 
   message: {
     position: "absolute",
-    top: "6120px",
-    paddingLeft: "max(137px, 9.514vw)",
-
-    "& > h2:nth-of-type(1)" : {
+    paddingTop: "140px",
+    paddingLeft: "max(235px, 9.514vw)",
+    color: "#FFFFFF",
+    
+    "& > h2": {
       margin: 0,
-      whiteSpace: "nowrap",
       fontWeight: 700,
-      fontSize: "32px",
-      lineHeight: "44px",
+      fontSize: "28px",
+      lineHeight: "38px",
       letterSpacing: "-2px",
 
-      "& > span": {
-        color: "#0094FF",
+      [`@media (max-width: 767px)`]: {
+        fontSize: "24px"
       }
     },
 
-    "& > h2:nth-of-type(2)" : {
-      margin: 0,
-      marginTop: "7px",
-      whiteSpace: "nowrap",
-      fontWeight: 700,
-      fontSize: "21px",
-      lineHeight: "38px",
-      letterSpacing: "-1px",    
-  },
-},
+    // [`@media (max-width: 1024px)`]: {
+    //   paddingTop: "230px",
+    // },
+  
+    [`@media (max-width: 767px)`]: {
+      paddingTop: "250px",
+    },
 
-  messageMobile: {
+    [`@media (max-width: 376px)`]: {
+      fontSize: "18px",
+      lineHeight: "25px",
+      paddingTop: "370px",
+      paddingLeft: "70px",
+      width: "150px",
+      color: "#FFFFFF",
+    }
+  },
+
+  mainMobile: {
+    width: "100%",
+    height: "auto",
     display: "none",
 
     [`@media (max-width: 376px)`]: {
-      width: "375px",
       display: "block",
-      paddingTop: "28px",
-      textAlign: "center",
-  
-      "& > h2:nth-of-type(1)" : {
-        margin: 0,
-        whiteSpace: "nowrap",
-        fontWeight: 700,
-        fontSize: "23px",
-        lineHeight: "32px",
-        letterSpacing: "-2px",
-
-        "& > span": {
-          color: "#0094FF",
-        }
-      },
-  
-      "& > h2:nth-of-type(2)" : {
-        margin: 0,
-        marginTop: "7px",
-        whiteSpace: "nowrap",
-        fontWeight: 700,
-        fontSize: "15px",
-        lineHeight: "23px",
-        letterSpacing: "-1px"    
-    },
     }
-}
+  }
 
 }));
 

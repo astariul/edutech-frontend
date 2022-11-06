@@ -7,7 +7,7 @@ const useBottomStyles = createStyles((theme) => ({
     whiteSpace: "nowrap",
     background: "#F2F2F2",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "none",
       background: "#FFFFFF"
     }
@@ -29,7 +29,7 @@ const useBottomStyles = createStyles((theme) => ({
   },
 
   message: {
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "none",
     },
 
@@ -65,7 +65,7 @@ const useBottomStyles = createStyles((theme) => ({
 
     display: "none",
 
-    [`@media (max-width: 376px)`]: {      
+    [`@media (max-width: 767px)`]: {      
       backgroundImage: "url(/image/product/supercodingbandMobile.png)",
       backgroundSize: "cover",
       marginTop: "43px",

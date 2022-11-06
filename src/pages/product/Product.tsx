@@ -2,7 +2,6 @@ import Top from "../../components/product/Top";
 import BodyTop from '../../components/product/BodyTop';
 import BodyProgram from '../../components/product/BodyProgram';
 import BodyManagement from '../../components/product/BodyManagement';
-import BodyFeatures from "../../components/product/BodyFeatures";
 import useStyles from './style';
 import Bottom from '../../components/product/Bottom';
 import FAQ from "../../components/product/FAQ";
@@ -14,7 +13,6 @@ const Product = () => {
       <Top />
       <BodyTop />
       <BodyProgram />
-      <BodyFeatures />
       <BodyManagement />
       <Bottom />
       <FAQ />

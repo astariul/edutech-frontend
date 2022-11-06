@@ -67,6 +67,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
     [`@media (max-width: 767px)`]: {
       rowGap: "50px",
       justifyContent: "center",
+      alignItems: "center",
     }
   },
 
