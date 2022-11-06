@@ -1,7 +1,7 @@
 import { createStyles } from "@mantine/core";
 
 export const useStyles = createStyles((theme, _, getRef) => ({
-  bgSection: {
+  topSection: {
     position: "relative",
     backgroundImage: "url(/image/resume/resumeMain.png)",
     backgroundSize: "cover",
@@ -28,6 +28,9 @@ export const useStyles = createStyles((theme, _, getRef) => ({
   },
   card: {
     width: "368px",
+  },
+  cardincard: {
+    width: "300px",
   },
 
   cardTitle: {

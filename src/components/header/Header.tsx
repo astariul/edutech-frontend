@@ -51,8 +51,8 @@ const rightLinks = [
 const HeaderResponsive = () => {
   const [opened, toggleOpened] = useBooleanToggle(false);
   const [hidden, setHidden] = useBooleanToggle(false);
-  const [backgroundColor, setBackgroundColor] = useState("rgba(0, 0, 0, 0.3)")
-  const { classes, cx } = useStyles({hidden, backgroundColor});
+  const [backgroundColor, setBackgroundColor] = useState("rgba(0, 0, 0, 0.3)");
+  const { classes, cx } = useStyles({ hidden, backgroundColor });
   const [login] = useLocalStorage<IUserProfile | null>({
     key: "login",
     defaultValue: null,
@@ -60,56 +60,41 @@ const HeaderResponsive = () => {
   const location = useLocation();
   const [active, setActive] = useState("");
 
-  useEffect(
-    () => {
-      for (let link of middleLinks) {
-        if (location.pathname.startsWith(link.link)) {
-          setActive(link.link);
-        } else if (location.pathname === "/") {
-          setActive("");
-        } else if (
-          location.pathname.startsWith("/signup")
-          || location.pathname.startsWith("/login")
-        ){
-          setHidden(true);
-        } else if (
-          location.pathname.startsWith("/myclass")
-        ){
-          setBackgroundColor("#FFFFFF");
-        }
+  useEffect(() => {
+    for (let link of middleLinks) {
+      if (location.pathname.startsWith(link.link)) {
+        setActive(link.link);
+      } else if (location.pathname === "/") {
+        setActive("");
+      } else if (
+        location.pathname.startsWith("/signup") ||
+        location.pathname.startsWith("/login")
+      ) {
+        setHidden(true);
+      } else if (location.pathname.startsWith("/myclass")) {
+        setBackgroundColor("#FFFFFF");
       }
-      return () => {setHidden(false); setBackgroundColor("rgba(0, 0, 0, 0.3)");}
-    }, [location, setActive, toggleOpened, setHidden, setBackgroundColor]
-  );
+    }
+    return () => {
+      setHidden(false);
+      setBackgroundColor("rgba(0, 0, 0, 0.3)");
+    };
+  }, [location, setActive, toggleOpened, setHidden, setBackgroundColor]);
 
   const middleLinkItems = middleLinks.map((link) => {
-    if (["/resume"].includes(link.link)) {
-      return (
-        <Anchor
-          underline={false}
-          className={cx(classes.middleLink, {
-            [classes.linkActive]: active === link.link,
-          })}
-          onClick={() => window.alert("서비스 준비중입니다.")}
-        >
-          {link.label}
-        </Anchor>
-      );
-    } else {
-      return (
-        <Anchor
-          component={Link}
-          key={link.label}
-          to={link.link}
-          className={cx(classes.middleLink, {
-            [classes.linkActive]: active === link.link,
-          })}
-          underline={false}
-        >
-          {link.label}
-        </Anchor>
-      );
-    }
+    return (
+      <Anchor
+        component={Link}
+        key={link.label}
+        to={link.link}
+        className={cx(classes.middleLink, {
+          [classes.linkActive]: active === link.link,
+        })}
+        underline={false}
+      >
+        {link.label}
+      </Anchor>
+    );
   });
 
   const rightLinkItems = rightLinks.map((link) => {
@@ -200,18 +185,17 @@ const HeaderResponsive = () => {
           </Group>
         </div>
       </Header>
-      <Header
-        className={classes.mainMobile}
-        height={100}
-      >
+      <Header className={classes.mainMobile} height={100}>
         <div className={classes.header}>
           <UnstyledButton component={Link} to={"/"}>
             <Group className={classes.biContainer}>
               <img
                 className={classes.biMobile}
-                src={ backgroundColor === "#FFFFFF"
-                  ? require("../../../src/static/image/supercodingbi.png")
-                  : require("../../../src/static/image/supercodingBIWhite.png")}
+                src={
+                  backgroundColor === "#FFFFFF"
+                    ? require("../../../src/static/image/supercodingbi.png")
+                    : require("../../../src/static/image/supercodingBIWhite.png")
+                }
                 alt=""
               ></img>
             </Group>
@@ -228,9 +212,11 @@ const HeaderResponsive = () => {
           </Group>
           <Burger
             opened={opened}
-            onClick={() => {toggleOpened();}}
+            onClick={() => {
+              toggleOpened();
+            }}
             className={classes.burger}
-            color={backgroundColor === "#FFFFFF"? "#111111" : "#FFFFFF"}
+            color={backgroundColor === "#FFFFFF" ? "#111111" : "#FFFFFF"}
           />
           <Transition transition="slide-down" duration={200} mounted={opened}>
             {(styles) => (
