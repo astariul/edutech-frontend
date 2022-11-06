@@ -8,7 +8,7 @@ const ResumeCard1 = () => {
       {/* <Text weight={900}>Norway Fjord Adventures</Text> */}
       {/* <img src="./image/resume/supperresume1.png" /> */}
       <Space h={"xl"} />
-      <img className={classes.cardIcon} src="./image/resume/superresume1.png" />
+      <img className={classes.cardIcon} src="./image/resume/superresume2.png" />
       <Space h={"xl"} />
 
       <div className={classes.cardTitle}>
@@ -16,9 +16,9 @@ const ResumeCard1 = () => {
         <br /> 취업코치의 이력서 첨삭
       </div>
       <div className={classes.cardBody}>
-        슈퍼코딩 강의를 수강하고 프로젝트를 <br />
-        완료하면 회사에서 요구하는 실무 역량이 <br />
-        이력서에 반영되는 경험을 하게됩니다.
+        채용 전문가들의 꼼꼼한 첨삭을 통해
+        <br />
+        합격률을 높이세요.
       </div>
     </Card>
   );

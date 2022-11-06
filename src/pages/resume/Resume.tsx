@@ -9,6 +9,7 @@ import {
   Center,
 } from "@mantine/core";
 import ResumeCard1 from "../../components/resume/ResumeCard1";
+import ResumeCard2 from "../../components/resume/ResumeCard2";
 
 const Resume = () => {
   const { classes, cx } = useStyles();
@@ -38,7 +39,7 @@ const Resume = () => {
                 <ResumeCard1 />
               </div>
               <div>
-                <ResumeCard1 />
+                <ResumeCard2 />
                 <Space h={30} />
                 <ResumeCard1 />
               </div>
