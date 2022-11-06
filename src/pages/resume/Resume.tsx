@@ -1,3 +1,4 @@
+import React from "react";
 import { useStyles } from "./style";
 import {
   Grid,
@@ -14,8 +15,33 @@ import ResumeCard3 from "../../components/resume/ResumeCard3";
 import ResumeCard4 from "../../components/resume/ResumeCard4";
 import ResumeCard5 from "../../components/resume/ResumeCard5";
 
-const Resume = () => {
+import { useMediaQuery } from "react-responsive";
+
+export const Mobile = () => {
+  const isMobile = useMediaQuery({
+    query: "(max-width:480px)",
+  });
+  return <>{isMobile ? true : null}</>;
+};
+
+export const Pc = () => {
+  const isDesktop = useMediaQuery({
+    query: "(min-width:481px)",
+  });
+  return <>{isDesktop}</>;
+};
+
+const Resume = (): JSX.Element => {
   const { classes, cx } = useStyles();
+  const isDesktopOrLaptop = useMediaQuery(
+    { minDeviceWidth: 421 }
+    // { deviceWidth: 1600 } // `device` prop
+  );
+  const isMobile = useMediaQuery(
+    { maxDeviceWidth: 420 }
+    // { deviceWidth: 1600 } // `device` prop
+  );
+
   return (
     <div>
       <div className={classes.bgSection}>
@@ -30,22 +56,34 @@ const Resume = () => {
               cols={3}
               spacing={40}
               breakpoints={[
-                { maxWidth: "xl", cols: 3, spacing: "md" },
-                { maxWidth: "lg", cols: 2, spacing: "md" },
+                { maxWidth: "xl", cols: 3, spacing: 40 },
+                { maxWidth: "lg", cols: 2, spacing: 40 },
                 { maxWidth: "sm", cols: 1, spacing: "sm" },
                 { maxWidth: "xs", cols: 1, spacing: "sm" },
               ]}
             >
               <div>
-                <ResumeCard1 />
-                <Space h={40} />
-                <ResumeCard4 />
+                <>
+                  <ResumeCard1 />
+                  <Space h={40} />
+                  <ResumeCard4 />
+                </>
               </div>
+              {isMobile && (
+                <>
+                  <Space h={15} />
+                </>
+              )}
               <div>
                 <ResumeCard2 />
                 <Space h={40} />
                 <ResumeCard5 />
               </div>
+              {isMobile && (
+                <>
+                  <Space h={15} />
+                </>
+              )}
               <div>
                 <ResumeCard3 />
               </div>
@@ -53,7 +91,17 @@ const Resume = () => {
           </Container>
         </Center>
       </div>
-      <Space h={800} />
+
+      {isDesktopOrLaptop && (
+        <>
+          <Space h={800} />
+        </>
+      )}
+      {isMobile && (
+        <>
+          <Space h={2100} />
+        </>
+      )}
     </div>
   );
 };
