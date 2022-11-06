@@ -9,7 +9,7 @@ export const useCardStyle = createStyles(() =>  ({
     letterSpacing: "-1px",
     boxShadow: "0px 10px 24px rgba(0, 0, 0, 0.1)",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       width: "318px",
     }
   },
@@ -29,7 +29,7 @@ export const useCardStyle = createStyles(() =>  ({
     width: "368px",
     height: "208.12px",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       width: "318px",
       height: "179.88px",
 
@@ -41,11 +41,23 @@ export const useCardStyle = createStyles(() =>  ({
   },
 
   cardBody: {
-
+    background: "#FAFAFA",
+    border: "0.946622px solid #E2E2E2",
+    
+    "hr": {
+      marginTop: "39px",
+      marginBottom: "26px",
+      width: "100%",
+      height: "0.946622px",
+      backgroundColor: "#E2E2E2",
+      border: "none"
+    },
+    
     "& > div.titleArea": {
       margin: "17.88px 18.77px 0px 29.02px",
       height: "125.88px",
-  
+      rowGap: "22px",
+
       "& > div.bodyTitle": {
         fontWeight: 700,
         fontSize: "18px",
@@ -98,7 +110,6 @@ export const useCardStyle = createStyles(() =>  ({
     },
 
     "& > div.recommendation": {
-      marginTop: "11px",
       paddingLeft: "28.02px",
       height: "138px",
       fontSize: "12px",
@@ -172,7 +183,7 @@ export const useCardStyle = createStyles(() =>  ({
       },
     },
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       "& > div.titleArea": {
         margin: "13.12px 16.22px 0px 25.08px",
         height: "117.12px",
@@ -260,9 +271,9 @@ export const useCardStyle = createStyles(() =>  ({
 export const useStyles = createStyles((theme) => ({
   main: {
     width: "1441px",
-    margin: "124px auto 154px auto",
+    margin: "59px auto 154px auto",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       width: "375px",
       marginTop: "53px",
       marginBottom: 0,
@@ -285,7 +296,7 @@ export const useStyles = createStyles((theme) => ({
     width: "1168px",
     margin: "0 auto",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
 
       width: "375px",
       alignItems: "center",
@@ -321,7 +332,7 @@ export const useStyles = createStyles((theme) => ({
       color: "#0094FF",
     },
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       fontSize: "23px",
       lineHeight: "32px",
       letterSpacing: "-2px",
@@ -335,7 +346,7 @@ export const useStyles = createStyles((theme) => ({
     rowGap: "90px",
     flexFlow: "column wrap",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       marginTop: "47px",
       width: "318px",
       columnGap: "9px",
@@ -348,11 +359,22 @@ export const useStyles = createStyles((theme) => ({
     width: "368px",
     rowGap: "27px",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       width: "318px",
       alignItems: "center",
       justifyContent: "center",
     }
+  },
+
+  super: {
+    width: "66px",
+    height: "28px",
+    fontWeight: 700,
+    fontSize: "20.4836px",
+    lineHeight: "23px",
+    letterSpacing: "-0.731557px",
+    color: "#363636",
+    borderBottom: "4px solid #363636",
   },
 
   title: {
@@ -361,8 +383,9 @@ export const useStyles = createStyles((theme) => ({
     fontSize: "26px",
     color: "#363636",
     wordBreak: "break-word",
+    letterSpacing: "-1px",
 
-    [`@media (max-width: 376px)`]: {      
+    [`@media (max-width: 767px)`]: {      
       textAlign: "center",
       fontSize: "18px",
       lineHeight: "27px",
@@ -372,14 +395,14 @@ export const useStyles = createStyles((theme) => ({
   mobile: {
     display: "none",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "block",
     }
   },
 
   desktop: {
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "none",
     }
   }

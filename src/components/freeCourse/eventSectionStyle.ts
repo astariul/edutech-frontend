@@ -6,7 +6,7 @@ export const useStyles = createStyles((theme) => ({
     backgroundColor: "#0094FF",
     height: "786px",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       height: "881px",
     }
   },
@@ -27,7 +27,7 @@ export const useStyles = createStyles((theme) => ({
     margin: "0 auto",
     paddingTop: "67px",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       width: "375px",
       paddingTop: "49px",
     }
@@ -39,7 +39,7 @@ export const useStyles = createStyles((theme) => ({
     color: "#FFFFFF",
     alignItems: "center",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       width: "335px",
       margin: "0 auto",
 
@@ -59,7 +59,7 @@ export const useStyles = createStyles((theme) => ({
       color: "#DBFF00",
     },
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       letterSpacing: "-2px",
       fontSize: "23px",
       lineHeight: "32px",
@@ -71,7 +71,7 @@ export const useStyles = createStyles((theme) => ({
     paddingBottom: "67px",
     columnGap: "68px",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       paddingTop: "27px",
       paddingBottom: "27px",
       flexDirection: "column",
@@ -84,7 +84,7 @@ export const useStyles = createStyles((theme) => ({
     width: "599px",
     height: "255px",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       width: "333px",
       height: "141.76px",
     
@@ -99,7 +99,7 @@ export const useStyles = createStyles((theme) => ({
     rowGap: "27px",
     justifyContent: "flex-start",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       rowGap: "27px",
       width: "335px",
     }
@@ -125,7 +125,7 @@ export const useStyles = createStyles((theme) => ({
       }
     },
   
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       fontSize: "14px",
       lineHeight: "25px",
       
@@ -162,7 +162,7 @@ export const useStyles = createStyles((theme) => ({
       background: "#000000"
     },
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       width: "337px",
       height: "70px",
   
@@ -177,14 +177,14 @@ export const useStyles = createStyles((theme) => ({
   mobile: {
     display: "none",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "block",
     }
   },
 
   desktop: {
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       display: "none",
     }
   }

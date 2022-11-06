@@ -13,12 +13,12 @@ const EventSection = () => {
           <div className={cx(classes.title, classes.desktop)}>
             <span>기간 한정 이벤트</span>
             <br />무료강의 완강후기를 작성하면
-            <br />웹개발종합반 Plus1개월을 무료로 드립니다.
+            <br />웹개발종합반 Plus 1개월을 무료로 드립니다.
           </div>
           <div className={cx(classes.title, classes.mobile)}>
             <span>기간 한정 이벤트</span>
             <br />무료강의 완강후기를 작성하면
-            <br />웹개발종합반 Plus1개월을
+            <br />웹개발종합반 Plus 1개월을
             <br />무료로 드립니다.
           </div>
           <div className={cx(classes.body, classes.rowFlex)}>
@@ -29,13 +29,13 @@ const EventSection = () => {
               <div className={cx(classes.bullet, classes.desktop)}>
                 <div>이벤트 상품</div>
                 <li>7일 무료 이용권(전원), 10% 할인권(전원), 1개월 무료 이용권(10명)</li>
-                <li>이벤트 기간: 2022년 11월 1일 ~ 2022년 11월 30일</li>
+                <li>이벤트 기간: 2022년 11월 7일 ~ 2022년 12월 7일</li>
               </div>
               <div className={cx(classes.bullet, classes.mobile)}>
                 <div>이벤트 상품</div>
                 <li>7일 무료 이용권(전원), 10% 할인권(전원)</li>
                 <li>1개월 무료 이용권(10명)</li>
-                <li>이벤트 기간: 2022년 11월 1일 ~ 2022년 11월 30일</li>
+                <li>이벤트 기간: 2022년 11월 7일 ~ 2022년 12월 7일</li>
               </div>
               <div className={classes.bullet}>
                 <div>참여방법</div>
@@ -45,7 +45,7 @@ const EventSection = () => {
               <div className={classes.bullet}>
                 <div>상품지급일</div>
                 <li>7일 무료 이용권: 완강 후기 설문 작성 즉시 지급</li>
-                <li>1개월 무료 이용권: 12월2일 개별 지급</li>
+                <li>1개월 무료 이용권: 12월8일 개별 지급</li>
               </div>
             </div>
           </div>
