@@ -302,6 +302,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     fontSize: "28px",
     fontWeight: 900,
     letterSpacing: "-2px",
+    textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
 
     [`@media (max-width: 767px)`]: {
       fontSize: "20px",
@@ -342,7 +343,72 @@ const useSuperCourseStyles = createStyles((theme) => ({
   mainBottom: {
     height: "180px",
     backgroundColor: "#002B7C",
+    display: "flex"
   },
+
+  merits: {
+    margin: "auto auto",
+    display: "flex",
+    columnGap: "24px",
+    alignItems: "center",
+    maxWidth: "1083px",
+    height: "64px",
+    fontFamily: 'NotoSansKR',
+    fontStyle: "normal",
+    textAlign: "center",
+    letterSpacing: "-1px",
+    color: "#43FF4A",
+    
+    "div": {
+      fontWeight: 700,
+      fontSize: "16px",
+      lineHeight: "26px",
+      wordBreak: "keep-all",
+    },
+
+    "span": {
+      width: "5.67px",
+      height: "19.2px",
+      background: "rgba(255, 255, 255, 0.3)",
+      transform: "rotate(45deg)",
+    },
+
+    [`@media (max-width: 1024px)`]: {
+      "div": {
+        fontWeight: 600,
+        fontSize: "14px",
+        lineHeight: "24px",
+      }
+    },
+
+    [`@media (max-width: 600px)`]: {
+      width: "90%",
+      columnGap: "12px",
+
+      "div": {
+        fontWeight: 600,
+        fontSize: "12px",
+        lineHeight: "22px",
+      },
+      "span": {
+        display: "none"
+      }
+    },
+
+    [`@media (max-width: 471px)`]: {
+      width: "90%",
+      columnGap: "12px",
+
+      "div": {
+        lineHeight: "20px",
+      },
+
+      "span": {
+        display: "none"
+      }
+    },
+  },
+
 
   ticketArea: {
     width: "1441px",

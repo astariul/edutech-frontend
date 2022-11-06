@@ -3,50 +3,27 @@ import useSuperCurriculumStyles from "./superCurriculumStyle";
 import BusinessCard from "../businessCard/BusinessCard";
 
 const SuperCurriculum = () => {
-  const {classes} = useSuperCurriculumStyles();
+  const {classes, cx} = useSuperCurriculumStyles();
   const cardContents = [
     [
       require("../../static/image/home/superCurriculumImageCard1.png"),
-      "단기간 학습해서 입사하신 분들 얼마 못 버티고 다시 공부합니다.", 
-      "이경엽",
-      "스페이스워크CTO"
+
     ],
     [
       require("../../static/image/home/superCurriculumImageCard2.png"),
-      "프로젝트 중심으로 학습하지 않아서 문제 해결 능력이 많이 부족합니다.", 
-      "이경엽",
-      "스페이스워크CTO"
+
     ],
     [
       require("../../static/image/home/superCurriculumImageCard3.png"),
-      "슈코 커리큘럼은 수료후 저희가 보증하고 취업시켜드릴수 있을만큼 완벽합니다.", 
-      "이경엽",
-      "스페이스워크CTO"
+
     ],
-    [
-      require("../../static/image/home/superCurriculumImageCard4.png"),
-      "업계 최고의 분들이 함께 만든 슈코 커리큐럼! 실전형 미니프로젝트까지!!!", 
-      "이경엽",
-      "스페이스워크CTO"
-    ]
   ]
   const Card = (imagePath: string, title: string, footerName: string, footerDescription: string) => (
     <div key={title} className={classes.card}>
-      <img className={classes.cardImage} src={imagePath} alt={imagePath}/>
-      <div className={classes.cardTextArea}>
-        <div className={classes.cardTitle}>{title}</div>
-        <div className={classes.cardFooter}>
-          <div className={classes.footerName}>{footerName}</div>
-          <img
-            className={classes.checkCircleSmall}
-            src={require("../../static/image/home/superCurriculumImageCheckSmall.png")}
-            alt="CheckMarker"
-          />
-          <div className={classes.footerDescription}>{footerDescription}</div>
-        </div>
-      </div>
+      <img src={imagePath} alt={imagePath}/>
     </div>
   )
+
   return (
     <section className={classes.main}>
       <div className={classes.messageArea}>
@@ -54,7 +31,7 @@ const SuperCurriculum = () => {
         <div className={classes.title}>
           "우리는 이런 개발자를 원합니다"
           <br />
-          기업이 원하는 인재를 만들기 위한 <span style={{color:"#0094FF"}}>100인의 업계최고</span>들의
+          기업이 원하는 인재를 만들기 위한 <span style={{color:"#0094FF"}}>다양한 분야의 업계최고 전문가</span>들의
           <br />
           적극적인 참여로 <span style={{color:"#0094FF"}}>커리큘럼을 완성</span>시켰습니다.
         </div>
@@ -72,34 +49,45 @@ const SuperCurriculum = () => {
         <img
           className={classes.imageTop}
           src={require("../../static/image/home/superCurriculumImage1.png")}
-          alt=""
+          alt="companylogos"
         />
       </div>
       <div className={classes.imageBottom}>
         <div className={classes.imageBottomInner}>
           <div>
             <div className={classes.imageMessage}>
-              <h3>단기간 학습으로 취업할 수 있다고
-                  <br/>
-                  과장광고하는 업체는 제발 선택하지 말아주세요.
-              </h3>
-              <h2>
-                20시간 정도는
-                <br />
-                투자해야 취업까지
-                <br />
-                가능합니다.
+              <h2>더 이상
+                <br/>시간낭비하지 마시고
+                <br/><span>취업중심형 커리큘럼</span>을 통해
+                <br/><span>회사들이 실제로 요구하는</span>
+                <br />기술을 습득하셔야 합니다.
               </h2>
+              <div className={cx(classes.mentorComment, classes.mobile)}>
+                <h1>"</h1>
+                <h2>
+                  <br/>코딩을 처음부터 제대로 배우는것이
+                  <br/>커리어를 좌우합니다.
+                  <br/>가장쉬운방식으로 배워
+                  <br/>여러분들안에 있는
+                  <br />코딩잠재력을 깨워주세요.
+                </h2>
+              </div>
               <div className={classes.whois}>
                 <BusinessCard
-                  image={require("../../static/image/logo/Kakaopay.png")}
-                  name="HOYA"
-                  position="카카오페이 CTO"
-                  />
+                  image={require("../../static/image/logo/Spacewalk.png")}
+                  name="Daniel"
+                  position="AI Startup Spacewalk CTO"
+                 />
               </div>
             </div>
-            <div className={classes.playButton} >
-              <img src={require("../../static/image/home/superCurriculumImagePlayCircle.png")} alt="PlayCircle" />
+            <div className={cx(classes.mentorComment, classes.desktop)}>
+              <h1>"</h1>
+              <h2>
+                <br/>코딩을 처음부터 제대로 배우는것이
+                <br/>커리어를 좌우합니다.
+                <br/>가장쉬운방식으로 배워
+                <br/>여러분들안에 있는 코딩잠재력을 깨워주세요.
+              </h2>
             </div>
           </div>
         </div>

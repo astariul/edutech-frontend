@@ -6,6 +6,13 @@ import { useNavigate } from 'react-router-dom';
 const SuperCourse = () => {
   const { classes } = useSuperCourseStyles();
   const navigate = useNavigate();
+  const meritMessages = [
+    <div>가장 쉽게, 제대로 배우는 <br />코딩교육</div>,
+    <div>현업 실무 완벽대비 단계별 난이도 <br />15개 이상의 프로젝트</div>,
+    <div>코딩테스트, <br />면접 완전 정복</div>,
+    <div>2 top 담임제 : <br />학습매니저, 취업매니저</div>,
+    <div>현직 CTO, 개발자 슈퍼멘토와 <br />함께하는 네트워크</div>,
+  ]
   const Ticket = (subTitle: string, title: string, index: number) => {
     return (
       <div key={index} className={classes.ticket}>
@@ -60,21 +67,16 @@ const SuperCourse = () => {
       </div>
     </section>
     <div className={classes.mainBottom}>
-      <div className={classes.ticketArea}>
-        {
-          [
-            Ticket("코딩1도 몰라도 1시간이면 뚝딱!", "토마토마켓 코딩강의 0원", 0),
-            Ticket("코딩1도 몰라도 1시간이면 뚝딱!", "토마토마켓 코딩강의 0원", 1),
-            Ticket("코딩1도 몰라도 1시간이면 뚝딱!", "토마토마켓 코딩강의 0원", 2),
-          ]
-        }
-      </div>
-      <div className={classes.ticketAreaMobile}>
-        {
-          [
-            Ticket("코딩1도 몰라도 1시간이면 뚝딱!", "토마토마켓 코딩강의 0원", 0),
-          ]
-        }
+      <div className={classes.merits}>
+        <div>가장 쉽게, 제대로 배우는 <br />코딩교육</div>
+        <span></span>
+        <div>현업 실무 완벽대비 단계별 난이도 <br />15개 이상의 프로젝트</div>
+        <span></span>
+        <div>코딩테스트, <br />면접 완전 정복</div>
+        <span></span>
+        <div>2 top 담임제 : <br />학습매니저, 취업매니저</div>
+        <span></span>
+        <div>현직 CTO, 개발자 슈퍼멘토와 <br />함께하는 네트워크</div>
       </div>
     </div>
     </>

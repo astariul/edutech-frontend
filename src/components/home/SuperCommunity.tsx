@@ -3,24 +3,7 @@ import useSuperCommunityStyles from "./superCommunityStyle";
 
 
 const SuperCommunity = () => {
-  const {classes} = useSuperCommunityStyles();
-
-  const contentInWordBalloon = [
-    ["현지 개발자,", "동료들과 얘기하기", require("../../static/image/logo/SlackC.png")],
-    ["CTO, 인사담당자와", "이야기하기", require("../../static/image/logo/SlackC.png")],
-    ["로드맵, 수업", "문의하기", require("../../static/image/logo/NaverCafe.png")],
-    ["1:1", "문의하기", require("../../static/image/logo/KakaoTalk.png")],
-  ]
-  const WordBalloon = (titleTop: string, titleBottom: string, iconPath: string) => (
-    <div key={titleTop+titleBottom} className={classes.wordBalloon}>
-      <Title className={classes.wordBallonTitle}>
-        {titleTop}
-        <br/>
-        {titleBottom}
-      </Title>
-      <img className={classes.icon} src={iconPath} alt={iconPath} />
-    </div>
-  );
+  const {classes, cx} = useSuperCommunityStyles();
 
   return (
     <div className={classes.main}>
@@ -33,17 +16,20 @@ const SuperCommunity = () => {
             슈코와 얘기하세요.
           </Title>
         </div>
-        <div className={classes.contentRight}>
-          <div className={classes.wordBalloons}>
-            {
-              contentInWordBalloon.map(
-                (each) => {
-                  const [titleTop, titleBottom, iconPath] = each;
-                  return WordBalloon(titleTop, titleBottom, iconPath);
-                }
-              )
-            }
-          </div>
+        <div className={cx(classes.contentRight, classes.desktop)}>
+          <h2>
+            슈퍼코딩 유료 유저들에게는 기업의 취업 정보와, 실제 인사담당자의 설명회, Q&A 시간이 제공됩니다.
+            <br />기업, 산업군별로 방이 개설되어 운영됩니다.
+          </h2>
+        </div>
+        <div className={cx(classes.contentRight, classes.mobile)}>
+          <h2>
+            슈퍼코딩 유료 유저들에게는
+            <br />기업의 취업 정보와,
+            <br />실제 인사담당자의 설명회,
+            <br />Q&A 시간이 제공됩니다.
+            <br />기업, 산업군별로 방이 개설되어 운영됩니다.
+          </h2>
         </div>
       </div>
     </div>

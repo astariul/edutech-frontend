@@ -1,6 +1,20 @@
 import { createStyles } from '@mantine/core';
 
 export const useSuperCurriculumStyles = createStyles((theme) => ({
+  mobile: {
+    display: "none",
+
+    [`@media (max-width: 767px)`]: {
+      display: "inline-block"
+    }
+  },
+
+  desktop: {
+    [`@media (max-width: 767px)`]: {
+      display: "none"
+    }
+  },
+  
   main: {
     display: "flex",
     flexDirection: "column",
@@ -92,7 +106,7 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
   imageTop: {
     paddingTop: "17px",
     paddingBottom: "17.28px",
-    width: "100vw",
+    width: "100%",
     height: "55.72px",
     alignItems: "center",
 
@@ -105,31 +119,15 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
     marginTop: 0,
     padding: 0,
     width: "100%",
-    height: "504px",
-    backgroundImage: "url(/image/home/superCurriculumImage2.png)",
+    height: "654px",
+    backgroundImage: "url(/image/home/superCurriculumMentorImage.png)",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
-      
-    [`@media (max-width: 400px)`]: {
-      height: "227px",
-    },
-  
-    [`@media (min-width: 400px) and (max-width: 635px)`]: {
-      height: "227px",
-    },
-    
-    [`@media (min-width: 635px) and (max-width: 840px)`]: {
-      height: "300px",
-    },
 
-    [`@media (min-width: 840px) and (max-width: 900px)`]: {
-      height: "380px",
+    [`@media (max-width: 767px)`]: {
+      height: "503px",
     },
-  
-    [`@media (min-width: 900px) and (max-width: 1150px)`]: {
-      height: "444px",
-    }
   },
 
   imageBottomInner:{
@@ -143,9 +141,11 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
       margin: "0 auto",
     },
 
-    [`@media (max-width: 650px)`]: {
-      width: "375px",
-
+    [`@media (max-width: 767px)`]: {
+      maxWidth: "766px",
+      width: "90%",
+      alignItems: "center",
+  
       "& > div": {
         width: "335px",
       }
@@ -153,214 +153,122 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
   },
   
   imageMessage: {
-    alignItems: "center",
+    display: "flex",
+    width: "874px",
+    height: "654px",
     justifyContent: "center",
-    paddingTop: "67px",
-    display: "column",
-    color: "#FFFFFF",
+    flexDirection: "column",
+    color: "#525252",
     fontFamily: "NotoSansKR",
     fontStyle: "normal",
     letterSpacing: "-0.06em",
     textShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)",
-  
-    [`@media (max-width: 400px)`]: {
-      paddingTop: "32px",
-    },
-  
-    [`@media (min-width: 400px) and (max-width: 635px)`]: {
-      paddingTop: "32px",
-    },
-    
-    [`@media (min-width: 635px) and (max-width: 840px)`]: {
-      paddingTop: "42px",
+
+    "span": {
+      color: "#0065FD",
     },
 
-    [`@media (min-width: 840px) and (max-width: 900px)`]: {
-      paddingTop: "52px",
-    },
-  
-    [`@media (min-width: 900px) and (max-width: 1150px)`]: {
-      paddingTop: "62px",
-    },
-    
-    "& > h3": {
-      margin: 0,
-      fontWeight: 500,
-      fontSize: "24px",
-      lineHeight: "33px",
+    [`@media (max-width: 767px)`]: {
+      height: "503px",
 
-      [`@media (max-width: 400px)`]: {
-        fontWeight: 400,
-        fontSize: "12px",
-        lineHeight: "17px",
-      },
-    
-      [`@media (min-width: 400px) and (max-width: 635px)`]: {
-        fontWeight: 400,
-        fontSize: "13px",
-        lineHeight: "17px",
-      },
-      
-      [`@media (min-width: 635px) and (max-width: 840px)`]: {
-        fontWeight: 400,
-        fontSize: "20px",
-        lineHeight: "24px",
-      },
-
-      [`@media (min-width: 840px) and (max-width: 900px)`]: {
-        fontWeight: 500,
-        fontSize: "22px",
-        lineHeight: "28px",
-      },
-    
-      [`@media (min-width: 900px) and (max-width: 1150px)`]: {
-        fontWeight: 500,
-        fontSize: "24px",
-        lineHeight: "33px",
-      }
     },
 
     "& > h2": {
-      marginTop: "4.65px",
+      width: "724px",
+      marginTop: 0,
       marginBottom: 0,
       fontWeight: 900,
-      fontSize: "65px",
-      lineHeight: "74px",
+      fontSize: "60px",
+      lineHeight: "69px",
+      textShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)",
 
-      [`@media (max-width: 400px)`]: {
-        fontSize: "26px",
-        lineHeight: "30px",
-      },
-    
-      [`@media (min-width: 400px) and (max-width: 635px)`]: {
-        fontSize: "26px",
-        lineHeight: "30px",
-      },
-      
-      [`@media (min-width: 635px) and (max-width: 840px)`]: {
-        fontSize: "30px",
-        lineHeight: "34px",
-      },
-
-      [`@media (min-width: 840px) and (max-width: 900px)`]: {
-        fontSize: "40px",
-        lineHeight: "45px",
-      },
-    
-      [`@media (min-width: 900px) and (max-width: 1150px)`]: {
-        fontSize: "55px",
-        lineHeight: "62px",
+      [`@media (max-width: 767px)`]: {
+        fontSize: "22px",
+        lineHeight: "29.8px",
+        letterSpacing: "-6%"
       }
+
     }
   },
 
   whois: {
     display: "flex",
-    marginTop: "27px",
-
-    [`@media (max-width: 900px)`]: {
-      marginTop: "20px",
-      "& > div > img": {
-        width:"22px",
-        height: "22px",
-      },
-      "& > div > div": {
-        fontSize: "10px",
-
-        "& > div > img": {
-          width:"10.2px",
-          height: "10.2px",
-        },
-
-        "& > div: nth-of-type(1) > div": {
-          lineHeight: "11px",
-        },
-  
-        "& > div: nth-of-type(2)": {
-          lineHeight: "10px",
-        },
-      }
-    },
+    marginTop: "18px",
+    width: "235px",
+    height: "50.88px",
   },
 
-  playButton: {
+  mentorComment: {
     display: "flex",
-    paddingTop: "191px",
-    paddingLeft: "6.667vw",
-    alignItems: "center",
+    flexDirection: "column",
+    // alignItems: "center",
     justifyContent: "center",
-    width: "123px",
-    height: "123px",
-
-    [`@media (max-width: 1200px)`]: {
-      display: "none"
-    }
-  },
-
-  titleArea: {
-    width: "536.78px",
-    paddingTop: "67px",
-    paddingLeft: "9.856vw",
-    paddingRight: "auto",
-    fontFamily: "NotoSansKR",
+    width: "353px",
+    marginTop: "120px", 
+    marginLeft: "110px",
     fontStyle: "normal",
+    textShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)",
     color: "#FFFFFF",
-    textShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)",
-    letterSpacing: "-0.06em",
-  },
 
-  subTitle: {
-    height: "70.7px",
-    fontSize: "22px",
-    fontWeight: 500,
-    lineHeight: "33px",
-    textShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)",
-  },
+    "h2": {
+      margin: 0,
+      fontFamily: 'NotoSansKR',
+      fontWeight: 700,
+      fontSize: "17px",
+      lineHeight: "28px",
+      letterSpacing: "-0.04em",
+    },
 
-  mainTitle: {
-    paddingTop: "4.65px",
-    height: "231.65px",
-    fontSize: "65px",
-    fontWeight: 900,
-    lineHeight: "74px",
-    textShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)",
+    "h1":{
+      margin: 0,
+      height: "0px",
+      fontFamily: "AlongSanss2",
+      fontWeight: 900,
+      fontSize: "90px",
+      lineHeight: "69px",
+      letterSpacing: "-0.06em",
+    },
+
+    [`@media (max-width: 767px)`]: {
+      marginTop: "50px",
+      marginLeft: "0px"
+
+    },
+
   },
 
   cardArea: {
     backgroundColor: "#F2F2F2",
     width: "100%",
-    height: "324px",
+    height: "420px",
   },
   
   cards: {
-    width: "1440px",
+    maxWidth: "1202px",
+    height: "305px",
     margin: "0 auto",
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
-    paddingTop: "29px",
-    paddingBottom: "37.95px",
-    columnGap: "20px",
+    marginTop: "46px",
+    columnGap: "49px",
 
     [`@media (max-width: 767px)`]: {
-      width: "1168px",
-      margin: 0,
-      paddingTop: "32px",
-      paddingBottom: "30.95px",
+      maxWidth: "766px",
+      width: "90%",
+      alignItems: "center",
+      columnGap: "49px",
+
     }
   },
 
   card: {
     display: "flex",
-    flexDirection: "column",
-    width: "auto",
-    maxWidth: "268px",
-    height: "257.05px",
-    backgroundColor: "#FFFFFF",
-    border: "0.728261px solid #E8E8E8",
+    width: "368",
+    maxWidth: "368px",
+    height: "305px",
 
     [`@media (max-width: 767px)`]: {
-      minWidth: "268px",
+      maxWidth: "368px",
     }
 
   },

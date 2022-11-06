@@ -27,10 +27,12 @@ const useStyles = createStyles((theme) => ({
   },
 
   name: {
+    width: "69.24px",
+    height: "26px",
     display: "flex",
     justifyContent: "center",
     lineHeight: "25px",
-    columnGap: "4.24px",
+    columnGap: "5.16px",
 
     "& > img": {
       width: "22.61px",
