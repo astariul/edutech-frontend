@@ -19,9 +19,9 @@ import { useMediaQuery } from "react-responsive";
 
 const Resume = (): JSX.Element => {
   const { classes, cx } = useStyles();
-  const isDesktopOrLaptop = useMediaQuery({ minWidth: 1024 });
-  const isTablet = useMediaQuery({ minWidth: 501, maxWidth: 1023 });
-  const isMobile = useMediaQuery({ minWidth: 401, maxWidth: 500 });
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 1201 });
+  const isTablet = useMediaQuery({ minWidth: 770, maxWidth: 1200 });
+  const isMobile = useMediaQuery({ minWidth: 401, maxWidth: 769 });
   const isSmallMobile = useMediaQuery({ maxWidth: 400 });
   const isBiggerThanSmallMobile = useMediaQuery({ minWidth: 401 });
 
@@ -98,7 +98,7 @@ const Resume = (): JSX.Element => {
       )}
       {isTablet && (
         <>
-          <Space h={1500} />
+          <Space h={1400} />
         </>
       )}
 
