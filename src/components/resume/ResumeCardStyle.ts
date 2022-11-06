@@ -28,9 +28,10 @@ export const useStyles = createStyles((theme, _, getRef) => ({
   },
   card: {
     width: "368px",
-  },
-  cardincard: {
-    width: "300px",
+    [`@media (max-width: 400px)`]: {
+      fontSize: "16px",
+      width: "260px",
+    },
   },
 
   cardTitle: {
@@ -46,14 +47,23 @@ export const useStyles = createStyles((theme, _, getRef) => ({
   },
   cardBody: {
     fontFamily: "Noto Snas KR",
-    fontSize: "18px",
+
     lineHeight: "29px",
     // letterSpacing: "-0.06em",
     // paddingTop: "270px",
-    width: "312px",
+
     alignItems: "center",
     textAlign: "center",
     // color: "white",
+    [`@media (min-width: 401px)`]: {
+      fontSize: "18px",
+      width: "312px",
+    },
+
+    [`@media (max-width: 400px)`]: {
+      fontSize: "16px",
+      width: "240px",
+    },
   },
   cardIcon: {
     // position: "absolute",
