@@ -12,7 +12,7 @@ import AuthRepository from "./repositories/Auth";
 import { IUserProfile } from "./typings/db";
 import Survey from "./pages/survey/Survey";
 import Payment from "./pages/payment/Payment";
-import Resume from "./pages/resume/Resume";
+import Resume from "./pages/resume/ResumeEditor";
 import AuthMethodModal from "./components/authMethod/AuthMethodModal";
 import { AuthForm } from "./components/authForm/AuthForm";
 import VideoRoom from "./pages/videoRoom/VideoRoom";
