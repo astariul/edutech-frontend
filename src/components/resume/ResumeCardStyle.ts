@@ -61,17 +61,4 @@ export const useStyles = createStyles((theme, _, getRef) => ({
     // left: "294px",
     // top: "565px",
   },
-
-  // mainMessage: {
-  //   fontFamily: "Noto Sans KR",
-  //   fontSize: "77px",
-  //   fontWeight: "900",
-  //   lineHeight: "90px",
-  //   letterSpacing: "-0.06em",
-  //   textAlign: "center",
-
-  //   // [`@media (max-width: 767px)`]: {
-  //   //   display: "none",
-  //   // },
-  // },
 }));
