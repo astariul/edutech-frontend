@@ -133,34 +133,40 @@ const BodyTop = () => {
           <section className={classes.featureMessageArea}>
             <div className={classes.featureMessage}>
               <li>
-                <span className={classes.emphasizer}>비전공자</span>인데 나도 개발자가 되고 싶다면? <span className={classes.hashTag}>#취업코딩 #취업프로젝트</span>
+                <span className={classes.emphasizer}>비전공자</span>인데 정말 쉽게 배워서 개발자가 될 수 있을까? <span className={classes.hashTag}>#세상에서가장쉬운 #슈퍼개념</span>
               </li>
-              <li><span className={classes.emphasizer}>취업</span>이 잘되는 포트폴리오를 만들고 싶다면? <span className={classes.hashTag}>#슈퍼팀프로젝트 #슈퍼해커톤</span></li>
-              <li>개발자 많이 뽑는다는데,<span className={classes.emphasizer}>원하는 기업에 취업</span>하기를 원한다면? <span className={classes.hashTag}>#000대기업코딩기출</span></li>
-              <li>개발자 취업을 위한<span className={classes.emphasizer}>기업 소개, 지인 지원</span>을 받고 싶다면? <span className={classes.hashTag}>#CTO추천서 #면접코칭 #멘토링</span></li>
+              <li><span className={classes.emphasizer}>합격</span>하는 이력서와 포트폴리오를 만들수 있을까? <span className={classes.hashTag}>#단계별프로젝트 #슈퍼해커</span></li>
+              <li>개발자로 취업하기 어렵다던데 <span className={classes.emphasizer}>코딩테스트는</span> 어떻게 통과하지? <span className={classes.hashTag}>#000대 기업 취업기출</span></li>
+              <li>두렵기만한 <span className={classes.emphasizer}>기술면접</span> 어떻게 준비하지? <span className={classes.hashTag}>#면접기출 #합격비법</span></li>
+              <li>어렵기만한 <span className={classes.emphasizer}>채용공고</span> 어떤 회사가 내 수준에 맞을까? <span className={classes.hashTag}>#나에게맞는 회사고르는 팁 #취업코칭</span></li>
             </div>
           </section>
           <section className={classes.featureMessageAreaMobile}>
             <div className={classes.featureMessage}>
               <p>
-                <span className={classes.emphasizer}>비전공자</span>인데 나도 개발자가 되고 싶다면?
+                <span className={classes.emphasizer}>비전공자</span>인데 정말 쉽게 배워서 개발자가 될 수 있을까?
                 <br/>
-                <span className={classes.hashTag}>#취업코딩 #취업프로젝트</span>
+                <span className={classes.hashTag}>#세상에서가장쉬운 #슈퍼개념</span>
               </p>
               <p>
-                <span className={classes.emphasizer}>취업</span>이 잘되는 포트폴리오를 만들고 싶다면?
+                <span className={classes.emphasizer}>합격</span>하는 이력서와 포트폴리오를 만들수 있을까?
                 <br/>
-                <span className={classes.hashTag}>#슈퍼팀프로젝트 #슈퍼해커톤</span>
+                <span className={classes.hashTag}>#단계별프로젝트 #슈퍼해커</span>
               </p>
               <p>
-                개발자 많이 뽑는다는데,<span className={classes.emphasizer}>원하는 기업에 취업</span>하기를 원한다면?
+                개발자로 취업하기 어렵다던데 <span className={classes.emphasizer}>코딩테스트는</span> 어떻게 통과하지?
                 <br/>
-                <span className={classes.hashTag}>#000대기업코딩기출</span>
+                <span className={classes.hashTag}>#000대 기업 취업기출</span>
               </p>
               <p>
-                개발자 취업을 위한<span className={classes.emphasizer}>기업 소개</span>, <span className={classes.emphasizer}>지인 지원</span>을 받고 싶다면?
+                두렵기만한 <span className={classes.emphasizer}>기술면접</span> 어떻게 준비하지?
                 <br/>
-                <span className={classes.hashTag}>#CTO추천서 #면접코칭 #멘토링</span>
+                <span className={classes.hashTag}>#면접기출 #합격비법</span>
+              </p>
+              <p>
+                어렵기만한 <span className={classes.emphasizer}>채용공고</span> 어떤 회사가 내 수준에 맞을까?
+                <br/>
+                <span className={classes.hashTag}>#나에게맞는 회사고르는 팁 #취업코칭</span>
               </p>
             </div>
           </section>
@@ -176,10 +182,10 @@ const BodyTop = () => {
               취업관리형 웹개발 종합반 Plus
             </div>
             <div className={classes.tableArea}>
-              <ProductTable />
+              <img src={require("../../static/image/product/productTable.png")} alt="productTable" />
             </div>
             <div className={classes.tableAreaMobile}>
-              <img src={require("../../static/image/product/tableMobile.png")} alt="" />
+              <img src={require("../../static/image/product/tableMobile.png")} alt="productTableMobile" />
             </div>
             <Checkbox
               className={classes.checkbox}

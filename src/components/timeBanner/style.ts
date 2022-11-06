@@ -13,7 +13,7 @@ const useStyles = createStyles((theme, {messageColor}: {messageColor: string}) =
     borderRadius: "0px",
     height: "100px",
 
-    [`@media (max-width:376px)`]: {
+    [`@media (max-width:767px)`]: {
       display: "none"
     }
   },

@@ -124,8 +124,8 @@ const Bottom = () => {
       <section className={classes.message}>
         <div>
           <h2>
-            개발자로서의 실패없는 취업을 원한다면
-            <br/>'관리형 웹개발 종합반'의 선택은 당연합니다.
+            개발자로서의 실패없는 취업을 원한다면, 오직 취업을 목표로하는
+            <br/>'취업 관리형 프론트엔드 웹개발 종합반 Plus'는 당연한 선택입니다.
             <br/>지금바로, 슈퍼코딩으로 시작하세요.
           </h2>
         </div>
@@ -133,9 +133,10 @@ const Bottom = () => {
       <section className={classes.messageMobile}>
         <div>
           <h2>
-            개발자로서의 실패없는 취업을
-            <br/>원한다면 '관리형 웹개발 종합반'의
-            <br/>선택은 당연합니다.
+            개발자로서의 실패없는 취업을 원한다면,
+            <br/>오직 취업을 목표로하는
+            <br/>'취업 관리형 프론트엔드 웹개발 종합반 Plus'
+            <br/>는 당연한 선택입니다.
             <br/>지금바로, 슈퍼코딩으로 시작하세요.
           </h2>
         </div>
@@ -149,7 +150,7 @@ const Bottom = () => {
               취업관리형 웹개발 종합반 Plus
             </div>
             <div className={classes.tableArea}>
-              <ProductTable />
+              <img src={require("../../static/image/product/productTable.png")} alt="productTable" />
               <Checkbox
                 className={classes.checkbox}
                 radius={0}

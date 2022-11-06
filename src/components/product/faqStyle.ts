@@ -6,7 +6,7 @@ export const useFAQStyles = createStyles((theme) => ({
     margin: "92px auto",
     backgroundColor: "#FFFFFF",
     
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       marginTop: "45px",
       width: "375px",
     },
@@ -20,7 +20,7 @@ export const useFAQStyles = createStyles((theme) => ({
     justifyContent: "center",
     margin: "0 auto",
   
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       width: "336px",
       margin: "0 auto"
     },

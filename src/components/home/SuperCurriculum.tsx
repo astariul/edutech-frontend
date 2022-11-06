@@ -70,7 +70,7 @@ const SuperCurriculum = () => {
                 <br />기술을 습득하셔야 합니다.
               </h2>
               <div className={cx(classes.mentorComment, classes.mobile)}>
-                <h1>"</h1>
+                <h1>“</h1>
                 <h2>
                   <br/>코딩을 처음부터 제대로 배우는것이
                   <br/>커리어를 좌우합니다.
@@ -88,7 +88,7 @@ const SuperCurriculum = () => {
               </div>
             </div>
             <div className={cx(classes.mentorComment, classes.desktop)}>
-              <h1>"</h1>
+              <h1>“</h1>
               <h2>
                 <br/>코딩을 처음부터 제대로 배우는것이
                 <br/>커리어를 좌우합니다.
