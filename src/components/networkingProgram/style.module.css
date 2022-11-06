@@ -162,6 +162,10 @@
   flex-wrap: nowrap;
   gap: 32px;
 }
+.manager {
+  font-weight: 700;
+  font-size: 18px;
+}
 
 .sub1SectionCard {
   width: 168px;
@@ -239,6 +243,7 @@
 
 .sub2SectionContainer {
   width: 100%;
+  /* height: 100%; */
   background-image: url("/public/image/networkingProgram/sub2Background.png");
   background-size: cover;
   background-position: center;
