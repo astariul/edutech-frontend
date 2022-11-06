@@ -255,9 +255,8 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
     [`@media (max-width: 767px)`]: {
       maxWidth: "766px",
       width: "90%",
-      alignItems: "center",
-      columnGap: "49px",
-
+      marginLeft: "10px",
+      columnGap: "10px",
     }
   },
 

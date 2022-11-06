@@ -6,27 +6,6 @@ import { useNavigate } from 'react-router-dom';
 const SuperCourse = () => {
   const { classes } = useSuperCourseStyles();
   const navigate = useNavigate();
-  const meritMessages = [
-    <div>가장 쉽게, 제대로 배우는 <br />코딩교육</div>,
-    <div>현업 실무 완벽대비 단계별 난이도 <br />15개 이상의 프로젝트</div>,
-    <div>코딩테스트, <br />면접 완전 정복</div>,
-    <div>2 top 담임제 : <br />학습매니저, 취업매니저</div>,
-    <div>현직 CTO, 개발자 슈퍼멘토와 <br />함께하는 네트워크</div>,
-  ]
-  const Ticket = (subTitle: string, title: string, index: number) => {
-    return (
-      <div key={index} className={classes.ticket}>
-        <div className={classes.ticketInner}>
-          <div className={classes.ticketSubTitle}>{subTitle}</div>
-          <div className={classes.ticketTitle}>{title}</div>
-          <div className={classes.ticketFooter}>
-            <div className={classes.ticketFooterLeft}>무료강의 신청청하기</div>
-            <img className={classes.ticketFooterRight} src={require("../../static/image/home/CaretRightSmall.png")} alt="CaretRight" />
-          </div>
-        </div>
-      </div>
-    )
-  }
   return (
     <>
     <section className={classes.mainTop}>

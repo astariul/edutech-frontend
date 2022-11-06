@@ -208,7 +208,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
 
     [`@media (max-width: 767px)`]: {
       gap: "20px",
-      fontSize: "18px",
+      fontSize: "16px",
       lineHeight: "26px",
       letterSpacing: "-1px",
       textAlign: "center",
@@ -218,7 +218,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     },
 
     [`@media (max-width: 376px)`]: {
-      fontSize: "18px",
+      fontSize: "16px",
       lineHeight: "23px",
     }
 

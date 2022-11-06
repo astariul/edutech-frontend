@@ -1,6 +1,7 @@
 
 import useSuperCurriculumStyles from "./superCurriculumStyle";
 import BusinessCard from "../businessCard/BusinessCard";
+import PaginationSlide from "../paginationSlide/PaginationSlide";
 
 const SuperCurriculum = () => {
   const {classes, cx} = useSuperCurriculumStyles();
@@ -22,6 +23,12 @@ const SuperCurriculum = () => {
     <div key={title} className={classes.card}>
       <img src={imagePath} alt={imagePath}/>
     </div>
+  )
+  const cardItems = cardContents.map(
+    (each) => {
+      const  [image, title, name, description] = each;
+      return Card(image, title, name, description)
+    }
   )
 
   return (
@@ -93,14 +100,14 @@ const SuperCurriculum = () => {
         </div>
       </div>
       <div className={classes.cardArea}>
-        <div className={classes.cards}>
+        <div className={cx(classes.cards, classes.mobile)}>
           {
-            cardContents.map(
-              (each) => {
-                const  [image, title, name, description] = each;
-                return Card(image, title, name, description)
-              }
-            )
+            <PaginationSlide perView={1} columnGap={12} items={cardItems} />
+          }
+        </div>
+        <div className={cx(classes.cards, classes.desktop)}>
+          {
+            cardItems
           }
         </div>
       </div>
