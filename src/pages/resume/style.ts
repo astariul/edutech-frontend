@@ -35,9 +35,13 @@ export const useStyles = createStyles((theme, _, getRef) => ({
       fontSize: "77px",
       paddingTop: "270px",
     },
-    [`@media (max-width: 480px)`]: {
+    [`@media (min-width: 401px max-width: 480px)`]: {
       fontSize: "33px",
       paddingTop: "200px",
+    },
+    [`@media (max-width: 400px)`]: {
+      fontSize: "28px",
+      paddingTop: "170px",
     },
   },
   card: {

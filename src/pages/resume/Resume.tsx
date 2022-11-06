@@ -17,39 +17,38 @@ import ResumeCard5 from "../../components/resume/ResumeCard5";
 
 import { useMediaQuery } from "react-responsive";
 
-export const Mobile = () => {
-  const isMobile = useMediaQuery({
-    query: "(max-width:480px)",
-  });
-  return <>{isMobile ? true : null}</>;
-};
-
-export const Pc = () => {
-  const isDesktop = useMediaQuery({
-    query: "(min-width:481px)",
-  });
-  return <>{isDesktop}</>;
-};
-
 const Resume = (): JSX.Element => {
   const { classes, cx } = useStyles();
-  const isDesktopOrLaptop = useMediaQuery(
-    { minDeviceWidth: 421 }
-    // { deviceWidth: 1600 } // `device` prop
-  );
-  const isMobile = useMediaQuery(
-    { maxDeviceWidth: 420 }
-    // { deviceWidth: 1600 } // `device` prop
-  );
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 1024 });
+  const isTablet = useMediaQuery({ minWidth: 501, maxWidth: 1023 });
+  const isMobile = useMediaQuery({ minWidth: 401, maxWidth: 500 });
+  const isSmallMobile = useMediaQuery({ maxWidth: 400 });
+  const isBiggerThanSmallMobile = useMediaQuery({ minWidth: 401 });
 
   return (
     <div>
       <div className={classes.bgSection}>
-        <div className={classes.mainMessage}>
-          차별화된 합격자 이력서,
-          <br />곧 여러분의 것이 됩니다.
-        </div>
-        <Space h={80} />
+        {isBiggerThanSmallMobile && (
+          <>
+            <div className={classes.mainMessage}>
+              차별화된 합격자 이력서,
+              <br />곧 여러분의 것이 됩니다.
+            </div>
+            <Space h={80} />
+          </>
+        )}
+        {isSmallMobile && (
+          <>
+            <div className={classes.mainMessage}>
+              차별화된 <br />
+              합격자 이력서,
+              <br />곧 여러분의 <br />
+              것이 됩니다.
+            </div>
+            <Space h={10} />
+          </>
+        )}
+
         <Center>
           <Container size={1180}>
             <SimpleGrid
@@ -79,7 +78,7 @@ const Resume = (): JSX.Element => {
                 <Space h={40} />
                 <ResumeCard5 />
               </div>
-              {isMobile && (
+              {(isMobile || isSmallMobile) && (
                 <>
                   <Space h={15} />
                 </>
@@ -97,9 +96,20 @@ const Resume = (): JSX.Element => {
           <Space h={800} />
         </>
       )}
+      {isTablet && (
+        <>
+          <Space h={1500} />
+        </>
+      )}
+
       {isMobile && (
         <>
           <Space h={2100} />
+        </>
+      )}
+      {isSmallMobile && (
+        <>
+          <Space h={2350} />
         </>
       )}
     </div>
