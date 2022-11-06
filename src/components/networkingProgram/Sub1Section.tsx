@@ -1,29 +1,29 @@
 import { FC } from "react";
 import styles from "./style.module.css";
+import { Text } from "@mantine/core";
 
-const PROFILE_DATAS = [
-  "Andy",
-  "ChrisF",
-  "Josliber",
-  "Jon Clements",
-  "Samuel Liew",
-  "Ryan M",
-];
+const PROFILE_DATAS = ["이경엽", "박종민", "김희창"];
 
 const Sub1Section: FC = () => {
   return (
     <div className={`${styles.sub1SectionContainer} ${styles.widthContainer}`}>
       <div className={styles.sub1SectionTitle}>기수별 관리시스템</div>
       <div className={styles.sub1SectionSubTitle}>
-        기수별 자동으로 온라인 스터디 그룹이 형성됩니다.
+        기수별 온라인 스터디 그룹이 형성됩니다.
         <br />
-        온라인 스터디 그룹별 담임코치가 지정되며, 담임코치와 온라인으로 만나게
+        온라인 스터디 그룹별 담당 학습매니저가 배정되며, 온라인으로 만나게
         됩니다.
       </div>
       <div className={styles.sub1SectionDescriptionContainer}>
         <div>SUPER</div>
         <div>담임제도</div>
-        <div>수강생 10명이 스터디 그룹으로 묶여지고 담임코치가 지정됩니다.</div>
+        <div>
+          같은 기수 내 수강생들은 스터디 그룹으로 묶여지고 학습관리 매니저와
+          취업매니저가 각각 배정됩니다.
+          <br />
+        </div>
+        <br />
+        {/* <div className={styles.manager}>대표 학습 매니저</div> */}
       </div>
 
       <div className={styles.sub1SectionCardContainer}>
@@ -51,7 +51,7 @@ const Sub1Section: FC = () => {
                 개발자
               </div>
             </div>
-            <div className={styles.role}>담임코치</div>
+            <div className={styles.role}>학습 매니저</div>
           </div>
         ))}
       </div>
