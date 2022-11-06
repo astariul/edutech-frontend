@@ -31,11 +31,15 @@ export const useStyles = createStyles((theme, _, getRef) => ({
     alignItems: "center",
     textAlign: "center",
     color: "white",
-    [`@media (min-width: 481px)`]: {
+    [`@media (min-width: 1024 px)`]: {
       fontSize: "77px",
       paddingTop: "270px",
     },
-    [`@media (min-width: 401px max-width: 480px)`]: {
+    [`@media (min-width: 501px) and (max-width: 1023px)`]: {
+      fontSize: "48px",
+      paddingTop: "220px",
+    },
+    [`@media (min-width: 401px) and (max-width: 500px)`]: {
       fontSize: "33px",
       paddingTop: "200px",
     },
