@@ -21,12 +21,14 @@ const Sub1Section: FC = () => {
           같은 기수 내 수강생들은 스터디 그룹으로 묶여지고 학습관리 매니저와
           취업매니저가 각각 배정됩니다.
           <br />
+          <br />
+          <br />
         </div>
         <br />
         {/* <div className={styles.manager}>대표 학습 매니저</div> */}
       </div>
 
-      <div className={styles.sub1SectionCardContainer}>
+      {/* <div className={styles.sub1SectionCardContainer}>
         {PROFILE_DATAS.map((data, index) => (
           <div key={index} className={styles.sub1SectionCard}>
             <div className={styles.profile}>
@@ -54,7 +56,7 @@ const Sub1Section: FC = () => {
             <div className={styles.role}>학습 매니저</div>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
