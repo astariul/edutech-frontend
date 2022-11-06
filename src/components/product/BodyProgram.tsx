@@ -247,15 +247,6 @@ const BodyProgram = () => {
             <Divider size={42} style={{borderTopColor: "transparent"}}/>
             <div className={cx(classes.rowFlex, classes.cardArea)}>
               <MentorCard
-                image={require("../../static/image/product/mentors/omnius.png")}
-                nameAndPosition="정현수 Engineer"
-                company= "옴니어스"
-                comment={<p>취업 시 회사가 지원자에 대해 아무래도 정보가 부족하여 고민을 많이 하게 되는
-                          <br />데 지원자의 강점을 알려 줄 수 있기에 좋았습니다. 저에 대해서 회사에 객관적
-                          <br />으로 어필하기에 좋은 면이 있었고 도움이 많이 되었습니다.</p>
-                }
-              />
-              <MentorCard
                 image={require("../../static/image/product/mentors/cj.png")}
                 nameAndPosition="손인석 Engineer"
                 company= "CJ 올리브네트웍스"
@@ -450,19 +441,6 @@ const BodyProgram = () => {
             />
             <Divider size={42} style={{borderTopColor: "transparent"}}/>
             <div className={cx(classes.columnFlex, classes.cardArea)}>
-              <MentorCard
-                image={require("../../static/image/product/mentors/omnius.png")}
-                nameAndPosition="정현수 Engineer"
-                company= "옴니어스"
-                comment={<p>취업 시 회사가 지원자에 대해
-                          <br />아무래도 정보가 부족하여 고민을 
-                          <br />많이 하게 되는데 지원자의 강점을
-                          <br />알려 줄 수 있기에 좋았습니다.
-                          <br />저에 대해서 회사에 객관적으로
-                          <br />어필하기에 좋은 면이 있었고
-                          <br />도움이 많이 되었습니다.</p>
-                }
-              />
               <MentorCard
                 image={require("../../static/image/product/mentors/cj.png")}
                 nameAndPosition="손인석 Engineer"
