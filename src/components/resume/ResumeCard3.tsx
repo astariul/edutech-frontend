@@ -1,29 +1,30 @@
 import { useStyles } from "./ResumeCardStyle";
 import { Grid, SimpleGrid, Card, Text, Space } from "@mantine/core";
 
-const ResumeCard2 = () => {
+const ResumeCard3 = () => {
   const { classes, cx } = useStyles();
   return (
     <Card className={classes.card} shadow="sm" p="lg" radius="md" withBorder>
       {/* <Text weight={900}>Norway Fjord Adventures</Text> */}
       {/* <img src="./image/resume/supperresume1.png" /> */}
       <Space h={"xl"} />
-      <img className={classes.cardIcon} src="./image/resume/superresume2.png" />
+      <img className={classes.cardIcon} src="./image/resume/superresume3.png" />
       <Space h={15} />
-
       <div className={classes.cardTitle}>
-        개발자 슈퍼멘토,
-        <br /> 취업코치의 이력서 첨삭
+        업계최고 개발자 <br />
+        슈퍼멘토의 추천서
       </div>
       <Space h={15} />
       <div className={classes.cardBody}>
-        채용 전문가들의 꼼꼼한 첨삭을 통해
+        이력서만으로 표현하기 힘든 강점을
         <br />
-        합격률을 높이세요.
+        추천서를 통해 보완하세요.
       </div>
       <Space h={40} />
+      리뷰
+      <Space h={340} />
     </Card>
   );
 };
 
-export default ResumeCard2;
+export default ResumeCard3;
