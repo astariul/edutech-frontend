@@ -29,6 +29,9 @@ export const useStyles = createStyles((theme, _, getRef) => ({
   card: {
     width: "368px",
   },
+  cardincard: {
+    width: "300px",
+  },
 
   cardTitle: {
     fontFamily: "Noto Snas KR",

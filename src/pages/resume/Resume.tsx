@@ -53,7 +53,7 @@ const Resume = () => {
           </Container>
         </Center>
       </div>
-      <Space h={740} />
+      <Space h={800} />
     </div>
   );
 };

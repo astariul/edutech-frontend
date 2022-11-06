@@ -20,9 +20,9 @@ const ResumeCard3 = () => {
         <br />
         추천서를 통해 보완하세요.
       </div>
-      <Space h={40} />
-      리뷰
-      <Space h={340} />
+      <Space h={100} />
+      <img src="./image/resume/resumereview.png" />
+      {/* <Space h={10} /> */}
     </Card>
   );
 };
