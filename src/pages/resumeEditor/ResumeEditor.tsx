@@ -183,7 +183,7 @@ const ResumeBody3Input = ({
   );
 };
 
-const Resume = () => {
+const ResumeEditor = () => {
   const [login] = useLocalStorage<IUserProfile | null>({
     key: "login",
     defaultValue: null,
@@ -258,4 +258,4 @@ const Resume = () => {
   );
 };
 
-export default Resume;
+export default ResumeEditor;
