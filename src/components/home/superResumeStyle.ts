@@ -1,6 +1,21 @@
 import { createStyles } from '@mantine/core';
 
 const useSuperResumeStyles = createStyles((theme) => ({
+
+  mobile: {
+    display: "none",
+
+    [`@media (max-width: 767px)`]: {
+      display: "inline-block"
+    }
+  },
+
+  desktop: {
+    [`@media (max-width: 767px)`]: {
+      display: "none"
+    }
+  },
+
   main: {
     display: "flex",
     flexDirection: "column",
@@ -21,13 +36,11 @@ const useSuperResumeStyles = createStyles((theme) => ({
     [`@media (max-width: 767px)`]: {
       paddingTop: "46px",
       margin: "0 auto",
-      width: "100%",
-      height: "auto",
+      maxWidth: "766px",
+      width: "90%",
+      alignItems: "center",
     },
 
-    [`@media (max-width: 376px)`]: {
-      whiteSpace: "nowrap",
-    }
   },
 
   category: {
@@ -89,86 +102,36 @@ const useSuperResumeStyles = createStyles((theme) => ({
   cardArea: {
     display: "flex",
     flexDirection: "row",
-    paddingTop: "59px",
+    paddingTop: "55px",
     columnGap: "32px",
     fontFamily: "NotoSansKR",
     color: "#FFFFFF",
     letterSpacing: "-1px",
+    alignItems: "center",
 
     [`@media (max-width: 767px)`]: {
       flexDirection: "column",
-      alignItems: "center",
       justifyContent: "center",
       paddingTop: "28px",
-    },
-  },
 
-  cardInner: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    padding: "28px 28px 22px 28px",
-    height: "218px",
-
-    "& > h2": {
-      marginTop: 0,
-      fontWeight: 900,
-      fontSize: "27px",
-      lineHeight: "31px",
-    },
-
-    "& > p": {
-      marginBottom: 0,
-      fontWeight: 700,
-      fontSize: "18px",
-      lineHeight: "25px",
-    },
-
-    "& > div": {
-      display: "flex",
-      columnGap: "15.37px"
-    }
-  },
-
-  numAndText: {
-    display: "flex",
-    fontFamily: "AlongSansS2",
-    fontSize: "12px",
-    fontStyle: "normal",
-    fontWeight: 500,
-    lineHeight: "15px",
-    letterSpacing: "-0.69px",
-    textTransform: "uppercase",
-    alignItems: "center",
-    columnGap: "5px",
-
-    "& > div: nth-of-type(1)": {
-      color: "#0081DF",
-      letterSpacing: "-0.69px",
-      fontSize: "83.11px",
-      lineHeight: "21px",
-      fontWeight: 900,
-
-      [`@media (max-width: 767px)`]: {
-        fontSize: "74px",
+      "& > img": {
+        transform: "rotate(90deg)",
       }
     },
-    
-    "& > div: nth-of-type(2)": {
-      height: "65px",
-      display: "flex",
-      alignItems: "flex-end"
-    }
+
+  },
+
+  caret: {
+    width: "32.77px",
+    height: "44.96px",
   },
 
   cardLeft: {
-    width: "268px",
-    height: "268px",
-    backgroundImage: "url(/image/home/superResumeLeft.png)",
+    "img": {
+      width: "298.58px",
+      height: "311px",
+    },
 
-    [`@media (max-width: 767px)`]: {
-      display: "none"
-    }
   },
 
   cardLeftMobile: {
@@ -178,18 +141,15 @@ const useSuperResumeStyles = createStyles((theme) => ({
       display: "block",
       width: "336px",
       height: "268px",
-      backgroundImage: "url(/image/home/superResumeLeftMobile.png)",
     }
   },
 
   cardMiddle: {
-    width: "268px",
-    height: "268px",
-    backgroundImage: "url(/image/home/superResumeMiddle.png)",
+    "img": {
+      width: "367px",
+      height: "289px",
+    },
 
-    [`@media (max-width: 767px)`]: {
-      display: "none"
-    }
   },
   
   cardMiddleMobile: {
@@ -199,19 +159,14 @@ const useSuperResumeStyles = createStyles((theme) => ({
       display: "block",
       width: "336px",
       height: "268px",
-      backgroundImage: "url(/image/home/superResumeMiddleMobile.png)",
-
     }
   },
 
   cardRight: {
-    width: "568px",
-    height: "268px",
-    backgroundImage: "url(/image/home/superResumeRight.png)",
-
-    [`@media (max-width: 767px)`]: {
-      display: "none"
-    }
+    "img": {
+      width: "289px",
+      height: "289px",
+    },
   },
 
   cardRightMobile: {
@@ -221,32 +176,28 @@ const useSuperResumeStyles = createStyles((theme) => ({
       display: "block",
       width: "336px",
       height: "327px",
-      backgroundImage: "url(/image/home/superResumeRightMobile.png)",
-
     }
   },
 
-  imageTopContainer: {
-    width: "100vw",
-    height: "90px"
-  },
-
-  imageTop: {
-    width: "auto",
-    height: "55.72px",
-    backgroundColor: "#F2F2F2"
-  },
-
-  titleArea: {
-    width: "536.78px",
-    paddingTop: "67px",
-    paddingLeft: "9.856vw",
-    paddingRight: "auto",
+  bottomTitle: {
+    fontWeight: 700,
+    fontSize: "23px",
+    lineHeight: "37px",
+    display: "flex",
+    alignItems: "center",
+    letterSpacing: "-2px",
+    color: "#363636",
     fontFamily: "NotoSansKR",
-    fontStyle: "normal",
-    color: "#FFFFFF",
-    textShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)",
-    letterSpacing: "-0.06em",
+
+    "span": {
+      color: "#109BFF",
+    },
+
+    [`@media (max-width: 767px)`]: {
+      justifyContent: "center",
+      fontSize: "18px",
+      textAlign: "center",
+    }
   },
 }));
 

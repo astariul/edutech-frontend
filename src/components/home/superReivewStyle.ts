@@ -2,31 +2,60 @@ import { createStyles } from '@mantine/core';
 
 const useSuperReivewStyles = createStyles((theme) => ({
 
-  main: {
+  mobile: {
+    display: "none",
+
+    [`@media (max-width: 767px)`]: {
+      display: "flex"
+    }
+  },
+
+  desktop: {
+    [`@media (max-width: 767px)`]: {
+      display: "none"
+    }
+  },
+
+  rowFlex: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  
+  columnFlex: {
     display: "flex",
     flexDirection: "column",
   },
-    
-  contents: {
-    width: "1440px",
-    margin: "0 auto",
+
+  main: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
-    
-    "& > div": {
-      width: "1168px",
-    },
+    maxWidth: "1440px",
+    width: "90%",
+    margin: "88px auto",
 
     [`@media (max-width: 767px)`]: {
-      width: "100%",
-      margin: "0 auto"
+      marginTop: "0px"
+    }
+  },
+
+  contents: {  
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    maxWidth: "1168px",
+    width: "90%",
+    margin: "0 auto",
+
+    [`@media (max-width: 767px)`]: {
+      maxWidth: "766px",
+      margin: "0 auto",
+      alignItems: "center",
     }
 
   },
 
   category: {
-    paddingTop: "137px",
     fontFamily: "AlongSanss2",
     fontStyle: "normal",
     fontWeight: 700,
@@ -37,8 +66,6 @@ const useSuperReivewStyles = createStyles((theme) => ({
     color: "#0094FF",
 
     [`@media (max-width: 767px)`]: {
-      alignItems: "center",
-      textAlign: "center",
       paddingTop: "31.6px",
       fontSize: "12px",
     }
@@ -67,56 +94,88 @@ const useSuperReivewStyles = createStyles((theme) => ({
       fontFamily: "NotoSansKR",
       fontStyle: "normal",
       fontWeight: 700,
-      paddingTop: "26.08px",
-      alignItems: "center",
-      textAlign: "center",
       fontSize: "23px",
       lineHeight: "32px",
       letterSpacing: "-2px",
-    }
+    },
+
+    "span": {
+      color: "#0094FF",
+    },
   },
 
   cardArea: {
-    width: "1440px",
-    margin: "0 auto",
-  },
-
-  cards: {
+    marginTop: "64px",
+    marginLeft: "auto",
+    marginRight: "auto",
     width: "1168px",
-    margin: "0 auto",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    paddingTop: "53px",
-    paddingBottom: "67px",
-    columnGap: "19.95px",
-
-    "& > div": {
-      width: "1168px",
-    },
+    columnGap: "32px",
 
     [`@media (max-width: 767px)`]: {
-      width: "100%",
-      margin: "0 auto",
-      paddingTop: "36.98px",
-      paddingLeft: "5.607vw",
-      justifyContent: "flex-start",
+      marginTop: "32px",
+      flexFlow: "nowrap",
     }
   },
 
   card: {
-    display: "flex",
-    flexDirection: "column",
-    width: "auto",
-    maxWidth: "368px",
-    height: "332px",
-    backgroundColor: "#FFFFFF",
-    border: "1px solid #E8E8E8",
+    width: "568px",
+    height: "315px",
+    backgroundImage: "url(/image/home/superReviewCard.png)",
 
     [`@media (max-width: 767px)`]: {
-      width: "270px",
-      minWidth: "268.05px",
-      height: "241.83px",
+      width: "318px",
+      height: "180px",
+      backgroundImage: "url(/image/freeCourse/reviewCardMobile.png)",
+    }
+  },
+
+  cardInner: {
+    margin: "32.75px 28px 27px 32.5px",
+    width: "510px",
+    height: "258px",
+    fontFamily: "NotoSansKR",
+    fontWeight: 500,
+    fontSize: "18px",
+    lineHeight: "30px",
+    letterSpacing: "-0.994145px",
+    color: "#000000",
+    justifyContent: "space-between",
+
+    ".fiveStar": {
+      "& > img" : {
+        width: "142px",
+        height: "30px",
+      }
+    },
+
+    ".content": {
+      height: "145px",
+    },
+
+    ".who": {
+      fontSize: "14px",
+      height: "33px"
+    },
+
+    [`@media (max-width: 767px)`]: {
+      margin: "10px 10px 0px 10px",
+      width: "290px",
+      height: "150.04px",
+      fontSize: "10px",
+      lineHeight: "22px",
+      letterSpacing: "-0.90px",
+
+      ".fiveStar": {
+        "& > img": {
+          width: "90px",
+          height: "19.01px",
+        }
+      },
+
+      ".who": {
+        fontSize: "10px",
+        height: "27px"
+      },
     }
   },
 

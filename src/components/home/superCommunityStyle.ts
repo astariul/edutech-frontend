@@ -1,12 +1,26 @@
 import { createStyles } from '@mantine/core';
 
 const useSuperCommunityStyles = createStyles((theme) => ({
+  mobile: {
+    display: "none",
+
+    [`@media (max-width: 767px)`]: {
+      display: "inline-block"
+    }
+  },
+
+  desktop: {
+    [`@media (max-width: 767px)`]: {
+      display: "none"
+    }
+  },
+
   main: {
     backgroundColor: "#0094FF",
     height: "330px",
     
-    [`@media (max-width: 1200px)`]: {
-      height: "500px",
+    [`@media (max-width: 767px)`]: {
+      height: "430px",
     }
   },
   
@@ -16,7 +30,7 @@ const useSuperCommunityStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     boxSizing: "border-box",
-    paddingTop: "83px",
+    paddingTop: "43px",
     gap: "50px",
 
     [`@media (max-width: 1200px)`]: {
@@ -32,6 +46,7 @@ const useSuperCommunityStyles = createStyles((theme) => ({
   contentLeft: {
     display: "flex",
     flexDirection: "column",
+    rowGap: "16px",
 
     [`@media (max-width: 1200px)`]: {
       alignItems: "center",
@@ -66,10 +81,23 @@ const useSuperCommunityStyles = createStyles((theme) => ({
   },
 
   contentRight: {
-    marginLeft: "auto",
+    display: "flex",
+    alignItems: "flex-end",
 
-    [`@media (max-width: 1200px)`]: {
+    "h2": {
+      margin: 0,
+      fontFamily: 'NotoSansKR',
+      fontStyle: "normal",
+      fontWeight: 700,
+      fontSize: "19px",
+      lineHeight: "29px",
+      letterSpacing: "-1px",
+      color: "#FFFFFF",
+    },
+
+    [`@media (max-width: 767px)`]: {
       marginLeft: 0,
+      textAlign: "center",
     }
   },
 

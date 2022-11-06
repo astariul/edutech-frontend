@@ -18,7 +18,7 @@ const BusinessCard = ({
       <div className={classes.nameAndPosition}>
         <div className={classes.name}>
           <div>{name}</div>
-          <img src={require("../../static/image/checkIndicatorLarge.png")} alt="chcekIndicator" />
+          <img src={require("../../static/image/checkIndicatorLargeEdge.png")} alt="chcekIndicator" />
         </div>
         <div className={classes.position}>
           {position}
