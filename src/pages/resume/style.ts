@@ -1,0 +1,41 @@
+import { createStyles } from "@mantine/core";
+
+export const useStyles = createStyles((theme, _, getRef) => ({
+  topSection: {
+    position: "relative",
+    backgroundImage: "url(/image/resume/resumeMain.png)",
+    backgroundSize: "cover",
+    height: "599px ",
+    // height: "50vh",
+    //To-do 배경 이미지 사이즈 좀더 조절 하면 좋을것 같음
+    width: "100vw",
+
+    [`@media (max-width: 900px)`]: {
+      marginTop: "0px",
+      height: "564px",
+    },
+  },
+  mainMessage: {
+    fontFamily: "Noto Snas KR",
+    fontSize: "77px",
+    fontWeight: "bolder",
+    lineHeight: "90px",
+    letterSpacing: "-0.06em",
+    paddingTop: "270px",
+    alignItems: "center",
+    textAlign: "center",
+    color: "white",
+  },
+  // mainMessage: {
+  //   fontFamily: "Noto Sans KR",
+  //   fontSize: "77px",
+  //   fontWeight: "900",
+  //   lineHeight: "90px",
+  //   letterSpacing: "-0.06em",
+  //   textAlign: "center",
+
+  //   // [`@media (max-width: 767px)`]: {
+  //   //   display: "none",
+  //   // },
+  // },
+}));
