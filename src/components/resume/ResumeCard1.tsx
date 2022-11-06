@@ -9,13 +9,14 @@ const ResumeCard1 = () => {
       {/* <img src="./image/resume/supperresume1.png" /> */}
       <Space h={"xl"} />
       <img className={classes.cardIcon} src="./image/resume/superresume1.png" />
-      <Space h={30} />
+      <Space h={35} />
 
       <div className={classes.cardTitle}>슈퍼 이력서</div>
-      <Space h={30} />
+      <Space h={35} />
       <div className={classes.cardBody}>
-        슈퍼코딩 강의를 수강하고 프로젝트를 <br />
-        완료하면 회사에서 요구하는 실무 역량이 <br />
+        강의를 수강하고 프로젝트를 완료하면 <br />
+        회사에서 요구하는 실무 역량이 자동으로
+        <br />
         이력서에 반영되는 경험을 하게됩니다.
       </div>
       <Space h={12} />
