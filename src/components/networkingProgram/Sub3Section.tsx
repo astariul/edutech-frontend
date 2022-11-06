@@ -52,7 +52,7 @@ const Sub3Section: FC = () => {
         기업별로 방이 개설되어 운영됩니다.
       </div>
 
-      <div className={styles.sub3SectionCardContainer}>
+      {/* <div className={styles.sub3SectionCardContainer}>
         {PROFILE_DATAS.map((data, index) => (
           <div key={index} className={styles.sub3SectionCard}>
             <div className={styles.profile}>
@@ -85,13 +85,21 @@ const Sub3Section: FC = () => {
             </a>
           </div>
         ))}
-      </div>
+      </div> */}
 
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <div className={styles.sub3SectionTitle}>슈퍼코딩 LIVE</div>
       <div className={styles.sub3SectionSubTitle}>
         슈퍼코딩 수강생을 위한 다양한 라이브 방송을 준비하고 있습니다.
         <br />
         취업에 필수적인 정보로 찾아 뵐 예정입니다.
+        <br />
+        <br />
       </div>
     </div>
   );
