@@ -61,6 +61,7 @@ export const useStyles = createStyles((theme, _, getRef) => ({
     // left: "294px",
     // top: "565px",
   },
+  cardContainer: {},
 
   // mainMessage: {
   //   fontFamily: "Noto Sans KR",

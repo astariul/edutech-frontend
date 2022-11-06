@@ -1,5 +1,5 @@
 import { useStyles } from "./style";
-import { Grid, SimpleGrid, Card, Text, Space } from "@mantine/core";
+import { Grid, SimpleGrid, Card, Text, Space, Container } from "@mantine/core";
 import ResumeCard1 from "../../components/resume/ResumeCard1";
 
 const Resume = () => {
@@ -12,28 +12,45 @@ const Resume = () => {
           <br />곧 여러분의 것이 됩니다.
         </div>
         <Space h={80} />
-        <SimpleGrid
-          cols={3}
-          spacing={10}
-          breakpoints={[
-            { maxWidth: "md", cols: 3, spacing: "md" },
-            { maxWidth: "sm", cols: 2, spacing: "sm" },
-            { maxWidth: "xs", cols: 1, spacing: "sm" },
-          ]}
-        >
-          <div>
+        {/* <Grid justify="center" align="flex-start">
+          <Grid.Col xs={10} md={6} lg={3} span={3} style={{ minHeight: 80 }}>
             <ResumeCard1 />
+            <Space h={35} />
             <ResumeCard1 />
-          </div>
-          <div>
+          </Grid.Col>
+          <Grid.Col xs={10} md={6} lg={3} span={3} style={{ minHeight: 120 }}>
             <ResumeCard1 />
+            <Space h={35} />
             <ResumeCard1 />
-          </div>
-          <div>
+          </Grid.Col>
+          <Grid.Col xs={10} md={6} lg={3} span={3}>
             <ResumeCard1 />
-          </div>
-        </SimpleGrid>
-
+          </Grid.Col>
+        </Grid> */}
+        <Container size={1180}>
+          <SimpleGrid
+            cols={3}
+            spacing="xl"
+            breakpoints={[
+              { maxWidth: "xl", cols: 3, spacing: "md" },
+              { maxWidth: "lg", cols: 2, spacing: "md" },
+              { maxWidth: "sm", cols: 1, spacing: "sm" },
+              { maxWidth: "xs", cols: 1, spacing: "sm" },
+            ]}
+          >
+            <div>
+              <ResumeCard1 />
+              <ResumeCard1 />
+            </div>
+            <div>
+              <ResumeCard1 />
+              <ResumeCard1 />
+            </div>
+            <div>
+              <ResumeCard1 />
+            </div>
+          </SimpleGrid>
+        </Container>
         {/* <Grid justify="center" align="flex-start">
           <Grid.Col span={3} md={6} lg={3} style={{ minHeight: 150 }}>
             1
