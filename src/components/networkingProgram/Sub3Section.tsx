@@ -1,6 +1,5 @@
 import { FC } from "react";
 import styles from "./style.module.css";
-import { BadgeIcon } from "./Sub1Section";
 
 const PROFILE_DATAS = [
   {

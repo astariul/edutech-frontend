@@ -1,4 +1,3 @@
-import { Space } from "@mantine/core";
 import { FC } from "react";
 import styles from "./style.module.css";
 

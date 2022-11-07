@@ -1,10 +1,7 @@
 import React from "react";
 import { useStyles } from "./style";
 import {
-  Grid,
   SimpleGrid,
-  Card,
-  Text,
   Space,
   Container,
   Center,
@@ -18,7 +15,7 @@ import ResumeCard5 from "../../components/resume/ResumeCard5";
 import { useMediaQuery } from "react-responsive";
 
 const Resume = (): JSX.Element => {
-  const { classes, cx } = useStyles();
+  const { classes } = useStyles();
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 1201 });
   const isTablet = useMediaQuery({ minWidth: 770, maxWidth: 1200 });
   const isMobile = useMediaQuery({ minWidth: 401, maxWidth: 769 });

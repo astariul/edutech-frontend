@@ -1,17 +1,17 @@
 import { useStyles } from "./ResumeCardStyle";
-import { Grid, SimpleGrid, Card, Text, Space } from "@mantine/core";
+import { Card, Space } from "@mantine/core";
 import { useMediaQuery } from "react-responsive";
 
 const ResumeCard3 = () => {
-  const { classes, cx } = useStyles();
+  const { classes } = useStyles();
   const isBiggerThanSmallMobile = useMediaQuery({ minWidth: 401 });
   const isSmallMobile = useMediaQuery({ maxWidth: 400 });
   return (
-    <Card className={classes.card} shadow="sm" p="lg" radius="md" withBorder>
+    <Card style={{height: "702px"}} className={classes.card} shadow="sm" p="lg" radius="md" withBorder>
       {/* <Text weight={900}>Norway Fjord Adventures</Text> */}
       {/* <img src="./image/resume/supperresume1.png" /> */}
       <Space h={"xl"} />
-      <img className={classes.cardIcon} src="./image/resume/superresume3.png" />
+      <img className={classes.cardIcon} src="./image/resume/superresume3.png" alt=""/>
       <Space h={15} />
 
       {isBiggerThanSmallMobile && (
@@ -27,7 +27,7 @@ const ResumeCard3 = () => {
             추천서를 통해 보완하세요.
           </div>
           <Space h={100} />
-          <img src="./image/resume/resumereview.png" />
+          <img src="./image/resume/resumereview.png" alt=""/>
         </>
       )}
       {isSmallMobile && (
@@ -44,7 +44,7 @@ const ResumeCard3 = () => {
             <br /> 보완하세요.
           </div>
           <Space h={50} />
-          <img src="./image/resume/resumereviewsmall.png" />
+          <img src="./image/resume/resumereviewsmall.png" alt=""/>
         </>
       )}
     </Card>

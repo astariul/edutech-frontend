@@ -1,9 +1,9 @@
 import { useStyles } from "./ResumeCardStyle";
-import { Grid, SimpleGrid, Card, Text, Space } from "@mantine/core";
+import { Card, Space } from "@mantine/core";
 import { useMediaQuery } from "react-responsive";
 
 const ResumeCard1 = () => {
-  const { classes, cx } = useStyles();
+  const { classes } = useStyles();
   const isBiggerThanSmallMobile = useMediaQuery({ minWidth: 401 });
   const isSmallMobile = useMediaQuery({ maxWidth: 400 });
 
@@ -12,7 +12,7 @@ const ResumeCard1 = () => {
       {/* <Text weight={900}>Norway Fjord Adventures</Text> */}
       {/* <img src="./image/resume/supperresume1.png" /> */}
       <Space h={"xl"} />
-      <img className={classes.cardIcon} src="./image/resume/superresume1.png" />
+      <img className={classes.cardIcon} src="./image/resume/superresume1.png" alt=""/>
       <Space h={35} />
 
       <div className={classes.cardTitle}>슈퍼 이력서</div>
