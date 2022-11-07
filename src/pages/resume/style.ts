@@ -22,12 +22,10 @@ export const useStyles = createStyles((theme, _, getRef) => ({
   },
 
   mainMessage: {
-    fontFamily: "Noto Snas KR",
-
-    fontWeight: "bolder",
+    fontFamily: "NotoSansKR",
+    fontWeight: 900,
     lineHeight: "90px",
     letterSpacing: "-0.06em",
-
     alignItems: "center",
     textAlign: "center",
     color: "white",

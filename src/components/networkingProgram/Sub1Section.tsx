@@ -1,6 +1,5 @@
 import { FC } from "react";
 import styles from "./style.module.css";
-import { Text } from "@mantine/core";
 
 const PROFILE_DATAS = ["이경엽", "박종민", "김희창"];
 
