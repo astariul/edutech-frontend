@@ -16,7 +16,7 @@ export const useStyles = createStyles((theme, _, getRef) => ({
     },
   },
   mainMessage: {
-    fontFamily: "Noto Snas KR",
+    fontFamily: "NotoSansKR",
     fontSize: "77px",
     fontWeight: "bolder",
     lineHeight: "90px",
@@ -26,8 +26,11 @@ export const useStyles = createStyles((theme, _, getRef) => ({
     textAlign: "center",
     color: "white",
   },
+
   card: {
     width: "368px",
+    height: "335px",
+
     [`@media (max-width: 400px)`]: {
       fontSize: "16px",
       width: "260px",
@@ -35,7 +38,7 @@ export const useStyles = createStyles((theme, _, getRef) => ({
   },
 
   cardTitle: {
-    fontFamily: "Noto Snas KR",
+    fontFamily: "NotoSansKR",
     fontSize: "32px",
     lineHeight: "41px",
     fontWeight: "bolder",
@@ -46,15 +49,14 @@ export const useStyles = createStyles((theme, _, getRef) => ({
     // color: "white",
   },
   cardBody: {
-    fontFamily: "Noto Snas KR",
-
+    fontFamily: "NotoSansKR",
+    fontWeight: 500,
     lineHeight: "29px",
-    // letterSpacing: "-0.06em",
-    // paddingTop: "270px",
-
+    letterSpacing: "-1px",
     alignItems: "center",
     textAlign: "center",
-    // color: "white",
+    color: "#626262",
+
     [`@media (min-width: 401px)`]: {
       fontSize: "18px",
       width: "312px",
