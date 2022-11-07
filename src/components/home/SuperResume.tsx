@@ -8,12 +8,20 @@ const SuperResume = () => {
       <div className={classes.contents}>
         <div className={classes.category}>SUPER RESUME</div>
         <div className={classes.titleMobile}>
-          차별화된 합격자 이력서 &포트폴리오,
-          <br />곧 여러분의 것이 됩니다.
+          차별화된 취업 6종 세트
+          <br />
+          (코딩/코딩테스트/추천서/
+          <br />
+          이력서/포트폴리오/기술면접)
+          <br />
+          모두 여러분의 것이 됩니다.
         </div>
         <div className={classes.title}>
-          차별화된 합격자 이력서 &포트폴리오,
-          <br />곧 여러분의 것이 됩니다.
+          차별화된 취업 6종 세트
+          <br />
+          (코딩/코딩테스트/추천서/이력서/포트폴리오/기술면접)
+          <br />
+          모두 여러분의 것이 됩니다.
         </div>
         <div className={classes.cardArea}>
           <div className={classes.cardLeft}>
@@ -63,7 +71,7 @@ const SuperResume = () => {
             <br />
             단계별 난이도로 준비된
             <br />
-            24개의 프로젝트 등을 수행하며
+            15개 이상의 프로젝트 등을 수행하며
             <br />
             <span>포트폴리오를 완성하며 면접시 막힘없이 설명</span>
             <br />
