@@ -12,7 +12,7 @@ const SuperCourse = () => {
           <div className={classes.mainInner}>
             <div className={classes.messageArea}>
               <div className={classes.message}>
-                취업을 위한 코딩 교육은 달라야 합니다.
+                취업, 기초부터 취업까지 한번에!
               </div>
             </div>
             <div className={classes.titleArea}>
@@ -69,13 +69,13 @@ const SuperCourse = () => {
       <div className={classes.mainBottom}>
         <div className={classes.merits}>
           <div>
-            가장 쉽게, 제대로 배우는 <br />
-            코딩교육
+            가장 쉽게, 제대로 <br />
+            배우는 코딩교육
           </div>
           <span></span>
           <div>
-            현업 실무 완벽대비 단계별 난이도 <br />
-            15개 이상의 프로젝트
+            이력서 완벽 업그레이드를 위한 <br />
+            단계별 난이도 15개 이상의 프로젝트
           </div>
           <span></span>
           <div>
@@ -84,7 +84,7 @@ const SuperCourse = () => {
           </div>
           <span></span>
           <div>
-            2 top 담임제 : <br />
+            학습과 취업 모두 완벽한 관리: <br />
             학습매니저, 취업매니저
           </div>
           <span></span>

@@ -1,11 +1,6 @@
 import React from "react";
 import { useStyles } from "./style";
-import {
-  SimpleGrid,
-  Space,
-  Container,
-  Center,
-} from "@mantine/core";
+import { SimpleGrid, Space, Container, Center } from "@mantine/core";
 import ResumeCard1 from "../../components/resume/ResumeCard1";
 import ResumeCard2 from "../../components/resume/ResumeCard2";
 import ResumeCard3 from "../../components/resume/ResumeCard3";

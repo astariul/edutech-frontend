@@ -605,23 +605,16 @@ const BodyProgram = () => {
                 company="Flesky"
                 comment={
                   <p>
-                    Supercoding has a team of
+                    슈퍼코딩은{" "}
+                    <strong>
+                      개발자 취업에 대한 풍부한
+                      <br />
+                      경험과 많은 인사이트
+                    </strong>
+                    를 갖고있습니다.
                     <br />
-                    highly-skilled people
-                    <br />
-                    that can definitively provide
-                    <br />
-                    invaluable experience and insights
-                    <br />
-                    for getting a job as a developper.
-                    <br />
-                    Learning from them will give you
-                    <br />
-                    an important leverage and will help
-                    <br />
-                    you get better as a software
-                    <br />
-                    engineer.
+                    당신이 취업하는데에 도움을 많이
+                    <br />줄 것입니다.
                   </p>
                 }
               />
@@ -631,19 +624,13 @@ const BodyProgram = () => {
                 company="Spacewalk"
                 comment={
                   <p>
-                    직접제작한 강의와 체계화된
+                    직접제작한 강의와 체계화된 커리큘럼
                     <br />
-                    커리큘럼으로 수강자를
+                    으로 수강자를 올바른 방향으로 이끌고
                     <br />
-                    올바른 방향으로 이끌고
-                    <br />
-                    취업까지 이어지도록
-                    <br />
-                    멘토링해주는 슈퍼 코딩을
-                    <br />
-                    기존 코딩 교육으로 만족하지
-                    <br />
-                    분들께 추천합니다.
+                    <strong>취업까지 이어지도록 멘토링</strong>해주는 <br />
+                    슈퍼 코딩을 기존 코딩 교육으로 <br />
+                    만족하지 분들께 추천합니다.
                   </p>
                 }
               />
@@ -675,14 +662,16 @@ const BodyProgram = () => {
                 company="AI 스타트업"
                 comment={
                   <p>
-                    취업할 때 회사가 저에 대해 아무래도 정보가
+                    취업할 때 회사가 저에 대해 아무래도
                     <br />
-                    부족하여 고민을 많이하게 될텐데
-                    <br />제 강점을 알려 줄 수 있었습니다.
-                    <br />
-                    그리고 회사에 객관적으로 어필하기에
-                    <br />
-                    좋은 면이 있었고 취업에 도움이 많이
+                    정보가 부족하여 고민을 많이하게 될텐데
+                    <br />제 강점을 알려 줄 수 있었습니다. 그리고 <br />
+                    <strong>
+                      회사에 객관적으로 저를 어필하기에
+                      <br />
+                      좋은 면이 있었고 취업에 도움
+                    </strong>
+                    이 많이
                     <br />
                     되었습니다.
                   </p>
@@ -696,9 +685,11 @@ const BodyProgram = () => {
                   <p>
                     최고 수준의 현업 개발자에게 받는
                     <br />
-                    추천보다 취업에 있어 강력한
-                    <br />
-                    무기는 없습니다.
+                    <strong>
+                      추천보다 취업에 있어 강력한
+                      <br />
+                      무기는 없습니다.
+                    </strong>
                   </p>
                 }
               />
