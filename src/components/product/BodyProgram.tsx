@@ -171,13 +171,13 @@ const BodyProgram = () => {
           </div>
           <div className={cx(classes.answer, classes.mobile)}>
             <h2>
-              기업이 원하는 인재를 만들기 위해
+              <span> 차별화된 취업 6종세트 </span>
               <br />
-              <span> 업계 최고 개발자 슈퍼멘토</span>들의
+              (코딩/코딩테스트/추천서/
               <br />
-              적극적인 참여로 프로그램을 완벽하게
+              이력서/포트폴리오/기술면접)
               <br />
-              완성시켰기 때문입니다.
+              모두 여러분의 것이 됩니다.
             </h2>
           </div>
 
