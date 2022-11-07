@@ -248,7 +248,7 @@ const BodyProgram = () => {
             <div className={cx(classes.rowFlex, classes.cardArea)}>
               <MentorCard
                 nameAndPosition="정OO Engineer"
-                company= ""
+                company= "AI 스타트업"
                 comment={<p>취업 시 회사가 지원자에 대해 아무래도 정보가 부족하여 고민을 많이 하게 되는
                           <br />데 지원자의 강점을 알려 줄 수 있기에 좋았습니다. 저에 대해서 회사에 객관적
                           <br />으로 어필하기에 좋은 면이 있었고 도움이 많이 되었습니다.</p>
@@ -450,18 +450,16 @@ const BodyProgram = () => {
             <Divider size={42} style={{borderTopColor: "transparent"}}/>
             <div className={cx(classes.columnFlex, classes.cardArea)}>
             <MentorCard
-                image={require("../../static/image/product/mentors/cj.png")}
                 nameAndPosition="정OO Engineer"
-                company=""
+                company="AI 스타트업"
                 comment={
                   <p>
-                    취업할 때 회사가 저에 대해 아무래도
-                    <br />정보가 부족하여 고민을 많이
-                    <br />하게 될텐데 제 강점을 알려
-                    <br />줄 수 있었습니다. 그리고
-                    <br />회사에 객관적으로 어필하기에
-                    <br />좋은 면이 있었고 취업에
-                    <br />도움이 많이 되었습니다.
+                    취업할 때 회사가 저에 대해 아무래도 정보가
+                    <br />부족하여 고민을 많이하게 될텐데
+                    <br />제 강점을 알려 줄 수 있었습니다.
+                    <br />그리고 회사에 객관적으로 어필하기에
+                    <br />좋은 면이 있었고 취업에 도움이 많이
+                    <br />되었습니다.
                   </p>
                 }
               />
