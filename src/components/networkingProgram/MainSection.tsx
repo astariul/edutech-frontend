@@ -133,7 +133,7 @@ const MainSection: FC = () => {
       </div>
       <div className={styles.desktop}>
         <div className={styles.mainTitle}>
-          슈퍼코딩 <strong>네트워크</strong> 프로그램
+          슈퍼코딩 <strong>네트워킹</strong> 프로그램
         </div>
         <div className={styles.mainSubTitle}>
           비대면으로 이루어지는 온라인 밀착관리, 업계 최고 개발자와의 만남,
@@ -145,7 +145,7 @@ const MainSection: FC = () => {
         <div className={styles.mainButtonContainer}>
           <a href="/">
             <img src={SlackIcon} alt="" />
-            네트워크 프로그램 입장하기
+            네트워킹 프로그램 입장하기
           </a>
           <a href="/course">웹개발 종합반 구매하기</a>
         </div>
@@ -153,7 +153,7 @@ const MainSection: FC = () => {
       <div className={styles.mobile}>
         <div className={styles.mainTitle}>
           슈퍼코딩
-          <br /> <strong>네트워크</strong> <br /> 프로그램
+          <br /> <strong>네트워킹</strong> <br /> 프로그램
         </div>
         <br />
         <div className={styles.mainSubTitle}>
@@ -168,7 +168,7 @@ const MainSection: FC = () => {
         <div className={styles.mainButtonContainer}>
           <a href="/">
             <img src={SlackIcon} alt="" />
-            네트워크 프로그램 입장하기
+            네트워킹 프로그램 입장하기
           </a>
         </div>
         <div className={styles.mainButtonContainer}>
