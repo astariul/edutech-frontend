@@ -11,7 +11,11 @@ const ResumeCard2 = () => {
       {/* <Text weight={900}>Norway Fjord Adventures</Text> */}
       {/* <img src="./image/resume/supperresume1.png" /> */}
       <Space h={"xl"} />
-      <img className={classes.cardIcon} src="./image/resume/superresume2.png" alt=""/>
+      <img
+        className={classes.cardIcon}
+        src="./image/resume/superresume2.png"
+        alt=""
+      />
 
       {isBiggerThanSmallMobile && (
         <>
@@ -41,8 +45,9 @@ const ResumeCard2 = () => {
           <div className={classes.cardBody}>
             채용 전문가들의 꼼꼼한 첨삭을
             <br /> 통해 합격률을 높이세요.
+            <Space h={35} />
           </div>
-          <Space h={15} />
+          <Space h={35} />
         </>
       )}
     </Card>

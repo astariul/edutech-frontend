@@ -48,35 +48,77 @@ const CARD_DATAS = [
 
 const Sub2Section: FC = () => {
   return (
-    <div className={styles.sub2SectionContainer}>
-      <div className={styles.widthContainer}>
-        <div className={styles.sub2SectionDescriptionContainer}>
-          <div>SUPER</div>
-          <div>밀착관리</div>
-          <div>
-            슈퍼 멘토/코치와의 쳇팅, 화상 미팅을 통해 밀착관리가 이루어집니다.
+    <>
+      <div className={styles.desktop}>
+        <div className={styles.sub2SectionContainer}>
+          <div className={styles.widthContainer}>
+            <div className={styles.sub2SectionDescriptionContainer}>
+              <div>SUPER</div>
+              <div>밀착관리</div>
+              <br />
+              <div>
+                슈퍼 멘토/코치와의 쳇팅, 화상 미팅을 통해 밀착관리가
+                이루어집니다.
+              </div>
+            </div>
+
+            <div className={styles.sub2SectionCardContainer}>
+              {CARD_DATAS.map((data, index) => (
+                <div key={index} className={styles.sub2SectionCard}>
+                  <div>{data.title}</div>
+                  <ul>
+                    {data.contents.map((content, index) => (
+                      <li key={index}>
+                        {content.split("\n").map((line, index) => (
+                          <p key={index}>{line}</p>
+                        ))}
+                      </li>
+                    ))}
+                  </ul>
+                  {/* {data.button && <a href={data.button.link}>{data.button.text}</a>} */}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-
-        <div className={styles.sub2SectionCardContainer}>
-          {CARD_DATAS.map((data, index) => (
-            <div key={index} className={styles.sub2SectionCard}>
-              <div>{data.title}</div>
-              <ul>
-                {data.contents.map((content, index) => (
-                  <li key={index}>
-                    {content.split("\n").map((line, index) => (
-                      <p key={index}>{line}</p>
-                    ))}
-                  </li>
-                ))}
-              </ul>
-              {/* {data.button && <a href={data.button.link}>{data.button.text}</a>} */}
+      </div>
+      <div className={styles.mobile}>
+        <div className={styles.sub2SectionContainer}>
+          <div className={styles.widthContainer}>
+            <div className={styles.sub2SectionDescriptionContainerMobile}>
+              <div>SUPER</div>
+              <div>밀착관리</div>
+              <br />
+              <br />
+              <div style={{ textAlign: "center", fontSize: "20.4836px" }}>
+                슈퍼 멘토/코치와의 채팅,
+                <br /> 화상 미팅을 통해
+                <br />
+                밀착관리가 이루어집니다.
+              </div>
             </div>
-          ))}
+
+            <div className={styles.sub2SectionCardContainer}>
+              {CARD_DATAS.map((data, index) => (
+                <div key={index} className={styles.sub2SectionCard}>
+                  <div>{data.title}</div>
+                  <ul>
+                    {data.contents.map((content, index) => (
+                      <li key={index}>
+                        {content.split("\n").map((line, index) => (
+                          <p key={index}>{line}</p>
+                        ))}
+                      </li>
+                    ))}
+                  </ul>
+                  {/* {data.button && <a href={data.button.link}>{data.button.text}</a>} */}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

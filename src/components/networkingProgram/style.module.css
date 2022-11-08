@@ -103,6 +103,7 @@
   align-items: center;
   gap: 32px;
 }
+
 .mainButtonContainer a {
   width: 318px;
   height: 75px;
@@ -162,6 +163,14 @@
   flex-direction: column;
   color: #363636;
 }
+.sub1SectionDescriptionContainerMobile {
+  margin: 38px 0 22px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #363636;
+}
+
 .sub1SectionDescriptionContainer > div:nth-child(1) {
   font-family: "AlongSanss2";
   font-weight: 800;
@@ -171,6 +180,16 @@
   max-width: max-content;
   border-bottom: 4px solid #363636;
 }
+.sub1SectionDescriptionContainerMobile > div:nth-child(1) {
+  font-family: "AlongSanss2";
+  font-weight: 800;
+  font-size: 20.4836px;
+  line-height: 23px;
+  letter-spacing: -0.731557px;
+  max-width: max-content;
+  border-bottom: 4px solid #363636;
+  margin-left: 30px;
+}
 .sub1SectionDescriptionContainer > div:nth-child(2) {
   margin-top: 17px;
   font-weight: 700;
@@ -178,12 +197,24 @@
   line-height: 32px;
   letter-spacing: -1px;
 }
+.sub1SectionDescriptionContainerMobile > div:nth-child(2) {
+  font-family: "AlongSanss2";
+  font-weight: 800;
+  font-size: 20.4836px;
+  line-height: 23px;
+  letter-spacing: -0.731557px;
+  max-width: max-content;
+  margin-left: 30px;
+  margin-top: 17px;
+}
+
 .sub1SectionDescriptionContainer > div:nth-child(3) {
   margin-top: 28px;
   font-weight: 700;
   font-size: 26px;
   line-height: 32px;
   letter-spacing: -1px;
+  padding-left: 30px;
 }
 
 .sub1SectionCardContainer {
@@ -285,7 +316,25 @@
   display: flex;
 }
 
+.sub2SectionContainerMobile {
+  width: 100%;
+  /* height: 100%; */
+  background-image: url("/public/image/networkingProgram/sub2BackgroundMobile.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  display: flex;
+}
+
 .sub2SectionDescriptionContainer {
+  padding: 42px 0 71px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+}
+.sub2SectionDescriptionContainerMobile {
   padding: 42px 0 71px;
   width: 100%;
   display: flex;
@@ -301,12 +350,30 @@
   max-width: max-content;
   border-bottom: 4px solid #ffffff;
 }
+.sub2SectionDescriptionContainerMobile > div:nth-child(1) {
+  font-family: "AlongSanss2";
+  font-weight: 800;
+  font-size: 20.4836px;
+  line-height: 23px;
+  letter-spacing: -0.731557px;
+  max-width: max-content;
+  border-bottom: 4px solid #ffffff;
+  margin-left: 30px;
+}
 .sub2SectionDescriptionContainer > div:nth-child(2) {
   margin-top: 17px;
   font-weight: 700;
   font-size: 26px;
   line-height: 32px;
   letter-spacing: -1px;
+}
+.sub2SectionDescriptionContainerMobile > div:nth-child(2) {
+  margin-top: 17px;
+  font-weight: 700;
+  font-size: 20.43px;
+  line-height: 23px;
+  letter-spacing: -1px;
+  margin-left: 30px;
 }
 .sub2SectionDescriptionContainer > div:nth-child(3) {
   margin-top: 28px;
@@ -318,10 +385,18 @@
 
 .sub2SectionCardContainer {
   margin-bottom: 71px;
+
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
 }
+
+@media (max-width: 767px) {
+  .sub2SectionCardContainer {
+    margin-left: 30px;
+  }
+}
+
 .sub2SectionCard {
   width: 368px;
   display: flex;
@@ -372,6 +447,13 @@
   justify-content: center;
   align-items: center;
 }
+.sub3SectionContainerMobile {
+  padding: 72px 0 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .sub3SectionTitle {
   margin-bottom: 10px;
@@ -384,11 +466,30 @@
   letter-spacing: -2px;
   color: #000000;
 }
+.sub3SectionTitleMobile {
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -2px;
+  color: #000000;
+}
 
 .sub3SectionSubTitle {
   font-weight: 500;
   font-size: 22px;
   line-height: 36px;
+  text-align: center;
+  letter-spacing: -1px;
+  color: #626262;
+}
+.sub3SectionSubTitleMobile {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 0px;
   text-align: center;
   letter-spacing: -1px;
   color: #626262;
@@ -487,6 +588,17 @@
   position: relative;
   overflow: hidden;
 }
+.sub4SectionContainerMobile {
+  width: 100%;
+  height: 503px;
+  background-image: url("/public/image/networkingProgram/sub4BackgroundMobile.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  /* position: relative;*/
+  /* overflow: hidden; */
+}
 
 .sub4SectionContainer .backgroundLayer {
   position: absolute;
@@ -507,6 +619,13 @@
   flex-direction: column;
   color: #ffffff;
 }
+.sub4SectionDescriptionContainerMobile {
+  padding: 30px 0 71px;
+  /* display: flex; */
+  /* flex-direction: column; */
+  color: #ffffff;
+  text-align: center;
+}
 .sub4SectionDescriptionContainer > div:nth-child(1) {
   font-family: "AlongSanss2";
   font-weight: 800;
@@ -516,7 +635,25 @@
   max-width: max-content;
   border-bottom: 4px solid #ffffff;
 }
+.sub4SectionDescriptionContainerMobile > div:nth-child(1) {
+  font-family: "AlongSanss2";
+  font-weight: 800;
+  font-size: 20.4836px;
+  line-height: 23px;
+  letter-spacing: -0.731557px;
+  /* max-width: max-content; */
+  /* border-bottom: 4px solid #ffffff; */
+  text-align: center;
+  /* margin-left: 30px; */
+}
 .sub4SectionDescriptionContainer > div:nth-child(2) {
+  margin-top: 17px;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 32px;
+  letter-spacing: -1px;
+}
+.sub4SectionDescriptionContainerMobile > div:nth-child(2) {
   margin-top: 17px;
   font-weight: 700;
   font-size: 26px;

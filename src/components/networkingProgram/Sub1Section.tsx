@@ -13,17 +13,14 @@ const Sub1Section: FC = () => {
         >
           <div className={styles.sub1SectionTitle}>기수별 관리시스템</div>
           <div className={styles.sub1SectionSubTitle}>
-            기수별 온라인 스터디 그룹이 형성됩니다.
-            <br />
-            온라인 스터디 그룹별 담당 학습매니저가 배정되며, 온라인으로 만나게
-            됩니다.
+            기수별 온라인 스터디 그룹이 형성되며 온라인으로 만나게 됩니다.
           </div>
+
           <div className={styles.sub1SectionDescriptionContainer}>
             <div>SUPER</div>
             <div>담임제도</div>
             <div>
-              같은 기수 내 수강생들은 스터디 그룹으로 묶여지고 학습관리 매니저와
-              취업매니저가 각각 배정됩니다.
+              학습관리 매니저와 취업매니저가 각각 그룹별로 배정됩니다.
               <br />
               <br />
               <br />
@@ -72,27 +69,23 @@ const Sub1Section: FC = () => {
             기수별 관리시스템
           </div>
           <div className={styles.sub1SectionSubTitle}>
-            기수별 온라인 스터디
+            기수 내의 온라인 스터디
             <br />
-            그룹이 형성됩니다.
+            그룹이 형성되며
             <br />
-            온라인 스터디 그룹별 <br />
-            담당 학습매니저가 배정되며, <br />
             온라인으로 만나게 됩니다.
           </div>
-          <div className={styles.sub1SectionDescriptionContainer}>
-            <div> SUPER</div>
+          <div className={styles.sub1SectionDescriptionContainerMobile}>
+            <div>SUPER</div>
             <div>담임제도</div>
-            <div style={{ textAlign: "center" }}>
-              같은 기수 내 수강생들은 <br />
-              스터디 그룹으로 묶여지고 <br />
+            <br />
+            <br />
+            <div style={{ textAlign: "center", fontSize: "20.4836px" }}>
               학습관리 매니저와
               <br />
               취업매니저가
               <br />
-              각각 배정됩니다.
-              <br />
-              <br />
+              각각 그룹별로 배정됩니다.
               <br />
             </div>
             <br />
