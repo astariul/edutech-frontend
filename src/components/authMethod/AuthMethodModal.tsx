@@ -58,7 +58,7 @@ const AuthMethodModal = ({
     () => {
       const kakaoAuthUrl = new URL("https://kauth.kakao.com/oauth/authorize?");
       kakaoAuthUrl.searchParams.set("client_id", process.env.REACT_APP_KAKAO_REST_API_KEY as string);
-      kakaoAuthUrl.searchParams.set("redirect_uri", "http://localhost:3000/auth/kakao");
+      kakaoAuthUrl.searchParams.set("redirect_uri", window.location.origin + "/auth/kakao");
       kakaoAuthUrl.searchParams.set("response_type", "code");
       kakaoAuthUrl.searchParams.set("scope", "account_email,profile_nickname");
       window.location.href = kakaoAuthUrl.toString();
