@@ -162,6 +162,10 @@
   flex-direction: column;
   color: #363636;
 }
+.sub1SectionDescriptionContainerMobile {
+  padding-left: 10px;
+}
+
 .sub1SectionDescriptionContainer > div:nth-child(1) {
   font-family: "AlongSanss2";
   font-weight: 800;
@@ -170,6 +174,8 @@
   letter-spacing: -0.731557px;
   max-width: max-content;
   border-bottom: 4px solid #363636;
+
+  margin-left: 40px;
 }
 .sub1SectionDescriptionContainer > div:nth-child(2) {
   margin-top: 17px;
@@ -177,6 +183,7 @@
   font-size: 26px;
   line-height: 32px;
   letter-spacing: -1px;
+  margin-left: 40px;
 }
 .sub1SectionDescriptionContainer > div:nth-child(3) {
   margin-top: 28px;
@@ -184,6 +191,7 @@
   font-size: 26px;
   line-height: 32px;
   letter-spacing: -1px;
+  padding-left: 30px;
 }
 
 .sub1SectionCardContainer {

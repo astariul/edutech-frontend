@@ -92,8 +92,6 @@ const Sub1Section: FC = () => {
               <br />
               각각 배정됩니다.
               <br />
-              <br />
-              <br />
             </div>
             <br />
             {/* <div className={styles.manager}>대표 학습 매니저</div> */}
