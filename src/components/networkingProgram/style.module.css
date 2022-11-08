@@ -40,6 +40,38 @@
   color: #00f0ff;
 }
 
+.desktop {
+  display: none;
+}
+@media (min-width: 767px) {
+  .desktop {
+    display: block;
+  }
+}
+
+.mobile {
+  display: none;
+}
+/* @media all and (min-width: 340) and (max-width: 767px) { */
+@media (max-width: 767px) {
+  .mobile {
+    display: block;
+  }
+}
+
+.smallMobile {
+  display: none;
+}
+@media (max-width: 340px) {
+  /* .smallMobile { */
+  .smallMobile {
+    display: block;
+  }
+  .mobile {
+    display: none;
+  }
+}
+
 .mainTitle {
   font-weight: 900;
   font-size: 77.0008px;
