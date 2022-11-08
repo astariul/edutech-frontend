@@ -56,7 +56,7 @@ const SuperCourse = () => {
               <div
                 className={classes.box}
                 onClick={() =>
-                  navigate("/payment", {
+                  navigate("/course", {
                     state: process.env.REACT_APP_COURSE_ID,
                   })
                 }
