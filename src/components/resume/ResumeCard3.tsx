@@ -7,11 +7,22 @@ const ResumeCard3 = () => {
   const isBiggerThanSmallMobile = useMediaQuery({ minWidth: 401 });
   const isSmallMobile = useMediaQuery({ maxWidth: 400 });
   return (
-    <Card style={{height: "702px"}} className={classes.card} shadow="sm" p="lg" radius="md" withBorder>
+    <Card
+      style={{ height: "702px" }}
+      className={classes.card}
+      shadow="sm"
+      p="lg"
+      radius="md"
+      withBorder
+    >
       {/* <Text weight={900}>Norway Fjord Adventures</Text> */}
       {/* <img src="./image/resume/supperresume1.png" /> */}
       <Space h={"xl"} />
-      <img className={classes.cardIcon} src="./image/resume/superresume3.png" alt=""/>
+      <img
+        className={classes.cardIcon}
+        src="./image/resume/superresume3.png"
+        alt=""
+      />
       <Space h={15} />
 
       {isBiggerThanSmallMobile && (
@@ -26,8 +37,8 @@ const ResumeCard3 = () => {
             <br />
             추천서를 통해 보완하세요.
           </div>
-          <Space h={100} />
-          <img src="./image/resume/resumereview.png" alt=""/>
+          <Space h={110} />
+          <img src="./image/resume/resumereview.png" alt="" />
         </>
       )}
       {isSmallMobile && (
@@ -44,7 +55,7 @@ const ResumeCard3 = () => {
             <br /> 보완하세요.
           </div>
           <Space h={50} />
-          <img src="./image/resume/resumereviewsmall.png" alt=""/>
+          <img src="./image/resume/resumereviewsmall.png" alt="" />
         </>
       )}
     </Card>

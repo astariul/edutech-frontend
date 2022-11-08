@@ -1,33 +1,38 @@
 import { FC } from "react";
 import styles from "./style.module.css";
+import { Space } from "@mantine/core";
 
 const PROFILE_DATAS = ["이경엽", "박종민", "김희창"];
 
 const Sub1Section: FC = () => {
   return (
-    <div className={`${styles.sub1SectionContainer} ${styles.widthContainer}`}>
-      <div className={styles.sub1SectionTitle}>기수별 관리시스템</div>
-      <div className={styles.sub1SectionSubTitle}>
-        기수별 온라인 스터디 그룹이 형성됩니다.
-        <br />
-        온라인 스터디 그룹별 담당 학습매니저가 배정되며, 온라인으로 만나게
-        됩니다.
-      </div>
-      <div className={styles.sub1SectionDescriptionContainer}>
-        <div>SUPER</div>
-        <div>담임제도</div>
-        <div>
-          같은 기수 내 수강생들은 스터디 그룹으로 묶여지고 학습관리 매니저와
-          취업매니저가 각각 배정됩니다.
-          <br />
-          <br />
-          <br />
-        </div>
-        <br />
-        {/* <div className={styles.manager}>대표 학습 매니저</div> */}
-      </div>
+    <>
+      <div className={styles.desktop}>
+        <div
+          className={`${styles.sub1SectionContainer} ${styles.widthContainer}`}
+        >
+          <div className={styles.sub1SectionTitle}>기수별 관리시스템</div>
+          <div className={styles.sub1SectionSubTitle}>
+            기수별 온라인 스터디 그룹이 형성됩니다.
+            <br />
+            온라인 스터디 그룹별 담당 학습매니저가 배정되며, 온라인으로 만나게
+            됩니다.
+          </div>
+          <div className={styles.sub1SectionDescriptionContainer}>
+            <div>SUPER</div>
+            <div>담임제도</div>
+            <div>
+              같은 기수 내 수강생들은 스터디 그룹으로 묶여지고 학습관리 매니저와
+              취업매니저가 각각 배정됩니다.
+              <br />
+              <br />
+              <br />
+            </div>
+            <br />
+            {/* <div className={styles.manager}>대표 학습 매니저</div> */}
+          </div>
 
-      {/* <div className={styles.sub1SectionCardContainer}>
+          {/* <div className={styles.sub1SectionCardContainer}>
         {PROFILE_DATAS.map((data, index) => (
           <div key={index} className={styles.sub1SectionCard}>
             <div className={styles.profile}>
@@ -56,7 +61,46 @@ const Sub1Section: FC = () => {
           </div>
         ))}
       </div> */}
-    </div>
+        </div>
+      </div>
+      <div className={styles.mobile}>
+        <div className={`${styles.sub1SectionContainer} `}>
+          <div
+            className={styles.sub1SectionTitle}
+            // style={{ textAlign: "center" }}
+          >
+            기수별 관리시스템
+          </div>
+          <div className={styles.sub1SectionSubTitle}>
+            기수별 온라인 스터디
+            <br />
+            그룹이 형성됩니다.
+            <br />
+            온라인 스터디 그룹별 <br />
+            담당 학습매니저가 배정되며, <br />
+            온라인으로 만나게 됩니다.
+          </div>
+          <div className={styles.sub1SectionDescriptionContainer}>
+            <div> SUPER</div>
+            <div>담임제도</div>
+            <div style={{ textAlign: "center" }}>
+              같은 기수 내 수강생들은 <br />
+              스터디 그룹으로 묶여지고 <br />
+              학습관리 매니저와
+              <br />
+              취업매니저가
+              <br />
+              각각 배정됩니다.
+              <br />
+              <br />
+              <br />
+            </div>
+            <br />
+            {/* <div className={styles.manager}>대표 학습 매니저</div> */}
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

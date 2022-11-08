@@ -1,13 +1,13 @@
 import useSuperManagementStyles from "./superManagementStyle";
 
-interface CardProps{
+interface CardProps {
   index: number;
   title: string;
-  contents: string[]
+  contents: string[];
 }
 
-const Card = ({index, title, contents}: CardProps) => {
-  const {classes, cx} = useSuperManagementStyles();
+const Card = ({ index, title, contents }: CardProps) => {
+  const { classes, cx } = useSuperManagementStyles();
 
   return (
     <div key={index} className={cx(classes.rowFlex, classes.card)}>
@@ -16,19 +16,16 @@ const Card = ({index, title, contents}: CardProps) => {
         <h2>{title}</h2>
       </div>
       <ul id="card_content" className={cx(classes.columnFlex)}>
-        {
-          contents.map(
-            (content, idx) => <li key={idx}>{content}</li>
-
-          )
-        }
+        {contents.map((content, idx) => (
+          <li key={idx}>{content}</li>
+        ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
 const SuperManagement = () => {
-  const {classes, cx} = useSuperManagementStyles();
+  const { classes, cx } = useSuperManagementStyles();
   const cardContents = [
     {
       index: 1,
@@ -46,14 +43,14 @@ const SuperManagement = () => {
     {
       index: 3,
       title: "페어프로그래밍 과제",
-      contents: ["협업능력향상","기술면접대비"],
+      contents: ["협업능력향상", "기술면접대비"],
     },
     {
       index: 4,
       title: "해커톤",
       contents: [
         "멘토링을 통한 실력향상",
-        "심사위원들의 평가 및 수상작 발표회"
+        "심사위원들의 평가 및 수상작 발표회",
       ],
     },
     {
@@ -78,69 +75,105 @@ const SuperManagement = () => {
         "수강생에게 적합한 회사를 추천 & 컨설팅",
         "타겟 회사 맞춤형 지원 가이드",
       ],
-    }
-  ]
+    },
+  ];
 
   return (
     <>
       <section className={classes.main}>
         <div className={classes.contents}>
-          <div className={cx(classes.rowFlex, classes.contentsInner, classes.desktop)}>
+          <div
+            className={cx(
+              classes.rowFlex,
+              classes.contentsInner,
+              classes.desktop
+            )}
+          >
             <div className={cx(classes.columnFlex, classes.leftSection)}>
               <div className={classes.messageTop}>
                 <div className={classes.category}>SUPER MANAGEMENT</div>
                 <div className={classes.title}>
-                  취업이 될 수 있도록
+                  취업이 될 때까지 제대로
                   <br />
-                  제대로 관리합니다.
+                  관리하는 것은 기본입니다.
                 </div>
               </div>
               <div className={cx(classes.columnFlex, classes.messageBottom)}>
-                <img src={require("../../static/image/home/superManagement2Top.png")} alt="2top" />
-                <h2><span>2 Top 담임제</span></h2>
-                <h2>학습 매니저와 취업매니저를 각각 배정하여 <br />
-                성공적인 학습과 취업을 함께 책임집니다.</h2>
+                <img
+                  src={require("../../static/image/home/superManagement2Top.png")}
+                  alt="2top"
+                />
+                <h2>
+                  <span>2 Top 담임제</span>
+                </h2>
+                <h2>
+                  학습 매니저와 취업매니저를 각각 배정하여 <br />
+                  성공적인 학습과 취업을 함께 책임집니다.
+                </h2>
               </div>
             </div>
             <div className={cx(classes.rightSection, classes.desktop)}>
               <div className={cx(classes.columnFlex, classes.cardArea)}>
-                {
-                  cardContents.map(
-                    (each, idx) => <Card index={each.index} title={each.title} contents={each.contents}/>
-                  )
-                }
+                {cardContents.map((each, idx) => (
+                  <Card
+                    index={each.index}
+                    title={each.title}
+                    contents={each.contents}
+                  />
+                ))}
               </div>
             </div>
           </div>
-          <div className={cx(classes.columnFlex, classes.contentsInner, classes.mobile)}>
+          <div
+            className={cx(
+              classes.columnFlex,
+              classes.contentsInner,
+              classes.mobile
+            )}
+          >
             <div className={cx(classes.columnFlex, classes.leftSection)}>
               <div className={classes.messageTop}>
                 <div className={classes.category}>SUPER MANAGEMENT</div>
                 <div className={classes.title}>
-                  취업이 될 수 있도록
+                  취업이 될 때까지 제대로
                   <br />
-                  제대로 관리합니다.
+                  관리하는 것은 기본입니다.
                 </div>
               </div>
-              <div className={cx(classes.columnFlex, classes.cardArea, classes.mobile)}>
-                {
-                  cardContents.map(
-                    (each, idx) => <Card index={each.index} title={each.title} contents={each.contents}/>
-                  )
-                }
+              <div
+                className={cx(
+                  classes.columnFlex,
+                  classes.cardArea,
+                  classes.mobile
+                )}
+              >
+                {cardContents.map((each, idx) => (
+                  <Card
+                    index={each.index}
+                    title={each.title}
+                    contents={each.contents}
+                  />
+                ))}
               </div>
               <div className={cx(classes.columnFlex, classes.messageBottom)}>
-                <img src={require("../../static/image/home/superManagement2Top.png")} alt="2top" />
-                <h2><span>2 Top 담임제</span></h2>
-                <h2>학습 매니저와 취업매니저를 각각 배정하여 <br />
-                성공적인 학습과 취업을 함께 책임집니다.</h2>
+                <img
+                  src={require("../../static/image/home/superManagement2Top.png")}
+                  alt="2top"
+                />
+                <h2>
+                  <span>2 Top 담임제</span>
+                </h2>
+                <h2>
+                  학습 매니저와 취업매니저를 각각 배정하여 <br />
+                  성공적인 학습과 취업을 함께 책임집니다.
+                </h2>
               </div>
             </div>
           </div>
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
 export default SuperManagement;

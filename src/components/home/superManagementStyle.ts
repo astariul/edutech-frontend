@@ -1,19 +1,18 @@
-import { createStyles } from '@mantine/core';
+import { createStyles } from "@mantine/core";
 
 const useSuperManagementStyles = createStyles((theme) => ({
-
   mobile: {
     display: "none",
 
     [`@media (max-width: 767px)`]: {
-      display: "inline-block"
-    }
+      display: "inline-block",
+    },
   },
 
   desktop: {
     [`@media (max-width: 767px)`]: {
-      display: "none"
-    }
+      display: "none",
+    },
   },
 
   rowFlex: {
@@ -23,7 +22,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
 
   columnFlex: {
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
   },
 
   main: {
@@ -37,9 +36,9 @@ const useSuperManagementStyles = createStyles((theme) => ({
 
     [`@media (max-width: 767px)`]: {
       height: "900px",
-    }
+    },
   },
-    
+
   contents: {
     maxWidth: "1440px",
     width: "90%",
@@ -47,7 +46,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
     margin: "0 auto",
     paddingTop: "59px",
   },
-  
+
   contentsInner: {
     maxWidth: "1168px",
     width: "90%",
@@ -58,7 +57,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
       maxWidth: "766px",
       margin: "0 auto",
       alignItems: "center",
-    }
+    },
   },
 
   leftSection: {
@@ -68,12 +67,10 @@ const useSuperManagementStyles = createStyles((theme) => ({
       rowGap: "50px",
       justifyContent: "center",
       alignItems: "center",
-    }
+    },
   },
 
-  rightSection: {
-
-  },
+  rightSection: {},
 
   messageTop: {
     paddingTop: "7px",
@@ -89,18 +86,18 @@ const useSuperManagementStyles = createStyles((theme) => ({
   messageBottom: {
     fontWeight: 700,
     letterSpacing: "-1px",
-    
-    "img": {
+
+    img: {
       width: "67px",
-      height: "67px"
+      height: "67px",
     },
-        
-    "h2": {
+
+    h2: {
       margin: 0,
       fontSize: "16px",
       lineHeight: "27px",
 
-      "span": {
+      span: {
         fontSize: "26px",
         lineHeight: "31px",
         color: "#0094FF",
@@ -110,21 +107,21 @@ const useSuperManagementStyles = createStyles((theme) => ({
     [`@media (max-width: 767px)`]: {
       alignItems: "center",
 
-      "img": {
+      img: {
         width: "47px",
-        height: "47px"
+        height: "47px",
       },
 
-      "h2": {
+      h2: {
         fontSize: "12px",
         lineHeight: "24px",
 
-        "span": {
+        span: {
           fontSize: "22px",
           lineHeight: "31px",
-        }
-      }
-    }
+        },
+      },
+    },
   },
 
   cardArea: {
@@ -144,7 +141,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
       width: "245.13px",
       marginLeft: "56.13px",
 
-      "h2": {
+      h2: {
         margin: 0,
         fontWeight: 700,
         fontSize: "16px",
@@ -157,17 +154,17 @@ const useSuperManagementStyles = createStyles((theme) => ({
       height: "46.47px",
       justifyContent: "center",
 
-      "li": {
+      li: {
         fontWeight: 400,
         fontSize: "14px",
         lineHeight: "22px",
       },
       "li::marker": {
         fontSize: "10px",
-      }
+      },
     },
 
-    "span": {
+    span: {
       fontFamily: "Gotham Black",
       fontStyle: "italic",
       fontWeight: 900,
@@ -185,7 +182,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
         width: "100px",
         marginLeft: "30px",
 
-        "h2": {
+        h2: {
           margin: 0,
           fontSize: "12px",
         },
@@ -195,15 +192,15 @@ const useSuperManagementStyles = createStyles((theme) => ({
         width: "200px",
         height: "46.47px",
 
-        "li": {
+        li: {
           fontSize: "12px",
         },
         "li::marker": {
           fontSize: "10px",
-        }
+        },
       },
 
-      "span": {
+      span: {
         fontSize: "80px",
         lineHeight: "79px",
       },
@@ -217,7 +214,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
         width: "65px",
         marginLeft: "10px",
 
-        "h2": {
+        h2: {
           margin: 0,
           fontSize: "10px",
         },
@@ -226,18 +223,18 @@ const useSuperManagementStyles = createStyles((theme) => ({
       "#card_content": {
         width: "200px",
 
-        "li": {
+        li: {
           fontSize: "10px",
         },
         "li::marker": {
           fontSize: "10px",
-        }
+        },
       },
 
-      "span": {
+      span: {
         fontSize: "80px",
       },
-    }
+    },
   },
 
   logoTile: {
@@ -251,8 +248,8 @@ const useSuperManagementStyles = createStyles((theme) => ({
     backgroundImage: "url(/image/home/logoTile.png)",
 
     [`@media (max-width: 376px)`]: {
-      display: "none"
-    }
+      display: "none",
+    },
   },
 
   textArea: {
@@ -288,7 +285,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
       alignItems: "center",
       textAlign: "center",
       fontSize: "12px",
-    }
+    },
   },
 
   title: {
@@ -305,17 +302,17 @@ const useSuperManagementStyles = createStyles((theme) => ({
     // [`@media (max-width: 1024px)`]: {
     //   paddingTop: "26px",
     //   paddingLeft: "0px",
-      // alignItems: "center",
-      // textAlign: "center",
-      // wordBreak: "break-word",
-      // height: "auto"
+    // alignItems: "center",
+    // textAlign: "center",
+    // wordBreak: "break-word",
+    // height: "auto"
     // },
 
     [`@media (max-width: 767px)`]: {
       fontSize: "23px",
       lineHeight: "32px",
       letterSpacing: "-0.8px",
-    }
+    },
   },
 
   titleMobile: {
@@ -340,7 +337,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
     paddingTop: "140px",
     paddingLeft: "max(235px, 9.514vw)",
     color: "#FFFFFF",
-    
+
     "& > h2": {
       margin: 0,
       fontWeight: 700,
@@ -349,14 +346,14 @@ const useSuperManagementStyles = createStyles((theme) => ({
       letterSpacing: "-2px",
 
       [`@media (max-width: 767px)`]: {
-        fontSize: "24px"
-      }
+        fontSize: "24px",
+      },
     },
 
     // [`@media (max-width: 1024px)`]: {
     //   paddingTop: "230px",
     // },
-  
+
     [`@media (max-width: 767px)`]: {
       paddingTop: "250px",
     },
@@ -368,7 +365,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
       paddingLeft: "70px",
       width: "150px",
       color: "#FFFFFF",
-    }
+    },
   },
 
   mainMobile: {
@@ -378,9 +375,8 @@ const useSuperManagementStyles = createStyles((theme) => ({
 
     [`@media (max-width: 376px)`]: {
       display: "block",
-    }
-  }
-
+    },
+  },
 }));
 
 export default useSuperManagementStyles;

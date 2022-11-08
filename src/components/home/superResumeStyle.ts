@@ -1,26 +1,25 @@
-import { createStyles } from '@mantine/core';
+import { createStyles } from "@mantine/core";
 
 const useSuperResumeStyles = createStyles((theme) => ({
-
   mobile: {
     display: "none",
 
     [`@media (max-width: 767px)`]: {
-      display: "inline-block"
-    }
+      display: "inline-block",
+    },
   },
 
   desktop: {
     [`@media (max-width: 767px)`]: {
-      display: "none"
-    }
+      display: "none",
+    },
   },
 
   main: {
     display: "flex",
     flexDirection: "column",
   },
-    
+
   contents: {
     paddingTop: "71px",
     width: "1440px",
@@ -40,7 +39,6 @@ const useSuperResumeStyles = createStyles((theme) => ({
       width: "90%",
       alignItems: "center",
     },
-
   },
 
   category: {
@@ -58,7 +56,7 @@ const useSuperResumeStyles = createStyles((theme) => ({
       textAlign: "center",
       fontSize: "12px",
       letterSpacing: "-0.886023px",
-    }
+    },
   },
 
   title: {
@@ -75,7 +73,7 @@ const useSuperResumeStyles = createStyles((theme) => ({
 
     [`@media (max-width: 767px)`]: {
       display: "none",
-    }
+    },
   },
 
   titleMobile: {
@@ -96,9 +94,9 @@ const useSuperResumeStyles = createStyles((theme) => ({
 
     [`@media (max-width: 376px)`]: {
       whiteSpace: "nowrap",
-    }
+    },
   },
-  
+
   cardArea: {
     display: "flex",
     flexDirection: "row",
@@ -116,9 +114,8 @@ const useSuperResumeStyles = createStyles((theme) => ({
 
       "& > img": {
         transform: "rotate(90deg)",
-      }
+      },
     },
-
   },
 
   caret: {
@@ -127,11 +124,10 @@ const useSuperResumeStyles = createStyles((theme) => ({
   },
 
   cardLeft: {
-    "img": {
+    img: {
       width: "298.58px",
       height: "311px",
     },
-
   },
 
   cardLeftMobile: {
@@ -141,17 +137,16 @@ const useSuperResumeStyles = createStyles((theme) => ({
       display: "block",
       width: "336px",
       height: "268px",
-    }
+    },
   },
 
   cardMiddle: {
-    "img": {
+    img: {
       width: "367px",
       height: "289px",
     },
-
   },
-  
+
   cardMiddleMobile: {
     display: "none",
 
@@ -159,11 +154,11 @@ const useSuperResumeStyles = createStyles((theme) => ({
       display: "block",
       width: "336px",
       height: "268px",
-    }
+    },
   },
 
   cardRight: {
-    "img": {
+    img: {
       width: "289px",
       height: "289px",
     },
@@ -176,7 +171,7 @@ const useSuperResumeStyles = createStyles((theme) => ({
       display: "block",
       width: "336px",
       height: "327px",
-    }
+    },
   },
 
   bottomTitle: {
@@ -189,7 +184,7 @@ const useSuperResumeStyles = createStyles((theme) => ({
     color: "#363636",
     fontFamily: "NotoSansKR",
 
-    "span": {
+    span: {
       color: "#109BFF",
     },
 
@@ -197,7 +192,7 @@ const useSuperResumeStyles = createStyles((theme) => ({
       justifyContent: "center",
       fontSize: "18px",
       textAlign: "center",
-    }
+    },
   },
 }));
 

@@ -1,19 +1,18 @@
-import { createStyles } from '@mantine/core';
+import { createStyles } from "@mantine/core";
 
 const useBodyManagementStyles = createStyles((theme) => ({
-
   mobile: {
     display: "none",
 
     [`@media (max-width: 767px)`]: {
-      display: "inline-block"
-    }
+      display: "inline-block",
+    },
   },
 
   desktop: {
     [`@media (max-width: 767px)`]: {
-      display: "none"
-    }
+      display: "none",
+    },
   },
 
   rowFlex: {
@@ -23,7 +22,7 @@ const useBodyManagementStyles = createStyles((theme) => ({
 
   columnFlex: {
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
   },
 
   main: {
@@ -37,9 +36,9 @@ const useBodyManagementStyles = createStyles((theme) => ({
 
     [`@media (max-width: 767px)`]: {
       height: "900px",
-    }
+    },
   },
-    
+
   contents: {
     maxWidth: "1440px",
     width: "90%",
@@ -47,7 +46,7 @@ const useBodyManagementStyles = createStyles((theme) => ({
     margin: "0 auto",
     paddingTop: "59px",
   },
-  
+
   contentsInner: {
     maxWidth: "1168px",
     width: "90%",
@@ -58,7 +57,7 @@ const useBodyManagementStyles = createStyles((theme) => ({
       maxWidth: "766px",
       margin: "0 auto",
       alignItems: "center",
-    }
+    },
   },
 
   leftSection: {
@@ -68,12 +67,10 @@ const useBodyManagementStyles = createStyles((theme) => ({
       rowGap: "50px",
       justifyContent: "center",
       alignItems: "center",
-    }
+    },
   },
 
-  rightSection: {
-
-  },
+  rightSection: {},
 
   messageTop: {
     // height: "661.3px",
@@ -88,18 +85,18 @@ const useBodyManagementStyles = createStyles((theme) => ({
   messageBottom: {
     fontWeight: 700,
     letterSpacing: "-1px",
-    
-    "img": {
+
+    img: {
       width: "67px",
-      height: "67px"
+      height: "67px",
     },
-        
-    "h2": {
+
+    h2: {
       margin: 0,
       fontSize: "16px",
       lineHeight: "27px",
 
-      "span": {
+      span: {
         fontSize: "26px",
         lineHeight: "31px",
         color: "#0094FF",
@@ -109,21 +106,21 @@ const useBodyManagementStyles = createStyles((theme) => ({
     [`@media (max-width: 767px)`]: {
       alignItems: "center",
 
-      "img": {
+      img: {
         width: "47px",
-        height: "47px"
+        height: "47px",
       },
 
-      "h2": {
+      h2: {
         fontSize: "12px",
         lineHeight: "24px",
 
-        "span": {
+        span: {
           fontSize: "22px",
           lineHeight: "31px",
-        }
-      }
-    }
+        },
+      },
+    },
   },
 
   cardArea: {
@@ -143,7 +140,7 @@ const useBodyManagementStyles = createStyles((theme) => ({
       width: "245.13px",
       marginLeft: "56.13px",
 
-      "h2": {
+      h2: {
         margin: 0,
         fontWeight: 700,
         fontSize: "16px",
@@ -156,17 +153,17 @@ const useBodyManagementStyles = createStyles((theme) => ({
       height: "46.47px",
       justifyContent: "center",
 
-      "li": {
+      li: {
         fontWeight: 400,
         fontSize: "14px",
         lineHeight: "22px",
       },
       "li::marker": {
         fontSize: "10px",
-      }
+      },
     },
 
-    "span": {
+    span: {
       fontFamily: "NotoSansKR",
       fontStyle: "normal",
       fontWeight: 100,
@@ -184,7 +181,7 @@ const useBodyManagementStyles = createStyles((theme) => ({
         width: "100px",
         marginLeft: "30px",
 
-        "h2": {
+        h2: {
           margin: 0,
           fontSize: "12px",
         },
@@ -194,15 +191,15 @@ const useBodyManagementStyles = createStyles((theme) => ({
         width: "200px",
         height: "46.47px",
 
-        "li": {
+        li: {
           fontSize: "12px",
         },
         "li::marker": {
           fontSize: "10px",
-        }
+        },
       },
 
-      "span": {
+      span: {
         fontSize: "80px",
         lineHeight: "79px",
       },
@@ -216,7 +213,7 @@ const useBodyManagementStyles = createStyles((theme) => ({
         width: "65px",
         marginLeft: "10px",
 
-        "h2": {
+        h2: {
           margin: 0,
           fontSize: "10px",
         },
@@ -225,18 +222,18 @@ const useBodyManagementStyles = createStyles((theme) => ({
       "#card_content": {
         width: "200px",
 
-        "li": {
+        li: {
           fontSize: "10px",
         },
         "li::marker": {
           fontSize: "10px",
-        }
+        },
       },
 
-      "span": {
+      span: {
         fontSize: "80px",
       },
-    }
+    },
   },
 
   logoTile: {
@@ -250,8 +247,8 @@ const useBodyManagementStyles = createStyles((theme) => ({
     backgroundImage: "url(/image/home/logoTile.png)",
 
     [`@media (max-width: 376px)`]: {
-      display: "none"
-    }
+      display: "none",
+    },
   },
 
   textArea: {
@@ -287,7 +284,7 @@ const useBodyManagementStyles = createStyles((theme) => ({
       alignItems: "center",
       textAlign: "center",
       fontSize: "12px",
-    }
+    },
   },
 
   title: {
@@ -303,17 +300,17 @@ const useBodyManagementStyles = createStyles((theme) => ({
     // [`@media (max-width: 1024px)`]: {
     //   paddingTop: "26px",
     //   paddingLeft: "0px",
-      // alignItems: "center",
-      // textAlign: "center",
-      // wordBreak: "break-word",
-      // height: "auto"
+    // alignItems: "center",
+    // textAlign: "center",
+    // wordBreak: "break-word",
+    // height: "auto"
     // },
 
     [`@media (max-width: 767px)`]: {
       fontSize: "23px",
       lineHeight: "32px",
       letterSpacing: "-0.8px",
-    }
+    },
   },
 
   titleMobile: {
@@ -338,7 +335,7 @@ const useBodyManagementStyles = createStyles((theme) => ({
     paddingTop: "140px",
     paddingLeft: "max(235px, 9.514vw)",
     color: "#FFFFFF",
-    
+
     "& > h2": {
       margin: 0,
       fontWeight: 700,
@@ -347,14 +344,14 @@ const useBodyManagementStyles = createStyles((theme) => ({
       letterSpacing: "-2px",
 
       [`@media (max-width: 767px)`]: {
-        fontSize: "24px"
-      }
+        fontSize: "24px",
+      },
     },
 
     // [`@media (max-width: 1024px)`]: {
     //   paddingTop: "230px",
     // },
-  
+
     [`@media (max-width: 767px)`]: {
       paddingTop: "250px",
     },
@@ -366,7 +363,7 @@ const useBodyManagementStyles = createStyles((theme) => ({
       paddingLeft: "70px",
       width: "150px",
       color: "#FFFFFF",
-    }
+    },
   },
 
   mainMobile: {
@@ -376,9 +373,8 @@ const useBodyManagementStyles = createStyles((theme) => ({
 
     [`@media (max-width: 376px)`]: {
       display: "block",
-    }
-  }
-
+    },
+  },
 }));
 
 export default useBodyManagementStyles;
