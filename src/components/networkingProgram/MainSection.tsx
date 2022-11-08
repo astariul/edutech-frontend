@@ -31,8 +31,6 @@ const MainSection: FC = () => {
           <div className={styles.mainDescription}>
             <PencilIcon />
             <p>
-              슈퍼코딩
-              <br />
               유료유저용
               <br />
               <strong>프리미엄 </strong> <br /> 서비스입니다.
