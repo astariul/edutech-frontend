@@ -152,6 +152,31 @@ const MainSection: FC = () => {
           <a href="/course">웹개발 종합반 구매하기</a>
         </div>
       </div>
+      <div className={styles.mobile}>
+        <div className={styles.mainTitle}>
+          슈퍼코딩
+          <br /> <strong>네트워크</strong> <br /> 프로그램
+        </div>
+        <br />
+        <div className={styles.mainSubTitle}>
+          비대면으로 이루어지는 온라인 밀착관리,
+          <br /> 업계 최고 개발자와의 만남, <br />
+          기업별 세미나, 다양한 Live event가 <br />
+          운영될 예정입니다.
+          <br />
+          여러분야 업계 현직선배들과 동료들이
+          <br /> 당신의 취업을 적극적으로 지원합니다.
+        </div>
+        <div className={styles.mainButtonContainer}>
+          <a href="/">
+            <img src={SlackIcon} alt="" />
+            네트워크 프로그램 입장하기
+          </a>
+        </div>
+        <div className={styles.mainButtonContainer}>
+          <a href="/course">웹개발 종합반 구매하기</a>
+        </div>
+      </div>
     </div>
   );
 };
