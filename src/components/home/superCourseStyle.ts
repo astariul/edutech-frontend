@@ -249,9 +249,13 @@ const useSuperCourseStyles = createStyles((theme) => ({
 
   hookLeft: {
     marginLeft: "0px",
-    fontSize: "20px",
+    fontSize: "15px",
     [`@media (max-width: 767px)`]: {
-      marginLeft: "-90px",
+      marginLeft: "-60px",
+    },
+    [`@media (max-width: 340px)`]: {
+      marginLeft: "-20px",
+      fontSize: "14px",
     },
   },
 
@@ -273,13 +277,25 @@ const useSuperCourseStyles = createStyles((theme) => ({
       wordBreak: "break-word",
       lineHeight: "23px",
     },
+    [`@media (max-width: 340px)`]: {
+      display: "block",
+      letterSpacing: "-1px",
+      textAlign: "center",
+      wordBreak: "break-word",
+      lineHeight: "23px",
+      fontSize: "14px",
+    },
   },
 
   hookRight: {
     marginRight: "0px",
-    fontSize: "20px",
+    fontSize: "15px",
     [`@media (max-width: 767px)`]: {
-      marginRight: "-90px",
+      marginRight: "-60px",
+    },
+    [`@media (max-width: 340px)`]: {
+      marginRight: "-20px",
+      fontSize: "14px",
     },
   },
 
@@ -297,7 +313,10 @@ const useSuperCourseStyles = createStyles((theme) => ({
     borderRadius: "13px",
 
     [`@media (max-width: 767px)`]: {
-      width: "336px",
+      width: "300px",
+    },
+    [`@media (max-width: 340px)`]: {
+      width: "260px",
     },
   },
 
@@ -312,12 +331,11 @@ const useSuperCourseStyles = createStyles((theme) => ({
 
     [`@media (max-width: 767px)`]: {
       paddingLeft: "20px",
-      paddingRight: "6px",
+      paddingRight: "10px",
     },
   },
 
   boxLeft: {
-    width: "auto",
     height: "45px",
     lineHeight: "37px",
     color: "#0065FD",
@@ -330,7 +348,12 @@ const useSuperCourseStyles = createStyles((theme) => ({
     textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
 
     [`@media (max-width: 767px)`]: {
+      width: "200px",
       fontSize: "20px",
+    },
+    [`@media (max-width: 340px)`]: {
+      width: "200px",
+      fontSize: "16px",
     },
   },
 
@@ -357,6 +380,9 @@ const useSuperCourseStyles = createStyles((theme) => ({
     alignItems: "center",
     [`@media (max-width: 767px)`]: {
       fontSize: "17px",
+    },
+    [`@media (max-width: 340px)`]: {
+      fontSize: "15px",
     },
   },
 
