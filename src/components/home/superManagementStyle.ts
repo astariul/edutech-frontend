@@ -61,16 +61,26 @@ const useSuperManagementStyles = createStyles((theme) => ({
   },
 
   leftSection: {
-    rowGap: "321px",
 
     [`@media (max-width: 767px)`]: {
-      rowGap: "50px",
       justifyContent: "center",
       alignItems: "center",
     },
   },
 
-  rightSection: {},
+  middleSection: {
+    width: "1169px",
+    height: "351px",
+  },
+
+  cardSection: {
+    columnGap: "32px",
+
+    "img": {
+      width: "268px",
+      height: "146px"
+    }
+  },
 
   messageTop: {
     paddingTop: "7px",
@@ -84,23 +94,33 @@ const useSuperManagementStyles = createStyles((theme) => ({
   },
 
   messageBottom: {
+    width: "452px",
+    height: "85px",
     fontWeight: 700,
     letterSpacing: "-1px",
+    columnGap: "16px",
+    rowGap: "8px",
+    alignItems: "flex-start",
 
     img: {
       width: "67px",
       height: "67px",
     },
 
-    h2: {
-      margin: 0,
-      fontSize: "16px",
-      lineHeight: "27px",
+    "div": {
+      width: "369px",
+      height: "85px",
 
-      span: {
-        fontSize: "26px",
-        lineHeight: "31px",
-        color: "#0094FF",
+      h2: {
+        margin: 0,
+        fontSize: "16px",
+        lineHeight: "27px",
+  
+        span: {
+          fontSize: "26px",
+          lineHeight: "31px",
+          color: "#0094FF",
+        },
       },
     },
 
@@ -289,7 +309,6 @@ const useSuperManagementStyles = createStyles((theme) => ({
   },
 
   title: {
-    paddingTop: "30px",
     color: "#363636",
     fontSize: "32px",
     fontFamily: "NotoSansKR",
