@@ -12,7 +12,11 @@ const ResumeCard1 = () => {
       {/* <Text weight={900}>Norway Fjord Adventures</Text> */}
       {/* <img src="./image/resume/supperresume1.png" /> */}
       <Space h={"xl"} />
-      <img className={classes.cardIcon} src="./image/resume/superresume1.png" alt=""/>
+      <img
+        className={classes.cardIcon}
+        src="./image/resume/superresume1.png"
+        alt=""
+      />
       <Space h={35} />
 
       <div className={classes.cardTitle}>슈퍼 이력서</div>
@@ -34,6 +38,8 @@ const ResumeCard1 = () => {
             완료 하면 회사에서 요구하는 실무 <br />
             역량이 자동으로 이력서에 <br />
             반영되는 경험을 하게됩니다.
+            <br />
+            <br />
           </div>
         </>
       )}
