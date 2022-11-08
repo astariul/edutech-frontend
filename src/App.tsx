@@ -140,10 +140,10 @@ function App() {
                     image: require("../src/static/image/kakaotalk.png"),
                     title: "카카오톡으로 시작하기",
                   },
-                  {
-                    image: require("../src/static/image/google.png"),
-                    title: "구글로 시작하기",
-                  },
+                  // {
+                  //   image: require("../src/static/image/google.png"),
+                  //   title: "구글로 시작하기",
+                  // },
                 ]}
               />
             }
@@ -164,10 +164,10 @@ function App() {
                     image: require("../src/static/image/kakaotalk.png"),
                     title: "카카오톡으로 시작하기",
                   },
-                  {
-                    image: require("../src/static/image/google.png"),
-                    title: "구글로 시작하기",
-                  },
+                  // {
+                  //   image: require("../src/static/image/google.png"),
+                  //   title: "구글로 시작하기",
+                  // },
                 ]}
               />
             }
