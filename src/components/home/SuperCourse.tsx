@@ -1,6 +1,6 @@
 import useSuperCourseStyles from "./superCourseStyle";
 import { useNavigate } from "react-router-dom";
-import { Text } from "@mantine/core";
+import { Text, Space } from "@mantine/core";
 
 const SuperCourse = () => {
   const { classes, cx } = useSuperCourseStyles();
@@ -70,36 +70,66 @@ const SuperCourse = () => {
       <div className={cx(classes.mainBottom)}>
         <div className={classes.merits}>
           <div>
-            <div style={{ fontSize: "30px" }}>12시간</div>
+            <div className={cx(classes.desktop)} style={{ fontSize: "30px" }}>
+              12시간
+            </div>
+            <div className={cx(classes.mobile)} style={{ fontSize: "20px" }}>
+              12시간
+              <Space h="sm" />
+            </div>
             <br />
             가장 쉽게 배우는 <br />
             코딩교육
           </div>
           <span></span>
           <div>
-            <div style={{ fontSize: "30px" }}>15개+</div>
+            <div className={cx(classes.desktop)} style={{ fontSize: "30px" }}>
+              15개+
+            </div>
+            <div className={cx(classes.mobile)} style={{ fontSize: "20px" }}>
+              15개+
+              <Space h="sm" />
+            </div>
             <br />
-            포트폴리오 완성을 <br />
+            포폴 완성을 <br />
             위한 프로젝트
           </div>
           <span></span>
           <div>
-            <div style={{ fontSize: "30px" }}>100개 기업</div>
+            <div className={cx(classes.desktop)} style={{ fontSize: "30px" }}>
+              100개 기업
+            </div>
+            <div className={cx(classes.mobile)} style={{ fontSize: "18px" }}>
+              100개 기업
+              <Space h="sm" />
+            </div>
             <br />
             코테, 면접 <br />
             완전 정복
           </div>
           <span></span>
           <div>
-            <div style={{ fontSize: "30px" }}>밀착관리</div>
+            <div className={cx(classes.desktop)} style={{ fontSize: "30px" }}>
+              밀착관리
+            </div>
+            <div className={cx(classes.mobile)} style={{ fontSize: "20px" }}>
+              밀착관리
+              <Space h="sm" />
+            </div>
             <br />
-            학습, 취업 전담 매니저
-            <br />
+            학습, 취업 전담 <br />
+            매니저
             <br />
           </div>
           <span></span>
           <div>
-            <div style={{ fontSize: "30px" }}>네트워크</div>
+            <div className={cx(classes.desktop)} style={{ fontSize: "30px" }}>
+              네트워크
+            </div>
+            <div className={cx(classes.mobile)} style={{ fontSize: "20px" }}>
+              네트워크
+              <Space h="sm" />
+            </div>
             <br />
             CTO, 개발자 <br />
             산업군별 네트워크
