@@ -78,6 +78,8 @@ const Sub1Section: FC = () => {
           <div className={styles.sub1SectionDescriptionContainerMobile}>
             <div>SUPER</div>
             <div>담임제도</div>
+            <br />
+            <br />
             <div style={{ textAlign: "center", fontSize: "20.4836px" }}>
               학습관리 매니저와
               <br />
