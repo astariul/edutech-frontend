@@ -40,12 +40,9 @@ class AuthRepository {
     return ret;
   }
 
-  async kakaologin(token: string) {
-    const path = process.env.REACT_APP_API_URL + "auth/kakao"
-    const ret = await axios.get(
-      path,
-      { headers: {Authorization: `Bearer ${token}`} }
-    )
+  async kakaoLogin(authorizationCode: string) {
+    const path = process.env.REACT_APP_API_URL  + `auth/kakao/callback?code=${authorizationCode}`
+    const ret = await axios.get(path);
     return ret;
   }
 }

@@ -25,6 +25,7 @@ jobs: # Job 설정
 
       - name: Build
         env:
+          REACT_APP_KAKAO_REST_API_KEY: ${{secrets.REACT_APP_KAKAO_REST_API_KEY}}
           REACT_APP_COURSE_ID: ${{ secrets.REACT_APP_COURSE_ID }}
           REACT_APP_API_URL: ${{ secrets.REACT_APP_API_PROD_URL }}
           REACT_APP_IAMPORT_ID: ${{ secrets.REACT_APP_IAMPORT_ID }}

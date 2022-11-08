@@ -12,7 +12,6 @@ import AuthRepository from "./repositories/Auth";
 import { IUserProfile } from "./typings/db";
 import Survey from "./pages/survey/Survey";
 import Payment from "./pages/payment/Payment";
-import ResumeEditor from "./pages/resumeEditor/ResumeEditor";
 import Resume from "./pages/resume/Resume";
 import AuthMethodModal from "./components/authMethod/AuthMethodModal";
 import { AuthForm } from "./components/authForm/AuthForm";
@@ -22,6 +21,7 @@ import TimeBanner from "./components/timeBanner/TimeBanner";
 import FreeCourse from "./pages/freeCourse/FreeCourse";
 import { useNavigate } from "react-router-dom";
 import NetworkingProgram from "./pages/networkingProgram/NetworkingProgram";
+import KakaoTalkLogin from "./components/oauth/KakaoTalk";
 
 function App() {
   const [headerHidden, setHeaderHidden] = useState(false);
@@ -139,6 +139,7 @@ function App() {
                   {
                     image: require("../src/static/image/kakaotalk.png"),
                     title: "카카오톡으로 시작하기",
+                    serviceProvider: "kakao"
                   },
                   // {
                   //   image: require("../src/static/image/google.png"),
@@ -163,6 +164,7 @@ function App() {
                   {
                     image: require("../src/static/image/kakaotalk.png"),
                     title: "카카오톡으로 시작하기",
+                    serviceProvider: "kakao"
                   },
                   // {
                   //   image: require("../src/static/image/google.png"),
@@ -189,6 +191,7 @@ function App() {
           <Route path="/payment" element={<Payment />}></Route>
           <Route path="/resume" element={<Resume />}></Route>
           <Route path="/networking" element={<NetworkingProgram />}></Route>
+          <Route path="/auth/kakao" element={<KakaoTalkLogin />}></Route>
         </Routes>
       </AppShell>
     </MantineProvider>

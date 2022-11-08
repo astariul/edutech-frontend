@@ -181,13 +181,12 @@ const useStyles = createStyles(() => ({
       lineHeight: "20px",
       border: "none",
       height: "52px",
-      color: "#BDBDBD",
+      color: "#000000"
     },
 
     ".mantine-PasswordInput-input": {
       border: "none",
       height: "52px",
-
     },
 
     ".mantine-PasswordInput-rightSection": {
