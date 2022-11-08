@@ -1,6 +1,6 @@
 import { Button, Paper, Transition, Divider, Space } from "@mantine/core";
 import { ReactNode, useState } from "react";
-import useBodyProgramStyles from "./bodyProgramStyle";
+import {useMentorCardStyles, useBodyProgramStyles} from "./bodyProgramStyle";
 
 interface TransitionProgramProps {
   open: boolean;
@@ -61,6 +61,7 @@ interface MentorCardProps {
   nameAndPosition: string;
   company: string;
   comment: string | ReactNode;
+  cardHeight?: string;
 }
 
 const MentorCard = ({
@@ -68,8 +69,9 @@ const MentorCard = ({
   nameAndPosition,
   company,
   comment,
+  cardHeight,
 }: MentorCardProps) => {
-  const { classes, cx } = useBodyProgramStyles();
+  const { classes, cx } = useMentorCardStyles({cardHeight});
   return (
     <div className={cx(classes.rowFlex, classes.mentorCard)}>
       <div className={cx(classes.rowFlex, classes.mentorCardInner)}>
@@ -97,7 +99,6 @@ const MentorCard = ({
 const BodyProgram = () => {
   const { classes, cx } = useBodyProgramStyles();
   const [opened, setOpened] = useState(false);
-
   return (
     <>
       <section className={classes.message}>
@@ -429,6 +430,7 @@ const BodyProgram = () => {
                     들만 알기 쉽게 알려줍니다.
                   </p>
                 }
+                cardHeight={"120px"}
               />
               <MentorCard
                 image={require("../../static/image/product/mentors/krafton.png")}
@@ -448,6 +450,7 @@ const BodyProgram = () => {
                     높은 코딩 교육이라고 생각합니다.
                   </p>
                 }
+                cardHeight={"180px"}
               />
             </div>
             <Divider size={55} style={{ borderTopColor: "transparent" }} />
@@ -555,6 +558,7 @@ const BodyProgram = () => {
                     배우실 수 있으십니다.
                   </p>
                 }
+                cardHeight={"120px"}
               />
               <MentorCard
                 image={require("../../static/image/product/mentors/lunit.png")}
@@ -576,6 +580,7 @@ const BodyProgram = () => {
                     받는 느낌입니다.
                   </p>
                 }
+                cardHeight={"170px"}
               />
             </div>
             <Divider size={55} style={{ borderTopColor: "transparent" }} />
@@ -617,6 +622,7 @@ const BodyProgram = () => {
                     <br />줄 것입니다.
                   </p>
                 }
+                cardHeight={"150px"}
               />
               <MentorCard
                 image={require("../../static/image/product/mentors/spacewalk.png")}
@@ -633,6 +639,7 @@ const BodyProgram = () => {
                     만족하지 분들께 추천합니다.
                   </p>
                 }
+                cardHeight={"180px"}
               />
             </div>
             <Divider size={55} style={{ borderTopColor: "transparent" }} />
@@ -692,6 +699,7 @@ const BodyProgram = () => {
                     </strong>
                   </p>
                 }
+                cardHeight={"140px"}
               />
             </div>
           </section>
