@@ -30,6 +30,11 @@ const SuperCourse = () => {
               <div className={classes.hookLeft}>
                 개발자로취업하지못하면100%환불보장!
               </div>
+              <div className={classes.hookLeftMobile}>
+                개발자로취업하지못하면
+                <br />
+                100%환불보장!
+              </div>
               <div className={classes.hookMiddle}>
                 개발자로취업하지못하면100%환불보장!
               </div>
@@ -38,8 +43,13 @@ const SuperCourse = () => {
                 <br />
                 100%환불보장!
               </div>
-              <div className={classes.hookRight}>
+              <div className={cx(classes.hookRight)}>
                 개발자로취업하지못하면100%환불보장!
+              </div>
+              <div className={cx(classes.hookRightMobile)}>
+                개발자로취업하지못하면
+                <br />
+                100%환불보장!
               </div>
             </div>
             <div className={classes.goPaymentArea}>
