@@ -13,11 +13,11 @@ const SuperCourse = () => {
           <div className={classes.mainInner}>
             <div className={classes.messageArea}>
               <div className={classes.message}>
-                취업, 기초부터 취업까지 한번에!
+                코딩, 기초부터 취업까지 한번에!
               </div>
             </div>
             <div className={classes.titleArea}>
-              <div className={classes.titleTop}>취업관리형</div>
+              <div className={classes.titleTop}>슈퍼코딩</div>
               <div className={classes.titleBottomContainer}>
                 <div className={classes.titleBottomLeft}>웹개발 종합반</div>
                 <div className={classes.titleBottomRightContainer}>
