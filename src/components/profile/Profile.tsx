@@ -21,7 +21,7 @@ const Profile = () => {
     <Group className={classes.main}>
       <span className={classes.circle}>
         <Text className={classes.circleText}>
-          {login?.name[0]}
+          {login?.name === undefined ? "C" : login?.name[0]}
         </Text>
       </span>
       <Text className={classes.profileText} onClick={logout}>

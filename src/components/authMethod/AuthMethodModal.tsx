@@ -15,6 +15,9 @@ interface AuthMethodModalProps {
   easyMethods: {
     image: string;
     title: string;
+
+    serviceProvider: string;
+
   }[];
   key?: number; // to force rerender if user is aleady on the "/login" or "/signup" page
 }
@@ -40,10 +43,39 @@ const AuthMethodModal = ({
   const { classes } = useStyles();
   const [opened, setOpened] = useState(modalOpen);
   const navigate = useNavigate();
-  const handleClose = useCallback(() => {
-    setOpened(false);
-    navigate("/");
-  }, [navigate, setOpened]);
+
+  const handleClose = useCallback(
+    () => {
+      setOpened(false);
+      navigate("/")
+    }, [navigate, setOpened]
+  );
+  
+  const kakaoLogin = useCallback(
+    () => {
+      const kakaoAuthUrl = new URL("https://kauth.kakao.com/oauth/authorize?");
+      kakaoAuthUrl.searchParams.set("client_id", process.env.REACT_APP_KAKAO_REST_API_KEY as string);
+      kakaoAuthUrl.searchParams.set("redirect_uri", window.location.origin + "/auth/kakao");
+      kakaoAuthUrl.searchParams.set("response_type", "code");
+      kakaoAuthUrl.searchParams.set("scope", "account_email,profile_nickname");
+      window.location.href = kakaoAuthUrl.toString();
+    }, []
+  );
+
+  const socialLoginHandler = useCallback(
+    (socialServiceName: string) => {
+      switch(socialServiceName) {
+        case "kakao":
+          const response = kakaoLogin();
+          console.log(response);
+          break;
+        case "goggle":
+          //TODO
+          break;
+      }
+    }, [kakaoLogin]
+  )
+
 
   return (
     <Modal show={opened} onCloseModal={handleClose}>
@@ -59,14 +91,20 @@ const AuthMethodModal = ({
           <div className={classes.titleText}>{authType}</div>
         </div>
         <div className={classes.methodContainer}>
-          {easyMethods.map((method) => (
-            <AuthMethodButton
-              key={method.title}
-              image={method.image}
-              title={method.title}
-              onClick={() => window.alert("서비스 준비중입니다.")}
-            />
-          ))}
+
+          {
+            easyMethods.map(
+              (method) => (
+                <AuthMethodButton
+                  key={method.title}
+                  image={method.image}
+                  title={method.title}
+                  onClick={() => socialLoginHandler(method.serviceProvider)}
+                />
+              )
+            )
+          }
+
           <div className={classes.divideLine} />
           <AuthMethodButton
             image={require("../../../src/static/image/email.png")}

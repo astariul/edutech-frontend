@@ -5,7 +5,7 @@ const useBodyManagementStyles = createStyles((theme) => ({
     display: "none",
 
     [`@media (max-width: 767px)`]: {
-      display: "inline-block",
+      display: "flex",
     },
   },
 

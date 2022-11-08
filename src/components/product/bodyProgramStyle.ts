@@ -1,6 +1,123 @@
 import { createStyles } from "@mantine/core";
 
-const useBodyProgramStyles = createStyles((theme) => ({
+export const useMentorCardStyles = createStyles((theme, {cardHeight="200px"}: {cardHeight?: string}) => ({
+  rowFlex: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
+  columnFlex: {
+    display: "flex",
+    flexDirection: "column",
+  },
+
+  mentorCard: {
+    width: "569px",
+    height: "160px",
+    border: "0.994145px solid #E8E8E8",
+    background: "#FFFFFF",
+
+    [`@media (max-width: 767px)`]: {
+      maxWidth: "375px",
+      maxHeight: "250px",
+      height: "100%"
+    },
+  },
+
+  mentorCardInner: {
+    margin: "20px 24px 0px 33px",
+    width: "512px",
+    height: "138px",
+    columnGap: "14px",
+    alignItems: "center",
+
+    "div.mentorCardMentorImage": {
+      width: "95px",
+      height: "138px",
+
+      img: {
+        width: "95px",
+        height: "94px",
+      },
+    },
+
+    "div.mentorCardMentorInfo": {
+      height: "138px",
+      rowGap: "13px",
+      fontFamily: "NotoSansKR",
+      fontStyle: "normal",
+      fontWeight: 500,
+      fontSize: "12px",
+      lineHeight: "30px",
+      color: "#000000",
+
+      ".mentorCardMentorNameAndPosition": {
+        width: "154px",
+        height: "34px",
+        lineHeight: "18px",
+      },
+
+      ".mentorCardMentorComment": {
+        letterSpacing: "-0.99px",
+        fontSize: "14px",
+        lineHeight: "26px",
+        fontWeight: 400,
+
+        p: {
+          margin: 0,
+          lineHeight: "22px",
+        },
+      },
+    },
+
+    [`@media (max-width: 767px)`]: {
+      maxWidth: "375px",
+      height: cardHeight, // "200px"
+
+      "div.mentorCardMentorImage": {
+        width: "95px",
+        height: "100%",
+
+        img: {
+          width: "95px",
+          height: "94px",
+        },
+      },
+
+      "div.mentorCardMentorInfo": {
+        height: "100%",
+        rowGap: "13px",
+        fontFamily: "NotoSansKR",
+        fontStyle: "normal",
+        fontWeight: 500,
+        fontSize: "12px",
+        lineHeight: "30px",
+        color: "#000000",
+
+        ".mentorCardMentorNameAndPosition": {
+          width: "154px",
+          height: "34px",
+          lineHeight: "18px",
+        },
+
+        ".mentorCardMentorComment": {
+          letterSpacing: "-0.99px",
+          fontSize: "14px",
+          lineHeight: "26px",
+          fontWeight: 400,
+
+          p: {
+            margin: 0,
+            lineHeight: "22px",
+          },
+        },
+      },
+    },
+  },
+}));
+
+export const useBodyProgramStyles = createStyles((theme) => ({
   mobile: {
     display: "none",
 
@@ -470,109 +587,4 @@ const useBodyProgramStyles = createStyles((theme) => ({
   cardArea: {
     columnGap: "31px",
   },
-
-  mentorCard: {
-    width: "569px",
-    height: "160px",
-    border: "0.994145px solid #E8E8E8",
-    background: "#FFFFFF",
-
-    [`@media (max-width: 767px)`]: {
-      maxWidth: "375px",
-      height: "300px",
-    },
-  },
-
-  mentorCardInner: {
-    margin: "20px 24px 0px 33px",
-    width: "512px",
-    height: "138px",
-    columnGap: "14px",
-    alignItems: "center",
-
-    "div.mentorCardMentorImage": {
-      width: "95px",
-      height: "138px",
-
-      img: {
-        width: "95px",
-        height: "94px",
-      },
-    },
-
-    "div.mentorCardMentorInfo": {
-      height: "138px",
-      rowGap: "13px",
-      fontFamily: "NotoSansKR",
-      fontStyle: "normal",
-      fontWeight: 500,
-      fontSize: "12px",
-      lineHeight: "30px",
-      color: "#000000",
-
-      ".mentorCardMentorNameAndPosition": {
-        width: "154px",
-        height: "34px",
-        lineHeight: "18px",
-      },
-
-      ".mentorCardMentorComment": {
-        letterSpacing: "-0.99px",
-        fontSize: "14px",
-        lineHeight: "26px",
-        fontWeight: 400,
-
-        p: {
-          margin: 0,
-          lineHeight: "22px",
-        },
-      },
-    },
-
-    [`@media (max-width: 767px)`]: {
-      maxWidth: "375px",
-      height: "300px",
-
-      "div.mentorCardMentorImage": {
-        width: "95px",
-        height: "258px",
-
-        img: {
-          width: "95px",
-          height: "94px",
-        },
-      },
-
-      "div.mentorCardMentorInfo": {
-        height: "258px",
-        rowGap: "13px",
-        fontFamily: "NotoSansKR",
-        fontStyle: "normal",
-        fontWeight: 500,
-        fontSize: "12px",
-        lineHeight: "30px",
-        color: "#000000",
-
-        ".mentorCardMentorNameAndPosition": {
-          width: "154px",
-          height: "34px",
-          lineHeight: "18px",
-        },
-
-        ".mentorCardMentorComment": {
-          letterSpacing: "-0.99px",
-          fontSize: "14px",
-          lineHeight: "26px",
-          fontWeight: 400,
-
-          p: {
-            margin: 0,
-            lineHeight: "22px",
-          },
-        },
-      },
-    },
-  },
 }));
-
-export default useBodyProgramStyles;

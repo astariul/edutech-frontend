@@ -5,7 +5,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
     display: "none",
 
     [`@media (max-width: 767px)`]: {
-      display: "inline-block",
+      display: "flex",
     },
   },
 
@@ -35,7 +35,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
     height: "808px",
 
     [`@media (max-width: 767px)`]: {
-      height: "900px",
+      height: "980px",
     },
   },
 
