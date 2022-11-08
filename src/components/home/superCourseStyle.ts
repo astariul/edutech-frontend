@@ -16,8 +16,12 @@ const useSuperCourseStyles = createStyles((theme) => ({
   },
   mainTop: {
     position: "relative",
-    backgroundImage: "url(/image/home/superCourseBackground.png)",
-    backgroundSize: "100% 200%",
+    backgroundImage: "url(/image/home/superCourseBackground2.png)",
+    backgroundSize: "100% 100%",
+    [`@media (max-width: 767px)`]: {
+      backgroundSize: "cover",
+      backgroundPositionX: "50%",
+    },
   },
   mainPoint: {
     // position: "relative",

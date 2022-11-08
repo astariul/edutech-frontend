@@ -68,13 +68,13 @@ const ProductTable = () => {
             </div>
           </td>
           <td>
-            슈퍼코딩 강의 20강
+            슈퍼코딩 강의
             <br />
-            슈퍼 프로젝트 24개
+            단계별 프로젝트 15개 이상
           </td>
           <td>
-            <div>슈퍼코딩 강의 20강</div>
-            <div>슈퍼 프로젝트 24개</div>
+            <div>슈퍼코딩 강의</div>
+            <div>단계별 프로젝트 15개 이상</div>
           </td>
         </tr>
         <tr>
@@ -87,8 +87,8 @@ const ProductTable = () => {
           </td>
           <td>해당사항없음</td>
           <td>
-            <div>슈퍼 팀프로젝트 3회</div>
-            <div>슈퍼 해커톤 1회</div>
+            <div>슈퍼 팀프로젝트</div>
+            <div>슈퍼 해커톤</div>
           </td>
         </tr>
         <tr>
@@ -101,10 +101,10 @@ const ProductTable = () => {
           </td>
           <td>해당사항없음</td>
           <td>
-            <div>슈퍼 기출 코딩 테스트 999개</div>
-            <div>CTO 추천서</div>
-            <div>면접 코칭</div>
-            <div>2시간 슈코 멘토링</div>
+            <div>기출 코딩 테스트 </div>
+            <div>모의 테스트</div>
+            <div>면접 강의, 모의 면접</div>
+            <div>슈퍼 멘토링</div>
           </td>
         </tr>
       </tbody>
@@ -154,19 +154,19 @@ const BodyTop = () => {
                 <span className={classes.emphasizer}>합격</span>하는 이력서와
                 포트폴리오를 만들수 있을까?{" "}
                 <span className={classes.hashTag}>
-                  #단계별프로젝트 #슈퍼해커
+                  #15개+프로젝트 #포트폴리오첨삭
                 </span>
               </li>
               <li>
                 개발자로 취업하기 어렵다던데{" "}
                 <span className={classes.emphasizer}>코딩테스트는</span> 어떻게
                 통과하지?{" "}
-                <span className={classes.hashTag}>#000대 기업 취업기출</span>
+                <span className={classes.hashTag}>#100대 기업 취업기출</span>
               </li>
               <li>
                 두렵기만한 <span className={classes.emphasizer}>기술면접</span>{" "}
                 어떻게 준비하지?{" "}
-                <span className={classes.hashTag}>#면접기출 #합격비법</span>
+                <span className={classes.hashTag}>#면접기출 #면접코칭</span>
               </li>
               <li>
                 어렵기만한 <span className={classes.emphasizer}>채용공고</span>{" "}
@@ -192,7 +192,7 @@ const BodyTop = () => {
                 포트폴리오를 만들수 있을까?
                 <br />
                 <span className={classes.hashTag}>
-                  #단계별프로젝트 #슈퍼해커
+                  #15개+프로젝트 #포트폴리오첨삭
                 </span>
               </p>
               <p>
@@ -200,13 +200,13 @@ const BodyTop = () => {
                 <span className={classes.emphasizer}>코딩테스트는</span> 어떻게
                 통과하지?
                 <br />
-                <span className={classes.hashTag}>#000대 기업 취업기출</span>
+                <span className={classes.hashTag}>#100대 기업 취업기출</span>
               </p>
               <p>
                 두렵기만한 <span className={classes.emphasizer}>기술면접</span>{" "}
                 어떻게 준비하지?
                 <br />
-                <span className={classes.hashTag}>#면접기출 #합격비법</span>
+                <span className={classes.hashTag}>#면접기출 #면접코칭</span>
               </p>
               <p>
                 어렵기만한 <span className={classes.emphasizer}>채용공고</span>{" "}

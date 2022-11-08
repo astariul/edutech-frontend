@@ -1,18 +1,20 @@
+import useBottomStyles from "./bottomStyle";
 
-import useBottomStyles from './bottomStyle';
-
-import { Checkbox } from '@mantine/core';
-import { Button } from '@mantine/core';
-import { useNavigate } from 'react-router-dom';
+import { Checkbox } from "@mantine/core";
+import { Button } from "@mantine/core";
+import { useNavigate } from "react-router-dom";
 
 const ProductTable = () => {
-  const {classes} = useBottomStyles();
+  const { classes } = useBottomStyles();
   return (
     <table className={classes.table}>
       <thead>
         <tr>
           <th>
-            <img src={require("../../static/image/supercodinglogoL.png")} alt="supercodinglogo" />
+            <img
+              src={require("../../static/image/supercodinglogoL.png")}
+              alt="supercodinglogo"
+            />
             <div>
               <div>수퍼코딩</div>
               <div>웹개발 종합반</div>
@@ -20,7 +22,10 @@ const ProductTable = () => {
           </th>
           <th>
             <div>
-              <div>자기주도형 <br />웹개발 종합반</div>
+              <div>
+                자기주도형 <br />
+                웹개발 종합반
+              </div>
               <div>
                 <div>2개월</div>
                 <div>390,000원</div>
@@ -30,9 +35,14 @@ const ProductTable = () => {
           <th>
             <div>
               <div>슈퍼 얼리버드 특가</div>
-              <div>취업관리형 <br />웹개발 종합반 PLUS</div>
               <div>
-                <div>6개월 <span>890,000원</span></div>
+                취업관리형 <br />
+                웹개발 종합반 PLUS
+              </div>
+              <div>
+                <div>
+                  6개월 <span>890,000원</span>
+                </div>
                 <div>390,000원</div>
               </div>
             </div>
@@ -42,7 +52,10 @@ const ProductTable = () => {
       <tbody>
         <tr>
           <td>
-            <img src={require("../../static/image/product/super.png")} alt="super"/>
+            <img
+              src={require("../../static/image/product/super.png")}
+              alt="super"
+            />
             <div>
               <div>100%취업 안심보장</div>
               <div>*하단 환불 유의사항을 꼭 확인해주세요.</div>
@@ -59,14 +72,13 @@ const ProductTable = () => {
               <div>프로그래밍 교육</div>
             </div>
           </td>
-          <td>슈퍼코딩 강의 20강<br />슈퍼 프로젝트 24개</td>
           <td>
-            <div>
-              슈퍼코딩 강의 20강
-            </div>
-            <div>
-              슈퍼 프로젝트 24개
-            </div>
+            슈퍼코딩 강의 <br />
+            슈퍼 프로젝트 15개 이상
+          </td>
+          <td>
+            <div>슈퍼코딩 강의 </div>
+            <div>슈퍼 프로젝트 15개 이상</div>
           </td>
         </tr>
         <tr>
@@ -79,12 +91,8 @@ const ProductTable = () => {
           </td>
           <td>해당사항없음</td>
           <td>
-            <div>
-              슈퍼 팀프로젝트 3회
-            </div>
-            <div>
-              슈퍼 해커톤 1회
-            </div>
+            <div>슈퍼 팀프로젝트 </div>
+            <div>슈퍼 해커톤 </div>
           </td>
         </tr>
         <tr>
@@ -97,27 +105,19 @@ const ProductTable = () => {
           </td>
           <td>해당사항없음</td>
           <td>
-            <div>
-              슈퍼 기출 코딩 테스트 999개
-            </div>
-            <div>
-              CTO 추천서
-            </div>
-            <div>
-              면접 코칭
-            </div>
-            <div>
-              2시간 슈코 멘토링
-            </div>
+            <div>기출 코딩 테스트 </div>
+            <div>CTO 추천서</div>
+            <div>면접 코칭</div>
+            <div>슈퍼 멘토링</div>
           </td>
         </tr>
       </tbody>
     </table>
-  )
-}
+  );
+};
 
 const Bottom = () => {
-  const {classes} = useBottomStyles();
+  const { classes } = useBottomStyles();
   const navigate = useNavigate();
   return (
     <>
@@ -125,8 +125,10 @@ const Bottom = () => {
         <div>
           <h2>
             개발자로서의 실패없는 취업을 원한다면, 오직 취업을 목표로하는
-            <br/>'취업 관리형 프론트엔드 웹개발 종합반 Plus'는 당연한 선택입니다.
-            <br/>지금바로, 슈퍼코딩으로 시작하세요.
+            <br />
+            '취업 관리형 프론트엔드 웹개발 종합반 Plus'는 당연한 선택입니다.
+            <br />
+            지금바로, 슈퍼코딩으로 시작하세요.
           </h2>
         </div>
       </section>
@@ -134,10 +136,13 @@ const Bottom = () => {
         <div>
           <h2>
             개발자로서의 실패없는 취업을 원한다면,
-            <br/>오직 취업을 목표로하는
-            <br/>'취업 관리형 프론트엔드 웹개발 종합반 Plus'
-            <br/>는 당연한 선택입니다.
-            <br/>지금바로, 슈퍼코딩으로 시작하세요.
+            <br />
+            오직 취업을 목표로하는
+            <br />
+            '취업 관리형 프론트엔드 웹개발 종합반 Plus'
+            <br />는 당연한 선택입니다.
+            <br />
+            지금바로, 슈퍼코딩으로 시작하세요.
           </h2>
         </div>
       </section>
@@ -145,32 +150,44 @@ const Bottom = () => {
         <section className={classes.contents}>
           <section className={classes.tableSection}>
             <div>
-              취업하지 못하면 <span className={classes.emphasizer}>100%환불</span>합니다.
+              취업하지 못하면{" "}
+              <span className={classes.emphasizer}>100%환불</span>합니다.
               <br />
               취업관리형 웹개발 종합반 Plus
             </div>
             <div className={classes.tableArea}>
-              <img src={require("../../static/image/product/productTable.png")} alt="productTable" />
+              <img
+                src={require("../../static/image/product/productTable.png")}
+                alt="productTable"
+              />
               <Checkbox
                 className={classes.checkbox}
                 radius={0}
                 label={
                   <div>
-                  <span style={{color: "#000000", textDecoration: "underline"}}>상품 이용관련 유의사항을 모두 확인</span>
-                  하였고, 이에 동의합니다.
-                </div>
-              }/>
+                    <span
+                      style={{ color: "#000000", textDecoration: "underline" }}
+                    >
+                      상품 이용관련 유의사항을 모두 확인
+                    </span>
+                    하였고, 이에 동의합니다.
+                  </div>
+                }
+              />
             </div>
             <Button
               className={classes.button}
-              onClick={() => navigate("/payment", { state: process.env.REACT_APP_COURSE_ID })}
-            >지금바로구매
+              onClick={() =>
+                navigate("/payment", { state: process.env.REACT_APP_COURSE_ID })
+              }
+            >
+              지금바로구매
             </Button>
           </section>
         </section>
       </section>
     </>
-  )
-}
+  );
+};
 
 export default Bottom;

@@ -81,15 +81,14 @@ const SuperCourse = () => {
         <div className={classes.merits}>
           <div style={{ fontSize: "14px" }}>
             <div className={cx(classes.desktop)} style={{ fontSize: "30px" }}>
-              12시간
+              가장 쉬운
             </div>
             <div className={cx(classes.mobile)} style={{ fontSize: "20px" }}>
-              12시간
+              가장 쉬운
               <Space h="sm" />
             </div>
             <br />
-            가장 쉽게 배우는 <br />
-            코딩교육
+            가장 쉽게배우는 코딩교육
           </div>
           <span></span>
           <div style={{ fontSize: "14px" }}>
@@ -101,8 +100,7 @@ const SuperCourse = () => {
               <Space h="sm" />
             </div>
             <br />
-            포폴 완성을 <br />
-            위한 프로젝트
+            이력서 완벽 업그레이드 <br />
           </div>
           <span></span>
           <div style={{ fontSize: "14px" }}>
@@ -114,21 +112,19 @@ const SuperCourse = () => {
               <Space h="sm" />
             </div>
             <br />
-            코테, 면접 <br />
-            완전 정복
+            코테, 면접 완전 정복
           </div>
           <span></span>
           <div style={{ fontSize: "14px" }}>
             <div className={cx(classes.desktop)} style={{ fontSize: "30px" }}>
-              밀착관리
+              취업까지 밀착관리
             </div>
             <div className={cx(classes.mobile)} style={{ fontSize: "20px" }}>
               밀착관리
               <Space h="sm" />
             </div>
             <br />
-            학습, 취업 전담 <br />
-            매니저
+            학습, 취업 전담 매니저
             <br />
           </div>
           <span></span>
@@ -142,7 +138,7 @@ const SuperCourse = () => {
             </div>
             <br />
             CTO, 개발자 <br />
-            산업군별 네트워크
+            산업군별
           </div>
         </div>
       </div>

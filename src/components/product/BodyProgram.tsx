@@ -1,6 +1,6 @@
 import { Button, Paper, Transition, Divider, Space } from "@mantine/core";
 import { ReactNode, useState } from "react";
-import {useMentorCardStyles, useBodyProgramStyles} from "./bodyProgramStyle";
+import { useMentorCardStyles, useBodyProgramStyles } from "./bodyProgramStyle";
 
 interface TransitionProgramProps {
   open: boolean;
@@ -71,7 +71,7 @@ const MentorCard = ({
   comment,
   cardHeight,
 }: MentorCardProps) => {
-  const { classes, cx } = useMentorCardStyles({cardHeight});
+  const { classes, cx } = useMentorCardStyles({ cardHeight });
   return (
     <div className={cx(classes.rowFlex, classes.mentorCard)}>
       <div className={cx(classes.rowFlex, classes.mentorCardInner)}>
@@ -406,8 +406,9 @@ const BodyProgram = () => {
             />
             <Divider size={43.51} style={{ borderTopColor: "transparent" }} />
             <img
-              src={require("../../static/image/product/techStacks.png")}
+              src={require("../../static/image/product/techStacksMobile.png")}
               alt="techStacks"
+              width="100%"
             />
             <Divider size={33} style={{ borderTopColor: "transparent" }} />
             <span className={classes.quotes}>
@@ -460,17 +461,13 @@ const BodyProgram = () => {
                   2. 코딩은 처음부터 제대로
                   <br />
                   그리고 쉽게 배워야 합니다.
-                  <br />
-                  여러분 안에있는
-                  <br />
-                  코딩잠재력을 깨워주세요.
                 </>
               }
               subMessage={
                 <>
-                  어려운 전문용어와 생소한
+                  어려운 전문용어와 불친절한
                   <br />
-                  기술 변천사로 고생하지 마세요.
+                  교육컨텐츠로 고생하지 마세요.
                 </>
               }
             />
