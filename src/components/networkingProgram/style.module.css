@@ -128,7 +128,7 @@
 
 .sub1SectionContainer {
   padding-top: 40px;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -139,8 +139,8 @@
   font-weight: 700;
   font-size: 32px;
   line-height: 78px;
-  display: flex;
-  align-items: center;
+  /* display: flex; */
+  /* align-items: center; */
   text-align: center;
   letter-spacing: -2px;
   color: #000000;
