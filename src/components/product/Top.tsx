@@ -9,18 +9,18 @@ const Top = () => {
         <div className={classes.topInner}>
           <div className={classes.messageArea}>
             <div className={classes.message}>
-              취업을 위한 코딩 교육은 달라야 합니다.
+              코딩, 기초부터 취업까지 한번에!
             </div>
           </div>
           <div className={classes.titleArea}>
             <div className={classes.titleTop}>
               슈퍼코딩
               <br />
-              웹개발 종합반 1기
+              웹개발 종합반 Plus
             </div>
             <div className={classes.titleTopMobile}>
               <span>슈퍼코딩</span>
-              <span>웹개발 종합반 1기</span>
+              <span>웹개발 종합반 Plus</span>
             </div>
           </div>
           <div className={classes.hookArea}>
@@ -63,7 +63,7 @@ const Top = () => {
                 src={require("../../static/image/product/angleBracketLeft.png")}
                 alt="CaretRight"
               />
-              <div>11월 20일 1기 마감! 지금이 최저가</div>
+              <div>11월 20일 1차 마감! {"  "}지금이 최저가</div>
               <img
                 src={require("../../static/image/product/angleBracketRight.png")}
                 alt="CaretRight"

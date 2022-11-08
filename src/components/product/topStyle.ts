@@ -1,4 +1,4 @@
-import { createStyles } from '@mantine/core';
+import { createStyles } from "@mantine/core";
 
 const useTopStyles = createStyles((theme) => ({
   topSection: {
@@ -10,9 +10,9 @@ const useTopStyles = createStyles((theme) => ({
     [`@media (max-width: 900px)`]: {
       marginTop: "0px",
       height: "564px",
-    }
+    },
   },
-  
+
   topInner: {
     fontFamily: "NotoSansKR",
     display: "flex",
@@ -23,12 +23,11 @@ const useTopStyles = createStyles((theme) => ({
     [`@media (max-width: 900px)`]: {
       width: "375px",
       margin: "0 auto",
-      paddingTop: "181px"
-    }
-
+      paddingTop: "181px",
+    },
   },
 
-  messageArea : {
+  messageArea: {
     paddingTop: "58px",
     marginLeft: "auto",
     marginRight: "auto",
@@ -41,10 +40,10 @@ const useTopStyles = createStyles((theme) => ({
     textTransform: "uppercase",
 
     [`@media (max-width: 900px)`]: {
-      paddingTop: 0
-    }
+      paddingTop: 0,
+    },
   },
-  
+
   message: {
     lineHeight: "50px",
     fontSize: "20px",
@@ -58,7 +57,7 @@ const useTopStyles = createStyles((theme) => ({
       fontSize: "12.07px",
       lineHeight: "31px",
       letterSpacing: "-0.07em",
-    }
+    },
   },
 
   titleArea: {
@@ -76,16 +75,17 @@ const useTopStyles = createStyles((theme) => ({
 
     [`@media (max-width: 900px)`]: {
       paddingTop: "11.55px",
-    }
+    },
   },
 
   titleTop: {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    width: "535px",
+    // width: "535px",
+    width: "635px",
     lineHeight: "81.53px",
-    
+
     [`@media (max-width: 900px)`]: {
       display: "none",
     },
@@ -93,14 +93,14 @@ const useTopStyles = createStyles((theme) => ({
 
   titleTopMobile: {
     display: "none",
-    
+
     [`@media (max-width: 900px)`]: {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
       width: "535px",
       lineHeight: "81.53px",
-      flexDirection: "column"
+      flexDirection: "column",
     },
 
     "& > span: nth-of-type(1)": {
@@ -111,7 +111,7 @@ const useTopStyles = createStyles((theme) => ({
         fontWeight: 700,
         lineHeight: "65px",
         letterSpacing: "-0.07em",
-      }
+      },
     },
 
     "& > span: nth-of-type(2)": {
@@ -121,8 +121,8 @@ const useTopStyles = createStyles((theme) => ({
         fontWeight: 700,
         lineHeight: "65px",
         letterSpacing: "-0.07em",
-      }
-    }
+      },
+    },
   },
 
   hookArea: {
@@ -150,7 +150,7 @@ const useTopStyles = createStyles((theme) => ({
     },
 
     [`@media (max-width: 900px)`]: {
-      display: "none"
+      display: "none",
     },
 
     "& > div:nth-of-type(1)": {
@@ -159,7 +159,7 @@ const useTopStyles = createStyles((theme) => ({
 
     "& > div:nth-of-type(5)": {
       marginRight: "-190px",
-    }
+    },
   },
 
   hookAreaMobile: {
@@ -180,7 +180,7 @@ const useTopStyles = createStyles((theme) => ({
       height: "35px",
       columnGap: "20px",
       textAlign: "center",
-   },
+    },
   },
 
   hookLeft: {
@@ -191,10 +191,10 @@ const useTopStyles = createStyles((theme) => ({
     [`@media (max-width: 900px)`]: {
       display: "none",
       visibility: "hidden",
-      marginLeft: "-90px"
-    }
+      marginLeft: "-90px",
+    },
   },
-  
+
   hookLeftMobile: {
     fontSize: "20px",
     color: "#85B6FF",
@@ -202,18 +202,18 @@ const useTopStyles = createStyles((theme) => ({
     display: "none",
 
     [`@media (max-width: 900px)`]: {
-      display: "block",      
+      display: "block",
       marginLeft: "-120px",
       wordBreak: "keep-all",
-    }
+    },
   },
 
   hookMiddle: {
     color: "#43FF4A",
 
     [`@media (max-width: 900px)`]: {
-      display: "none"
-    }
+      display: "none",
+    },
   },
 
   hookMiddleMobile: {
@@ -223,7 +223,7 @@ const useTopStyles = createStyles((theme) => ({
     [`@media (max-width: 900px)`]: {
       display: "hidden",
       wordBreak: "keep-all",
-    }
+    },
   },
 
   hookRight: {
@@ -233,7 +233,7 @@ const useTopStyles = createStyles((theme) => ({
 
     [`@media (max-width: 900px)`]: {
       display: "none",
-    }
+    },
   },
 
   hookRightMobile: {
@@ -245,8 +245,8 @@ const useTopStyles = createStyles((theme) => ({
       color: "#85B6FF",
       opacity: 0.5,
       wordBreak: "keep-all",
-      marginRight: "-90px"
-    }
+      marginRight: "-90px",
+    },
   },
 
   bottomMessageArea: {
@@ -259,7 +259,7 @@ const useTopStyles = createStyles((theme) => ({
       paddingTop: "54px",
     },
   },
-  
+
   bottomMessage: {
     width: "454.71px",
     height: "60px",
@@ -270,9 +270,9 @@ const useTopStyles = createStyles((theme) => ({
     [`@media (max-width: 900px)`]: {
       width: "270px",
     },
-    
+
     "& > img": {
-      width:"32.75px",
+      width: "32.75px",
 
       [`@media (max-width: 900px)`]: {
         width: "20.75px",
@@ -302,10 +302,10 @@ const useTopStyles = createStyles((theme) => ({
     borderRadius: "13px",
 
     [`@media (max-width: 900px)`]: {
-      width: "336px"
-    }
+      width: "336px",
+    },
   },
-  
+
   boxInner: {
     display: "flex",
     flexDirection: "row",
@@ -318,7 +318,7 @@ const useTopStyles = createStyles((theme) => ({
     [`@media (max-width: 900px)`]: {
       paddingLeft: "29px",
       paddingRight: "6px",
-    }
+    },
   },
 
   boxLeft: {
@@ -335,9 +335,9 @@ const useTopStyles = createStyles((theme) => ({
 
     [`@media (max-width: 900px)`]: {
       fontSize: "20px",
-    }
+    },
   },
-  
+
   boxRightContainer: {
     width: "191px",
     height: "45px",
@@ -349,7 +349,7 @@ const useTopStyles = createStyles((theme) => ({
 
     [`@media (max-width: 900px)`]: {
       width: "169px",
-    }
+    },
   },
 
   boxRightLeft: {
@@ -361,7 +361,7 @@ const useTopStyles = createStyles((theme) => ({
     alignItems: "center",
     [`@media (max-width: 900px)`]: {
       fontSize: "17px",
-    }
+    },
   },
 
   boxRightRight: {
@@ -386,7 +386,7 @@ const useTopStyles = createStyles((theme) => ({
     height: "120.24px",
 
     [`@media (max-width: 1024px)`]: {
-        display: "none",
+      display: "none",
     },
   },
 
@@ -394,16 +394,15 @@ const useTopStyles = createStyles((theme) => ({
     display: "none",
 
     [`@media (max-width: 1024px)`]: {
-        paddingTop: "30px",
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "120.24px",
+      paddingTop: "30px",
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+      height: "120.24px",
     },
 
-    [`@media (max-width: 900px)`]: {
-    },
+    [`@media (max-width: 900px)`]: {},
   },
 
   ticket: {
@@ -412,7 +411,7 @@ const useTopStyles = createStyles((theme) => ({
     fontFamily: "NotoSansKR",
     fontStyle: "normal",
     backgroundImage: "url(/image/home/superCourseTicketBackground.png)",
-    borderRadius: "9.91px"
+    borderRadius: "9.91px",
   },
 
   ticketInner: {
@@ -426,7 +425,6 @@ const useTopStyles = createStyles((theme) => ({
     [`@media (min-width: 900px) and (max-width: 1350px)`]: {
       paddingTop: "18.21px",
       paddingLeft: "29.13px",
-
     },
 
     [`@media (max-width: 900px)`]: {
@@ -501,14 +499,14 @@ const useTopStyles = createStyles((theme) => ({
       fontSize: "12.74px",
       lineHeight: "18px",
       letterSpacing: "-0.05em",
-      paddingRight: "4.58px"
+      paddingRight: "4.58px",
     },
 
     [`@media (max-width: 900px)`]: {
       fontSize: "12.74px",
       lineHeight: "18px",
       letterSpacing: "-0.05em",
-      paddingRight: "4.58px"
+      paddingRight: "4.58px",
     },
   },
 
@@ -520,13 +518,12 @@ const useTopStyles = createStyles((theme) => ({
       width: "14.57px",
       height: "14.57px",
     },
-  
+
     [`@media (max-width: 900px)`]: {
       width: "14.57px",
       height: "14.57px",
-
     },
-  }
+  },
 }));
 
 export default useTopStyles;
