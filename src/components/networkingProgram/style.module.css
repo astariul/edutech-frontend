@@ -316,6 +316,17 @@
   display: flex;
 }
 
+.sub2SectionContainerMobile {
+  width: 100%;
+  /* height: 100%; */
+  background-image: url("/public/image/networkingProgram/sub2BackgroundMobile.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  display: flex;
+}
+
 .sub2SectionDescriptionContainer {
   padding: 42px 0 71px;
   width: 100%;
