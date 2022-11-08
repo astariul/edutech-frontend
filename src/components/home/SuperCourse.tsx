@@ -1,8 +1,9 @@
 import useSuperCourseStyles from "./superCourseStyle";
 import { useNavigate } from "react-router-dom";
+import { Text } from "@mantine/core";
 
 const SuperCourse = () => {
-  const { classes } = useSuperCourseStyles();
+  const { classes, cx } = useSuperCourseStyles();
   const navigate = useNavigate();
   return (
     <>
@@ -66,31 +67,42 @@ const SuperCourse = () => {
           </div>
         </div>
       </section>
-      <div className={classes.mainBottom}>
+      <div className={cx(classes.mainBottom)}>
         <div className={classes.merits}>
           <div>
-            가장 쉽게, 제대로 <br />
-            배우는 코딩교육
+            <div style={{ fontSize: "30px" }}>12시간</div>
+            <br />
+            가장 쉽게 배우는 <br />
+            코딩교육
           </div>
           <span></span>
           <div>
-            이력서 완벽 업그레이드를 위한 <br />
-            단계별 난이도 15개 이상의 프로젝트
+            <div style={{ fontSize: "30px" }}>15개+</div>
+            <br />
+            포트폴리오 완성을 <br />
+            위한 프로젝트
           </div>
           <span></span>
           <div>
-            코딩테스트, <br />
-            면접 완전 정복
+            <div style={{ fontSize: "30px" }}>100개 기업</div>
+            <br />
+            코테, 면접 <br />
+            완전 정복
           </div>
           <span></span>
           <div>
-            학습과 취업 모두 완벽한 관리: <br />
-            학습매니저, 취업매니저
+            <div style={{ fontSize: "30px" }}>밀착관리</div>
+            <br />
+            학습, 취업 전담 매니저
+            <br />
+            <br />
           </div>
           <span></span>
           <div>
-            현직 CTO, 개발자 슈퍼멘토와 <br />
-            함께하는 네트워크
+            <div style={{ fontSize: "30px" }}>네트워크</div>
+            <br />
+            CTO, 개발자 <br />
+            산업군별 네트워크
           </div>
         </div>
       </div>

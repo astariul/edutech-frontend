@@ -1,10 +1,34 @@
 import { createStyles } from "@mantine/core";
 
 const useSuperCourseStyles = createStyles((theme) => ({
+  mobile: {
+    display: "none",
+
+    [`@media (max-width: 767px)`]: {
+      display: "inline-block",
+    },
+  },
+
+  desktop: {
+    [`@media (max-width: 767px)`]: {
+      display: "none",
+    },
+  },
   mainTop: {
     position: "relative",
     backgroundImage: "url(/image/home/superCourseBackground.png)",
     backgroundSize: "100% 200%",
+  },
+  mainPoint: {
+    // position: "relative",
+    fontFamily: "NotoSansKR",
+    fontSize: "20",
+    [`@media (max-width: 767px)`]: {
+      // fontSize: "30",
+      fontWeight: 700,
+      lineHeight: "64.8px",
+      letterSpacing: "-0.07em",
+    },
   },
 
   TopInner: {
@@ -362,7 +386,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
 
     div: {
       fontWeight: 700,
-      fontSize: "16px",
+      // fontSize: "16px",
       lineHeight: "26px",
       wordBreak: "keep-all",
     },
@@ -377,7 +401,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     [`@media (max-width: 1024px)`]: {
       div: {
         fontWeight: 600,
-        fontSize: "14px",
+        // fontSize: "14px",
         lineHeight: "24px",
       },
     },
@@ -388,7 +412,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
 
       div: {
         fontWeight: 600,
-        fontSize: "12px",
+        // fontSize: "12px",
         lineHeight: "22px",
       },
       span: {
