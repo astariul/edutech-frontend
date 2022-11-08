@@ -3,7 +3,6 @@ import Modal from "../modal/Modal";
 import useStyles from "./style";
 import { useNavigate } from "react-router-dom";
 
-
 interface AuthMethodButtonProps {
   image: string;
   title: string;
@@ -15,7 +14,8 @@ interface AuthMethodModalProps {
   authType: "회원가입" | "로그인";
   easyMethods: {
     image: string;
-    title: string;    
+    title: string;
+    serviceProvider: string;
   }[];
   key?: number; // to force rerender if user is aleady on the "/login" or "/signup" page
 }
@@ -53,6 +53,31 @@ const AuthMethodModal = ({
       navigate("/")
     }, [navigate, setOpened]
   );
+  
+  const kakaoLogin = useCallback(
+    () => {
+      const kakaoAuthUrl = new URL("https://kauth.kakao.com/oauth/authorize?");
+      kakaoAuthUrl.searchParams.set("client_id", process.env.REACT_APP_KAKAO_REST_API_KEY as string);
+      kakaoAuthUrl.searchParams.set("redirect_uri", "http://localhost:3000/auth/kakao");
+      kakaoAuthUrl.searchParams.set("response_type", "code");
+      kakaoAuthUrl.searchParams.set("scope", "account_email,profile_nickname");
+      window.location.href = kakaoAuthUrl.toString();
+    }, []
+  );
+
+  const socialLoginHandler = useCallback(
+    (socialServiceName: string) => {
+      switch(socialServiceName) {
+        case "kakao":
+          const response = kakaoLogin();
+          console.log(response);
+          break;
+        case "goggle":
+          //TODO
+          break;
+      }
+    }, [kakaoLogin]
+  )
 
   return (
     <Modal
@@ -72,7 +97,7 @@ const AuthMethodModal = ({
                   key={method.title}
                   image={method.image}
                   title={method.title}
-                  onClick={() => window.alert("서비스 준비중입니다.")}
+                  onClick={() => socialLoginHandler(method.serviceProvider)}
                 />
               )
             )
