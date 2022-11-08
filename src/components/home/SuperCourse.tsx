@@ -69,7 +69,7 @@ const SuperCourse = () => {
       </section>
       <div className={cx(classes.mainBottom)}>
         <div className={classes.merits}>
-          <div>
+          <div style={{ fontSize: "14px" }}>
             <div className={cx(classes.desktop)} style={{ fontSize: "30px" }}>
               12시간
             </div>
@@ -82,7 +82,7 @@ const SuperCourse = () => {
             코딩교육
           </div>
           <span></span>
-          <div>
+          <div style={{ fontSize: "14px" }}>
             <div className={cx(classes.desktop)} style={{ fontSize: "30px" }}>
               15개+
             </div>
@@ -95,7 +95,7 @@ const SuperCourse = () => {
             위한 프로젝트
           </div>
           <span></span>
-          <div>
+          <div style={{ fontSize: "14px" }}>
             <div className={cx(classes.desktop)} style={{ fontSize: "30px" }}>
               100개 기업
             </div>
@@ -108,7 +108,7 @@ const SuperCourse = () => {
             완전 정복
           </div>
           <span></span>
-          <div>
+          <div style={{ fontSize: "14px" }}>
             <div className={cx(classes.desktop)} style={{ fontSize: "30px" }}>
               밀착관리
             </div>
@@ -122,7 +122,7 @@ const SuperCourse = () => {
             <br />
           </div>
           <span></span>
-          <div>
+          <div style={{ fontSize: "14px" }}>
             <div className={cx(classes.desktop)} style={{ fontSize: "30px" }}>
               네트워크
             </div>

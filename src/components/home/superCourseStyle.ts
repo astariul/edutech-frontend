@@ -311,7 +311,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     fontStyle: "normal",
 
     [`@media (max-width: 767px)`]: {
-      paddingLeft: "29px",
+      paddingLeft: "20px",
       paddingRight: "6px",
     },
   },
