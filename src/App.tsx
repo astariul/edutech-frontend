@@ -66,7 +66,7 @@ function App() {
       setBannerMessage("완강 후기 작성하면 1개월 무료!");
       setbannerButtonMesg("이벤트 바로가기");
       setBannerMessageColor("#DBFF00");
-      setBannerOn(true);
+      setBannerOn(false);
     } else if (location.pathname.startsWith("/payment") && mobileScreen) {
       setHeaderHidden(true);
       setFooterHidden(true);
