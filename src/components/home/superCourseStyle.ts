@@ -384,14 +384,14 @@ const useSuperCourseStyles = createStyles((theme) => ({
       width: "200px",
       fontSize: "20px",
     },
-    [`@media (max-width: 3765px)`]: {
+    [`@media (max-width: 376px)`]: {
       width: "200px",
       fontSize: "18px",
     },
   },
 
   boxRightContainer: {
-    width: "128px",
+    width: "193px",
     height: "45px",
     display: "flex",
     flexDirection: "row",
@@ -411,10 +411,12 @@ const useSuperCourseStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
+
     [`@media (max-width: 767px)`]: {
       fontSize: "17px",
     },
-    [`@media (max-width: 340px)`]: {
+
+    [`@media (max-width: 376px)`]: {
       fontSize: "15px",
     },
   },

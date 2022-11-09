@@ -56,15 +56,16 @@ const SuperCourse = () => {
               <div
                 className={classes.box}
                 onClick={() =>
-                  navigate("/course", {
+                  navigate("/payment", {
                     state: process.env.REACT_APP_COURSE_ID,
                   })
                 }
               >
                 <div className={classes.boxInner}>
-                  <div className={classes.boxLeft}>11월 20일 1차 마감!</div>
+                  <div className={classes.boxLeft}>11월 20일 1기 마감!</div>
                   <div className={classes.boxRightContainer}>
-                    <div className={classes.boxRightLeft}>지금 구매하기</div>
+                    <div className={cx(classes.boxRightLeft, classes.mobile)}>지금 구매하기</div>
+                    <div className={cx(classes.boxRightLeft, classes.desktop)}>지금 바로 구매하러 가기</div>
                     <img
                       className={classes.boxRightRight}
                       src={require("../../static/image/home/CaretRight.png")}
