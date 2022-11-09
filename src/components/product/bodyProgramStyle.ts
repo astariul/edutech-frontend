@@ -562,24 +562,24 @@ export const useBodyProgramStyles = createStyles((theme) => ({
     paddingRight: "100px",
     display: "flex",
     flexDirection: "column",
-
+    
     [`@media (max-width: 767px)`]: {
-      paddingLeft: "15px",
+      paddingLeft: "10px",
       paddingRight: "0px",
       justifyContent: "center",
       alignItems: "center",
-
       margin: "0 auto",
       maxWidth: "766px",
       width: "90%",
     },
-
+    
     "& > img": {
       width: "968px",
       height: "1178px",
 
       [`@media (max-width: 767px)`]: {
-        width: "375px",
+        width: "335px",
+        height: "auto",
       },
     },
   },

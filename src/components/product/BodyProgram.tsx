@@ -31,7 +31,7 @@ const TransitionProgram = ({ open, setOpened }: TransitionProgramProps) => {
                 alt="program"
               />
             </div>
-            <div className={cx(classes.programMobile, classes.mobile)}>
+            <div className={cx(classes.programImage, classes.mobile)}>
               <img
                 src={require("../../static/image/product/programMobile.png")}
                 alt="program"
@@ -104,7 +104,7 @@ const MentorCard = ({
 
 const BodyProgram = () => {
   const { classes, cx } = useBodyProgramStyles();
-  const [opened, setOpened] = useState(false);
+  const [opened, setOpened] = useState(true);
   return (
     <>
       <section className={classes.message}>
