@@ -16,11 +16,11 @@ const Top = () => {
             <div className={classes.titleTop}>
               슈퍼코딩
               <br />
-              웹개발 종합반 Plus
+              웹개발 종합반 1기
             </div>
             <div className={classes.titleTopMobile}>
               <span>슈퍼코딩</span>
-              <span>웹개발 종합반 Plus</span>
+              <span>웹개발 종합반 1기</span>
             </div>
           </div>
           <div className={classes.hookArea}>
@@ -63,7 +63,7 @@ const Top = () => {
                 src={require("../../static/image/product/angleBracketLeft.png")}
                 alt="CaretRight"
               />
-              <div>11월 20일 1차 마감! {"  "}지금이 최저가</div>
+              <div>11월 20일 1기 마감! {"  "}지금이 최저가</div>
               <img
                 src={require("../../static/image/product/angleBracketRight.png")}
                 alt="CaretRight"
