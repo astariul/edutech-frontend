@@ -2,18 +2,24 @@ import { createStyles } from '@mantine/core';
 
 export const useFAQStyles = createStyles((theme) => ({
   main: {
-    width: "1440px",
+    maxWidth: "1440px",
+    width: "90%",
     margin: "92px auto",
     backgroundColor: "#FFFFFF",
     
     [`@media (max-width: 767px)`]: {
+      maxWidth: "766px",
+      width: "90%",
+      marginLeft: "auto",
+      marginRight: "auto",
       marginTop: "45px",
-      width: "375px",
+      marginBottom: "45px",
     },
   },
 
   table: {
-    width: "1168px",
+    maxWidth: "1168px",
+    width: "90%",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -21,7 +27,8 @@ export const useFAQStyles = createStyles((theme) => ({
     margin: "0 auto",
   
     [`@media (max-width: 767px)`]: {
-      width: "336px",
+      maxWidth: "766px",
+      width: "90%",
       margin: "0 auto"
     },
   },
@@ -47,7 +54,7 @@ export const useTransitionTableStyle = createStyles((theme) => ({
     lineHeight: "46px",
     borderBottom: "5px solid #363636",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       fontSize: "23px",
       lineHeight: "33px",
     },
@@ -71,9 +78,9 @@ export const useTransitionTableStyle = createStyles((theme) => ({
     margin: 0,
     color: "#121212",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       fontSize: "14px",
-      maxWidth: "336px"
+      // maxWidth: "336px"
     },
 
   },
@@ -87,7 +94,7 @@ export const useTransitionTableStyle = createStyles((theme) => ({
     color: "#333333",
     borderTop: "1px solid #E4E4E4",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       padding: "16px 0px 22px 0px",
       fontSize: "12px",
       lineHeight: "165%",
@@ -110,7 +117,7 @@ export const useTransitionTableStyle = createStyles((theme) => ({
     justifyContent: "space-between",
     padding: "26px 30px 19px 30px",
 
-    [`@media (max-width: 376px)`]: {
+    [`@media (max-width: 767px)`]: {
       padding: "26px 0px",
     }
   }
