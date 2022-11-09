@@ -57,12 +57,13 @@ const useStyles = createStyles(() => ({
 
   biLogo: {
     width: "335px",
+    justifyContent: "center",
 
     "img": {
-      margin: "0 auto",
-      width: "224.75px",
-      height: "32px",
-    }
+        margin: "0 auto",
+        width: "224.75px",
+        height: "32px",
+    },
   },
 
   pageTitle: {
