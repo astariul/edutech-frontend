@@ -76,7 +76,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     paddingBottom: "58px",
 
     [`@media (max-width: 900px)`]: {
-      paddingTop: "181px",
+      paddingTop: "135px",
     },
   },
 
@@ -91,6 +91,10 @@ const useSuperCourseStyles = createStyles((theme) => ({
     fontWeight: 700,
     letterSpacing: "-0.886023px",
     textTransform: "uppercase",
+
+    [`@media (max-width: 900px)`]: {
+      paddingTop: "26px",
+    },
   },
 
   message: {
@@ -375,7 +379,6 @@ const useSuperCourseStyles = createStyles((theme) => ({
     fontSize: "28px",
     fontWeight: 900,
     letterSpacing: "-2px",
-    textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
 
     [`@media (max-width: 767px)`]: {
       width: "200px",
@@ -431,14 +434,15 @@ const useSuperCourseStyles = createStyles((theme) => ({
     margin: "auto auto",
     display: "flex",
     columnGap: "24px",
-    alignItems: "center",
     maxWidth: "1083px",
     height: "64px",
+    justifyContent: "space-evenly",
     fontFamily: "NotoSansKR",
     fontStyle: "normal",
     textAlign: "center",
     letterSpacing: "-1px",
     color: "#43FF4A",
+    alignItems: "flex-start",
 
     div: {
       fontWeight: 700,
@@ -455,6 +459,9 @@ const useSuperCourseStyles = createStyles((theme) => ({
     },
 
     [`@media (max-width: 1024px)`]: {
+      marginTop: "38px",
+      marginLeft: "10px",
+
       div: {
         fontWeight: 600,
         // fontSize: "14px",
@@ -465,6 +472,8 @@ const useSuperCourseStyles = createStyles((theme) => ({
     [`@media (max-width: 600px)`]: {
       width: "90%",
       columnGap: "12px",
+      marginTop: "38px",
+      marginLeft: "10px",
 
       div: {
         fontWeight: 600,
@@ -479,6 +488,8 @@ const useSuperCourseStyles = createStyles((theme) => ({
     [`@media (max-width: 471px)`]: {
       width: "90%",
       columnGap: "12px",
+      marginTop: "38px",
+      marginLeft: "10px",
 
       div: {
         lineHeight: "20px",
