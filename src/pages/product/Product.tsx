@@ -5,6 +5,7 @@ import BodyManagement from '../../components/product/BodyManagement';
 import useStyles from './style';
 import Bottom from '../../components/product/Bottom';
 import FAQ from "../../components/product/FAQ";
+import Notice from '../../components/product/Notice';
 
 const Product = () => {
   const {classes} = useStyles();
@@ -16,6 +17,7 @@ const Product = () => {
       <BodyManagement />
       <Bottom />
       <FAQ />
+      <Notice />
     </section>
   );
 }
