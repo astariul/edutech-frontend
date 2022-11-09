@@ -157,7 +157,7 @@ const Bottom = () => {
             </div>
             <div className={classes.tableArea}>
               <img
-                src={require("../../static/image/product/productTable.png")}
+                src={require("../../static/image/product/productTableBottom.png")}
                 alt="productTable"
               />
               <Checkbox
