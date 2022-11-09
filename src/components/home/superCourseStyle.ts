@@ -293,7 +293,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
       textAlign: "center",
       wordBreak: "break-word",
       lineHeight: "27px",
-      fontSize: "18px",
+      fontSize: "17px",
       // fontWeight: "700",
       fontWeight: 900,
     },
@@ -381,9 +381,9 @@ const useSuperCourseStyles = createStyles((theme) => ({
       width: "200px",
       fontSize: "20px",
     },
-    [`@media (max-width: 340px)`]: {
+    [`@media (max-width: 3765px)`]: {
       width: "200px",
-      fontSize: "16px",
+      fontSize: "18px",
     },
   },
 

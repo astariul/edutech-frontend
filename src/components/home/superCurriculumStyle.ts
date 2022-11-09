@@ -126,7 +126,24 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
     backgroundPosition: "center",
 
     [`@media (max-width: 767px)`]: {
+      // background: "linear-gradient(0deg, #1D1D1D, #1D1D1D), linear-gradient(180deg, #414042 0%, #575D60 100%), url(/image/home/superCurriculumMentorImageMobileN.png)",
+      // background: "url(/image/home/superCurriculumMentorImageMobileN.png)",
+      // filter: "drop-shadow(-28px 4px 54px rgba(0, 0, 0, 0.25)) drop-shadow(20px 4px 24px rgba(0, 0, 0, 0.45))",
       height: "503px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    },
+  },
+
+  imageBottomMobile: {
+    [`@media (max-width: 767px)`]: {
+      maxWidth: "766x",
+      margin: "0 auto",
+      height: "503px",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
     },
   },
 
