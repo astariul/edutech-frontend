@@ -283,6 +283,7 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
       maxWidth: "766px",
       width: "90%",
       marginLeft: "10px",
+      marginTop: "46px",
       columnGap: "10px",
     }
   },
