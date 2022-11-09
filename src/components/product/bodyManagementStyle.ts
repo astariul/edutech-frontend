@@ -1,6 +1,6 @@
 import { createStyles } from "@mantine/core";
 
-const useBodyManagementStyles = createStyles((theme) => ({
+const useSuperManagementStyles = createStyles((theme) => ({
   mobile: {
     display: "none",
 
@@ -35,7 +35,9 @@ const useBodyManagementStyles = createStyles((theme) => ({
     height: "808px",
 
     [`@media (max-width: 767px)`]: {
-      height: "900px",
+      height: "200vw",
+      maxHeight: "1200px",
+      minHeight: "880px",
     },
   },
 
@@ -45,6 +47,7 @@ const useBodyManagementStyles = createStyles((theme) => ({
     height: "648px",
     margin: "0 auto",
     paddingTop: "59px",
+
   },
 
   contentsInner: {
@@ -55,25 +58,107 @@ const useBodyManagementStyles = createStyles((theme) => ({
 
     [`@media (max-width: 767px)`]: {
       maxWidth: "766px",
+      width: "90%",
       margin: "0 auto",
       alignItems: "center",
     },
   },
 
   leftSection: {
-    rowGap: "421px",
 
     [`@media (max-width: 767px)`]: {
-      rowGap: "50px",
       justifyContent: "center",
       alignItems: "center",
     },
   },
 
-  rightSection: {},
+  middleSection: {
+    width: "1169px",
+    height: "406px",
+
+    [`@media (max-width: 767px)`]: {
+      maxWidth: "766px",
+      // height: "98.773vw",
+      height: "100%",
+      maxHeight: "700px",
+      alignItems: "center",
+      // marginBottom: "31px"
+    },
+  },
+
+  arrowlineTop: {
+    marginLeft: "134px",
+    columnGap: "47px",
+
+    "img": {
+      width: "836px",
+      height: "24px"
+    },
+
+    "div": {
+      marginBottom: "22px",
+
+      "h3": {
+        margin: 0,
+        width: "153px",
+        fontWeight: 700,
+        fontSize: "19px",
+        lineHeight: "31px",
+        letterSpacing: "-1px",
+        color: "#0094FF",
+      }
+    },
+  },
+
+  arrowlineBottom: {
+    marginTop: "0",
+    marginRight: "134px",
+    columnGap: "47px",
+
+    "img": {
+      width: "836px",
+      height: "24px"
+    },
+
+    "div": {
+      marginTop: "22px",
+
+      "h3": {
+        margin: 0,
+        width: "153px",
+        fontWeight: 700,
+        fontSize: "19px",
+        lineHeight: "31px",
+        letterSpacing: "-1px",
+        color: "#0094FF",
+      }
+    },
+  },
+
+  cardSection: {
+    columnGap: "32px",
+
+    "img": {
+      width: "268px",
+      height: "146px"
+    },
+
+    [`@media (max-width: 767px)`]: {
+      columnGap: "16px",
+      rowGap: "16px",
+
+      "img": {
+        width: "34.987vw",
+        height: "19.060vw"
+      },
+    },
+
+  
+  },
 
   messageTop: {
-    // height: "661.3px",
+    paddingTop: "7px",
+    height: "auto",
 
     [`@media (max-width: 767px)`]: {
       paddingTop: "7px",
@@ -83,40 +168,55 @@ const useBodyManagementStyles = createStyles((theme) => ({
   },
 
   messageBottom: {
+    width: "452px",
+    height: "85px",
     fontWeight: 700,
     letterSpacing: "-1px",
+    columnGap: "16px",
+    rowGap: "8px",
+    alignItems: "flex-start",
 
-    img: {
+    "img": {
       width: "67px",
       height: "67px",
     },
 
-    h2: {
-      margin: 0,
-      fontSize: "16px",
-      lineHeight: "27px",
+    "div": {
+      width: "369px",
+      height: "85px",
 
-      span: {
-        fontSize: "26px",
-        lineHeight: "31px",
-        color: "#0094FF",
+      "h2": {
+        margin: 0,
+        fontSize: "16px",
+        lineHeight: "27px",
+  
+        "span": {
+          fontSize: "26px",
+          lineHeight: "31px",
+          color: "#0094FF",
+        },
       },
     },
 
     [`@media (max-width: 767px)`]: {
       alignItems: "center",
+      width: "766px",
+      height: "100%",
 
-      img: {
+      "img": {
         width: "47px",
         height: "47px",
       },
 
-      h2: {
-        fontSize: "12px",
-        lineHeight: "24px",
+      "h2": {
+        margin: "0",
+        textAlign: "center",
+        fontSize: "16px",
+        lineHeight: "27px",
 
-        span: {
+        "span": {
           fontSize: "22px",
+          color: "#0094FF",
           lineHeight: "31px",
         },
       },
@@ -164,9 +264,9 @@ const useBodyManagementStyles = createStyles((theme) => ({
     },
 
     span: {
-      fontFamily: "NotoSansKR",
-      fontStyle: "normal",
-      fontWeight: 100,
+      fontFamily: "Gotham Black",
+      fontStyle: "italic",
+      fontWeight: 900,
       fontSize: "118.465px",
       lineHeight: "79px",
       color: "#F2F2F2",
@@ -377,4 +477,4 @@ const useBodyManagementStyles = createStyles((theme) => ({
   },
 }));
 
-export default useBodyManagementStyles;
+export default useSuperManagementStyles;
