@@ -297,7 +297,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
       textAlign: "center",
       wordBreak: "break-word",
       lineHeight: "27px",
-      fontSize: "min(4.533vw, 17px)",
+      fontSize: "min(4.533vw, 16px)",
       fontWeight: 900,
     },
     [`@media (max-width: 340px)`]: {
