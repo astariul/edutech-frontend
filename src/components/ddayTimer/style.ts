@@ -5,8 +5,6 @@ const useStyles = createStyles((theme) => ({
     fontFamily: "NotoSansKR",
     fontStyle: "normal",
     whiteSpace: "nowrap",
-    background: "linear-gradient(180deg, #1F1F1F 0%, #000000 100%)",
-    boxShadow: "0px -8px 20px rgba(0, 0, 0, 0.3)",
     borderRadius: "0px",
     lineHeight: "170%",
     letterSpacing: "0.02em",
@@ -15,7 +13,7 @@ const useStyles = createStyles((theme) => ({
     width :"auto",
     height: "83px",
   },
-
+  
   boxStyle: {
     display: "flex",
     alignItems: "center",
@@ -65,6 +63,17 @@ const useStyles = createStyles((theme) => ({
       fontSize: "41px",
       lineHeight: "30px",
       letterSpacing: "-1px"
+    },
+
+    [`@media (max-width:767px)`]: {
+      "& > div": {
+        margin: 0,
+        fontSize: "19px",
+        lineHeight: "14px",
+        letterSpacing: "-0.45px",
+        alignItems: "center",
+        height: "auto"
+      }
     }
   },
   
