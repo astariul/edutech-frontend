@@ -260,7 +260,7 @@ const BodyTop = () => {
             <Button
               className={classes.button}
               onClick={() =>
-                navigate("/course", { state: process.env.REACT_APP_COURSE_ID })
+                navigate("/payment", { state: process.env.REACT_APP_COURSE_ID })
               }
             >
               지금 바로 구매
