@@ -85,11 +85,11 @@ const useBottomStyles = createStyles((theme) => ({
       
       "& > div > h2" : {
         fontFamily: "NotoSansKR",
-        letterSpacing: "-2px",
+        letterSpacing: "-1.8px",
         color: "#FFFFFF",
         whiteSpace: "nowrap",
         textAlign: "center",
-        fontSize: "21px",
+        fontSize: "20px",
         lineHeight: "36px",
         fontWeight: 700,
         margin: 0,
