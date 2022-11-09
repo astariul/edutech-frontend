@@ -8,7 +8,7 @@ const SuperResume = () => {
       <div className={classes.contents}>
         <div className={classes.category}>SUPER RESUME</div>
         <div className={classes.titleMobile}>
-          차별화된 취업 6종 세트
+          <span>차별화된 취업 6종 세트</span>
           <br />
           (코딩/코딩테스트/추천서/
           <br />
@@ -17,7 +17,7 @@ const SuperResume = () => {
           모두 여러분의 것이 됩니다.
         </div>
         <div className={classes.title}>
-          차별화된 취업 6종 세트
+          <span>차별화된 취업 6종 세트</span>
           <br />
           (코딩/코딩테스트/추천서/이력서/포트폴리오/기술면접)
           <br />

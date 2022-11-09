@@ -71,6 +71,10 @@ const useSuperResumeStyles = createStyles((theme) => ({
     letterSpacing: "-2px",
     height: "92px",
 
+    "span": {
+      color: "#0094FF"
+    },
+
     [`@media (max-width: 767px)`]: {
       display: "none",
     },
@@ -78,6 +82,9 @@ const useSuperResumeStyles = createStyles((theme) => ({
 
   titleMobile: {
     display: "none",
+    "span": {
+      color: "#0094FF"
+    },
 
     [`@media (max-width: 767px)`]: {
       display: "block",
