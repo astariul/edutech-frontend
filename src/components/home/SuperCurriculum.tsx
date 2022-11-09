@@ -8,6 +8,15 @@ const SuperCurriculum = () => {
     [require("../../static/image/home/superCurriculumImageCard1.png")],
     [require("../../static/image/home/superCurriculumImageCard2.png")],
     [require("../../static/image/home/superCurriculumImageCard3.png")],
+    [require("../../static/image/home/superCurriculumImageCard4.png")],
+    [require("../../static/image/home/superCurriculumImageCard5.png")],
+    [require("../../static/image/home/superCurriculumImageCard6.png")],
+    [require("../../static/image/home/superCurriculumImageCard7.png")],
+    [require("../../static/image/home/superCurriculumImageCard8.png")],
+    [require("../../static/image/home/superCurriculumImageCard9.png")],
+    [require("../../static/image/home/superCurriculumImageCard10.png")],
+    [require("../../static/image/home/superCurriculumImageCard11.png")],
+    [require("../../static/image/home/superCurriculumImageCard12.png")],
   ];
   const Card = (
     imagePath: string,
@@ -115,10 +124,12 @@ const SuperCurriculum = () => {
         </div>
       </div>
       <div className={classes.cardArea}>
-        <div className={cx(classes.cards, classes.mobile)}>
+        <div className={cx(classes.cardsMobile)}>
           {<PaginationSlide perView={1} columnGap={12} items={cardItems} />}
         </div>
-        <div className={cx(classes.cards, classes.desktop)}>{cardItems}</div>
+        <div className={cx(classes.cards)}>
+          {<PaginationSlide perView={3} columnGap={49} items={cardItems} />}
+        </div>
       </div>
     </section>
   );
