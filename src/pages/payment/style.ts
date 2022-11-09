@@ -165,7 +165,7 @@ const useStyles = createStyles((theme, _, getRef) => ({
       marginBottom: "28px",
 
       "h2": {
-        fontSize: "17px",
+        fontSize: "16px",
         lineHeight: "25px",
         fontWeight: 700
       }
@@ -338,7 +338,7 @@ const useStyles = createStyles((theme, _, getRef) => ({
   },
 
   activeMethod: {
-    border: "3px solid #0094FF"
+    outline: "3px solid #0094FF"
   },
 
   aggrements: {
