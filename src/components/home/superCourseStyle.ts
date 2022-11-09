@@ -460,7 +460,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
 
     [`@media (max-width: 1024px)`]: {
       marginTop: "38px",
-      marginLeft: "10px",
+      marginLeft: "15px",
 
       div: {
         fontWeight: 600,
@@ -473,7 +473,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
       width: "90%",
       columnGap: "12px",
       marginTop: "38px",
-      marginLeft: "10px",
+      marginLeft: "15px",
 
       div: {
         fontWeight: 600,
@@ -489,7 +489,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
       width: "90%",
       columnGap: "12px",
       marginTop: "38px",
-      marginLeft: "10px",
+      marginLeft: "15px",
 
       div: {
         lineHeight: "20px",

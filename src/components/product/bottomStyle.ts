@@ -87,7 +87,7 @@ const useBottomStyles = createStyles((theme) => ({
         color: "#FFFFFF",
         whiteSpace: "nowrap",
         textAlign: "center",
-        fontSize: "23px",
+        fontSize: "22px",
         lineHeight: "32px",
         fontWeight: 700,
         margin: 0,
