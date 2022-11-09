@@ -58,7 +58,9 @@ function App() {
 
   useEffect(() => {
     if (location.pathname.startsWith("/course")) {
-      setBannerMessage("1기 판매 마감 임박! 지금이 최저가");
+      mobileScreen
+        ? setBannerMessage("1차 판매 마감! 지금이 최저가")
+        : setBannerMessage("1차 판매 마감 임박! 지금이 최저가");
       setbannerButtonMesg("지금 바로 구매");
       setBannerMessageColor("#0094FF");
       setBannerOn(true);
