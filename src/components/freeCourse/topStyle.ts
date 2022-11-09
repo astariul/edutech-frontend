@@ -30,7 +30,8 @@ const useStyles = createStyles((theme) => ({
     paddingTop: "141px",
 
     [`@media (max-width: 900px)`]: {
-      width: "375px",
+      maxWidth: "375px",
+      width: "90%",
       margin: "0 auto",
       paddingTop: "183px"
     }
@@ -82,12 +83,17 @@ const useStyles = createStyles((theme) => ({
       fontWeight: 900,
       fontSize: "77.0008px",
       lineHeight: "82px",
-
+      
       [`@media (max-width: 900px)`]: {
+        margin: 0,
         fontSize: "42px",
         lineHeight: "65px",
         letterSpacing: "-0.07em",
       }
+    },
+
+    "& > h2": {
+      marginLeft: "-12px"
     },
 
     "span": {

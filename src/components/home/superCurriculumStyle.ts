@@ -264,15 +264,26 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
     maxWidth: "1202px",
     height: "305px",
     margin: "0 auto",
-    display: "flex",
-    flexDirection: "row",
     marginTop: "46px",
-    columnGap: "49px",
-
-    [`@media (max-width: 767px)`]: {
+  
+    [`@media (max-width: 1054px)`]: {
+      display: "none",
       maxWidth: "766px",
       width: "90%",
       marginLeft: "10px",
+      columnGap: "10px",
+    }
+  },
+
+  cardsMobile: {
+    display: "none",
+  
+    [`@media (max-width: 1054px)`]: {
+      display: "block",
+      maxWidth: "766px",
+      width: "90%",
+      marginLeft: "10px",
+      marginTop: "46px",
       columnGap: "10px",
     }
   },

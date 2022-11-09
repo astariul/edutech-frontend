@@ -9,6 +9,10 @@ const useStyles = createStyles(() => ({
     width: "375px",
     height: "470px",
     margin: "201px auto",
+
+    [`@media (max-width: 767px)`]: {
+      margin: "100px auto"
+    }
   },
   inner: {
     padding: "30px 26px 0px 26px"

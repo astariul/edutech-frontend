@@ -20,7 +20,6 @@ const KakaoTalkLogin = () => {
     async () => {
       try {
         const response = await new AuthRepository().kakaoLogin(code)
-        console.log(response.data);
         setLogin(
           {
             name: response.data.name,
@@ -31,11 +30,11 @@ const KakaoTalkLogin = () => {
         );
         setRegistered(false);
         setAuthorized("authorized");
+        window.location.href = "/";
       }
       catch (err) {
         setError(true);
       }
-      navigate("/");
     }, [setLogin, setRegistered, setAuthorized, navigate, setError, code]
   );
 

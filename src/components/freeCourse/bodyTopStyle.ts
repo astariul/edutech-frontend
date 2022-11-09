@@ -200,7 +200,7 @@ const useStyles = createStyles((theme) => ({
       "& > p": {
         color: "#626262",
         fontWeight: 700,
-        fontSize: "14px",
+        fontSize: "13px",
         lineHeight: "25px",
       }
     }

@@ -185,7 +185,7 @@ const HeaderResponsive = () => {
           </Group>
         </div>
       </Header>
-      <Header className={classes.mainMobile} height={100}>
+      <Header className={classes.mainMobile} height={80}>
         <div className={classes.header}>
           <UnstyledButton component={Link} to={"/"}>
             <Group className={classes.biContainer}>

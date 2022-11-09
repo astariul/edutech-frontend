@@ -128,6 +128,8 @@ const Bottom = () => {
             <br />
             '취업 관리형 프론트엔드 웹개발 종합반 Plus'는 당연한 선택입니다.
             <br />
+            개발자로 취업하지 못하면 100% 환불해드립니다.
+            <br />
             지금바로, 슈퍼코딩으로 시작하세요.
           </h2>
         </div>
@@ -141,6 +143,8 @@ const Bottom = () => {
             <br />
             '취업 관리형 프론트엔드 웹개발 종합반 Plus'
             <br />는 당연한 선택입니다.
+            <br />개발자로 취업하지 못하면 100%
+            <br />환불해드립니다.
             <br />
             지금바로, 슈퍼코딩으로 시작하세요.
           </h2>
@@ -157,7 +161,7 @@ const Bottom = () => {
             </div>
             <div className={classes.tableArea}>
               <img
-                src={require("../../static/image/product/productTable.png")}
+                src={require("../../static/image/product/productTableBottom.png")}
                 alt="productTable"
               />
               <Checkbox

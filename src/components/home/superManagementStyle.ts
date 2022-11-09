@@ -35,8 +35,9 @@ const useSuperManagementStyles = createStyles((theme) => ({
     height: "808px",
 
     [`@media (max-width: 767px)`]: {
-      height: "220vw",
+      height: "200vw",
       maxHeight: "1200px",
+      minHeight: "880px",
     },
   },
 
@@ -77,10 +78,9 @@ const useSuperManagementStyles = createStyles((theme) => ({
 
     [`@media (max-width: 767px)`]: {
       maxWidth: "766px",
-      height: "98.773vw",
+      height: "100%",
       maxHeight: "700px",
       alignItems: "center",
-      // marginBottom: "31px"
     },
   },
 

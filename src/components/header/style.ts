@@ -59,7 +59,7 @@ const useStyles = createStyles((theme, {hidden, backgroundColor}: {hidden :boole
       width: "175.72px",
       height: "25px",
       left: "5.333vw",
-      top: "59px",
+      top: "39px",
     },
   },
 
@@ -82,18 +82,16 @@ const useStyles = createStyles((theme, {hidden, backgroundColor}: {hidden :boole
       display: "flex",
       flexWrap: "nowrap",
       width: "100%",
-      top: "100px",
+      top: "80px",
       left: "0",
-      paddingLeft: "20px",
       columnGap: "8px",
       height: "55px",
       alignItems: "center",
-      justifyContent: "space-between",
+      justifyContent: "space-around",
       border: "1px solid rgba(255, 255, 255, 0.1)",
     },
 
     "@media (max-width: 400px)": {
-      paddingLeft: "15px",
       columnGap: "2px",
       border: "1px solid rgba(255, 255, 255, 0.1)",
     },
@@ -115,7 +113,7 @@ const useStyles = createStyles((theme, {hidden, backgroundColor}: {hidden :boole
 
   dropdown: {
     position: 'absolute',
-    top: "100px",
+    top: "80px",
     left: 0,
     right: 0,
     zIndex: 0,
@@ -152,7 +150,7 @@ const useStyles = createStyles((theme, {hidden, backgroundColor}: {hidden :boole
       display: "block",
       width: "18px",
       height: "3px",
-      top: "64px",
+      top: "48px",
       right: "5.6vw",
     },
   },
