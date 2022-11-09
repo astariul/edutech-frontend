@@ -1,6 +1,21 @@
 import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles((theme, {messageColor}: {messageColor: string}) => ({
+
+  mobile: {
+    display: "none",
+
+    [`@media (max-width: 767px)`]: {
+      display: "flex",
+    },
+  },
+
+  desktop: {
+    [`@media (max-width: 767px)`]: {
+      display: "none",
+    },
+  },
+
   main: {
     position: "fixed",
     bottom : 0,
@@ -14,18 +29,38 @@ const useStyles = createStyles((theme, {messageColor}: {messageColor: string}) =
     height: "100px",
 
     [`@media (max-width:767px)`]: {
-      display: "none"
+      height: "80px"
     }
-  },
 
+  },
+  
   contents: {
-    width: "1440px",
+    maxWidth: "1440px",
+    width: "100%",
     height: "100px",
     margin: "0 auto",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     columnGap: "30px",
+
+    [`@media (max-width:767px)`]: {
+      maxWidth: "766px",
+      width: "90%",
+      margin: "0 auto",
+      columnGap: "17px",
+      height: "80px",
+    }
+  },
+
+  leftSection: {
+    display: "flex",
+    flexDirection: "column",
+    width: "207px",
+    height: "37px",
+    justifyContent: "center",
+    // rowGap: "8px",
+    // marginBottom: "21px",
   },
 
   message: {
@@ -38,7 +73,21 @@ const useStyles = createStyles((theme, {messageColor}: {messageColor: string}) =
       fontSize: "30px",
       margin: 0,
       color: messageColor,
+    },
+
+    [`@media (max-width:767px)`]: {
+      fontWeight: 500,
+      lineHeight: "8x",
+      letterSpacing: "-0.26px",
+  
+      "& > h2": {
+        fontSize: "17px",
+        margin: 0,
+        color: messageColor,
+      },
+
     }
+
   },
 
   paymentButton: {
@@ -54,6 +103,20 @@ const useStyles = createStyles((theme, {messageColor}: {messageColor: string}) =
       lineHeight: "24px",
       color: "#000000",
       letterSpacing: "-1.29577px",
+    },
+
+    [`@media (max-width: 767px)`]: {
+      borderRadius: "1.68137px",
+      width: "107px",
+      height: "50px",
+      paddingLeft: "11.89px",
+      paddingRight: "11.89px",
+  
+      "& > div > span": {
+        fontSize: "14px",
+        lineHeight: "6px",
+        letterSpacing: "-1.34px",
+      },
     }
   }
 }));

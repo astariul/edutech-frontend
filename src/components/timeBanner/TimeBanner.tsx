@@ -12,10 +12,25 @@ interface TimeBannerProps {
 }
 
 const TimeBanner = ({dDay, buttonString, messageColor, onClickButton, message}: TimeBannerProps) => {
-  const {classes} = useStyles({messageColor});
+  const {classes, cx} = useStyles({messageColor});
   return (
     <section className={classes.main}>
-      <div className={classes.contents}>
+      <div className={cx(classes.contents, classes.mobile)}>
+        <div className={classes.leftSection}>
+          <DDayTimer dDay={dDay} interval={1000}/>
+          <div className={classes.message}>
+            <h2>{message}</h2>
+          </div>
+        </div>
+        <Button
+          className={classes.paymentButton}
+          radius={1.68}
+          onClick={onClickButton}
+        >
+          {buttonString}
+        </Button>
+      </div>
+      <div className={cx(classes.contents, classes.desktop)}>
         <DDayTimer dDay={dDay} interval={1000}/>
         <div className={classes.message}>
           <h2>{message}</h2>

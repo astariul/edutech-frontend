@@ -589,7 +589,7 @@ const Payment = () => {
         digital: digital
       }, payCallback)
       
-    }, [payCallback, IMP]
+    }, [payCallback]
   );
 
   const paymentHandler = useCallback(
