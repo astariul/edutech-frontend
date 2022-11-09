@@ -1,6 +1,6 @@
 import useSuperCourseStyles from "./superCourseStyle";
 import { useNavigate } from "react-router-dom";
-import { Text, Space } from "@mantine/core";
+import { Space } from "@mantine/core";
 
 const SuperCourse = () => {
   const { classes, cx } = useSuperCourseStyles();
