@@ -8,7 +8,7 @@ interface TransitionProgramProps {
 }
 
 const TransitionProgram = ({ open, setOpened }: TransitionProgramProps) => {
-  const { classes } = useBodyProgramStyles();
+  const { classes, cx } = useBodyProgramStyles();
   return (
     <>
       <Button radius={10} onClick={() => setOpened(!open)}>
@@ -25,9 +25,15 @@ const TransitionProgram = ({ open, setOpened }: TransitionProgramProps) => {
       <Transition mounted={open} transition="slide-down" duration={0}>
         {(styles) => (
           <Paper shadow="md" style={styles} withBorder>
-            <div className={classes.programImage}>
+            <div className={cx(classes.programImage, classes.desktop)}>
               <img
                 src={require("../../static/image/product/program.png")}
+                alt="program"
+              />
+            </div>
+            <div className={cx(classes.programMobile, classes.mobile)}>
+              <img
+                src={require("../../static/image/product/programMobile.png")}
                 alt="program"
               />
             </div>

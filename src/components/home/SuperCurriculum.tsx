@@ -44,7 +44,8 @@ const SuperCurriculum = () => {
           기업이 원하는 인재를 만들기 위한
           <br />
           <span style={{ color: "#0094FF" }}>업계 최고 개발자 슈퍼멘토</span>
-          들의 적극적인 참여로
+          들의
+          <br />적극적인 참여로
           <br />
           <span style={{ color: "#0094FF" }}>커리큘럼을 완성</span>시켰습니다.
         </div>
@@ -56,7 +57,10 @@ const SuperCurriculum = () => {
           alt="companylogos"
         />
       </div>
-      <div className={classes.imageBottom}>
+      <div className={cx(classes.imageBottomMobile, classes.mobile)}>
+        <img src={require("../../static/image/home/superCurriculumMentorImageMobileN.png")} alt="mentorImageMobile" />
+      </div>
+      <div className={cx(classes.imageBottom, classes.desktop)}>
         <div className={classes.imageBottomInner}>
           <div>
             <div className={classes.imageMessage}>
@@ -71,7 +75,7 @@ const SuperCurriculum = () => {
                 <br />
                 기술을 습득하셔야 합니다.
               </h2>
-              <div className={cx(classes.mentorComment, classes.mobile)}>
+              {/* <div className={cx(classes.mentorComment, classes.mobile)}>
                 <h1>“</h1>
                 <h2>
                   <br />
@@ -85,7 +89,7 @@ const SuperCurriculum = () => {
                   <br />
                   코딩잠재력을 깨워주세요.
                 </h2>
-              </div>
+              </div> */}
               <div className={classes.whois}>
                 <BusinessCard
                   image={require("../../static/image/logo/Spacewalk.png")}

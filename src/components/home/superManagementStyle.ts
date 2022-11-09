@@ -35,7 +35,8 @@ const useSuperManagementStyles = createStyles((theme) => ({
     height: "808px",
 
     [`@media (max-width: 767px)`]: {
-      height: "980px",
+      height: "220vw",
+      maxHeight: "1200px",
     },
   },
 
@@ -45,6 +46,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
     height: "648px",
     margin: "0 auto",
     paddingTop: "59px",
+
   },
 
   contentsInner: {
@@ -55,6 +57,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
 
     [`@media (max-width: 767px)`]: {
       maxWidth: "766px",
+      width: "90%",
       margin: "0 auto",
       alignItems: "center",
     },
@@ -70,7 +73,64 @@ const useSuperManagementStyles = createStyles((theme) => ({
 
   middleSection: {
     width: "1169px",
-    height: "351px",
+    height: "406px",
+
+    [`@media (max-width: 767px)`]: {
+      maxWidth: "766px",
+      height: "98.773vw",
+      maxHeight: "700px",
+      alignItems: "center",
+      // marginBottom: "31px"
+    },
+  },
+
+  arrowlineTop: {
+    marginLeft: "134px",
+    columnGap: "47px",
+
+    "img": {
+      width: "836px",
+      height: "24px"
+    },
+
+    "div": {
+      marginBottom: "22px",
+
+      "h3": {
+        margin: 0,
+        width: "153px",
+        fontWeight: 700,
+        fontSize: "19px",
+        lineHeight: "31px",
+        letterSpacing: "-1px",
+        color: "#0094FF",
+      }
+    },
+  },
+
+  arrowlineBottom: {
+    marginTop: "0",
+    marginRight: "134px",
+    columnGap: "47px",
+
+    "img": {
+      width: "836px",
+      height: "24px"
+    },
+
+    "div": {
+      marginTop: "22px",
+
+      "h3": {
+        margin: 0,
+        width: "153px",
+        fontWeight: 700,
+        fontSize: "19px",
+        lineHeight: "31px",
+        letterSpacing: "-1px",
+        color: "#0094FF",
+      }
+    },
   },
 
   cardSection: {
@@ -79,7 +139,19 @@ const useSuperManagementStyles = createStyles((theme) => ({
     "img": {
       width: "268px",
       height: "146px"
-    }
+    },
+
+    [`@media (max-width: 767px)`]: {
+      columnGap: "16px",
+      rowGap: "16px",
+
+      "img": {
+        width: "34.987vw",
+        height: "19.060vw"
+      },
+    },
+
+  
   },
 
   messageTop: {
@@ -102,7 +174,7 @@ const useSuperManagementStyles = createStyles((theme) => ({
     rowGap: "8px",
     alignItems: "flex-start",
 
-    img: {
+    "img": {
       width: "67px",
       height: "67px",
     },
@@ -111,12 +183,12 @@ const useSuperManagementStyles = createStyles((theme) => ({
       width: "369px",
       height: "85px",
 
-      h2: {
+      "h2": {
         margin: 0,
         fontSize: "16px",
         lineHeight: "27px",
   
-        span: {
+        "span": {
           fontSize: "26px",
           lineHeight: "31px",
           color: "#0094FF",
@@ -126,18 +198,22 @@ const useSuperManagementStyles = createStyles((theme) => ({
 
     [`@media (max-width: 767px)`]: {
       alignItems: "center",
+      width: "766px",
 
-      img: {
+      "img": {
         width: "47px",
         height: "47px",
       },
 
-      h2: {
-        fontSize: "12px",
-        lineHeight: "24px",
+      "h2": {
+        margin: "0",
+        textAlign: "center",
+        fontSize: "16px",
+        lineHeight: "27px",
 
-        span: {
+        "span": {
           fontSize: "22px",
+          color: "#0094FF",
           lineHeight: "31px",
         },
       },
