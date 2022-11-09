@@ -176,7 +176,7 @@ const SignUpMobile = ({
 
 const LoginMobile = ({ form, loginHandler }: LoginMobileProps) => {
   const { classes, cx } = useStyles();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   return (
     <section className={classes.mainMobile}>
       <div className={cx(classes.columnFlex, classes.contents)}>
