@@ -140,7 +140,7 @@ export const useSuperCurriculumStyles = createStyles((theme) => ({
     [`@media (max-width: 767px)`]: {
       maxWidth: "766x",
       margin: "0 auto",
-      height: "503px",
+      height: "auto",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
