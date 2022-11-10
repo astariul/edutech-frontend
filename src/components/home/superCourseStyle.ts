@@ -4,7 +4,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
   mobile: {
     display: "none",
 
-    [`@media (max-width: 767px)`]: {
+    [`@media (min-width: 377px) and (max-width: 767px)`]: {
       display: "inline-block",
     },
   },
@@ -14,6 +14,15 @@ const useSuperCourseStyles = createStyles((theme) => ({
       display: "none",
     },
   },
+
+  smallDevice: {
+    display: "none",
+
+    [`@media (max-width: 376px)`]: {
+      display: "inline-block",
+    },
+  },
+
   mainTop: {
     position: "relative",
     backgroundImage: "url(/image/home/superCourseBackground2.png)",
@@ -250,6 +259,7 @@ const useSuperCourseStyles = createStyles((theme) => ({
     },
 
     [`@media (max-width: 376px)`]: {
+      justifyContent: "space-around",
       fontSize: "16px",
       lineHeight: "23px",
     },
@@ -258,55 +268,52 @@ const useSuperCourseStyles = createStyles((theme) => ({
   hookLeft: {
     marginLeft: "0px",
     fontSize: "15px",
+
     [`@media (max-width: 767px)`]: {
-      display: "none",
-    },
-    [`@media (max-width: 340px)`]: {
-      display: "none",
-    },
-  },
-  hookLeftMobile: {
-    display: "none",
-    marginLeft: "0px",
-    fontSize: "15px",
-    [`@media (max-width: 767px)`]: {
-      display: "block",
       marginLeft: "70px",
     },
-    [`@media (max-width: 340px)`]: {
-      display: "block",
+    [`@media (max-width: 375px)`]: {
       marginLeft: "70px",
-      fontSize: "14px",
     },
   },
 
   hookMiddle: {
     color: "#43FF4A",
-    [`@media (max-width: 767px)`]: {
-      display: "none",
-    },
-  },
-
-  hookMiddleMobile: {
-    display: "none",
-    color: "#43FF4A",
 
     [`@media (max-width: 767px)`]: {
-      display: "block",
       letterSpacing: "-1px",
       textAlign: "center",
       wordBreak: "break-word",
       lineHeight: "27px",
-      fontSize: "min(4.533vw, 16px)",
+      fontSize: "min(4.533vw, 17px)",
       fontWeight: 900,
     },
     [`@media (max-width: 340px)`]: {
-      display: "block",
       letterSpacing: "-1px",
       textAlign: "center",
       wordBreak: "break-word",
       lineHeight: "23px",
-      fontSize: "14px",
+      fontSize: "15px",
+    },
+  },
+
+  hookMiddleMobile: {
+    color: "#43FF4A",
+
+    [`@media (max-width: 767px)`]: {
+      letterSpacing: "-1px",
+      textAlign: "center",
+      wordBreak: "break-word",
+      lineHeight: "27px",
+      fontSize: "min(4.533vw, 17px)",
+      fontWeight: 900,
+    },
+    [`@media (max-width: 340px)`]: {
+      letterSpacing: "-1px",
+      textAlign: "center",
+      wordBreak: "break-word",
+      lineHeight: "23px",
+      fontSize: "15px",
     },
   },
 
@@ -315,8 +322,12 @@ const useSuperCourseStyles = createStyles((theme) => ({
     fontSize: "15px",
 
     [`@media (max-width: 767px)`]: {
-      display: "none",
+      marginRight: "70px",
     },
+    [`@media (max-width: 340px)`]: {
+      marginRight: "70px",
+    },
+
   },
   hookRightMobile: {
     fontSize: "15px",

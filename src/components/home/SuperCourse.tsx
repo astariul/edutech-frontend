@@ -27,27 +27,44 @@ const SuperCourse = () => {
               </div>
             </div>
             <div className={classes.hookArea}>
-              <div className={classes.hookLeft}>
+              <div className={cx(classes.hookLeft,classes.desktop)}>
                 개발자로 취업하지 못하면 100%환불보장!
               </div>
-              <div className={classes.hookLeftMobile}>
+              <div className={cx(classes.hookLeft,classes.mobile)}>
                 개발자로취업하지못하면
                 <br />
                 100% 환불보장!
               </div>
-              <div className={classes.hookMiddle}>
+              <div className={cx(classes.hookLeft,classes.smallDevice)}>
+                개발자로
+                <br />취업하지 못하면
+                <br />
+                100% 환불보장!
+              </div>
+              <div className={cx(classes.hookMiddle, classes.desktop)}>
                 개발자로 취업하지 못하면 100%환불보장!
               </div>
-              <div className={classes.hookMiddleMobile}>
+              <div className={cx(classes.hookMiddle, classes.mobile)}>
                 개발자로취업하지못하면
                 <br />
                 100% 환불보장!
               </div>
-              <div className={cx(classes.hookRight)}>
+              <div className={cx(classes.hookMiddle, classes.smallDevice)}>
+                개발자로
+                <br />취업하지 못하면
+                <br />100% 환불보장!
+              </div>
+              <div className={cx(classes.hookRight, classes.desktop)}>
                 개발자로 취업하지 못하면 100%환불보장!
               </div>
-              <div className={cx(classes.hookRightMobile)}>
+              <div className={cx(classes.hookRight, classes.mobile)}>
                 개발자로취업하지못하면
+                <br />
+                100% 환불보장!
+              </div>
+              <div className={cx(classes.hookRight, classes.smallDevice)}>
+                개발자로
+                <br />취업하지못하면
                 <br />
                 100% 환불보장!
               </div>
@@ -64,7 +81,7 @@ const SuperCourse = () => {
                 <div className={classes.boxInner}>
                   <div className={classes.boxLeft}>11월 20일 1기 마감!</div>
                   <div className={classes.boxRightContainer}>
-                    <div className={cx(classes.boxRightLeft, classes.mobile)}>지금 구매하기</div>
+                    <div className={cx(classes.boxRightLeft, classes.mobile, classes.smallDevice)}>지금 구매하기</div>
                     <div className={cx(classes.boxRightLeft, classes.desktop)}>지금 바로 구매하러 가기</div>
                     <img
                       className={classes.boxRightRight}
@@ -84,7 +101,7 @@ const SuperCourse = () => {
             <div className={cx(classes.desktop)} style={{ fontSize: "30px" }}>
               가장 쉬운
             </div>
-            <div className={cx(classes.mobile)} style={{ fontSize: "20px" }}>
+            <div className={cx(classes.mobile, classes.smallDevice)} style={{ fontSize: "20px" }}>
               가장 쉬운
               <Space h="sm" />
             </div>
@@ -96,7 +113,7 @@ const SuperCourse = () => {
             <div className={cx(classes.desktop)} style={{ fontSize: "30px" }}>
               15개+
             </div>
-            <div className={cx(classes.mobile)} style={{ fontSize: "20px" }}>
+            <div className={cx(classes.mobile, classes.smallDevice)} style={{ fontSize: "20px" }}>
               15개+
               <Space h="sm" />
             </div>
@@ -108,7 +125,7 @@ const SuperCourse = () => {
             <div className={cx(classes.desktop)} style={{ fontSize: "30px" }}>
               100개 기업
             </div>
-            <div className={cx(classes.mobile)} style={{ fontSize: "18px" }}>
+            <div className={cx(classes.mobile, classes.smallDevice)} style={{ fontSize: "18px" }}>
               100개 기업
               <Space h="sm" />
             </div>
@@ -120,7 +137,7 @@ const SuperCourse = () => {
             <div className={cx(classes.desktop)} style={{ fontSize: "30px" }}>
               취업까지 밀착관리
             </div>
-            <div className={cx(classes.mobile)} style={{ fontSize: "20px" }}>
+            <div className={cx(classes.mobile, classes.smallDevice)} style={{ fontSize: "20px" }}>
               밀착관리
               <Space h="sm" />
             </div>
@@ -133,7 +150,7 @@ const SuperCourse = () => {
             <div className={cx(classes.desktop)} style={{ fontSize: "30px" }}>
               네트워크
             </div>
-            <div className={cx(classes.mobile)} style={{ fontSize: "20px" }}>
+            <div className={cx(classes.mobile, classes.smallDevice)} style={{ fontSize: "20px" }}>
               네트워크
               <Space h="sm" />
             </div>
